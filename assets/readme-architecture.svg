@@ -1,0 +1,55 @@
+<svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="420" rx="26" fill="#020617"></rect>
+
+  <text x="70" y="74" font-family="JetBrains Mono, Consolas, monospace" font-size="15" font-weight="800" letter-spacing="3" fill="#10B981">
+    / ARQUITETURA DO PROJETO
+  </text>
+
+  <text x="70" y="116" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" fill="#FFFFFF">
+    Estrutura estática, dinâmica e extensível
+  </text>
+
+  <g transform="translate(80 165)">
+    <rect width="220" height="112" rx="18" fill="#0F172A" stroke="#1E293B"></rect>
+    <text x="28" y="42" font-family="JetBrains Mono, Consolas, monospace" font-size="13" font-weight="900" fill="#10B981">index.html</text>
+    <text x="28" y="72" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Estrutura pública</text>
+    <text x="28" y="95" font-family="Inter, Arial, sans-serif" font-size="12" fill="#94A3B8">Seções, modal e admin</text>
+  </g>
+
+  <path d="M320 221H410" stroke="#10B981" stroke-width="2"></path>
+  <path d="M398 210L410 221L398 232" stroke="#10B981" stroke-width="2" fill="none"></path>
+
+  <g transform="translate(430 165)">
+    <rect width="220" height="112" rx="18" fill="#0F172A" stroke="#1E293B"></rect>
+    <text x="28" y="42" font-family="JetBrains Mono, Consolas, monospace" font-size="13" font-weight="900" fill="#10B981">style.css</text>
+    <text x="28" y="72" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Design system</text>
+    <text x="28" y="95" font-family="Inter, Arial, sans-serif" font-size="12" fill="#94A3B8">Temas, responsivo e UI</text>
+  </g>
+
+  <path d="M670 221H760" stroke="#10B981" stroke-width="2"></path>
+  <path d="M748 210L760 221L748 232" stroke="#10B981" stroke-width="2" fill="none"></path>
+
+  <g transform="translate(780 165)">
+    <rect width="220" height="112" rx="18" fill="#0F172A" stroke="#1E293B"></rect>
+    <text x="28" y="42" font-family="JetBrains Mono, Consolas, monospace" font-size="13" font-weight="900" fill="#10B981">script.js</text>
+    <text x="28" y="72" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#FFFFFF">Lógica dinâmica</text>
+    <text x="28" y="95" font-family="Inter, Arial, sans-serif" font-size="12" fill="#94A3B8">Modos, cases e analytics</text>
+  </g>
+
+  <path d="M1020 221H1110" stroke="#10B981" stroke-width="2"></path>
+  <path d="M1098 210L1110 221L1098 232" stroke="#10B981" stroke-width="2" fill="none"></path>
+
+  <g transform="translate(1130 165)">
+    <rect width="90" height="112" rx="18" fill="#0F172A" stroke="#1E293B"></rect>
+    <text x="45" y="48" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="12" font-weight="900" fill="#10B981">APIs</text>
+    <text x="45" y="75" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" fill="#FFFFFF">Supabase</text>
+    <text x="45" y="94" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" fill="#94A3B8">GitHub</text>
+  </g>
+
+  <g transform="translate(80 315)">
+    <rect width="1140" height="52" rx="16" fill="#0F172A" stroke="#1E293B"></rect>
+    <text x="28" y="33" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">
+      HTML + CSS + JavaScript Vanilla · Tailwind CDN · Chart.js · Swiper.js · Supabase Auth · LocalStorage · Vercel
+    </text>
+  </g>
+</svg>

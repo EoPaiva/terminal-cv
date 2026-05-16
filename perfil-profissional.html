@@ -1,0 +1,1084 @@
+<!-- perfil-profissional.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mateus Paiva | Perfil Profissional</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23020617'/><text x='50%' y='50%' font-family='monospace' font-weight='bold' font-size='50' fill='%2310b981' text-anchor='middle' dy='.3em'>M_</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --card-2: #111c31;
+      --border: #1e293b;
+      --accent: #10b981;
+      --accent-2: #3b82f6;
+      --text: #94a3b8;
+      --title: #f8fafc;
+      --muted: #64748b;
+      --danger: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(16, 185, 129, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.14), transparent 32rem),
+        linear-gradient(180deg, #020617 0%, #050b18 45%, #020617 100%);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(2, 6, 23, 0.78);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.9);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--title);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.45rem;
+      background: var(--accent);
+      color: #020617;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.32);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.7rem;
+      padding: 0.8rem 1rem;
+      border-radius: 0.7rem;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.72);
+      color: var(--title);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+    }
+
+    .button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%) skewX(-18deg);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.26), transparent);
+      transition: transform 0.75s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .button:hover::after {
+      transform: translateX(120%) skewX(-18deg);
+    }
+
+    .button-primary {
+      border-color: rgba(16, 185, 129, 0.35);
+      background: var(--accent);
+      color: #020617;
+      box-shadow: 0 14px 38px rgba(16, 185, 129, 0.18);
+    }
+
+    .button-primary:hover {
+      color: #020617;
+      background: #34d399;
+    }
+
+    .hero {
+      padding: 5.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 1.25rem;
+    }
+
+    .pulse {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 22px var(--accent);
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.82);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    .hero-title {
+      max-width: 880px;
+      color: var(--title);
+      font-size: clamp(2.55rem, 6vw, 5.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+      margin-bottom: 1.35rem;
+    }
+
+    .animated-gradient {
+      position: relative;
+      display: inline-block;
+      color: transparent;
+      background: linear-gradient(90deg, var(--accent), #67e8f9, var(--accent-2), var(--accent));
+      background-size: 260% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      transition: transform 0.35s ease, filter 0.35s ease;
+      animation: gradientFlow 8s linear infinite;
+    }
+
+    .animated-gradient:hover {
+      transform: translateY(-4px) scale(1.015);
+      filter: drop-shadow(0 0 22px rgba(16, 185, 129, 0.34));
+    }
+
+    @keyframes gradientFlow {
+      to {
+        background-position: 260% center;
+      }
+    }
+
+    .hero-description {
+      max-width: 780px;
+      font-size: 1.08rem;
+      color: #b6c3d7;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .tag {
+      border: 1px solid rgba(30, 41, 59, 0.96);
+      background: rgba(15, 23, 42, 0.62);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 0.55rem 0.75rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .profile-card {
+      position: relative;
+      min-height: 100%;
+      border: 1px solid rgba(30, 41, 59, 0.96);
+      border-radius: 1.5rem;
+      padding: 1.4rem;
+      background:
+        radial-gradient(circle at top right, rgba(16, 185, 129, 0.16), transparent 42%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
+        rgba(15, 23, 42, 0.78);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.08);
+      border-radius: 1.1rem;
+      pointer-events: none;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(30, 41, 59, 0.94);
+      margin-bottom: 1.2rem;
+    }
+
+    .dot {
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: #ef4444;
+    }
+
+    .dot:nth-child(2) {
+      background: #f59e0b;
+    }
+
+    .dot:nth-child(3) {
+      background: #22c55e;
+    }
+
+    .terminal-label {
+      margin-left: auto;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .profile-name {
+      color: var(--title);
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 0.45rem;
+    }
+
+    .profile-role {
+      color: #cbd5e1;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .profile-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .metric {
+      border: 1px solid rgba(30, 41, 59, 0.98);
+      border-radius: 1rem;
+      background: rgba(2, 6, 23, 0.48);
+      padding: 1rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .metric:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric strong {
+      color: var(--title);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .code-block {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(30, 41, 59, 0.98);
+      border-radius: 1rem;
+      background: rgba(2, 6, 23, 0.55);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+    }
+
+    .code-block span {
+      color: var(--accent);
+    }
+
+    .section {
+      padding: 3.2rem 0;
+      border-top: 1px solid rgba(30, 41, 59, 0.72);
+    }
+
+    .section-title {
+      color: var(--title);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      max-width: 760px;
+      color: #b6c3d7;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      position: relative;
+      border: 1px solid rgba(30, 41, 59, 0.96);
+      border-radius: 1.2rem;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        rgba(15, 23, 42, 0.7);
+      padding: 1.25rem;
+      overflow: hidden;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--accent), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(16, 185, 129, 0.54);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+    }
+
+    .card:hover::before {
+      opacity: 0.08;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-kicker {
+      display: block;
+      color: var(--accent);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.9rem;
+    }
+
+    .card h3 {
+      color: var(--title);
+      font-size: 1.1rem;
+      line-height: 1.25;
+      margin-bottom: 0.7rem;
+    }
+
+    .card p {
+      font-size: 0.93rem;
+      color: #a9b8cf;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      border-left: 2px solid rgba(16, 185, 129, 0.34);
+      padding-left: 1.25rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -0.42rem;
+      top: 0.2rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 22px rgba(16, 185, 129, 0.6);
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .skill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(30, 41, 59, 0.98);
+      background: rgba(2, 6, 23, 0.42);
+      color: #dbeafe;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .skill::before {
+      content: ">";
+      color: var(--accent);
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      color: var(--accent);
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    .footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(30, 41, 59, 0.72);
+      text-align: center;
+    }
+
+    .footer p {
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1rem 0;
+      }
+
+      .nav-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page-shell {
+        width: min(100% - 1rem, 1180px);
+      }
+
+      .hero-title {
+        font-size: 2.55rem;
+      }
+
+      .profile-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111827;
+      }
+
+      body::before,
+      .nav,
+      .hero-actions,
+      .footer {
+        display: none;
+      }
+
+      .hero,
+      .section {
+        padding: 1.2rem 0;
+      }
+
+      .card,
+      .profile-card,
+      .metric,
+      .code-block {
+        border-color: #d1d5db;
+        background: #ffffff;
+        box-shadow: none;
+      }
+
+      .hero-title,
+      .section-title,
+      .card h3,
+      .profile-name,
+      .metric strong {
+        color: #111827;
+      }
+
+      .animated-gradient {
+        color: #111827;
+        background: none;
+        -webkit-text-fill-color: #111827;
+      }
+
+      .tag,
+      .skill,
+      .card-kicker,
+      .eyebrow {
+        color: #047857;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="page-shell nav-inner">
+      <a href="index.html" class="brand" aria-label="Voltar ao site principal">
+        <span class="brand-mark">M</span>
+        PAIVA<span style="color: var(--accent)">_</span>
+      </a>
+
+      <div class="nav-actions">
+        <a class="button" href="index.html">Voltar ao site</a>
+        <a class="button" href="cv.pdf" download>Baixar CV.PDF</a>
+        <a class="button button-primary" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus!%20Vi%20seu%20perfil%20profissional%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">
+          Conversar
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="page-shell hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">
+            <span class="pulse"></span>
+            Perfil profissional estratégico
+          </div>
+
+          <h1 class="hero-title">
+            Mateus Paiva<br>
+            <span class="animated-gradient">Arquitetura de IA</span><br>
+            Desenvolvimento Web<br>
+            Automação & Gestão Estratégica
+          </h1>
+
+          <p class="hero-description">
+            Perfil híbrido entre tecnologia, operação e pessoas. Atuação voltada à criação de soluções digitais,
+            automações, interfaces web, análise de dados, melhoria de processos e estruturação estratégica para ambientes
+            que buscam eficiência, clareza e evolução contínua.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#competencias">Ver competências</a>
+            <a class="button" href="#trajetoria">Ver trajetória</a>
+            <a class="button" href="cv.pdf" download>Download PDF</a>
+          </div>
+
+          <div class="hero-tags">
+            <span class="tag">IA Aplicada</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML & CSS</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">People Analytics</span>
+          </div>
+        </div>
+
+        <aside class="profile-card reveal" aria-label="Resumo profissional">
+          <div class="terminal-header">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="terminal-label">profile.exec</span>
+          </div>
+
+          <h2 class="profile-name">Mateus Paiva Bernardes de Almeida</h2>
+
+          <p class="profile-role">
+            São José dos Campos — SP<br>
+            Engenharia de Inteligência Artificial em andamento<br>
+            Formação em Recursos Humanos em andamento<br>
+            GitHub: EoPaiva
+          </p>
+
+          <div class="profile-metrics">
+            <div class="metric">
+              <span>Foco central</span>
+              <strong>IA + Web</strong>
+            </div>
+
+            <div class="metric">
+              <span>Visão complementar</span>
+              <strong>RH + Dados</strong>
+            </div>
+
+            <div class="metric">
+              <span>Base prática</span>
+              <strong>Operação</strong>
+            </div>
+
+            <div class="metric">
+              <span>Direção</span>
+              <strong>Estratégia</strong>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <p><span>const</span> perfil = {</p>
+            <p>&nbsp;&nbsp;tecnologia: "IA, Web, Automação",</p>
+            <p>&nbsp;&nbsp;gestao: "Processos, Dados, Pessoas",</p>
+            <p>&nbsp;&nbsp;objetivo: "Soluções úteis e escaláveis"</p>
+            <p>};</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="posicionamento" class="section">
+      <div class="page-shell">
+        <div class="reveal">
+          <span class="eyebrow">
+            <span class="pulse"></span>
+            Posicionamento
+          </span>
+
+          <h2 class="section-title">Um perfil técnico com leitura operacional e visão de negócio.</h2>
+
+          <p class="section-description">
+            A proposta profissional é unir desenvolvimento web, automação, inteligência artificial, dados e processos.
+            Não apenas construir telas ou scripts, mas entender o cenário, organizar fluxos, reduzir atritos e criar
+            soluções que façam sentido no uso real.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <span class="card-kicker">01 / Tecnologia</span>
+            <h3>Desenvolvimento Web e automação</h3>
+            <p>
+              Criação de interfaces, sites, painéis, fluxos automatizados e soluções digitais usando HTML, CSS,
+              JavaScript, Node.js, Git e GitHub.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">02 / Inteligência</span>
+            <h3>IA aplicada a problemas reais</h3>
+            <p>
+              Interesse e formação em Engenharia de IA, com foco em automação inteligente, agentes, análise de dados,
+              machine learning e melhoria de rotinas.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">03 / Estratégia</span>
+            <h3>Gestão, RH e People Analytics</h3>
+            <p>
+              Formação em Recursos Humanos e cursos voltados a RH estratégico, recrutamento por competências,
+              comunicação, feedback, indicadores e processos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencias" class="section">
+      <div class="page-shell">
+        <div class="reveal">
+          <span class="eyebrow">
+            <span class="pulse"></span>
+            Competências
+          </span>
+
+          <h2 class="section-title">Stack técnica e repertório estratégico.</h2>
+
+          <p class="section-description">
+            Conjunto de competências orientado à construção de soluções digitais, leitura de indicadores, estruturação
+            de processos e apoio à tomada de decisão.
+          </p>
+        </div>
+
+        <div class="skill-cloud reveal">
+          <span class="skill">Python</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">VSCode</span>
+          <span class="skill">Excel</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">Automação</span>
+          <span class="skill">IA Aplicada</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Indicadores de RH</span>
+          <span class="skill">People Analytics</span>
+          <span class="skill">Processos</span>
+          <span class="skill">Comunicação</span>
+          <span class="skill">Feedback</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="entregas" class="section">
+      <div class="page-shell">
+        <div class="reveal">
+          <span class="eyebrow">
+            <span class="pulse"></span>
+            Frentes de atuação
+          </span>
+
+          <h2 class="section-title">Onde esse perfil gera valor.</h2>
+
+          <p class="section-description">
+            O diferencial está em conectar execução técnica com entendimento de rotina, operação, pessoas e indicadores.
+          </p>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card reveal">
+            <span class="card-kicker">Web & Produto</span>
+            <h3>Sites, portfólios e interfaces profissionais</h3>
+            <p>
+              Desenvolvimento de páginas responsivas, apresentações digitais, landing pages, dashboards visuais e
+              experiências focadas em clareza, estética e conversão.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">Automação & IA</span>
+            <h3>Redução de tarefas manuais</h3>
+            <p>
+              Estruturação de fluxos, agentes, triagens, integrações e automações para organizar demandas, acelerar
+              respostas e reduzir retrabalho.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">Dados & Indicadores</span>
+            <h3>Leitura de performance e decisão</h3>
+            <p>
+              Uso de Excel, Power BI e lógica analítica para organizar dados, acompanhar indicadores e transformar
+              informação dispersa em visão gerencial.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">RH & Processos</span>
+            <h3>Pessoas, governança e melhoria contínua</h3>
+            <p>
+              Apoio à estruturação de rotinas, recrutamento por competências, comunicação, feedback, employee experience
+              e indicadores de RH.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trajetoria" class="section">
+      <div class="page-shell">
+        <div class="reveal">
+          <span class="eyebrow">
+            <span class="pulse"></span>
+            Trajetória
+          </span>
+
+          <h2 class="section-title">Experiência prática com base operacional.</h2>
+
+          <p class="section-description">
+            A trajetória combina vivência em ambiente industrial, controle de qualidade, conformidade técnica, estoque,
+            padronização e evolução para tecnologia, IA, dados e RH estratégico.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="card timeline-item reveal">
+            <span class="card-kicker">Aptiv Manufatura e Serviços de Distribuição LTDA</span>
+            <h3>Operador de Produção</h3>
+            <p>
+              Atuação com testes elétricos, controle de qualidade, garantia de conformidade técnica e ambiente orientado
+              a processos.
+            </p>
+          </article>
+
+          <article class="card timeline-item reveal">
+            <span class="card-kicker">Unissul Supermercados</span>
+            <h3>Repositor</h3>
+            <p>
+              Organização e controle de estoque, suporte operacional, padronização e apoio à rotina logística.
+            </p>
+          </article>
+
+          <article class="card timeline-item reveal">
+            <span class="card-kicker">Formação em andamento</span>
+            <h3>Engenharia de Inteligência Artificial & Recursos Humanos</h3>
+            <p>
+              Desenvolvimento de repertório técnico e humano para atuar na interseção entre IA, automação, análise de
+              dados, processos, pessoas e estratégia.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" class="section">
+      <div class="page-shell">
+        <div class="reveal">
+          <span class="eyebrow">
+            <span class="pulse"></span>
+            Formação e cursos
+          </span>
+
+          <h2 class="section-title">Aprendizado direcionado para tecnologia, IA e gestão.</h2>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <span class="card-kicker">Formação acadêmica</span>
+            <h3>Engenharia de Inteligência Artificial</h3>
+            <p>Formação em andamento com foco em IA aplicada, automação, dados e soluções inteligentes.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">Formação acadêmica</span>
+            <h3>Formação em Recursos Humanos</h3>
+            <p>Formação em andamento para fortalecer atuação em pessoas, processos, indicadores e gestão estratégica.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card-kicker">Cursos complementares</span>
+            <h3>IA, Web, Dados e RH Estratégico</h3>
+            <p>
+              Python para IA, Engenharia de IA, JavaScript e Node.js, HTML/CSS responsivo, Git/GitHub, Excel Avançado,
+              Power BI, recrutamento, comunicação e feedback.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <div class="page-shell">
+        <div class="card reveal">
+          <span class="card-kicker">Contato</span>
+          <h2 class="section-title">Disponível para projetos, oportunidades e conversas estratégicas.</h2>
+          <p class="section-description">
+            Aberto a desafios envolvendo desenvolvimento web, automação, IA aplicada, análise de dados, RH estratégico,
+            melhoria de processos e soluções digitais.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus!%20Vi%20seu%20perfil%20profissional%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">
+              Chamar no WhatsApp
+            </a>
+
+            <a class="button" href="mailto:mpaiiva21@gmail.com">
+              Enviar e-mail
+            </a>
+
+            <a class="button" href="https://github.com/EoPaiva" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+
+            <a class="button" href="cv.pdf" download>
+              Baixar CV.PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="page-shell">
+      <p>Mateus Paiva — Arquitetura de IA | Desenvolvimento Web | Automação | Gestão Estratégica</p>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("active");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    document.querySelectorAll(".card, .profile-card").forEach((card) => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        card.style.background = `
+          radial-gradient(circle at ${x}px ${y}px, rgba(16, 185, 129, 0.12), transparent 28%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
+          rgba(15, 23, 42, 0.7)
+        `;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.background = "";
+      });
+    });
+  </script>
+</body>
+</html>

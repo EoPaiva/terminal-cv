@@ -1,0 +1,35 @@
+<svg width="520" height="120" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="120" rx="18" fill="#020617"></rect>
+
+  <g filter="url(#glow)">
+    <rect x="90" y="31" width="58" height="58" rx="9" fill="#10B981"></rect>
+  </g>
+
+  <text x="119" y="69" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="28" font-weight="700" fill="#020617">
+    M
+  </text>
+
+  <text x="165" y="72" font-family="JetBrains Mono, Consolas, monospace" font-size="48" font-weight="800" letter-spacing="-3" fill="#FFFFFF">
+    PAIVA
+  </text>
+
+  <text x="320" y="72" font-family="JetBrains Mono, Consolas, monospace" font-size="48" font-weight="800" letter-spacing="-3" fill="#10B981">
+    _
+  </text>
+
+  <text x="165" y="92" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.1" fill="#94A3B8">
+    ARQUITETURA DE IA · DESENVOLVIMENTO WEB · AUTOMAÇÃO &amp; GESTÃO ESTRATÉGICA
+  </text>
+
+  <defs>
+    <filter id="glow" x="60" y="1" width="118" height="118" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="10" result="blur"></feGaussianBlur>
+      <feFlood flood-color="#10B981" flood-opacity="0.35"></feFlood>
+      <feComposite in2="blur" operator="in"></feComposite>
+      <feMerge>
+        <feMergeNode></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mateus Paiva | Sites, Automação, IA & Estratégia</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23020617'/><text x='50%' y='50%' font-family='monospace' font-weight='bold' font-size='50' fill='%2310b981' text-anchor='middle' dy='.3em'>M</text></svg>"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"JetBrains Mono"', "monospace"],
+            sans: ["Inter", "sans-serif"]
+          },
+          colors: {
+            theme: {
+              bg: "var(--bg-color)",
+              card: "var(--card-color)",
+              border: "var(--border-color)",
+              accent: "var(--accent-color)",
+              text: "var(--text-color)",
+              title: "var(--title-color)"
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body
+  id="main-body"
+  class="bg-theme-bg text-theme-text font-sans selection:bg-theme-accent selection:text-black"
+  data-supabase-url="https://mtjfijfuxybuobfohlws.supabase.co"
+  data-supabase-key="sb_publishable_UhdYzJkSNyXksKr5nCdRQQ_cFTvT5gO"
+>
+  <div id="custom-cursor" class="hidden md:block"></div>
+  <div id="scroll-progress"></div>
+
+  <nav class="quick-nav" aria-label="Navegação rápida do site">
+    <a href="#top" class="quick-nav-link active" aria-label="Ir para o início">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Início</span>
+    </a>
+
+    <a href="#servicos" class="quick-nav-link" aria-label="Ir para serviços">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Serviços</span>
+    </a>
+
+    <a href="#cases" class="quick-nav-link" aria-label="Ir para cases">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Cases</span>
+    </a>
+
+    <a href="#projetos-producao" class="quick-nav-link" aria-label="Ir para projetos em produção">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Produção</span>
+    </a>
+
+    <a href="#processo" class="quick-nav-link" aria-label="Ir para processo">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Processo</span>
+    </a>
+
+    <a href="#diferencial" class="quick-nav-link" aria-label="Ir para diferencial">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Diferencial</span>
+    </a>
+
+    <a href="#learning" class="quick-nav-link" aria-label="Ir para Learning OS">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Learning</span>
+    </a>
+
+    <a href="#faq" class="quick-nav-link" aria-label="Ir para perguntas frequentes">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">FAQ</span>
+    </a>
+
+    <a href="#contato" class="quick-nav-link" aria-label="Ir para contato">
+      <span class="quick-nav-dot"></span>
+      <span class="quick-nav-label">Contato</span>
+    </a>
+
+    <button
+      id="quick-scroll-down"
+      class="quick-nav-bottom hover-target"
+      type="button"
+      aria-label="Ir para próxima seção"
+    >
+      ↓
+    </button>
+
+    <button
+      id="back-to-top"
+      class="quick-nav-top hover-target"
+      type="button"
+      aria-label="Voltar ao topo"
+    >
+      ↑
+    </button>
+  </nav>
+
+  <nav id="top" class="site-nav w-full bg-theme-bg/95 backdrop-blur-md border-b border-theme-border">
+    <button
+      id="production-admin-trigger"
+      type="button"
+      class="top-admin-button hover-target"
+      aria-label="Abrir painel administrativo"
+    >
+      Admin
+    </button>
+
+    <div class="max-w-6xl mx-auto px-4 py-5 nav-bar-shell">
+      <div class="nav-main-row">
+        <a href="#" class="brand-signature hover-target" aria-label="Mateus Paiva">
+          <span class="brand-stack">
+            <span class="brand-topline">
+              <span class="brand-markbox">M</span>
+              <span class="brand-name">
+                PAIVA<span class="brand-underscore">_</span>
+              </span>
+            </span>
+
+            <span class="brand-subtitle brand-subtitle-header">
+              Arquitetura de IA · Desenvolvimento Web · Automação & Gestão Estratégica
+            </span>
+          </span>
+        </a>
+
+        <div class="nav-controls">
+          <div class="nav-mode-shell">
+            <button id="btn-tech" class="hover-target px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all bg-theme-accent text-black">
+              MODO TECH
+            </button>
+
+            <button id="btn-rh" class="hover-target px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all text-slate-400">
+              MODO RH
+            </button>
+
+            <button id="btn-client" class="hover-target px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all text-slate-400">
+              MODO CLIENTE
+            </button>
+          </div>
+
+          <div class="nav-links hidden xl:flex font-mono text-xs items-center">
+            <a href="#servicos" class="hover-target hover:text-theme-title transition-colors">./serviços</a>
+            <a href="#cases" class="hover-target hover:text-theme-title transition-colors">./cases</a>
+            <a href="#projetos-producao" class="hover-target hover:text-theme-title transition-colors">./produção</a>
+            <a href="#processo" class="hover-target hover:text-theme-title transition-colors">./processo</a>
+            <a href="#diferencial" class="hover-target hover:text-theme-title transition-colors">./diferencial</a>
+            <a href="#learning" class="hover-target hover:text-theme-title transition-colors">./learning</a>
+            <a href="#faq" class="hover-target hover:text-theme-title transition-colors">./faq</a>
+            <a href="#github" class="hover-target hover:text-theme-title transition-colors">./github</a>
+
+            <a href="perfil-profissional.html" class="hover-target group relative overflow-hidden bg-theme-accent/10 text-theme-accent border border-theme-accent/20 px-3 py-1 rounded hover:bg-theme-accent hover:text-black transition-all">
+              <span class="relative z-10">Perfil Profissional</span>
+              <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/25 skew-x-12"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="min-h-screen flex items-center pt-20 md:pt-16 px-6">
+      <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal active">
+          <div id="hero-status" class="font-mono text-theme-accent mb-4 text-xs tracking-widest uppercase">
+            [ SISTEMA: SITES, AUTOMAÇÃO & IA ]
+          </div>
+
+          <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-theme-title leading-tight mb-6">
+            Soluções digitais com <span class="text-theme-accent">IA</span>, automação e estratégia.
+          </h1>
+
+          <p id="hero-desc" class="text-base md:text-lg mb-10 leading-relaxed">
+            Desenvolvimento de sites profissionais, plataformas, painéis, automações e soluções digitais personalizadas para transformar processos manuais em experiências claras, eficientes e escaláveis.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#servicos" class="hover-target px-8 py-4 bg-theme-accent text-black font-bold rounded shadow-lg uppercase text-xs transition-all hover:scale-105">
+              Ver Serviços
+            </a>
+
+            <a href="#projetos-producao" class="hover-target px-8 py-4 border border-theme-border text-theme-title font-bold rounded uppercase text-xs transition-all hover:border-theme-accent hover:text-theme-accent">
+              Ver Projetos
+            </a>
+
+            <a href="perfil-profissional.html" class="hover-target group relative overflow-hidden px-8 py-4 border border-theme-accent/30 text-theme-accent font-bold rounded uppercase text-xs transition-all hover:bg-theme-accent hover:text-black">
+              <span class="relative z-10">Perfil Profissional</span>
+              <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/25 skew-x-12"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal active bg-theme-card/30 p-6 rounded-xl border border-theme-border flex flex-col justify-center items-center h-full">
+          <h3 class="font-mono text-[10px] uppercase text-center mb-4 tracking-widest text-theme-text">
+            HABILIDADES ESTRATÉGICAS
+          </h3>
+
+          <div class="relative w-full h-[280px]">
+            <canvas id="skillChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="py-24 px-6 border-t border-theme-border bg-black/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl mb-14 reveal">
+          <span id="services-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+            / serviços_tech
+          </span>
+
+          <h2 id="services-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
+            Soluções práticas para empresas que querem automatizar, organizar e escalar.
+          </h2>
+
+          <p id="services-description" class="text-theme-text leading-relaxed">
+            Atuação combinando tecnologia, IA, desenvolvimento web, dados e processos para criar soluções profissionais e úteis.
+          </p>
+        </div>
+
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="cases" class="py-24 px-6 border-t border-theme-border">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 reveal gap-8">
+          <div class="max-w-3xl">
+            <span id="cases-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+              / cases_tech
+            </span>
+
+            <h2 id="cases-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
+              Cases visuais de automação, IA e desenvolvimento.
+            </h2>
+
+            <p id="cases-description" class="text-theme-text leading-relaxed">
+              Cada case mostra objetivo, problema, solução, funcionalidades, tecnologias e resultado entregue.
+            </p>
+          </div>
+
+          <div id="case-filter-container" class="flex flex-wrap gap-2 font-mono text-[10px]"></div>
+        </div>
+
+        <div id="cases-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="projetos-producao" class="production-section py-24 px-6 border-t border-theme-border bg-black/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 reveal">
+          <div class="max-w-3xl">
+            <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+              / projetos_em_produção
+            </span>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
+              Sites e interfaces publicados em ambiente real.
+            </h2>
+
+            <p class="text-theme-text leading-relaxed">
+              Uma vitrine de sites, interfaces e soluções digitais desenvolvidas com foco em identidade, funcionalidade e estratégia.
+            </p>
+          </div>
+
+          <div class="production-actions">
+            <div class="production-carousel-controls">
+              <button
+                id="production-prev"
+                type="button"
+                class="hover-target production-nav-button"
+                aria-label="Voltar projetos"
+              >
+                ←
+              </button>
+
+              <button
+                id="production-next"
+                type="button"
+                class="hover-target production-nav-button"
+                aria-label="Avançar projetos"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="production-shell reveal">
+          <div class="production-terminal-bar">
+            <div class="production-window-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <span class="production-terminal-title">production.projects</span>
+
+            <span class="production-terminal-status">
+              live_preview: auto
+            </span>
+          </div>
+
+          <button
+            id="production-side-prev"
+            type="button"
+            class="hover-target production-side-button production-side-prev"
+            aria-label="Projeto anterior"
+          >
+            ‹
+          </button>
+
+          <button
+            id="production-side-next"
+            type="button"
+            class="hover-target production-side-button production-side-next"
+            aria-label="Próximo projeto"
+          >
+            ›
+          </button>
+
+          <div class="swiper production-swiper">
+            <div
+              id="production-projects-track"
+              class="swiper-wrapper production-track"
+              aria-live="polite"
+            ></div>
+
+            <div id="production-pagination" class="swiper-pagination production-pagination"></div>
+          </div>
+        </div>
+
+        <div
+          id="production-admin-panel"
+          class="production-admin-panel"
+          aria-hidden="true"
+          hidden
+        >
+          <div class="production-admin-backdrop" data-production-admin-close></div>
+
+          <div class="production-admin-dialog admin-integrated-dialog" role="dialog" aria-modal="true" aria-labelledby="production-admin-title">
+            <button
+              type="button"
+              class="hover-target production-admin-close"
+              aria-label="Fechar painel administrativo"
+              data-production-admin-close
+            >
+              ×
+            </button>
+
+            <div id="admin-login-view" class="admin-view admin-view-active">
+              <div class="admin-login-shell">
+                <div class="admin-login-brand">
+                  <span class="admin-kicker">/ secure_admin</span>
+
+                  <div class="admin-login-logo">
+                    <span class="admin-login-mark">M</span>
+                    <span class="admin-login-name">PAIVA<span>_</span></span>
+                  </div>
+
+                  <p class="admin-login-subtitle">
+                    Arquitetura de IA · Desenvolvimento Web · Automação & Gestão Estratégica
+                  </p>
+                </div>
+
+                <div class="admin-security-badge">
+                  <span class="pulse-dot"></span>
+                  <span>Acesso exclusivo a administradores</span>
+                </div>
+
+                <form id="production-admin-login-form" class="production-admin-form admin-login-form">
+                  <div>
+                    <label for="production-admin-email">E-mail administrativo</label>
+                    <input
+                      id="production-admin-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="admin@upaiva.dev"
+                      required
+                    >
+                  </div>
+
+                  <div>
+                    <label for="production-admin-password">Senha</label>
+                    <input
+                      id="production-admin-password"
+                      name="password"
+                      type="password"
+                      autocomplete="current-password"
+                      placeholder="••••••••"
+                      required
+                    >
+                  </div>
+
+                  <button id="admin-login-submit" type="submit" class="hover-target">
+                    Autenticar Acesso
+                  </button>
+
+                  <p id="admin-login-feedback" class="admin-feedback" aria-live="polite"></p>
+                </form>
+
+                <div class="production-admin-next">
+                  <p>
+                    O login acontece dentro do próprio site. Depois da autenticação, o painel administrativo é liberado sem redirecionar para outra página.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div id="admin-dashboard-view" class="admin-view">
+              <div class="admin-dashboard-layout">
+                <aside class="admin-sidebar">
+                  <div class="admin-sidebar-brand">
+                    <div class="admin-mini-logo">
+                      <span>M</span>
+                      <strong>PAIVA_</strong>
+                    </div>
+
+                    <p>Admin Engine</p>
+                  </div>
+
+                  <nav class="admin-nav">
+                    <button type="button" class="admin-nav-btn active-tab" data-admin-tab="overview">
+                      01. Overview
+                    </button>
+
+                    <button type="button" class="admin-nav-btn" data-admin-tab="projects">
+                      02. Projetos
+                    </button>
+
+                    <button type="button" class="admin-nav-btn" data-admin-tab="messages">
+                      03. Mensagens
+                    </button>
+
+                    <button type="button" class="admin-nav-btn" data-admin-tab="settings">
+                      04. Configurações
+                    </button>
+
+                    <button type="button" id="admin-open-project-editor" class="admin-nav-btn admin-nav-action">
+                      + Novo Projeto
+                    </button>
+                  </nav>
+
+                  <div class="admin-sidebar-footer">
+                    <button type="button" id="admin-sync-public-site" class="hover-target admin-ghost-button">
+                      Sincronizar Site
+                    </button>
+
+                    <button type="button" id="admin-logout-button" class="hover-target admin-logout-button">
+                      Encerrar Sessão
+                    </button>
+                  </div>
+                </aside>
+
+                <main class="admin-main">
+                  <header class="admin-main-header">
+                    <div>
+                      <span class="admin-kicker">/ dashboard_integrado</span>
+
+                      <h2 id="production-admin-title">
+                        Painel Administrativo MPAIVA_
+                      </h2>
+
+                      <p>
+                        Gestão local dos projetos em produção, dados rápidos e preparação para expansão com Supabase.
+                      </p>
+                    </div>
+
+                    <div class="admin-session-card">
+                      <span class="pulse-dot"></span>
+
+                      <div>
+                        <strong id="admin-session-status">Sessão ativa</strong>
+                        <small id="admin-session-email">admin autenticado</small>
+                      </div>
+                    </div>
+                  </header>
+
+                  <section id="admin-tab-overview" class="admin-tab-content active">
+                    <div class="admin-metrics-grid">
+                      <article class="admin-metric-card">
+                        <span>Projetos</span>
+                        <strong id="admin-count-projects">--</strong>
+                        <small>itens no carrossel</small>
+                      </article>
+
+                      <article class="admin-metric-card">
+                        <span>Modo atual</span>
+                        <strong id="admin-current-mode">TECH</strong>
+                        <small>tema público ativo</small>
+                      </article>
+
+                      <article class="admin-metric-card">
+                        <span>Storage</span>
+                        <strong>Local</strong>
+                        <small>sem quebrar o site</small>
+                      </article>
+
+                      <article class="admin-metric-card">
+                        <span>Supabase</span>
+                        <strong id="admin-supabase-status">Auth</strong>
+                        <small>login integrado</small>
+                      </article>
+                    </div>
+
+                    <div class="admin-two-columns">
+                      <article class="admin-panel-card">
+                        <div class="admin-card-header">
+                          <div>
+                            <span class="admin-kicker">/ próximos_passos</span>
+                            <h3>Roadmap inteligente</h3>
+                          </div>
+                        </div>
+
+                        <div class="admin-roadmap-list">
+                          <div>
+                            <strong>01. CRUD visual</strong>
+                            <span>Adicionar, editar e remover projetos do carrossel.</span>
+                          </div>
+
+                          <div>
+                            <strong>02. Persistência local</strong>
+                            <span>Salva no navegador e atualiza o site em tempo real.</span>
+                          </div>
+
+                          <div>
+                            <strong>03. Cloud ready</strong>
+                            <span>Estrutura preparada para conectar tabela Supabase depois.</span>
+                          </div>
+
+                          <div>
+                            <strong>04. Exportação</strong>
+                            <span>Gera backup JSON dos projetos cadastrados.</span>
+                          </div>
+                        </div>
+                      </article>
+
+                      <article class="admin-panel-card">
+                        <div class="admin-card-header">
+                          <div>
+                            <span class="admin-kicker">/ ações_rápidas</span>
+                            <h3>Operações</h3>
+                          </div>
+                        </div>
+
+                        <div class="admin-actions-grid">
+                          <button type="button" id="admin-action-new-project" class="hover-target admin-solid-button">
+                            Novo Projeto
+                          </button>
+
+                          <button type="button" id="admin-action-export" class="hover-target admin-outline-button">
+                            Exportar JSON
+                          </button>
+
+                          <button type="button" id="admin-action-reset" class="hover-target admin-danger-outline-button">
+                            Resetar Local
+                          </button>
+
+                          <button type="button" id="admin-action-close" class="hover-target admin-outline-button">
+                            Voltar ao Site
+                          </button>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section id="admin-tab-projects" class="admin-tab-content">
+                    <div class="admin-card-header admin-section-header">
+                      <div>
+                        <span class="admin-kicker">/ projetos_em_produção</span>
+                        <h3>Gestão do carrossel</h3>
+                        <p>Esses itens alimentam o carrossel público do site.</p>
+                      </div>
+
+                      <button type="button" id="admin-new-project-button" class="hover-target admin-solid-button">
+                        Adicionar Projeto
+                      </button>
+                    </div>
+
+                    <div id="admin-projects-grid" class="admin-projects-grid"></div>
+                  </section>
+
+                  <section id="admin-tab-messages" class="admin-tab-content">
+                    <div class="admin-card-header admin-section-header">
+                      <div>
+                        <span class="admin-kicker">/ mensagens</span>
+                        <h3>Central de oportunidades</h3>
+                        <p>Espaço preparado para futuros formulários, leads e briefings do site.</p>
+                      </div>
+                    </div>
+
+                    <div class="admin-empty-state">
+                      <span>◇</span>
+
+                      <h4>Nenhuma mensagem conectada ainda</h4>
+
+                      <p>
+                        Na próxima etapa podemos criar um formulário público de briefing e salvar tudo no Supabase, parecido com o admin original.
+                      </p>
+                    </div>
+                  </section>
+
+                  <section id="admin-tab-settings" class="admin-tab-content">
+                    <div class="admin-card-header admin-section-header">
+                      <div>
+                        <span class="admin-kicker">/ configurações</span>
+                        <h3>Preferências do painel</h3>
+                        <p>Controle de dados locais, sessão e opções de manutenção.</p>
+                      </div>
+                    </div>
+
+                    <div class="admin-settings-grid">
+                      <article class="admin-panel-card">
+                        <h4>Backup dos projetos</h4>
+                        <p>Exporte os projetos atuais em JSON para guardar uma cópia segura.</p>
+
+                        <button type="button" id="admin-settings-export" class="hover-target admin-outline-button">
+                          Baixar Backup
+                        </button>
+                      </article>
+
+                      <article class="admin-panel-card">
+                        <h4>Restaurar padrão</h4>
+                        <p>Remove alterações locais e volta para os projetos padrão do site.</p>
+
+                        <button type="button" id="admin-settings-reset" class="hover-target admin-danger-outline-button">
+                          Restaurar Padrão
+                        </button>
+                      </article>
+
+                      <article class="admin-panel-card">
+                        <h4>Segurança</h4>
+                        <p>A sessão usa Supabase Auth, mas o painel permanece dentro do próprio site.</p>
+
+                        <button type="button" id="admin-settings-logout" class="hover-target admin-logout-button">
+                          Encerrar Sessão
+                        </button>
+                      </article>
+                    </div>
+                  </section>
+                </main>
+              </div>
+            </div>
+
+            <div id="admin-project-editor" class="admin-project-editor" aria-hidden="true">
+              <div class="admin-project-editor-backdrop" data-admin-editor-close></div>
+
+              <div class="admin-project-editor-dialog">
+                <button type="button" class="admin-editor-close hover-target" data-admin-editor-close>
+                  ×
+                </button>
+
+                <div class="admin-editor-header">
+                  <span class="admin-kicker">/ editor_projeto</span>
+                  <h3 id="admin-editor-title">Novo Projeto</h3>
+                  <p>Cadastre projetos que aparecem no carrossel público.</p>
+                </div>
+
+                <form id="admin-project-form" class="admin-project-form">
+                  <input type="hidden" id="admin-project-id">
+
+                  <div class="admin-form-grid">
+                    <div>
+                      <label for="admin-project-name">Nome do projeto</label>
+                      <input id="admin-project-name" type="text" placeholder="Ex: Plataforma Comercial" required>
+                    </div>
+
+                    <div>
+                      <label for="admin-project-url">URL pública</label>
+                      <input id="admin-project-url" type="url" placeholder="https://exemplo.com/" required>
+                    </div>
+
+                    <div>
+                      <label for="admin-project-domain">Domínio</label>
+                      <input id="admin-project-domain" type="text" placeholder="exemplo.com">
+                    </div>
+
+                    <div>
+                      <label for="admin-project-category">Categoria</label>
+                      <input id="admin-project-category" type="text" placeholder="Site institucional / Automação">
+                    </div>
+
+                    <div class="admin-form-full">
+                      <label for="admin-project-description">Descrição</label>
+                      <textarea id="admin-project-description" rows="4" placeholder="Descreva o projeto, objetivo e resultado entregue."></textarea>
+                    </div>
+
+                    <div class="admin-form-full">
+                      <label for="admin-project-image">Imagem manual opcional</label>
+                      <input id="admin-project-image" type="url" placeholder="https://imagem.com/preview.png">
+                      <small>
+                        Quando preenchido, usa essa imagem no lugar do screenshot automático.
+                      </small>
+                    </div>
+                  </div>
+
+                  <div class="admin-editor-actions">
+                    <button type="button" class="hover-target admin-outline-button" data-admin-editor-close>
+                      Cancelar
+                    </button>
+
+                    <button type="submit" class="hover-target admin-solid-button">
+                      Salvar Projeto
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo" class="py-24 px-6 border-t border-theme-border bg-black/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+          <div class="reveal lg:sticky lg:top-28">
+            <span id="process-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+              / processo_tech
+            </span>
+
+            <h2 id="process-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
+              Um método claro para transformar problema em solução.
+            </h2>
+
+            <p id="process-description" class="text-theme-text leading-relaxed mb-8">
+              Escolha o foco e o tipo de entrega. A mensagem do WhatsApp será montada automaticamente com base na sua necessidade.
+            </p>
+
+            <div class="bg-theme-card border border-theme-border rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="pulse-dot"></span>
+                <span id="process-status" class="font-mono text-theme-accent text-[10px] uppercase tracking-widest">
+                  pipeline ativo
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 gap-4">
+                <div>
+                  <label for="focus-select" class="intel-label block mb-2">Foco</label>
+                  <select id="focus-select" class="select-control">
+                    <option value="Automação">Automação</option>
+                    <option value="Site Profissional">Site Profissional</option>
+                    <option value="IA e Agentes">IA e Agentes</option>
+                    <option value="Dashboard e Dados">Dashboard e Dados</option>
+                    <option value="People Analytics">People Analytics</option>
+                    <option value="Processos Operacionais">Processos Operacionais</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="delivery-select" class="intel-label block mb-2">Entrega</label>
+                  <select id="delivery-select" class="select-control">
+                    <option value="Solução funcional">Solução funcional</option>
+                    <option value="Landing page">Landing page</option>
+                    <option value="Plataforma personalizada">Plataforma personalizada</option>
+                    <option value="Painel administrativo">Painel administrativo</option>
+                    <option value="Diagnóstico estratégico">Diagnóstico estratégico</option>
+                    <option value="Automação integrada">Automação integrada</option>
+                  </select>
+                </div>
+
+                <div class="process-metric">
+                  <p class="intel-label">resultado esperado</p>
+                  <p id="process-result" class="text-theme-text text-sm mt-2 leading-relaxed">
+                    Processos mais claros, redução de tarefas repetitivas e entrega técnica com visão de negócio.
+                  </p>
+                </div>
+              </div>
+
+              <a
+                id="process-whatsapp-button"
+                href="https://wa.me/55035988042182"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover-target inline-flex mt-6 px-6 py-3 bg-theme-accent text-black font-bold rounded uppercase text-xs transition-all hover:scale-105"
+              >
+                Iniciar Conversa
+              </a>
+
+              <div class="whatsapp-hint">
+                <span class="pulse-dot"></span>
+                <span>Resposta estimada: 5 minutos a 1 hora</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="process-grid" class="space-y-5" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferencial" class="py-24 px-6 border-t border-theme-border">
+      <div class="max-w-6xl mx-auto">
+        <div class="max-w-3xl mb-14 reveal">
+          <span id="differential-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+            / diferencial
+          </span>
+
+          <h2 id="differential-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
+            O diferencial está em unir tecnologia, operação e visão estratégica.
+          </h2>
+
+          <p id="differential-description" class="text-theme-text leading-relaxed">
+            Não é apenas desenvolver telas ou códigos. É entender o problema, desenhar o fluxo, reduzir atrito e entregar uma solução que faça sentido para o uso real.
+          </p>
+        </div>
+
+        <div id="differential-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </div>
+    </section>
+
+    <section id="trajetoria" class="py-24 px-6 border-t border-theme-border bg-black/10">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-mono text-2xl text-theme-title mb-16 reveal text-center tracking-widest uppercase">
+          TIMELINE_PROFISSIONAL
+        </h2>
+
+        <div class="relative border-l-2 border-theme-border ml-4 space-y-16">
+          <div class="pl-8 relative reveal timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="font-mono text-[10px] uppercase text-theme-text">Abr/2021 – Fev/2023 // Aptiv Manufatura</span>
+            <h3 class="text-lg text-theme-title font-bold mt-1">Operador de Produção</h3>
+            <p class="text-sm mt-2 text-theme-text leading-relaxed">
+              Atuação em ambiente industrial com foco em testes elétricos, controle de qualidade, segurança operacional e conformidade técnica.
+            </p>
+          </div>
+
+          <div class="pl-8 relative reveal timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="font-mono text-[10px] uppercase text-theme-text">Jan/2023 – Dez/2024 // AspectMania LTDA</span>
+            <h3 class="text-lg text-theme-title font-bold mt-1">Sócio-Fundador e Diretor de Operações</h3>
+            <p class="text-sm mt-2 text-theme-text leading-relaxed">
+              Gestão de infraestrutura digital, liderança de desenvolvedores, suporte técnico especializado, organização financeira e operação com grande volume de usuários.
+            </p>
+          </div>
+
+          <div class="pl-8 relative reveal timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="font-mono text-[10px] uppercase text-theme-text">Set/2024 – Out/2024 // Unissul Supermercados</span>
+            <h3 class="text-lg text-theme-title font-bold mt-1">Prevenção de Perdas e Gestão Logística</h3>
+            <p class="text-sm mt-2 text-theme-text leading-relaxed">
+              Atuação estratégica em prevenção de perdas, organização de estoque, controle operacional e preservação de ativos.
+            </p>
+          </div>
+
+          <div class="pl-8 relative reveal timeline-item">
+            <div class="timeline-dot"></div>
+            <span class="font-mono text-[10px] uppercase text-theme-text">Out/2024 – Nov/2025 // Aptiv Manufatura</span>
+            <h3 class="text-lg text-theme-title font-bold mt-1">Operador de Produção</h3>
+            <p class="text-sm mt-2 text-theme-text leading-relaxed">
+              Retorno ao ambiente industrial com foco em excelência fabril, testes elétricos, qualidade e apoio à eficiência operacional.
+            </p>
+          </div>
+
+          <div class="pl-8 relative reveal timeline-item">
+            <div class="timeline-dot-active"></div>
+            <span class="font-mono text-[10px] text-theme-accent uppercase font-bold">PRESENTE // SÃO JOSÉ DOS CAMPOS</span>
+            <h3 class="text-lg text-theme-title font-bold mt-1">Engenharia de IA, Desenvolvimento Web & Estratégia</h3>
+            <p class="text-sm mt-2 text-theme-text leading-relaxed font-semibold">
+              Foco atual em desenvolvimento de soluções digitais, automações, IA, gestão estratégica, People Analytics e melhoria de processos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="learning" class="learning-os-section py-24 px-6 border-t border-theme-border bg-black/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="learning-os-header reveal">
+          <div>
+            <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+              / m_paiva_learning_os
+            </span>
+
+            <h2 class="text-3xl md:text-5xl font-bold text-theme-title mt-4 mb-5 leading-tight">
+              Educação, carreiras e agentes de evolução profissional.
+            </h2>
+
+            <p class="text-theme-text leading-relaxed max-w-3xl">
+              Painel automatizado que lê o certificado público da Alura, cruza cursos concluídos com mapas de carreira, calcula progresso, identifica lacunas e conecta aprendizado com projetos reais — sem depender de OpenAI key.
+            </p>
+          </div>
+
+          <div class="learning-sync-card" aria-live="polite">
+            <span class="learning-sync-dot" id="learning-sync-dot"></span>
+            <strong id="learning-sync-status">sincronizando</strong>
+            <small id="learning-sync-detail">Agentes rules/no-openai iniciando leitura pública...</small>
+            <a id="learning-open-route" href="/learning" class="hover-target learning-mini-link">abrir /learning</a>
+          </div>
+        </div>
+
+        <div id="learning-alert" class="learning-alert reveal" hidden></div>
+
+        <div class="learning-stats-grid reveal" id="learning-stats-grid">
+          <article class="learning-stat-card skeleton-card"><span>cursos concluídos</span><strong>--</strong><small>certificado público</small></article>
+          <article class="learning-stat-card skeleton-card"><span>horas mapeadas</span><strong>--</strong><small>somatório único</small></article>
+          <article class="learning-stat-card skeleton-card"><span>carreiras iniciadas</span><strong>--</strong><small>progresso estimado</small></article>
+          <article class="learning-stat-card skeleton-card"><span>agentes ativos</span><strong>21</strong><small>zero custo OpenAI</small></article>
+        </div>
+
+        <div class="learning-mode-tabs reveal" role="tablist" aria-label="Modos do Learning OS">
+          <button type="button" class="hover-target learning-mode-tab active" data-learning-tab="overview">Visão executiva</button>
+          <button type="button" class="hover-target learning-mode-tab" data-learning-tab="careers">Carreiras</button>
+          <button type="button" class="hover-target learning-mode-tab" data-learning-tab="courses">Cursos</button>
+          <button type="button" class="hover-target learning-mode-tab" data-learning-tab="agents">Agentes IA</button>
+          <button type="button" class="hover-target learning-mode-tab" data-learning-tab="recruiter">Modo recrutador</button>
+        </div>
+
+        <div class="learning-panel reveal" data-learning-panel="overview">
+          <div class="learning-overview-grid">
+            <article class="learning-card learning-feature-card">
+              <div class="learning-card-topline">
+                <span>next_course_agent</span>
+                <strong id="learning-recommendation-area">calculando</strong>
+              </div>
+              <h3 id="learning-next-course-title">Próximo curso recomendado</h3>
+              <p id="learning-next-course-reason">O agente de recomendação está avaliando lacunas por carreira, impacto técnico e conexão com projetos reais.</p>
+              <small id="learning-next-course-impact">impacto estimado em espera</small>
+            </article>
+
+            <article class="learning-card">
+              <div class="learning-card-topline">
+                <span>skill_radar_agent</span>
+                <strong>competências</strong>
+              </div>
+              <div id="learning-skill-radar" class="learning-bars-list"></div>
+            </article>
+          </div>
+
+          <article class="learning-card mt-6">
+            <div class="learning-card-topline">
+              <span>project_connection_agent</span>
+              <strong>aprendizado → projeto aplicado</strong>
+            </div>
+            <div id="learning-project-map" class="learning-project-grid"></div>
+          </article>
+
+          <article class="learning-card mt-6">
+            <div class="learning-card-topline">
+              <span>timeline_agent</span>
+              <strong>evolução por mês</strong>
+            </div>
+            <div id="learning-timeline" class="learning-timeline-grid"></div>
+          </article>
+        </div>
+
+        <div class="learning-panel reveal hidden" data-learning-panel="careers">
+          <div id="learning-careers-grid" class="learning-careers-grid"></div>
+        </div>
+
+        <div class="learning-panel reveal hidden" data-learning-panel="courses">
+          <div class="learning-table-toolbar">
+            <div class="learning-course-filters" id="learning-course-filters"></div>
+            <input id="learning-course-search" class="learning-search-input" type="search" placeholder="Buscar curso, área ou trilha..." autocomplete="off" />
+          </div>
+
+          <div class="learning-table-shell">
+            <table class="learning-table">
+              <thead>
+                <tr>
+                  <th>Curso</th>
+                  <th>Área</th>
+                  <th>Horas</th>
+                  <th>Conclusão</th>
+                  <th>Certificado</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="learning-courses-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="learning-panel reveal hidden" data-learning-panel="agents">
+          <div class="learning-agents-layout">
+            <article class="learning-card">
+              <div class="learning-card-topline">
+                <span>orchestrator_agent</span>
+                <strong id="learning-agent-health">status</strong>
+              </div>
+              <h3>Agentes IA sem OpenAI key</h3>
+              <p>
+                O núcleo usa regras, normalização, similaridade textual, pontuação, templates inteligentes e rotinas serverless. A camada generativa paga fica desativada por padrão.
+              </p>
+              <div id="learning-agent-summary" class="learning-agent-summary"></div>
+            </article>
+
+            <div id="learning-agents-grid" class="learning-agents-grid"></div>
+          </div>
+        </div>
+
+        <div class="learning-panel reveal hidden" data-learning-panel="recruiter">
+          <div class="learning-overview-grid">
+            <article class="learning-card learning-feature-card">
+              <div class="learning-card-topline">
+                <span>recruiter_mode_agent</span>
+                <strong>resumo profissional</strong>
+              </div>
+              <h3>Resumo para recrutadores e contratantes</h3>
+              <p id="learning-recruiter-summary">Gerando resumo com base nos cursos, carreiras e áreas fortes.</p>
+            </article>
+
+            <article class="learning-card">
+              <div class="learning-card-topline">
+                <span>linkedin_post_agent</span>
+                <strong>template automático</strong>
+              </div>
+              <p id="learning-linkedin-template">O texto para LinkedIn será gerado após a sincronização.</p>
+              <button id="learning-copy-linkedin" type="button" class="hover-target learning-copy-button">Copiar texto</button>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-24 px-6 border-t border-theme-border">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-14 reveal">
+          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
+            / perguntas_frequentes
+          </span>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
+            Dúvidas frequentes antes de iniciar um projeto.
+          </h2>
+
+          <p class="text-theme-text leading-relaxed">
+            Respostas rápidas para entender como funciona a entrega, manutenção, publicação e personalização das soluções.
+          </p>
+        </div>
+
+        <div id="faq-list" class="space-y-4"></div>
+      </div>
+    </section>
+
+    <section id="github" class="py-24 px-6 border-t border-theme-border bg-black/10">
+      <div class="max-w-6xl mx-auto flex flex-col gap-8">
+        <h2 class="font-mono text-2xl text-theme-title mb-4 reveal tracking-widest uppercase">
+          <span class="text-theme-accent">/</span> Dashboard_GitHub
+        </h2>
+
+        <div class="w-full bg-theme-card border border-theme-border p-6 md:p-8 rounded-xl reveal shadow-xl flex flex-col justify-center">
+          <h3 class="font-mono text-theme-text text-[10px] uppercase tracking-widest mb-6 italic">
+            Registro_Commits.log
+          </h3>
+
+          <div class="w-full flex items-center justify-center overflow-x-auto">
+            <img
+              id="github-graph-img"
+              src="https://ghchart.rshah.org/10b981/EoPaiva"
+              alt="Commits GitHub Mateus Paiva"
+              class="w-full h-auto object-contain max-h-[300px]"
+            >
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          <div class="bg-theme-card border border-theme-border p-6 rounded-xl reveal shadow-xl hover:border-theme-accent transition-colors flex flex-col items-center justify-center">
+            <img
+              id="github-streak-img"
+              src="https://github-readme-streak-stats.herokuapp.com/?user=EoPaiva&theme=dark&hide_border=true&background=0f172a&stroke=10b981&ring=10b981&fire=10b981&currStreakNum=10b981&sideLabels=94a3b8&dates=94a3b8"
+              class="w-full h-auto rounded-lg object-contain"
+              alt="GitHub Streak Mateus Paiva"
+            >
+          </div>
+
+          <div class="bg-theme-card border border-theme-border p-6 rounded-xl reveal shadow-xl h-full flex flex-col justify-center">
+            <h3 class="font-mono text-theme-accent text-[11px] font-bold uppercase mb-6 tracking-widest">
+              GitHub Intelligence
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="process-metric">
+                <p class="intel-label">repos públicos</p>
+                <p id="github-repos-count" class="intel-number mt-2">--</p>
+              </div>
+
+              <div class="process-metric">
+                <p class="intel-label">stack dominante</p>
+                <p id="github-top-language" class="text-theme-title font-bold mt-2">sync</p>
+              </div>
+
+              <div class="process-metric col-span-2">
+                <p class="intel-label">último update</p>
+                <p id="github-last-update" class="text-theme-text text-sm mt-2">carregando</p>
+              </div>
+            </div>
+
+            <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover-target inline-flex mt-6 px-6 py-3 bg-theme-accent text-black font-bold rounded uppercase text-xs transition-all hover:scale-105 w-fit">
+              Abrir Repositórios
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="py-24 px-6 border-t border-theme-border">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center md:text-left">
+        <div class="reveal">
+          <h2 class="text-3xl font-bold text-theme-title mb-6">
+            Pronto para transformar uma ideia em solução?
+          </h2>
+
+          <p class="text-base mb-10 text-theme-text leading-relaxed">
+            Disponível para sites profissionais, automações, plataformas, painéis, soluções com IA, RH estratégico e melhoria de processos.
+          </p>
+
+          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+            <a id="contact-whatsapp-button" href="https://wa.me/55035988042182" target="_blank" rel="noopener noreferrer" class="hover-target flex items-center gap-2 px-8 py-4 bg-theme-accent text-black font-bold rounded shadow-lg uppercase text-xs transition-all hover:scale-105">
+              Chamar no WhatsApp
+            </a>
+
+            <a href="mailto:mpaiiva21@gmail.com" class="hover-target flex items-center gap-2 px-8 py-4 border border-theme-border text-theme-title font-bold rounded uppercase text-xs transition-all hover:border-theme-accent">
+              Enviar E-mail
+            </a>
+
+            <a href="perfil-profissional.html" class="hover-target group relative overflow-hidden flex items-center gap-2 px-8 py-4 border border-theme-accent/30 text-theme-accent font-bold rounded uppercase text-xs transition-all hover:bg-theme-accent hover:text-black">
+              <span class="relative z-10">Perfil Profissional</span>
+              <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/25 skew-x-12"></span>
+            </a>
+
+            <button id="btn-copy" class="hover-target px-8 py-4 border border-theme-border text-theme-title font-bold rounded uppercase text-xs transition-all hover:border-theme-accent">
+              <span id="copy-text">Copiar Endereço</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-[#0d1117] border border-slate-800 rounded-lg p-6 font-mono text-[11px] sm:text-xs shadow-2xl reveal text-left">
+          <div class="flex gap-2 mb-4 border-b border-slate-800 pb-4">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+
+          <p class="text-blue-400">const <span class="text-white">mateus_paiva</span> = {</p>
+          <p class="pl-4 mt-1"><span class="text-purple-400">posicionamento:</span> <span class="text-orange-400">"Tech + Pessoas + Estratégia"</span>,</p>
+          <p class="pl-4 mt-1"><span class="text-purple-400">perfil_publico:</span> <span class="text-orange-400">"perfil-profissional.html"</span>,</p>
+          <p class="pl-4 mt-1"><span class="text-purple-400">whatsapp:</span> {</p>
+          <p class="pl-8 text-green-400">mensagem_pre_pronta: true,</p>
+          <p class="pl-8 text-green-400">resposta_estimada: "5min a 1h"</p>
+          <p class="pl-4">},</p>
+          <p class="pl-4 mt-1"><span class="text-purple-400">metodo:</span> ["Diagnóstico", "Mapeamento", "Prototipagem", "Implementação", "Evolução"],</p>
+          <p class="pl-4 mt-1"><span class="text-purple-400">github:</span> {</p>
+          <p class="pl-8 text-green-400">repos_publicos: <span id="code-repos-count">"--"</span>,</p>
+          <p class="pl-8 text-green-400">linguagem_dominante: "<span id="code-top-language">sync</span>"</p>
+          <p class="pl-4">}</p>
+          <p class="text-blue-400">}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-16 border-t border-theme-border bg-black/40">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <div>
+        <a href="#" class="brand-signature brand-signature-footer hover-target mb-4" aria-label="Mateus Paiva">
+          <span class="brand-stack">
+            <span class="brand-topline">
+              <span class="brand-markbox">M</span>
+              <span class="brand-name">
+                PAIVA<span class="brand-underscore">_</span>
+              </span>
+            </span>
+
+            <span class="brand-subtitle">
+              Arquitetura de IA · Desenvolvimento Web · Automação & Gestão Estratégica
+            </span>
+          </span>
+        </a>
+
+        <p class="text-xs text-theme-text leading-relaxed mt-4">
+          Desenvolvimento, automação, IA, estratégia e processos com foco em soluções profissionais.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-theme-title font-bold mb-6 uppercase tracking-widest text-[10px]">Acesso Rápido</h4>
+
+        <ul class="space-y-3 text-xs font-mono text-theme-text">
+          <li><a href="#servicos" class="hover-target hover:text-theme-accent transition-colors">> Serviços</a></li>
+          <li><a href="#cases" class="hover-target hover:text-theme-accent transition-colors">> Cases</a></li>
+          <li><a href="#projetos-producao" class="hover-target hover:text-theme-accent transition-colors">> Projetos em produção</a></li>
+          <li><a href="#processo" class="hover-target hover:text-theme-accent transition-colors">> Processo</a></li>
+          <li><a href="#diferencial" class="hover-target hover:text-theme-accent transition-colors">> Diferencial</a></li>
+          <li><a href="#faq" class="hover-target hover:text-theme-accent transition-colors">> FAQ</a></li>
+          <li><a href="perfil-profissional.html" class="hover-target hover:text-theme-accent transition-colors">> Perfil Profissional</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-theme-title font-bold mb-6 uppercase tracking-widest text-[10px]">Redes Oficiais</h4>
+
+        <div class="flex flex-col gap-4">
+          <a href="https://linkedin.com/in/mateus-paiva-19804b284" target="_blank" rel="noopener noreferrer" class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">LinkedIn</a>
+          <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">GitHub</a>
+          <a id="footer-whatsapp-button" href="https://wa.me/55035988042182" target="_blank" rel="noopener noreferrer" class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">WhatsApp</a>
+          <a href="cv.pdf" download class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">Baixar CV.PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center text-[10px] font-mono tracking-widest uppercase text-theme-text border-t border-theme-border pt-8 mx-6">
+      © 2026 MATEUS PAIVA // LOGIC, PEOPLE & STRATEGY
+    </div>
+  </footer>
+
+  <div id="case-modal" class="case-modal" aria-hidden="true">
+    <div class="case-modal-backdrop" data-close-modal></div>
+
+    <div class="case-modal-panel">
+      <button class="case-modal-close hover-target" type="button" data-close-modal aria-label="Fechar modal">
+        ×
+      </button>
+
+      <span id="modal-category" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]"></span>
+
+      <h2 id="modal-title" class="text-3xl font-bold text-theme-title mt-4 mb-4"></h2>
+
+      <p id="modal-objective" class="text-theme-text leading-relaxed mb-6"></p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="modal-block">
+          <h3>Problema resolvido</h3>
+          <p id="modal-problem"></p>
+        </div>
+
+        <div class="modal-block">
+          <h3>Resultado entregue</h3>
+          <p id="modal-result"></p>
+        </div>
+      </div>
+
+      <div class="modal-block mb-6">
+        <h3>Funcionalidades</h3>
+        <ul id="modal-features" class="space-y-2"></ul>
+      </div>
+
+      <div class="modal-block mb-6">
+        <h3>Tecnologias usadas</h3>
+        <div id="modal-stack" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a id="modal-project-link" href="#" target="_blank" rel="noopener noreferrer" class="hover-target px-6 py-3 bg-theme-accent text-black font-bold rounded uppercase text-xs">
+          Ver Projeto
+        </a>
+
+        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="hover-target px-6 py-3 border border-theme-border text-theme-title font-bold rounded uppercase text-xs">
+          Ver GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.MPAIVA_SUPABASE = {
+      url: "https://mtjfijfuxybuobfohlws.supabase.co",
+      publishableKey: "sb_publishable_UhdYzJkSNyXksKr5nCdRQQ_cFTvT5gO"
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+  <script src="learning-agents.js"></script>
+  <script src="analytics-pro-complete.js"></script>
+</body>
+</html>

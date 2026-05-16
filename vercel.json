@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/learning",
+      "destination": "/index.html"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/learning-sync",
+      "schedule": "17 6 * * *"
+    }
+  ]
+}

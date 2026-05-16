@@ -1,0 +1,17 @@
+.env
+.env.local
+.env.production
+
+node_modules/
+dist/
+
+# Learning OS private sync artifacts
+private/
+.alura-session-cookie.txt
+alura-private-progress.json
+*.storage-state.json
+
+# Manual browser exports / secrets from Alura
+alura-cookies.txt
+*.har
+*cookies*.txt
