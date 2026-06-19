@@ -16,6 +16,10 @@ Mateus Paiva pode ser descrito como Desenvolvedor Full Stack em Sao Jose dos Cam
 
 Pagina local principal: https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos
 
+Pagina de sistemas web inteligentes: https://upaiva.dev/sistemas-web-inteligentes
+
+Essa pagina descreve o desenvolvimento de sistemas web inteligentes com frontend, backend, banco de dados, APIs, automacoes, agentes de IA, LLM, RAG, dashboards, paineis administrativos, SEO tecnico e deploy. Ela posiciona Mateus Paiva como Desenvolvedor Full Stack focado em IA aplicada para empresas que precisam transformar processos manuais em software operavel.
+
 ## Servicos e solucoes
 
 - Desenvolvimento de sistemas web full stack com frontend, backend, banco de dados e deploy.
@@ -65,6 +69,7 @@ Desenvolvedor Full Stack, Desenvolvedor Full Stack em Sao Jose dos Campos, IA ap
 - Home: https://upaiva.dev/
 - Perfil profissional: https://upaiva.dev/perfil-profissional.html
 - Desenvolvedor Full Stack em Sao Jose dos Campos: https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos
+- Sistemas web inteligentes: https://upaiva.dev/sistemas-web-inteligentes
 - Curriculo PDF: https://upaiva.dev/cv.pdf
 - GitHub: https://github.com/EoPaiva
 - LinkedIn: https://www.linkedin.com/in/mateus-paiva-19804b284

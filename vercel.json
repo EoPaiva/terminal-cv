@@ -64,6 +64,10 @@
     {
       "source": "/desenvolvedor-full-stack-sao-jose-dos-campos",
       "destination": "/desenvolvedor-full-stack-sao-jose-dos-campos.html"
+    },
+    {
+      "source": "/sistemas-web-inteligentes",
+      "destination": "/sistemas-web-inteligentes.html"
     }
   ],
   "headers": [

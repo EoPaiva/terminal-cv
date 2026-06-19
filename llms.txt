@@ -7,6 +7,7 @@
 - [Home e servicos](https://upaiva.dev/): posicionamento, solucoes, cases, projetos em producao, processo, diferenciais, FAQ e contato.
 - [Perfil profissional](https://upaiva.dev/perfil-profissional.html): bio, competencias, formacao, trajetoria e frentes de atuacao.
 - [Desenvolvedor Full Stack em Sao Jose dos Campos](https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos): atuacao local/remota, IA aplicada para empresas, automacao, sistemas sob medida, sites com SEO e disponibilidade CLT/PJ/freelancer.
+- [Sistemas web inteligentes](https://upaiva.dev/sistemas-web-inteligentes): desenvolvimento de aplicacoes full stack com frontend, backend, banco de dados, APIs, automacoes, agentes de IA, LLM, RAG, dashboards e SEO tecnico.
 - [Curriculo PDF](https://upaiva.dev/cv.pdf): versao em PDF para download.
 
 ## Resumo de atuacao
