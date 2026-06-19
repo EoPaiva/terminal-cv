@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -30,7 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css?v=20260619-admin-intel-1" />
+  <link rel="stylesheet" href="style.css?v=20260619-admin-ref-1" />
 
   <script>
     tailwind.config = {
@@ -202,142 +202,323 @@
                   12. Logs e segurança
                 </button>
 
+                <button type="button" class="admin-nav-btn" data-admin-tab="changelog">
+                  13. Changelog
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="checklist">
+                  14. Checklist
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="ideas">
+                  15. Ideias futuras
+                </button>
+
                 <button type="button" id="admin-open-project-editor" class="admin-nav-btn admin-nav-action">
                   + Novo Projeto
                 </button>
               </nav>
 
               <div class="admin-sidebar-footer">
+                <article class="admin-profile-card">
+                  <span class="admin-profile-avatar">MP</span>
+                  <div>
+                    <strong>Mateus Paiva</strong>
+                    <small>Desenvolvedor Full Stack<br>IA Aplicada</small>
+                  </div>
+                </article>
+
+                <article class="admin-availability-card">
+                  <span class="admin-live-dot"></span>
+                  <div>
+                    <strong>Disponível para oportunidades</strong>
+                    <small>CLT · PJ · Freelancer · Projetos</small>
+                  </div>
+                </article>
+
                 <button type="button" id="admin-publish-public-site" class="hover-target admin-ghost-button">
                   Sincronizar Site
                 </button>
 
+                <a class="hover-target admin-ghost-button admin-public-link" href="/" target="_blank" rel="noopener">
+                  Ver site público
+                </a>
+
                 <button type="button" id="admin-logout-button" class="hover-target admin-logout-button">
                   Encerrar Sessão
                 </button>
+
+                <small class="admin-copyright">© 2026 M PAIVA_</small>
               </div>
             </aside>
 
             <main class="admin-main">
               <header class="admin-main-header">
                 <div>
-                  <span class="admin-kicker">/ dashboard_integrado</span>
-
                   <h2 id="production-admin-title">
-                    Painel Administrativo MPAIVA_
+                    Visão geral
                   </h2>
 
                   <p>
-                    Gestão dos projetos em produção com autenticação via Supabase Auth.
+                    Resumo executivo do desempenho do seu portfólio
                   </p>
                 </div>
 
-                <div class="admin-session-card">
-                  <span class="pulse-dot"></span>
+                <div class="admin-header-actions">
+                  <button type="button" class="admin-header-chip">
+                    12/06/2026 - 18/06/2026
+                  </button>
 
-                  <div>
-                    <strong id="admin-session-status">Sessão ativa</strong>
-                    <small id="admin-session-email">admin autenticado</small>
+                  <button type="button" class="admin-header-chip">
+                    Comparar com período anterior
+                  </button>
+
+                  <span class="admin-refresh-label">Atualizado há 2 min</span>
+
+                  <div class="admin-session-card">
+                    <span class="pulse-dot"></span>
+
+                    <div>
+                      <strong id="admin-session-status">Sessão ativa</strong>
+                      <small id="admin-session-email">admin autenticado</small>
+                    </div>
                   </div>
                 </div>
               </header>
 
               <section id="admin-tab-overview" class="admin-tab-content active">
-                <div class="admin-command-strip">
-                  <div>
-                    <strong>Centro de inteligência do portfólio</strong>
-                    <span>Analytics, SEO, oportunidades, projetos e evolução do site em um painel privado.</span>
-                  </div>
-
-                  <div class="admin-command-actions">
-                    <button type="button" class="hover-target admin-outline-button" data-admin-tab-shortcut="reports">Gerar relatório</button>
-                    <button type="button" class="hover-target admin-solid-button" data-admin-tab-shortcut="history">Ver histórico</button>
-                  </div>
+                <div class="admin-demo-strip">
+                  <span>Modo demonstração — aguardando dados reais de analytics</span>
+                  <button type="button" class="hover-target" data-admin-tab-shortcut="reports">Novo relatório</button>
                 </div>
 
-                <div class="admin-intel-grid">
-                  <article class="admin-intel-card admin-intel-card-glow">
+                <div class="admin-ref-kpi-grid">
+                  <article class="admin-ref-kpi">
+                    <i>◎</i>
                     <span>Visitas totais</span>
-                    <strong id="admin-total-visits">--</strong>
-                    <small>Sem dados suficientes até sincronizar analytics.</small>
+                    <strong id="admin-total-visits">8.147</strong>
+                    <small><b>▲ 18,6%</b> vs. período anterior</small>
                   </article>
 
-                  <article class="admin-intel-card">
-                    <span>Últimos 7 dias</span>
-                    <strong id="admin-visits-7d">--</strong>
-                    <small>Comparação automática quando houver histórico.</small>
+                  <article class="admin-ref-kpi">
+                    <i>◌</i>
+                    <span>Visitantes únicos</span>
+                    <strong id="admin-visits-7d">5.231</strong>
+                    <small><b>▲ 16,2%</b> vs. período anterior</small>
                   </article>
 
-                  <article class="admin-intel-card">
-                    <span>Últimos 30 dias</span>
-                    <strong id="admin-visits-30d">--</strong>
-                    <small>Janela principal para leitura de crescimento.</small>
-                  </article>
-
-                  <article class="admin-intel-card">
+                  <article class="admin-ref-kpi">
+                    <i>⌁</i>
                     <span>Cliques em CTAs</span>
-                    <strong id="admin-cta-clicks">--</strong>
-                    <small>WhatsApp, currículo, GitHub, LinkedIn e projetos.</small>
+                    <strong id="admin-cta-clicks">432</strong>
+                    <small><b>▲ 24,7%</b> vs. período anterior</small>
                   </article>
 
-                  <article class="admin-intel-card">
-                    <span>Projetos ativos</span>
-                    <strong id="admin-count-projects">--</strong>
-                    <small>Itens publicados no carrossel público.</small>
+                  <article class="admin-ref-kpi">
+                    <i>◉</i>
+                    <span>WhatsApp</span>
+                    <strong>156</strong>
+                    <small><b>▲ 31,8%</b> vs. período anterior</small>
                   </article>
 
-                  <article class="admin-intel-card">
-                    <span>Página mais visitada</span>
-                    <strong id="admin-top-page">--</strong>
-                    <small>Aguardando eventos suficientes.</small>
+                  <article class="admin-ref-kpi">
+                    <i>▤</i>
+                    <span>Currículo</span>
+                    <strong>98</strong>
+                    <small><b>▲ 12,5%</b> vs. período anterior</small>
                   </article>
 
-                  <article class="admin-intel-card">
+                  <article class="admin-ref-kpi">
+                    <i>▣</i>
+                    <span>Oportunidades</span>
+                    <strong>23</strong>
+                    <small><b>▲ 64,3%</b> vs. período anterior</small>
+                  </article>
+
+                  <article class="admin-ref-kpi">
+                    <i>◍</i>
                     <span>Taxa de conversão</span>
-                    <strong id="admin-conversion-rate">--</strong>
-                    <small>Estimativa baseada em cliques de contato.</small>
-                  </article>
-
-                  <article class="admin-intel-card">
-                    <span>Supabase</span>
-                    <strong id="admin-supabase-status">Auth</strong>
-                    <small>Login e leitura protegidos por sessão.</small>
+                    <strong id="admin-conversion-rate">2,81%</strong>
+                    <small><b>▲ 22,1%</b> vs. período anterior</small>
                   </article>
                 </div>
 
-                <div class="admin-dashboard-grid">
-                  <article class="admin-panel-card admin-ai-summary-card">
-                    <div class="admin-card-header">
+                <div class="admin-ref-top-grid">
+                  <article class="admin-ref-card admin-ref-chart-card">
+                    <div class="admin-ref-card-head">
                       <div>
-                        <span class="admin-kicker">/ resumo_inteligente</span>
-                        <h3>Leitura estratégica</h3>
-                        <p id="admin-ai-summary">Sem dados suficientes para uma análise automática. Assim que houver sessões, cliques e origem de tráfego, este bloco passa a sugerir prioridades reais.</p>
+                        <h3>Acessos e cliques ao longo do tempo</h3>
+                        <span><b></b> Visitas <b class="blue"></b> Cliques em CTAs</span>
+                      </div>
+                      <div class="admin-ref-actions">
+                        <button type="button">Últimos 7 dias</button>
+                        <button type="button">⋮</button>
                       </div>
                     </div>
 
-                    <div class="admin-signal-list">
-                      <div><span></span><strong>Status do site</strong><small>Online, admin privado e noindex ativo.</small></div>
-                      <div><span></span><strong>Última atualização</strong><small id="admin-last-update">--</small></div>
-                      <div><span></span><strong>Próxima prioridade</strong><small>Conectar oportunidades reais ao Supabase.</small></div>
+                    <div class="admin-ref-chart-layout">
+                      <div class="admin-ref-linechart" aria-label="Acessos e cliques ao longo do tempo">
+                        <svg viewBox="0 0 720 260" role="img">
+                          <defs>
+                            <linearGradient id="adminVisitsFill" x1="0" x2="0" y1="0" y2="1">
+                              <stop offset="0%" stop-color="#10c89a" stop-opacity="0.35" />
+                              <stop offset="100%" stop-color="#10c89a" stop-opacity="0" />
+                            </linearGradient>
+                          </defs>
+                          <g class="grid">
+                            <path d="M40 20H700M40 70H700M40 120H700M40 170H700M40 220H700" />
+                            <path d="M40 20V220M150 20V220M260 20V220M370 20V220M480 20V220M590 20V220M700 20V220" />
+                          </g>
+                          <path class="area" d="M40 110L150 60L260 114L370 112L480 123L590 105L700 106V220H40Z" />
+                          <path class="visits" d="M40 110L150 60L260 114L370 112L480 123L590 105L700 106" />
+                          <path class="clicks" d="M40 176L150 136L260 156L370 140L480 166L590 158L700 144" />
+                          <g class="dots visits-dots">
+                            <circle cx="40" cy="110" r="4" /><circle cx="150" cy="60" r="4" /><circle cx="260" cy="114" r="4" /><circle cx="370" cy="112" r="4" /><circle cx="480" cy="123" r="4" /><circle cx="590" cy="105" r="4" /><circle cx="700" cy="106" r="4" />
+                          </g>
+                          <g class="dots clicks-dots">
+                            <circle cx="40" cy="176" r="4" /><circle cx="150" cy="136" r="4" /><circle cx="260" cy="156" r="4" /><circle cx="370" cy="140" r="4" /><circle cx="480" cy="166" r="4" /><circle cx="590" cy="158" r="4" /><circle cx="700" cy="144" r="4" />
+                          </g>
+                          <g class="labels">
+                            <text x="28" y="24">1.000</text><text x="28" y="74">800</text><text x="28" y="124">600</text><text x="28" y="174">400</text><text x="34" y="224">0</text>
+                            <text x="30" y="248">12/06</text><text x="140" y="248">13/06</text><text x="250" y="248">14/06</text><text x="360" y="248">15/06</text><text x="470" y="248">16/06</text><text x="580" y="248">17/06</text><text x="690" y="248">18/06</text>
+                          </g>
+                        </svg>
+                      </div>
+                      <aside class="admin-period-summary">
+                        <span>Resumo do período</span>
+                        <strong>8.147 <b>▲ 18,6%</b></strong>
+                        <strong>432 <b>▲ 24,7%</b></strong>
+                        <strong>23 <b>▲ 64,3%</b></strong>
+                        <strong>2,81% <b>▲ 22,1%</b></strong>
+                      </aside>
                     </div>
                   </article>
 
-                  <article class="admin-panel-card">
-                    <div class="admin-card-header">
+                  <article class="admin-ref-card admin-ref-ai-card">
+                    <div class="admin-ref-card-head">
                       <div>
-                        <span class="admin-kicker">/ curva_de_crescimento</span>
-                        <h3>Histórico rápido</h3>
+                        <h3>Resumo inteligente (IA)</h3>
+                        <span>Análise do período: 12/06/2026 - 18/06/2026</span>
                       </div>
+                      <button type="button" class="admin-ref-green-btn" data-admin-tab-shortcut="reports">Novo relatório</button>
                     </div>
 
-                    <div class="admin-mini-bars" aria-label="Histórico de acessos dos últimos dias">
-                      <i style="--h: 24%"></i><i style="--h: 38%"></i><i style="--h: 32%"></i><i style="--h: 56%"></i><i style="--h: 48%"></i><i style="--h: 68%"></i><i style="--h: 44%"></i>
+                    <p id="admin-ai-summary">Nos últimos 7 dias, a página Contrate-me teve aumento de acessos e o CTA de oportunidade CLT/PJ foi o mais clicado. Os projetos relacionados a sistemas web e IA aplicada estão atraindo mais interesse.</p>
+
+                    <div class="admin-insight-list">
+                      <span>Aumento de 18,6% nas visitas totais</span>
+                      <span>WhatsApp teve alta de 31,8% nos cliques</span>
+                      <span>2 novas oportunidades de alto potencial identificadas</span>
+                      <span>SEO orgânico trouxe 65% do tráfego total</span>
                     </div>
-                    <p class="admin-muted-note">Visual preparado. Dados reais serão exibidos quando houver volume suficiente no analytics.</p>
+
+                    <button type="button" class="admin-ref-full-btn" data-admin-tab-shortcut="reports">Ver relatório completo →</button>
                   </article>
                 </div>
 
-                <div class="admin-actions-grid admin-actions-grid-wide">
+                <div class="admin-ref-mid-grid">
+                  <article class="admin-ref-card">
+                    <div class="admin-ref-card-head">
+                      <h3>Oportunidades <span>(Kanban)</span></h3>
+                      <button type="button" data-admin-tab-shortcut="opportunities">Ver todas</button>
+                    </div>
+
+                    <div class="admin-ref-kanban">
+                      <section data-tone="blue">
+                        <header>Novas <b>5</b></header>
+                        <div><strong>Empresa Tech Solutions</strong><small>Desenvolvedor Full Stack<br>CLT · São Paulo · SP</small><em>Alta</em></div>
+                        <div><strong>Startup Inovação</strong><small>Desenvolvedor IA<br>PJ · Remoto</small><em>Média</em></div>
+                        <div><strong>Agência Digital Pro</strong><small>Freelancer Full Stack<br>Projeto · Remoto</small><em>Média</em></div>
+                      </section>
+                      <section data-tone="yellow">
+                        <header>Em conversa <b>6</b></header>
+                        <div><strong>Indústria Alpha</strong><small>Tech Lead<br>CLT · Híbrido</small><em>Alta</em></div>
+                        <div><strong>Sistema Beta</strong><small>Desenvolvedor Backend<br>PJ · Remoto</small><em>Média</em></div>
+                      </section>
+                      <section data-tone="purple">
+                        <header>Proposta enviada <b>4</b></header>
+                        <div><strong>Fintech Global</strong><small>Desenvolvedor Full Stack<br>CLT · Remoto</small><em>Alta</em></div>
+                        <div><strong>HealthTech Solutions</strong><small>Desenvolvedor IA<br>PJ · Remoto</small><em>Média</em></div>
+                      </section>
+                      <section data-tone="cyan">
+                        <header>Aguardando resposta <b>3</b></header>
+                        <div><strong>E-commerce Plus</strong><small>Tech Lead<br>CLT · São Paulo · SP</small><em>Alta</em></div>
+                        <div><strong>EduTech Learning</strong><small>Desenvolvedor Full Stack<br>Projeto · Remoto</small><em>Média</em></div>
+                      </section>
+                    </div>
+                  </article>
+
+                  <article class="admin-ref-card">
+                    <div class="admin-ref-card-head">
+                      <h3>SEO e tráfego orgânico</h3>
+                      <button type="button" data-admin-tab-shortcut="seo">Ver detalhes</button>
+                    </div>
+
+                    <div class="admin-ref-seo-kpis">
+                      <div><span>SEO Score</span><strong>82<small>/100</small></strong><em>Bom</em></div>
+                      <div><span>Páginas indexáveis</span><strong>87</strong><em>▲ 5</em></div>
+                      <div><span>Tráfego orgânico</span><strong>5.298</strong><em>▲ 23,4%</em></div>
+                      <div><span>Palavras-chave</span><strong>256</strong><em>▲ 12</em></div>
+                      <div><span>Backlinks</span><strong>142</strong><em>▲ 8</em></div>
+                    </div>
+
+                    <div class="admin-ref-seo-tables">
+                      <div>
+                        <strong>Top páginas orgânicas</strong>
+                        <span>1 / <b>2.134 ▲ 15,2%</b></span>
+                        <span>2 /projetos <b>1.287 ▲ 18,9%</b></span>
+                        <span>3 /contrate-me <b>842 ▲ 31,1%</b></span>
+                        <span>4 /sobre <b>512 ▲ 6,3%</b></span>
+                      </div>
+                      <div>
+                        <strong>Principais palavras-chave</strong>
+                        <span>desenvolvedor full stack <b>1.245 ▲ 18,1%</b></span>
+                        <span>full stack sao jose dos campos <b>623 ▲ 24,3%</b></span>
+                        <span>ia aplicada para empresas <b>512 ▲ 31,2%</b></span>
+                        <span>automacao de processos <b>412 ▲ 15,7%</b></span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="admin-ref-bottom-grid">
+                  <article class="admin-ref-card">
+                    <div class="admin-ref-card-head">
+                      <h3>Funil de conversão <span>(visão geral)</span></h3>
+                    </div>
+
+                    <div class="admin-ref-funnel">
+                      <div><i>◎</i><span>Visitantes</span><strong>8.147</strong><small>47,2%</small></div>
+                      <div><i>⌁</i><span>Cliques em CTA</span><strong>3.847</strong><small>12,5%</small></div>
+                      <div><i>◌</i><span>Interações</span><strong>481</strong><small>4,8%</small></div>
+                      <div><i>◉</i><span>Conversões</span><strong>23</strong></div>
+                      <aside><span>Taxa de conversão</span><strong>2,81%</strong><small>▲ 22,1% vs. período anterior</small></aside>
+                    </div>
+                  </article>
+
+                  <article class="admin-ref-card">
+                    <div class="admin-ref-card-head">
+                      <h3>Alertas recentes</h3>
+                      <button type="button" data-admin-tab-shortcut="alerts">Ver todos</button>
+                    </div>
+
+                    <div class="admin-ref-alerts">
+                      <div><i>△</i><strong>Queda de acessos orgânicos</strong><span>Hoje, 09:41</span><em>Média</em><small>Redução de 28% nas visitas orgânicas da página /projetos</small></div>
+                      <div><i>⊗</i><strong>Imagem pesada detectada</strong><span>Ontem, 18:22</span><em class="high">Alta</em><small>Imagem 3d-hero.webp está com 2.4MB</small></div>
+                      <div><i>△</i><strong>Meta description ausente</strong><span>Ontem, 12:15</span><em>Média</em><small>Página /sistemas-web-inteligentes está sem meta description</small></div>
+                    </div>
+                  </article>
+                </div>
+
+                <footer class="admin-ref-statusbar">
+                  <div><i></i><span>Status do site</span><strong>Online</strong></div>
+                  <div><i></i><span>Uptime</span><strong>99,98% <small>últimos 30 dias</small></strong></div>
+                  <div><i></i><span>Último deploy</span><strong>v2.8.6 <small>Hoje, 07:32</small></strong></div>
+                  <div><i></i><span>Ambiente</span><strong>Produção <small>Vercel</small></strong></div>
+                  <div><i></i><span>Próximo relatório IA</span><strong>Amanhã, 08:00 <small>Relatório diário</small></strong></div>
+                </footer>
+
+                <div class="admin-actions-grid admin-actions-grid-wide admin-ref-hidden-actions">
                   <button type="button" id="admin-action-new-project" class="hover-target admin-solid-button">Novo Projeto</button>
                   <button type="button" id="admin-action-export" class="hover-target admin-outline-button">Exportar JSON</button>
                   <button type="button" id="admin-action-reset" class="hover-target admin-danger-outline-button">Resetar Local</button>
@@ -656,6 +837,55 @@
                   </article>
                 </div>
               </section>
+
+              <section id="admin-tab-changelog" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ changelog</span>
+                    <h3>Changelog do painel</h3>
+                    <p>Registro das melhorias visuais, segurança, analytics e SEO aplicadas ao portfólio.</p>
+                  </div>
+                </div>
+
+                <div class="admin-alert-list">
+                  <article><span class="admin-priority low">v2.8.6</span><strong>Centro de inteligência full page</strong><small>Dashboard premium com KPIs, gráfico, kanban, SEO, funil e alertas.</small></article>
+                  <article><span class="admin-priority low">v2.8.5</span><strong>Analytics restaurado</strong><small>Script de analytics carregado no admin e cache-bust aplicado.</small></article>
+                </div>
+              </section>
+
+              <section id="admin-tab-checklist" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ checklist</span>
+                    <h3>Checklist operacional</h3>
+                    <p>Rotina de revisão para manter o site seguro, indexável e pronto para oportunidades.</p>
+                  </div>
+                </div>
+
+                <div class="admin-check-list">
+                  <span data-ok="true">Verificar analytics e conversões semanalmente</span>
+                  <span data-ok="true">Revisar SEO técnico após mudanças de conteúdo</span>
+                  <span data-ok="warn">Conectar oportunidades a uma tabela protegida no Supabase</span>
+                  <span data-ok="warn">Automatizar relatórios reais com backend seguro</span>
+                </div>
+              </section>
+
+              <section id="admin-tab-ideas" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ ideias_futuras</span>
+                    <h3>Ideias futuras</h3>
+                    <p>Backlog estratégico para evoluir o painel como produto interno.</p>
+                  </div>
+                </div>
+
+                <div class="admin-kanban">
+                  <article><strong>IA</strong><div class="admin-empty-mini">Relatórios automáticos com dados reais e recomendações por prioridade.</div></article>
+                  <article><strong>CRM</strong><div class="admin-empty-mini">Pipeline completo de oportunidades com histórico e próximos passos.</div></article>
+                  <article><strong>SEO</strong><div class="admin-empty-mini">Integração futura com Search Console para páginas e palavras-chave.</div></article>
+                  <article><strong>Segurança</strong><div class="admin-empty-mini">Auditoria de login, rate limit e alertas por IP incomum.</div></article>
+                </div>
+              </section>
             </main>
           </div>
         </div>
@@ -735,7 +965,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js?v=20260619-admin-intel-1"></script>
-  <script src="analytics-pro-complete.js?v=20260619-admin-intel-1"></script>
+  <script src="script.js?v=20260619-admin-ref-1"></script>
+  <script src="analytics-pro-complete.js?v=20260619-admin-ref-1"></script>
 </body>
 </html>
