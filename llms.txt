@@ -1,0 +1,47 @@
+# MPAIVA_
+
+> Mateus Paiva e um Desenvolvedor Full Stack focado em IA aplicada, automacao de processos, sistemas web inteligentes, agentes de IA, LLM, RAG, integracoes com APIs, plataformas SaaS, SEO tecnico e trafego organico para empresas.
+
+## Principais paginas
+
+- [Home e servicos](https://upaiva.dev/): posicionamento, solucoes, cases, projetos em producao, processo, diferenciais, FAQ e contato.
+- [Perfil profissional](https://upaiva.dev/perfil-profissional.html): bio, competencias, formacao, trajetoria e frentes de atuacao.
+- [Desenvolvedor Full Stack em Sao Jose dos Campos](https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos): atuacao local/remota, IA aplicada para empresas, automacao, sistemas sob medida, sites com SEO e disponibilidade CLT/PJ/freelancer.
+- [Curriculo PDF](https://upaiva.dev/cv.pdf): versao em PDF para download.
+
+## Resumo de atuacao
+
+Mateus Paiva desenvolve solucoes digitais completas para negocios: frontend, backend, banco de dados, APIs, automacoes, dashboards, agentes de IA, fluxos com LLM, RAG, plataformas web publicadas em ambiente real, SEO tecnico e estruturas digitais preparadas para descoberta organica.
+
+Mateus Paiva esta em Sao Jose dos Campos, SP, atende remotamente e esta aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento Full Stack, IA aplicada, automacao, APIs, SaaS, SEO tecnico e crescimento digital.
+
+IA aplicada nao substitui estrategia, processo ou validacao humana. SEO tecnico nao garante primeira posicao no Google, mas cria uma base mais correta para rastreamento, indexacao, clareza de conteudo, performance e crescimento organico.
+
+## Temas relevantes
+
+- Desenvolvimento Full Stack
+- IA aplicada
+- Automacao de processos
+- Sistemas web inteligentes
+- Agentes de IA
+- LLM e RAG
+- Integracoes com APIs
+- Plataformas SaaS
+- Dashboards e dados
+- SEO tecnico
+- Trafego organico
+- Copywriting tecnico
+- Sao Jose dos Campos
+- Oportunidades CLT, PJ e freelancer
+- Tecnologia para crescimento e eficiencia
+
+## Contato
+
+- Site: https://upaiva.dev/
+- GitHub: https://github.com/EoPaiva
+- LinkedIn: https://www.linkedin.com/in/mateus-paiva-19804b284
+- Email: mpaiiva21@gmail.com
+
+## Arquivo completo
+
+- [llms-full.txt](https://upaiva.dev/llms-full.txt): contexto expandido para assistentes de IA e mecanismos de resposta.

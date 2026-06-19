@@ -1,6 +1,20 @@
 "use strict";
 
 module.exports = async function handler(req, res) {
+  if (req.method && req.method !== "GET") {
+    res.statusCode = 405;
+    res.setHeader("Allow", "GET");
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.end(JSON.stringify({ ok: false, error: "METHOD_NOT_ALLOWED" }));
+    return;
+  }
+
+  const hasPrivateCredential =
+    Boolean(process.env.ALURA_EMAIL && process.env.ALURA_PASSWORD) ||
+    Boolean(process.env.ALURA_SESSION_COOKIE) ||
+    Boolean(process.env.ALURA_PRIVATE_PROGRESS_JSON);
+  const hasDashboardCredential = Boolean(process.env.ALURA_DASHBOARD_API_URL || process.env.ALURA_DASHBOARD_API_TOKEN);
+
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
   res.statusCode = 200;
@@ -13,19 +27,14 @@ module.exports = async function handler(req, res) {
     agents: 21,
     privateSync: {
       enabled: process.env.ALURA_PRIVATE_SYNC === "true",
-      authMode: process.env.ALURA_AUTH_MODE || "cookie-or-json",
-      hasSessionCookie: Boolean(process.env.ALURA_SESSION_COOKIE),
-      hasPrivateJson: Boolean(process.env.ALURA_PRIVATE_PROGRESS_JSON),
-      hasEmail: Boolean(process.env.ALURA_EMAIL),
-      hasPassword: Boolean(process.env.ALURA_PASSWORD),
-      hasCredentialsEnv: Boolean(process.env.ALURA_EMAIL && process.env.ALURA_PASSWORD),
+      configured: hasPrivateCredential,
+      status: hasPrivateCredential ? "configured" : "not_configured",
       secretExposed: false
     },
     dashboardApi: {
-      enabled: Boolean(process.env.ALURA_DASHBOARD_API_URL || process.env.ALURA_DASHBOARD_API_TOKEN),
-      hasUrl: Boolean(process.env.ALURA_DASHBOARD_API_URL),
-      hasToken: Boolean(process.env.ALURA_DASHBOARD_API_TOKEN),
-      status: (process.env.ALURA_DASHBOARD_API_URL || process.env.ALURA_DASHBOARD_API_TOKEN) ? "configured" : "not_configured",
+      enabled: hasDashboardCredential,
+      configured: hasDashboardCredential,
+      status: hasDashboardCredential ? "configured" : "not_configured",
       secretExposed: false
     },
     profileCertificates: {
@@ -35,9 +44,9 @@ module.exports = async function handler(req, res) {
       status: "fallback_ready"
     },
     performanceSync: {
-      enabled: process.env.ALURA_PRIVATE_SYNC === "true" || Boolean(process.env.ALURA_DASHBOARD_API_URL || process.env.ALURA_DASHBOARD_API_TOKEN),
-      available: Boolean(process.env.ALURA_DASHBOARD_API_URL || process.env.ALURA_DASHBOARD_API_TOKEN) || Boolean(process.env.ALURA_EMAIL && process.env.ALURA_PASSWORD) || Boolean(process.env.ALURA_SESSION_COOKIE) || Boolean(process.env.ALURA_PRIVATE_PROGRESS_JSON),
-      source: (process.env.ALURA_DASHBOARD_API_URL || process.env.ALURA_DASHBOARD_API_TOKEN) ? "dashboard-api" : "private-dashboard",
+      enabled: process.env.ALURA_PRIVATE_SYNC === "true" || hasDashboardCredential,
+      available: hasDashboardCredential || hasPrivateCredential,
+      source: hasDashboardCredential ? "dashboard-api" : "private-dashboard",
       expectedMetrics: [
         "ranking30Days",
         "points",

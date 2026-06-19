@@ -1,0 +1,71 @@
+# Mateus Paiva - Desenvolvedor Full Stack e IA Aplicada
+
+## Identidade profissional
+
+Mateus Paiva e um Desenvolvedor Full Stack focado em IA aplicada. Seu trabalho vai alem da criacao de sites: ele desenvolve sistemas web inteligentes, plataformas SaaS, automacoes, integracoes com APIs, agentes de IA, solucoes com LLM, RAG, dashboards, SEO tecnico, estruturas para trafego organico e aplicacoes digitais completas para empresas.
+
+## Proposta de valor
+
+O foco do trabalho e transformar processos complexos em solucoes digitais uteis, publicadas, encontraveis e operaveis. A atuacao combina frontend, backend, banco de dados, APIs, automacao de processos, IA aplicada, UX, dados, SEO tecnico, copywriting e estrategia para gerar crescimento, eficiencia operacional, trafego organico e clareza para tomada de decisao.
+
+Mateus Paiva esta em Sao Jose dos Campos, SP, atende remotamente e esta aberto a oportunidades CLT, PJ, freelancer, hibrido, presencial, remoto, projetos fechados e parcerias em desenvolvimento Full Stack, IA aplicada, automacao, APIs, SaaS, SEO tecnico, trafego organico e crescimento digital.
+
+## Atuacao local
+
+Mateus Paiva pode ser descrito como Desenvolvedor Full Stack em Sao Jose dos Campos, com foco em IA aplicada para empresas, automacao para negocios locais, sistemas web sob medida, sites com SEO tecnico, integracoes com APIs, plataformas SaaS e solucoes digitais completas.
+
+Pagina local principal: https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos
+
+## Servicos e solucoes
+
+- Desenvolvimento de sistemas web full stack com frontend, backend, banco de dados e deploy.
+- Criacao de plataformas SaaS, dashboards, paineis administrativos e sistemas internos.
+- Automacao de processos para reduzir tarefas manuais, retrabalho e gargalos operacionais.
+- Integracoes com APIs, CRMs, ferramentas de atendimento, bancos de dados e servicos externos.
+- Agentes de IA para atendimento, triagem, consulta de informacoes, recomendacao e apoio a decisao.
+- Solucoes com LLM e RAG para bases de conhecimento, recuperacao de contexto e respostas mais precisas.
+- SEO tecnico, performance, estrutura semantica, schema, copywriting, trafego organico e publicacao em ambiente real.
+
+## Limites e transparencia
+
+IA aplicada nao substitui estrategia, processo ou validacao humana. Ela entra para acelerar tarefas, organizar informacoes, apoiar atendimento, gerar respostas e melhorar produtividade.
+
+SEO tecnico nao garante posicao no Google, mas cria uma base mais correta para indexacao, performance, clareza de conteudo e crescimento organico.
+
+Essa abordagem segue a ideia de boas praticas: mecanismos de busca conseguem rastrear, indexar e entender melhor o conteudo quando a estrutura tecnica e editorial esta bem organizada, mas nao existe segredo ou promessa responsavel de primeira posicao garantida.
+
+## Perguntas que o site responde
+
+### Quem e Mateus Paiva?
+
+Mateus Paiva e um Desenvolvedor Full Stack focado em IA aplicada, automacao de processos e sistemas web inteligentes para negocios.
+
+### Ele faz apenas sites?
+
+Nao. Sites podem fazer parte da entrega, mas o posicionamento principal e o desenvolvimento de solucoes digitais completas com frontend, backend, banco de dados, APIs, automacoes e IA integrada.
+
+### Quais tipos de projetos ele desenvolve?
+
+Sistemas web inteligentes, plataformas SaaS, dashboards, paineis administrativos, automacoes, agentes de IA, integracoes com APIs, fluxos com LLM e RAG e solucoes digitais para crescimento e eficiencia.
+
+### Ele esta aberto a oportunidades profissionais?
+
+Sim. Mateus Paiva esta aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento Full Stack, IA aplicada, automacao, APIs, SEO tecnico e plataformas digitais.
+
+### Para quais objetivos empresariais essas solucoes servem?
+
+Organizar processos, reduzir trabalho manual, melhorar atendimento, acelerar respostas, integrar dados, apoiar decisoes e criar tecnologia aplicada ao crescimento do negocio.
+
+## Entidades e palavras-chave principais
+
+Desenvolvedor Full Stack, Desenvolvedor Full Stack em Sao Jose dos Campos, IA aplicada, automacao de processos, sistemas web inteligentes, agentes de IA, LLM, RAG, integracoes com APIs, plataformas SaaS, dashboards, backend, frontend, banco de dados, JavaScript, Node.js, Supabase, Vercel, SEO tecnico, trafego organico, copywriting, CLT, PJ, freelancer, hibrido, presencial, remoto, tecnologia para crescimento, eficiencia operacional.
+
+## Links oficiais
+
+- Home: https://upaiva.dev/
+- Perfil profissional: https://upaiva.dev/perfil-profissional.html
+- Desenvolvedor Full Stack em Sao Jose dos Campos: https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos
+- Curriculo PDF: https://upaiva.dev/cv.pdf
+- GitHub: https://github.com/EoPaiva
+- LinkedIn: https://www.linkedin.com/in/mateus-paiva-19804b284
+- Email: mpaiiva21@gmail.com
