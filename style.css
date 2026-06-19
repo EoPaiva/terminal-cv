@@ -1200,6 +1200,43 @@ body.case-modal-open .case-modal-backdrop {
   line-height: 1.75;
 }
 
+.ai-answer-card-cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 2.65rem;
+  margin-top: 1.15rem;
+  padding: 0 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 42%, var(--border-color));
+  border-radius: 0.7rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 16%, transparent), rgba(2, 6, 23, 0.52));
+  color: var(--title-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.ai-answer-card-cta::after {
+  content: "↗";
+  color: var(--accent-color);
+  font-size: 0.78rem;
+}
+
+.ai-answer-card-cta:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent-color) 70%, var(--border-color));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 28%, transparent), rgba(2, 6, 23, 0.58));
+}
+
 .ai-answer-card h3::after,
 .transparency-card h3::after {
   content: "";
