@@ -30,7 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css?v=20260619-admin-content-1" />
+  <link rel="stylesheet" href="style.css?v=20260619-audit-agent-1" />
 
   <script>
     tailwind.config = {
@@ -182,36 +182,44 @@
                   07. Conteúdo com IA
                 </button>
 
+                <button type="button" class="admin-nav-btn" data-admin-tab="audit-agent">
+                  08. Agente Auditor IA
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="commercial-intel">
+                  09. Inteligência comercial
+                </button>
+
                 <button type="button" class="admin-nav-btn" data-admin-tab="funnel">
-                  08. Funil
+                  10. Funil
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="performance">
-                  09. Performance
+                  11. Performance
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="alerts">
-                  10. Alertas
+                  12. Alertas
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="settings">
-                  11. Configurações
+                  13. Configurações
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="security">
-                  12. Logs e segurança
+                  14. Logs e segurança
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="changelog">
-                  13. Changelog
+                  15. Changelog
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="checklist">
-                  14. Checklist
+                  16. Checklist
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="ideas">
-                  15. Ideias futuras
+                  17. Ideias futuras
                 </button>
 
                 <button type="button" id="admin-open-project-editor" class="admin-nav-btn admin-nav-action">
@@ -812,6 +820,209 @@
                 </div>
               </section>
 
+              <section id="admin-tab-audit-agent" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ agente_auditor_ia</span>
+                    <h3>Agente Auditor IA</h3>
+                    <p>Consultor técnico, visual e estratégico para revisar site, SEO, conversão, segurança, carreira, copywriting e próximos passos.</p>
+                  </div>
+                </div>
+
+                <div class="admin-audit-shell">
+                  <article class="admin-panel-card admin-audit-hero">
+                    <div class="admin-audit-orb" aria-hidden="true">
+                      <span></span>
+                      <strong>QA</strong>
+                    </div>
+
+                    <div>
+                      <span class="admin-kicker">/ site_intelligence</span>
+                      <h4>Auditoria contínua do upaiva.dev</h4>
+                      <p>Analisa comunicação, UI/UX, SEO técnico, performance, acessibilidade, segurança, portfólio profissional e oportunidades CLT/PJ/freelancer.</p>
+                    </div>
+
+                    <div class="admin-audit-safe-mode">
+                      <strong>Modo seguro</strong>
+                      <small>LLM real somente via backend/API route. Nenhuma chave de IA no frontend.</small>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-audit-actions-card">
+                    <div class="admin-audit-actions">
+                      <button type="button" class="hover-target admin-solid-button" data-audit-action="full">Auditoria completa</button>
+                      <button type="button" class="hover-target admin-outline-button" data-audit-action="seo">SEO técnico</button>
+                      <button type="button" class="hover-target admin-outline-button" data-audit-action="ux">UI/UX</button>
+                      <button type="button" class="hover-target admin-outline-button" data-audit-action="conversion">Conversão</button>
+                      <button type="button" class="hover-target admin-outline-button" data-audit-action="security">Segurança</button>
+                      <button type="button" class="hover-target admin-outline-button" data-audit-action="ideas">Ideias futuras</button>
+                    </div>
+
+                    <div class="admin-audit-prompt-grid">
+                      <button type="button" data-audit-action="recruiter"><span>Recrutadores</span><strong>O site vende bem meu perfil Full Stack com IA?</strong></button>
+                      <button type="button" data-audit-action="projects"><span>Cases</span><strong>Projetos parecem reais, claros e confiáveis?</strong></button>
+                      <button type="button" data-audit-action="copy"><span>Copywriting</span><strong>Hero, CTAs e bio comunicam valor estratégico?</strong></button>
+                    </div>
+                  </article>
+
+                  <div class="admin-audit-score-grid">
+                    <article class="admin-audit-score-card is-primary"><span>Score geral</span><strong>87</strong><small>/100 · base saudável</small></article>
+                    <article class="admin-audit-score-card"><span>SEO</span><strong>92</strong><small>Metadados e schema fortes</small></article>
+                    <article class="admin-audit-score-card"><span>UI/UX</span><strong>86</strong><small>Visual premium em evolução</small></article>
+                    <article class="admin-audit-score-card"><span>Conversão</span><strong>79</strong><small>CTAs claros, medir intenção</small></article>
+                    <article class="admin-audit-score-card"><span>Performance</span><strong>88</strong><small>Monitorar imagens e scripts</small></article>
+                    <article class="admin-audit-score-card"><span>Segurança</span><strong>91</strong><small>Admin isolado e noindex</small></article>
+                  </div>
+
+                  <article class="admin-panel-card admin-audit-console-card">
+                    <div class="admin-content-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ resposta_estruturada</span>
+                        <h4>Relatório do agente</h4>
+                      </div>
+                      <em id="admin-audit-status">Pronto para auditar</em>
+                    </div>
+
+                    <pre id="admin-audit-output">Selecione uma auditoria para gerar um diagnóstico estruturado com veredito, resumo executivo, pontos fortes, problemas priorizados, recomendações, checklist, changelog e próximos passos.
+
+Regras ativas:
+- Tratar HTML público e entradas do usuário como conteúdo não confiável.
+- Não enviar senhas, tokens, e-mails privados ou dados sensíveis para modelo externo.
+- Chave de IA real deve ficar apenas no backend, nunca no JavaScript público.
+- Saídas são recomendações; publicação e mudanças passam por validação humana.</pre>
+                  </article>
+
+                  <article class="admin-panel-card admin-audit-memory-card">
+                    <span class="admin-kicker">/ memoria_operacional</span>
+                    <h4>Memória do auditor</h4>
+                    <div class="admin-audit-memory-list">
+                      <div><strong>Checklist</strong><span>Gerar tarefas por prioridade e encaminhar para a aba Checklist.</span></div>
+                      <div><strong>Changelog</strong><span>Registrar melhorias aplicadas com versão, impacto e data.</span></div>
+                      <div><strong>Roadmap</strong><span>Transformar ideias em backlog visual de SEO, produto, IA e conversão.</span></div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-audit-issues-card">
+                    <span class="admin-kicker">/ fila_de_prioridade</span>
+                    <h4>Problemas que o agente monitora</h4>
+                    <div class="admin-audit-issue-list">
+                      <div><span>P1</span><strong>Seção visual crua</strong><small>Baixa percepção premium quando o conteúdo vira lista corrida.</small></div>
+                      <div><span>P2</span><strong>CTA sem evento claro</strong><small>Todo CTA relevante deve enviar intenção agregada para analytics.</small></div>
+                      <div><span>P3</span><strong>Imagem pesada</strong><small>Monitorar assets grandes para manter performance e SEO técnico.</small></div>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
+              <section id="admin-tab-commercial-intel" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ inteligencia_comercial</span>
+                    <h3>Inteligência comercial</h3>
+                    <p>Radar de intenção, campanhas, heatmap por seção, resumo diário e linha do tempo de sinais comerciais do portfólio.</p>
+                  </div>
+                </div>
+
+                <div class="admin-commerce-shell">
+                  <article class="admin-panel-card admin-commerce-command">
+                    <div>
+                      <span class="admin-kicker">/ resumo_diario_ia</span>
+                      <h4>Leitura executiva</h4>
+                      <p>O site mostra sinais mais fortes em IA aplicada, projetos publicados e CTAs de contato. Campanhas com UTM podem ser comparadas por origem, página e intenção.</p>
+                    </div>
+
+                    <button type="button" class="hover-target admin-solid-button" id="admin-refresh-commercial-summary">Atualizar resumo</button>
+                  </article>
+
+                  <div class="admin-commerce-kpis">
+                    <article><span>Intenção alta</span><strong>12</strong><small>sessões com sinal comercial</small></article>
+                    <article><span>Campanhas</span><strong>4</strong><small>origens UTM monitoráveis</small></article>
+                    <article><span>Seção quente</span><strong>Projetos</strong><small>maior intenção de prova</small></article>
+                    <article><span>Privacidade</span><strong>Ativa</strong><small>eventos agregados, sem replay</small></article>
+                  </div>
+
+                  <article class="admin-panel-card admin-intent-radar-card">
+                    <div class="admin-content-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ radar_de_intencao</span>
+                        <h4>Leads e oportunidades prováveis</h4>
+                      </div>
+                      <em>Agregado</em>
+                    </div>
+
+                    <div class="admin-intent-list">
+                      <div><span class="admin-intent-score high">92</span><strong>Visitante comparou projetos e abriu WhatsApp</strong><small>Interesse em sistemas web inteligentes · prioridade alta</small></div>
+                      <div><span class="admin-intent-score medium">74</span><strong>Origem LinkedIn acessou currículo e página Contrate-me</strong><small>Sinal de recrutamento CLT/PJ · prioridade média</small></div>
+                      <div><span class="admin-intent-score medium">68</span><strong>Busca orgânica entrou por IA aplicada em empresas</strong><small>Possível cliente para automação ou agente de IA</small></div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-heatmap-card">
+                    <div class="admin-content-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ heatmap_por_secao</span>
+                        <h4>Mapa de calor do conteúdo</h4>
+                      </div>
+                      <em>Sem gravação de tela</em>
+                    </div>
+
+                    <div class="admin-heatmap-list">
+                      <div style="--heat: 92%"><span>Hero Full Stack + IA</span><strong>92%</strong><b></b></div>
+                      <div style="--heat: 84%"><span>Projetos e cases</span><strong>84%</strong><b></b></div>
+                      <div style="--heat: 76%"><span>Contrate-me</span><strong>76%</strong><b></b></div>
+                      <div style="--heat: 61%"><span>SEO local São José dos Campos</span><strong>61%</strong><b></b></div>
+                      <div style="--heat: 48%"><span>Limites e transparência</span><strong>48%</strong><b></b></div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-campaign-card">
+                    <div class="admin-content-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ campanhas</span>
+                        <h4>Comparador UTM</h4>
+                      </div>
+                      <em>Fonte segura</em>
+                    </div>
+
+                    <div class="admin-campaign-table">
+                      <div><strong>Campanha</strong><strong>Origem</strong><strong>Intenção</strong><strong>CTA</strong></div>
+                      <div><span>linkedin-portfolio</span><span>LinkedIn</span><span>Alta</span><span>WhatsApp</span></div>
+                      <div><span>seo-fullstack-sjc</span><span>Google</span><span>Média</span><span>Projetos</span></div>
+                      <div><span>ia-aplicada-empresas</span><span>Busca orgânica</span><span>Alta</span><span>Contrate-me</span></div>
+                      <div><span>freelancer-pj</span><span>Direto</span><span>Média</span><span>Currículo</span></div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-commerce-timeline-card">
+                    <div class="admin-content-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ linha_do_tempo</span>
+                        <h4>Eventos comerciais</h4>
+                      </div>
+                      <em>Últimos sinais</em>
+                    </div>
+
+                    <div class="admin-commerce-timeline">
+                      <div><time>09:41</time><strong>CTA WhatsApp</strong><span>Visitante com intenção alta após ver projetos.</span></div>
+                      <div><time>10:18</time><strong>Currículo</strong><span>Acesso vindo de LinkedIn com possível perfil recrutador.</span></div>
+                      <div><time>12:06</time><strong>SEO local</strong><span>Entrada por termo relacionado a Full Stack em São José dos Campos.</span></div>
+                      <div><time>14:32</time><strong>Agente IA</strong><span>Interesse em automação, LLM e RAG para negócios.</span></div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-privacy-guard-card">
+                    <span class="admin-kicker">/ privacidade</span>
+                    <h4>Limites de coleta</h4>
+                    <div class="admin-check-list">
+                      <span data-ok="true">Sem gravação de tela ou sessão</span>
+                      <span data-ok="true">Sem captura de senhas, campos sensíveis ou textos privados</span>
+                      <span data-ok="true">Sem fingerprint invasivo, GPS ou identificação pessoal</span>
+                      <span data-ok="true">Eventos agregados: seção, CTA, origem, UTM e performance</span>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
               <section id="admin-tab-funnel" class="admin-tab-content">
                 <div class="admin-card-header admin-section-header">
                   <div>
@@ -938,6 +1149,7 @@
                 </div>
 
                 <div class="admin-alert-list">
+                  <article><span class="admin-priority low">v2.9.0</span><strong>Agente Auditor IA e inteligência comercial</strong><small>Nova auditoria estruturada, radar de intenção, heatmap, campanhas, privacidade e timeline comercial.</small></article>
                   <article><span class="admin-priority low">v2.8.6</span><strong>Centro de inteligência full page</strong><small>Dashboard premium com KPIs, gráfico, kanban, SEO, funil e alertas.</small></article>
                   <article><span class="admin-priority low">v2.8.5</span><strong>Analytics restaurado</strong><small>Script de analytics carregado no admin e cache-bust aplicado.</small></article>
                 </div>
@@ -955,6 +1167,7 @@
                 <div class="admin-check-list">
                   <span data-ok="true">Verificar analytics e conversões semanalmente</span>
                   <span data-ok="true">Revisar SEO técnico após mudanças de conteúdo</span>
+                  <span data-ok="true">Rodar Agente Auditor IA antes de publicar grandes alterações</span>
                   <span data-ok="warn">Conectar oportunidades a uma tabela protegida no Supabase</span>
                   <span data-ok="warn">Automatizar relatórios reais com backend seguro</span>
                 </div>
@@ -974,6 +1187,7 @@
                   <article><strong>CRM</strong><div class="admin-empty-mini">Pipeline completo de oportunidades com histórico e próximos passos.</div></article>
                   <article><strong>SEO</strong><div class="admin-empty-mini">Integração futura com Search Console para páginas e palavras-chave.</div></article>
                   <article><strong>Segurança</strong><div class="admin-empty-mini">Auditoria de login, rate limit e alertas por IP incomum.</div></article>
+                  <article><strong>Auditor IA</strong><div class="admin-empty-mini">Persistir auditorias, checklist, changelog e roadmap em banco protegido.</div></article>
                 </div>
               </section>
             </main>
@@ -1055,7 +1269,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js?v=20260619-admin-content-1"></script>
-  <script src="analytics-pro-complete.js?v=20260619-admin-content-1"></script>
+  <script src="script.js?v=20260619-audit-agent-1"></script>
+  <script src="analytics-pro-complete.js?v=20260619-audit-agent-1"></script>
 </body>
 </html>

@@ -4286,6 +4286,568 @@ body.case-modal-open .case-modal-backdrop {
   }
 }
 
+.admin-audit-shell,
+.admin-commerce-shell {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.admin-audit-hero,
+.admin-commerce-command {
+  position: relative;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  overflow: hidden;
+  border-color: rgba(16, 200, 154, 0.3);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(16, 200, 154, 0.2), transparent 30%),
+    radial-gradient(circle at 88% 0%, rgba(47, 128, 255, 0.13), transparent 34%),
+    linear-gradient(145deg, rgba(9, 22, 41, 0.98), rgba(2, 8, 20, 0.96));
+}
+
+.admin-audit-hero::before,
+.admin-commerce-command::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(16, 200, 154, 0.08), transparent 36%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 100% 2.35rem;
+  opacity: 0.8;
+}
+
+.admin-audit-hero > *,
+.admin-commerce-command > * {
+  position: relative;
+}
+
+.admin-audit-orb {
+  position: relative;
+  width: 4.4rem;
+  height: 4.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.5), transparent 20%),
+    conic-gradient(from 180deg, #10c89a, #2f80ff, #7c3aed, #10c89a);
+  box-shadow: 0 22px 55px rgba(16, 200, 154, 0.22);
+}
+
+.admin-audit-orb span {
+  position: absolute;
+  inset: -0.45rem;
+  border: 1px solid rgba(16, 200, 154, 0.32);
+  border-radius: inherit;
+  animation: adminAuditOrbit 3s ease-in-out infinite;
+}
+
+.admin-audit-orb strong {
+  color: #03111f;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.admin-audit-hero h4,
+.admin-commerce-command h4,
+.admin-audit-memory-card h4,
+.admin-audit-issues-card h4,
+.admin-intent-radar-card h4,
+.admin-heatmap-card h4,
+.admin-campaign-card h4,
+.admin-commerce-timeline-card h4,
+.admin-privacy-guard-card h4 {
+  margin-top: 0.25rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+.admin-audit-hero p,
+.admin-commerce-command p {
+  max-width: 760px;
+  margin-top: 0.4rem;
+  color: #9fb0c7;
+  line-height: 1.55;
+}
+
+.admin-audit-safe-mode {
+  display: grid;
+  gap: 0.2rem;
+  width: min(260px, 100%);
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(16, 200, 154, 0.25);
+  border-radius: 0.9rem;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.admin-audit-safe-mode strong {
+  color: #7cf4d2;
+  font-size: 0.78rem;
+}
+
+.admin-audit-safe-mode small {
+  color: #9fb0c7;
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.admin-audit-actions-card {
+  grid-column: span 5;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.admin-audit-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.admin-audit-actions button {
+  min-height: 2.85rem;
+  border-radius: 0.72rem;
+}
+
+.admin-audit-prompt-grid {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.admin-audit-prompt-grid button {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(75, 103, 138, 0.42);
+  border-radius: 0.78rem;
+  background:
+    linear-gradient(90deg, rgba(16, 200, 154, 0.08), transparent),
+    rgba(3, 10, 24, 0.55);
+  text-align: left;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.admin-audit-prompt-grid button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(16, 200, 154, 0.55);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.admin-audit-prompt-grid span {
+  color: #16d9a7;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.admin-audit-prompt-grid strong {
+  color: #dce8f8;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.admin-audit-score-grid {
+  grid-column: span 7;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.admin-audit-score-card,
+.admin-commerce-kpis article {
+  position: relative;
+  overflow: hidden;
+  min-height: 8.2rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(75, 103, 138, 0.42);
+  border-radius: 0.95rem;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(16, 200, 154, 0.14), transparent 44%),
+    rgba(7, 18, 35, 0.72);
+}
+
+.admin-audit-score-card::after,
+.admin-commerce-kpis article::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.75rem;
+  height: 0.22rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10c89a, rgba(47, 128, 255, 0.7), transparent);
+  opacity: 0.7;
+}
+
+.admin-audit-score-card.is-primary {
+  border-color: rgba(16, 200, 154, 0.55);
+  background:
+    radial-gradient(circle at 80% 0%, rgba(16, 200, 154, 0.24), transparent 48%),
+    linear-gradient(145deg, rgba(8, 34, 43, 0.9), rgba(5, 14, 29, 0.96));
+}
+
+.admin-audit-score-card span,
+.admin-commerce-kpis span {
+  color: #9fb0c7;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.admin-audit-score-card strong,
+.admin-commerce-kpis strong {
+  display: block;
+  margin-top: 0.7rem;
+  color: #ffffff;
+  font-size: clamp(1.55rem, 2vw, 2.25rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.admin-audit-score-card small,
+.admin-commerce-kpis small {
+  display: block;
+  margin-top: 0.45rem;
+  color: #9fb0c7;
+  font-size: 0.72rem;
+}
+
+.admin-audit-console-card {
+  grid-column: span 8;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  border-color: rgba(16, 200, 154, 0.25);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(16, 200, 154, 0.13), transparent 34%),
+    linear-gradient(145deg, rgba(9, 22, 41, 0.96), rgba(3, 9, 22, 0.98));
+}
+
+.admin-audit-console-card pre {
+  flex: 1;
+  min-height: 420px;
+  max-height: 64vh;
+  overflow: auto;
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(rgba(16, 200, 154, 0.035) 1px, transparent 1px) 0 0 / 100% 2rem,
+    rgba(2, 7, 18, 0.72);
+  color: #d8e6f8;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.admin-audit-memory-card,
+.admin-audit-issues-card {
+  grid-column: span 4;
+}
+
+.admin-audit-memory-list,
+.admin-audit-issue-list,
+.admin-intent-list,
+.admin-commerce-timeline {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+}
+
+.admin-audit-memory-list div,
+.admin-audit-issue-list div,
+.admin-intent-list div {
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(75, 103, 138, 0.38);
+  border-radius: 0.75rem;
+  background: rgba(3, 10, 24, 0.5);
+}
+
+.admin-audit-memory-list strong,
+.admin-audit-issue-list strong,
+.admin-intent-list strong {
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+.admin-audit-memory-list span,
+.admin-audit-issue-list small,
+.admin-intent-list small {
+  color: #9fb0c7;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.admin-audit-issue-list div {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+}
+
+.admin-audit-issue-list span {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.6rem;
+  background: rgba(16, 200, 154, 0.12);
+  color: #7cf4d2;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.admin-commerce-command .admin-solid-button {
+  min-width: 170px;
+  border-radius: 0.75rem;
+}
+
+.admin-commerce-kpis {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.admin-intent-radar-card,
+.admin-heatmap-card {
+  grid-column: span 6;
+}
+
+.admin-campaign-card,
+.admin-commerce-timeline-card {
+  grid-column: span 6;
+}
+
+.admin-privacy-guard-card {
+  grid-column: 1 / -1;
+}
+
+.admin-intent-list div {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.admin-intent-score {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 900;
+}
+
+.admin-intent-score.high {
+  background: radial-gradient(circle, #10c89a, rgba(16, 200, 154, 0.18));
+}
+
+.admin-intent-score.medium {
+  background: radial-gradient(circle, #2f80ff, rgba(47, 128, 255, 0.18));
+}
+
+.admin-heatmap-list {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.admin-heatmap-list div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 0.8rem;
+  align-items: center;
+}
+
+.admin-heatmap-list span {
+  color: #dce8f8;
+  font-size: 0.78rem;
+}
+
+.admin-heatmap-list strong {
+  color: #7cf4d2;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+}
+
+.admin-heatmap-list b {
+  grid-column: 1 / -1;
+  height: 0.55rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(75, 103, 138, 0.28);
+}
+
+.admin-heatmap-list b::before {
+  content: "";
+  display: block;
+  width: var(--heat);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #10c89a, #2f80ff);
+  box-shadow: 0 0 22px rgba(16, 200, 154, 0.34);
+  animation: adminHeatGrow 0.9s ease both;
+}
+
+.admin-campaign-table {
+  display: grid;
+  margin-top: 0.8rem;
+  overflow: hidden;
+  border: 1px solid rgba(75, 103, 138, 0.34);
+  border-radius: 0.8rem;
+}
+
+.admin-campaign-table div {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.7fr 0.8fr;
+  gap: 0.65rem;
+  padding: 0.72rem 0.8rem;
+  border-bottom: 1px solid rgba(75, 103, 138, 0.24);
+  color: #b8c7df;
+  font-size: 0.74rem;
+}
+
+.admin-campaign-table div:first-child {
+  background: rgba(16, 200, 154, 0.08);
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-campaign-table div:last-child {
+  border-bottom: 0;
+}
+
+.admin-campaign-table span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-commerce-timeline {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.admin-commerce-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.26rem;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 1px;
+  background: linear-gradient(#10c89a, rgba(47, 128, 255, 0.2));
+}
+
+.admin-commerce-timeline div {
+  position: relative;
+  display: grid;
+  gap: 0.22rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(75, 103, 138, 0.34);
+  border-radius: 0.75rem;
+  background: rgba(3, 10, 24, 0.52);
+}
+
+.admin-commerce-timeline div::before {
+  content: "";
+  position: absolute;
+  left: -1.02rem;
+  top: 0.85rem;
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 50%;
+  background: #10c89a;
+  box-shadow: 0 0 0 4px rgba(16, 200, 154, 0.12);
+}
+
+.admin-commerce-timeline time {
+  color: #7cf4d2;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+}
+
+.admin-commerce-timeline strong {
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+.admin-commerce-timeline span {
+  color: #9fb0c7;
+  font-size: 0.72rem;
+  line-height: 1.42;
+}
+
+@keyframes adminAuditOrbit {
+  0%, 100% {
+    opacity: 0.48;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: rotate(6deg) scale(1.08);
+  }
+}
+
+@keyframes adminHeatGrow {
+  from {
+    width: 0;
+  }
+}
+
+@media (max-width: 1180px) {
+  .admin-audit-actions-card,
+  .admin-audit-score-grid,
+  .admin-audit-console-card,
+  .admin-audit-memory-card,
+  .admin-audit-issues-card,
+  .admin-intent-radar-card,
+  .admin-heatmap-card,
+  .admin-campaign-card,
+  .admin-commerce-timeline-card {
+    grid-column: 1 / -1;
+  }
+
+  .admin-audit-score-grid,
+  .admin-commerce-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-audit-hero,
+  .admin-commerce-command {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-audit-actions,
+  .admin-audit-score-grid,
+  .admin-commerce-kpis,
+  .admin-campaign-table div {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-audit-console-card {
+    min-height: 0;
+  }
+
+  .admin-audit-console-card pre {
+    min-height: 300px;
+  }
+}
+
 .admin-table-card {
   margin-bottom: 1rem;
   padding: 1rem;

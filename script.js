@@ -2823,6 +2823,98 @@
     }
   }
 
+  function getAdminAuditMarkdown(type = "full") {
+    const auditMap = {
+      full: {
+        title: "Auditoria completa do upaiva.dev",
+        verdict: "Site forte para posicionamento Full Stack com IA aplicada, com boa base técnica, SEO e percepção premium. A prioridade agora é medir melhor intenção comercial e transformar recomendações em checklist contínuo.",
+        focus: "comunicação, UI/UX, SEO, conversão, performance, segurança, acessibilidade, carreira e produto"
+      },
+      seo: {
+        title: "Auditoria de SEO técnico e pesquisa por IA",
+        verdict: "A estrutura semântica está consistente. O ganho incremental vem de páginas por intenção, dados estruturados, links internos e monitoramento de termos locais e IA aplicada.",
+        focus: "title, meta description, headings, schema, sitemap, robots, URLs, conteúdo por intenção e entidades"
+      },
+      ux: {
+        title: "Auditoria visual e UI/UX",
+        verdict: "O visual dark premium funciona quando os blocos têm hierarquia, cards, estados e microinterações. Evitar listas longas e texto corrido é essencial para manter percepção profissional.",
+        focus: "layout, densidade, responsividade, contraste, ritmo visual, cards e microinterações"
+      },
+      conversion: {
+        title: "Auditoria de conversão",
+        verdict: "Os CTAs estão claros, mas cada rota precisa comunicar próximo passo e intenção: projeto, oportunidade CLT/PJ, automação, agente de IA ou sistema sob medida.",
+        focus: "CTAs, funil, fricção, prova, proposta de valor e eventos de contato"
+      },
+      security: {
+        title: "Auditoria de segurança e privacidade",
+        verdict: "O admin deve permanecer fora do HTML público, com noindex, autenticação real e sem segredos no frontend. Dados de analytics devem ser agregados e não invasivos.",
+        focus: "admin privado, noindex, autenticação, headers, dados sensíveis, tokens, cookies e prompt injection"
+      },
+      ideas: {
+        title: "Ideias futuras e roadmap",
+        verdict: "O painel pode evoluir para um centro operacional com auditorias versionadas, relatórios reais via backend, checklist automático e radar comercial integrado ao analytics.",
+        focus: "roadmap, backlog, experimentos, agentes, dashboards e automações"
+      },
+      recruiter: {
+        title: "Leitura para recrutadores",
+        verdict: "A mensagem deve deixar evidente que Mateus Paiva não é apenas desenvolvedor web: é Full Stack focado em IA aplicada, automação, APIs, SaaS e sistemas para negócios.",
+        focus: "bio, carreira, senioridade percebida, clareza CLT/PJ, projetos e stack"
+      },
+      projects: {
+        title: "Auditoria de projetos e cases",
+        verdict: "Projetos precisam parecer cases reais com problema, solução, stack, impacto, link, aprendizados e papel exercido. Isso aumenta confiança e valor profissional.",
+        focus: "cases, evidências, impacto, screenshots, links, contexto e resultados"
+      },
+      copy: {
+        title: "Auditoria de copywriting",
+        verdict: "A copy deve trocar linguagem genérica por proposta específica: sistemas web inteligentes, agentes de IA, RAG, automações, integrações e eficiência operacional.",
+        focus: "hero, subtítulos, CTAs, bio, benefícios, palavras-chave e tom profissional"
+      }
+    };
+
+    const audit = auditMap[type] || auditMap.full;
+
+    return [
+      `# ${audit.title}`,
+      "",
+      "## Veredito",
+      audit.verdict,
+      "",
+      "## Resumo executivo",
+      `Foco analisado: ${audit.focus}. A base atual está pronta para evoluir como produto interno: cada recomendação deve virar tarefa, changelog ou experimento mensurável.`,
+      "",
+      "## Pontos fortes",
+      "- Posicionamento atualizado para Desenvolvedor Full Stack com IA aplicada.",
+      "- Admin separado do HTML público, com noindex e autenticação antes do painel.",
+      "- SEO técnico com sitemap, robots, Open Graph, schema e páginas por intenção.",
+      "- Visual dark premium consistente nos modulos recentes.",
+      "",
+      "## Problemas priorizados",
+      "AUD-001 | Local: seções novas | Impacto: percepção premium | Prioridade: Alta | Evidência: listas longas reduzem escaneabilidade | Correção: transformar texto em cards, grids, estados e microinterações.",
+      "AUD-002 | Local: CTAs | Impacto: conversão | Prioridade: Média | Evidência: intenção comercial precisa ser agregada por evento | Correção: mapear CTA, origem, seção e UTM sem dados sensíveis.",
+      "AUD-003 | Local: IA real | Impacto: segurança | Prioridade: Alta | Evidência: chave LLM nunca pode ir ao frontend | Correção: usar backend/API route, sanitizar contexto e registrar prompts.",
+      "",
+      "## Recomendacoes",
+      "- Criar auditorias versionadas com status: novo, em andamento, aplicado e validado.",
+      "- Sincronizar saídas do agente com Checklist, Changelog e Ideias futuras.",
+      "- Priorizar páginas de alta intenção: contratação, IA aplicada, automação, sistemas sob medida e SEO local.",
+      "- Manter avisos de transparência: SEO não garante posição, IA não substitui validação humana.",
+      "",
+      "## Checklist gerado",
+      "- [ ] Revisar uma seção pública por semana.",
+      "- [ ] Conferir CTAs e links após cada deploy.",
+      "- [ ] Registrar melhoria aplicada no changelog.",
+      "- [ ] Rodar auditoria de SEO técnico antes de publicar nova página.",
+      "- [ ] Validar performance de imagens e scripts.",
+      "",
+      "## Proximos passos",
+      "1. Conectar a chamada LLM a uma rota backend protegida.",
+      "2. Persistir auditorias no banco com RLS.",
+      "3. Gerar tarefas automaticamente para Checklist, Changelog e Roadmap.",
+      "4. Cruzar auditoria com dados reais de analytics e campanhas UTM."
+    ].join("\n");
+  }
+
   function bindAdminIntelligenceControls() {
     const bindClickOnce = (selector, handler) => {
       const element = $(selector);
@@ -2918,6 +3010,21 @@
       ].join("\n"));
       setAdminTemporaryStatus("Rascunho criado");
     });
+
+    $$("[data-audit-action]").forEach((button) => {
+      if (button.dataset.boundAuditAction) return;
+      button.dataset.boundAuditAction = "true";
+      button.addEventListener("click", () => {
+        const type = button.dataset.auditAction || "full";
+        setText("admin-audit-output", getAdminAuditMarkdown(type));
+        setText("admin-audit-status", "Auditoria gerada");
+        setAdminTemporaryStatus("Auditoria IA preparada");
+      });
+    });
+
+    bindClickOnce("#admin-refresh-commercial-summary", () => {
+      setAdminTemporaryStatus("Resumo comercial atualizado");
+    });
   }
 
   function initAdminIntelligenceCenter() {
@@ -2945,6 +3052,8 @@
       projects: ["Projetos e cases", "Gerencie projetos publicados, descrições e destaques"],
       seo: ["SEO e tráfego orgânico", "Monitore estrutura técnica, conteúdo e intenção de busca"],
       content: ["Conteúdo com IA", "Crie rascunhos, posts, FAQs, CTAs e mensagens estratégicas"],
+      "audit-agent": ["Agente Auditor IA", "Audite site, SEO, UI/UX, conversão, segurança e roadmap com IA"],
+      "commercial-intel": ["Inteligência comercial", "Radar de intenção, campanhas, heatmap e timeline comercial"],
       funnel: ["Funil de conversão", "Entenda como visitantes avançam até contato e oportunidade"],
       performance: ["Performance", "Monitore qualidade técnica, scripts, imagens e rotas"],
       alerts: ["Alertas", "Acompanhe sinais críticos, riscos e ações recomendadas"],
