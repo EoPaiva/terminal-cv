@@ -306,18 +306,6 @@
     if (!grid) return;
 
     const summary = data.summary || {};
-    const performance = data.performance || data.privateProgress?.performance || {};
-    const duration = data.source?.durationMs || 0;
-    const syncDate = formatDateTime(data.source?.syncedAt).split(",")[0];
-    const privateStatus = privateStatusLabel(summary.privateSyncStatus || data.privateProgress?.status);
-    const performanceStatus = performanceStatusLabel(performance.status || summary.performanceSyncStatus);
-
-    const dashboardApi = data.dashboardApi || data.source?.dashboardApi || {};
-    const publicSourceLabel = sourceStatusLabel(data.source?.sourceStatus);
-    const dashboardLabel = dashboardApiLabel(dashboardApi, summary);
-    const metricsSource = performance.source === "dashboard-api" ? "dashboard-api" : (hasPerformanceData(performance) ? "privado" : "em espera");
-    const paidAiLabel = summary.noOpenAiCost ? "não usada" : "externa";
-
     const groups = [
       {
         title: "Resumo Learning OS",
@@ -329,30 +317,6 @@
           { label: "em andamento", value: formatMetric(summary.coursesInProgress ?? 0), detail: `${formatInteger(summary.officialCareersMapped ?? 0)} carreira(s) oficial(is)`, tone: Number(summary.coursesInProgress || 0) ? "strong" : "muted" },
           { label: "agentes ativos", value: formatMetric(data.agents?.length ?? 21), detail: summary.noOpenAiCost ? "sem OpenAI pago" : "provider externo", tone: "strong" },
           { label: "área mais forte", value: summary.strongestArea || "em análise", detail: "radar automático", tone: "strong" }
-        ]
-      },
-      {
-        title: "Performance Alura",
-        subtitle: performanceStatus,
-        items: [
-          { label: "ranking 30 dias", value: formatMetric(performance.ranking30Days, { kind: "ranking", empty: "em espera" }), detail: "desempenho recente", tone: isAvailable(performance.ranking30Days) ? "strong" : "muted" },
-          { label: "pontos acumulados", value: formatMetric(performance.points, { empty: "em espera" }), detail: "pontuação Alura", tone: isAvailable(performance.points) ? "strong" : "muted" },
-          { label: "cursos na Alura", value: formatMetric(performance.completedCoursesDashboard, { empty: "em espera" }), detail: "dashboard logado", tone: isAvailable(performance.completedCoursesDashboard) ? "strong" : "muted" },
-          { label: "exercícios", value: formatMetric(performance.resolvedExercises, { empty: "em espera" }), detail: "prática resolvida", tone: isAvailable(performance.resolvedExercises) ? "strong" : "muted" },
-          { label: "tópicos fórum", value: formatMetric(performance.resolvedForumTopics, { empty: "em espera" }), detail: "resoluções no fórum", tone: isAvailable(performance.resolvedForumTopics) ? "strong" : "muted" },
-          { label: "posts fórum", value: formatMetric(performance.forumPosts, { empty: "em espera" }), detail: "participação", tone: isAvailable(performance.forumPosts) ? "strong" : "muted" }
-        ]
-      },
-      {
-        title: "Status operacional",
-        subtitle: "serverless protegido",
-        items: [
-          { label: "fonte pública", value: publicSourceLabel, detail: "certificado público", tone: publicSourceLabel === "online" ? "strong" : "muted" },
-          { label: "sync privado", value: privateStatus, detail: "credenciais no servidor", tone: privateStatus.includes("ativo") || privateStatus.includes("login") ? "strong" : "muted" },
-          { label: "API Dashboard", value: dashboardLabel, detail: summary.profileCertificateLinks ? `${formatInteger(summary.profileCertificateLinks)} certificados reais` : (dashboardApi.hasToken || summary.dashboardApiEnabled ? "token protegido" : "fonte opcional"), tone: ["conectada", "configurada", "fallback privado"].includes(dashboardLabel) ? "strong" : "muted" },
-          { label: "métricas", value: metricsSource, detail: "performance Alura", tone: metricsSource !== "em espera" ? "strong" : "muted" },
-          { label: "serverless", value: "protegido", detail: `${formatInteger(duration)}ms na última sync`, tone: "strong" },
-          { label: "IA paga", value: paidAiLabel, detail: "rules/no-openai", tone: summary.noOpenAiCost ? "strong" : "muted" }
         ]
       }
     ];
@@ -593,7 +557,6 @@
     AluraDashboardApiAgent: ["Leitor da API Dashboard", "Usa a API Dashboard para buscar slugs oficiais, progresso e performance."],
     CareerDiscoveryAgent: ["Mapeador de Rotas", "Identifica carreiras, formações e rotas de especialização."],
     PrivateProgressAgent: ["Sincronizador Privado", "Busca dados privados quando há fonte protegida no servidor."],
-    AluraPerformanceAgent: ["Performance Alura", "Lê ranking, pontos, cursos e exercícios quando disponíveis."],
     CourseNormalizerAgent: ["Organizador de Cursos", "Padroniza nomes e remove duplicidades."],
     CourseClassifierAgent: ["Classificador de Áreas", "Separa cursos por Tech, IA, Dados, RH, Liderança e Gestão."],
     CareerMatcherAgent: ["Comparador de Progresso", "Compara o que foi concluído com o que falta."],

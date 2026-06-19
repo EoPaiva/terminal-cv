@@ -1,15 +1,15 @@
 <div align="center">
 
-<img src="./assets/readme-cover.png" alt="MPAIVA_ — Arquitetura de IA, Desenvolvimento Web, Automação e Gestão Estratégica" width="100%">
+<img src="./assets/readme-cover.png" alt="MPAIVA_ — Desenvolvedor Full Stack, IA Aplicada, Automação e SEO Técnico" width="100%">
 
 <br><br>
 
 <h1>MPAIVA_</h1>
 
-<h3>Portfólio profissional com IA, automação, desenvolvimento web, gestão estratégica e analytics próprio.</h3>
+<h3>Portfólio profissional de Desenvolvedor Full Stack com IA aplicada, automação, sistemas web inteligentes, SEO técnico e analytics próprio.</h3>
 
 <p>
-  Uma experiência digital criada para apresentar perfil profissional, projetos reais, serviços, cases, painel administrativo e inteligência de visitas em tempo real.
+  Uma experiência digital criada para apresentar perfil profissional, projetos reais, sistemas full stack, agentes de IA, automações, integrações com APIs e soluções digitais completas.
 </p>
 
 <p>
@@ -135,7 +135,7 @@ acesso aberto, responsivo e direto
         ↓
 
 MODOS DINÂMICOS
-conteúdo adaptado para Tech, RH e Cliente
+conteúdo adaptado para Tech, Contrate-me e Cliente
 
         ↓
 
@@ -167,7 +167,7 @@ A proposta é evitar uma apresentação genérica e entregar uma leitura mais ad
 
 <div align="center">
 
-<img src="./assets/readme-modes.svg" alt="Modos Tech, RH e Cliente do projeto MPAIVA_" width="100%">
+<img src="./assets/readme-modes.svg" alt="Modos Tech, Contrate-me e Cliente do projeto MPAIVA_" width="100%">
 
 </div>
 
@@ -183,12 +183,12 @@ Entrega      Leitura técnica, cases, stack, lógica, projetos e integrações
 
 ---
 
-### ▰ MODO RH
+### ▰ CONTRATE-ME
 
 ```txt
-Destino      Recrutadores, gestores, empresas e pessoas avaliando perfil
-Foco         Trajetória, comunicação, gestão, processos, operação e análise
-Entrega      Perfil híbrido entre tecnologia, pessoas, execução e estratégia
+Destino      Recrutadores, empresas, clientes e parceiros avaliando contratação
+Foco         Full Stack, IA aplicada, automação, APIs, SaaS, SEO técnico e entrega
+Entrega      Prova técnica, posicionamento profissional e caminhos de contato
 ```
 
 ---
@@ -223,7 +223,7 @@ Entrega      Sites, landing pages, automações, dashboards e processo de entreg
                     ↓
 ┌──────────────────────────────────────────────┐
 │ EXPERIÊNCIA DINÂMICA                         │
-│ modos Tech, RH e Cliente                     │
+│ modos Tech, Contrate-me e Cliente            │
 └──────────────────────────────────────────────┘
                     ↓
 ┌──────────────────────────────────────────────┐
@@ -1014,7 +1014,7 @@ Todos os direitos reservados.
 
 ### Mateus Paiva
 
-**Arquitetura de IA · Desenvolvimento Web · Automação · Gestão Estratégica**
+**Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico**
 
 <a href="https://upaiva.dev/">Site</a>
 ·

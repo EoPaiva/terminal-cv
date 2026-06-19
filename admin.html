@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin | MPAIVA_</title>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive" />
+  <meta name="theme-color" content="#020617" />
+  <meta name="msapplication-TileColor" content="#020617" />
+
+  <link rel="canonical" href="https://upaiva.dev/admin" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"JetBrains Mono"', "monospace"],
+            sans: ["Inter", "sans-serif"]
+          },
+          colors: {
+            theme: {
+              bg: "var(--bg-color)",
+              card: "var(--card-color)",
+              border: "var(--border-color)",
+              accent: "var(--accent-color)",
+              text: "var(--text-color)",
+              title: "var(--title-color)"
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body
+  id="main-body"
+  class="admin-route bg-theme-bg text-theme-text font-sans selection:bg-theme-accent selection:text-black"
+  data-admin-page="true"
+  data-supabase-url="https://mtjfijfuxybuobfohlws.supabase.co"
+  data-supabase-key="sb_publishable_UhdYzJkSNyXksKr5nCdRQQ_cFTvT5gO"
+>
+  <main class="admin-route-shell">
+    <div
+      id="production-admin-panel"
+      class="production-admin-panel open"
+      aria-hidden="false"
+    >
+      <div class="production-admin-backdrop"></div>
+
+      <div class="production-admin-dialog admin-integrated-dialog" role="dialog" aria-modal="true" aria-labelledby="production-admin-title">
+        <button
+          type="button"
+          class="hover-target production-admin-close"
+          aria-label="Voltar ao site"
+          data-production-admin-close
+        >
+          x
+        </button>
+
+        <div id="admin-login-view" class="admin-view admin-view-active">
+          <div class="admin-login-shell">
+            <div class="admin-login-brand">
+              <span class="admin-kicker">/ secure_admin</span>
+
+              <div class="admin-login-logo">
+                <span class="admin-login-mark">M</span>
+                <span class="admin-login-name">PAIVA<span>_</span></span>
+              </div>
+
+              <p class="admin-login-subtitle">
+                Full Stack · IA Aplicada · Automação & Plataformas SaaS
+              </p>
+            </div>
+
+            <div class="admin-security-badge">
+              <span class="pulse-dot"></span>
+              <span>Acesso exclusivo a administradores</span>
+            </div>
+
+            <form id="production-admin-login-form" class="production-admin-form admin-login-form">
+              <div>
+                <label for="production-admin-email">E-mail administrativo</label>
+                <input
+                  id="production-admin-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="admin@upaiva.dev"
+                  required
+                >
+              </div>
+
+              <div>
+                <label for="production-admin-password">Senha</label>
+                <input
+                  id="production-admin-password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder="••••••••"
+                  required
+                >
+              </div>
+
+              <button id="admin-login-submit" type="submit" class="hover-target">
+                Autenticar Acesso
+              </button>
+
+              <p id="admin-login-feedback" class="admin-feedback" aria-live="polite"></p>
+            </form>
+
+            <div class="production-admin-next">
+              <p>
+                A área administrativa usa Supabase Auth e não é indexada por mecanismos de busca.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="admin-dashboard-view" class="admin-view">
+          <div class="admin-dashboard-layout">
+            <aside class="admin-sidebar">
+              <div class="admin-sidebar-brand">
+                <div class="admin-mini-logo">
+                  <span>M</span>
+                  <strong>PAIVA_</strong>
+                </div>
+
+                <p>Admin Engine</p>
+              </div>
+
+              <nav class="admin-nav">
+                <button type="button" class="admin-nav-btn active-tab" data-admin-tab="overview">
+                  01. Overview
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="projects">
+                  02. Projetos
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="messages">
+                  03. Mensagens
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="settings">
+                  04. Configurações
+                </button>
+
+                <button type="button" id="admin-open-project-editor" class="admin-nav-btn admin-nav-action">
+                  + Novo Projeto
+                </button>
+              </nav>
+
+              <div class="admin-sidebar-footer">
+                <button type="button" id="admin-publish-public-site" class="hover-target admin-ghost-button">
+                  Sincronizar Site
+                </button>
+
+                <button type="button" id="admin-logout-button" class="hover-target admin-logout-button">
+                  Encerrar Sessão
+                </button>
+              </div>
+            </aside>
+
+            <main class="admin-main">
+              <header class="admin-main-header">
+                <div>
+                  <span class="admin-kicker">/ dashboard_integrado</span>
+
+                  <h2 id="production-admin-title">
+                    Painel Administrativo MPAIVA_
+                  </h2>
+
+                  <p>
+                    Gestão dos projetos em produção com autenticação via Supabase Auth.
+                  </p>
+                </div>
+
+                <div class="admin-session-card">
+                  <span class="pulse-dot"></span>
+
+                  <div>
+                    <strong id="admin-session-status">Sessão ativa</strong>
+                    <small id="admin-session-email">admin autenticado</small>
+                  </div>
+                </div>
+              </header>
+
+              <section id="admin-tab-overview" class="admin-tab-content active">
+                <div class="admin-metrics-grid">
+                  <article class="admin-metric-card">
+                    <span>Projetos</span>
+                    <strong id="admin-count-projects">--</strong>
+                    <small>itens no carrossel</small>
+                  </article>
+
+                  <article class="admin-metric-card">
+                    <span>Modo atual</span>
+                    <strong id="admin-current-mode">TECH</strong>
+                    <small>tema público ativo</small>
+                  </article>
+
+                  <article class="admin-metric-card">
+                    <span>Storage</span>
+                    <strong>Local</strong>
+                    <small>backup no navegador</small>
+                  </article>
+
+                  <article class="admin-metric-card">
+                    <span>Supabase</span>
+                    <strong id="admin-supabase-status">Auth</strong>
+                    <small>login integrado</small>
+                  </article>
+                </div>
+
+                <div class="admin-two-columns">
+                  <article class="admin-panel-card">
+                    <div class="admin-card-header">
+                      <div>
+                        <span class="admin-kicker">/ próximos_passos</span>
+                        <h3>Roadmap inteligente</h3>
+                      </div>
+                    </div>
+
+                    <div class="admin-roadmap-list">
+                      <div>
+                        <strong>01. CRUD visual</strong>
+                        <span>Adicionar, editar e remover projetos do carrossel.</span>
+                      </div>
+
+                      <div>
+                        <strong>02. Persistência local</strong>
+                        <span>Salva no navegador e atualiza o site em tempo real.</span>
+                      </div>
+
+                      <div>
+                        <strong>03. Cloud ready</strong>
+                        <span>Estrutura preparada para tabela Supabase.</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <div class="admin-card-header">
+                      <div>
+                        <span class="admin-kicker">/ ações_rápidas</span>
+                        <h3>Operações</h3>
+                      </div>
+                    </div>
+
+                    <div class="admin-actions-grid">
+                      <button type="button" id="admin-action-new-project" class="hover-target admin-solid-button">
+                        Novo Projeto
+                      </button>
+
+                      <button type="button" id="admin-action-export" class="hover-target admin-outline-button">
+                        Exportar JSON
+                      </button>
+
+                      <button type="button" id="admin-action-reset" class="hover-target admin-danger-outline-button">
+                        Resetar Local
+                      </button>
+
+                      <button type="button" id="admin-action-close" class="hover-target admin-outline-button">
+                        Voltar ao Site
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
+              <section id="admin-tab-projects" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ projetos_em_produção</span>
+                    <h3>Gestão do carrossel</h3>
+                    <p>Esses itens alimentam o carrossel público do site.</p>
+                  </div>
+
+                  <button type="button" id="admin-new-project-button" class="hover-target admin-solid-button">
+                    Adicionar Projeto
+                  </button>
+                </div>
+
+                <div id="admin-projects-grid" class="admin-projects-grid"></div>
+              </section>
+
+              <section id="admin-tab-messages" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ mensagens</span>
+                    <h3>Central de oportunidades</h3>
+                    <p>Espaço preparado para futuros formulários, leads e briefings do site.</p>
+                  </div>
+                </div>
+
+                <div class="admin-empty-state">
+                  <span>◇</span>
+                  <h4>Nenhuma mensagem conectada ainda</h4>
+                  <p>Na próxima etapa o formulário público pode salvar briefings no Supabase.</p>
+                </div>
+              </section>
+
+              <section id="admin-tab-settings" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ configurações</span>
+                    <h3>Preferências do painel</h3>
+                    <p>Controle de dados locais, sessão e manutenção.</p>
+                  </div>
+                </div>
+
+                <div class="admin-settings-grid">
+                  <article class="admin-panel-card">
+                    <h4>Backup dos projetos</h4>
+                    <p>Exporte os projetos atuais em JSON para guardar uma cópia segura.</p>
+
+                    <button type="button" id="admin-settings-export" class="hover-target admin-outline-button">
+                      Baixar Backup
+                    </button>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <h4>Restaurar padrão</h4>
+                    <p>Remove alterações locais e volta para os projetos padrão do site.</p>
+
+                    <button type="button" id="admin-settings-reset" class="hover-target admin-danger-outline-button">
+                      Restaurar Padrão
+                    </button>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <h4>Segurança</h4>
+                    <p>A sessão usa Supabase Auth e o dashboard só é exibido após autenticação.</p>
+
+                    <button type="button" id="admin-settings-logout" class="hover-target admin-logout-button">
+                      Encerrar Sessão
+                    </button>
+                  </article>
+                </div>
+              </section>
+            </main>
+          </div>
+        </div>
+
+        <div id="admin-project-editor" class="admin-project-editor" aria-hidden="true">
+          <div class="admin-project-editor-backdrop" data-admin-editor-close></div>
+
+          <div class="admin-project-editor-dialog">
+            <button type="button" class="admin-editor-close hover-target" data-admin-editor-close>
+              x
+            </button>
+
+            <div class="admin-editor-header">
+              <span class="admin-kicker">/ editor_projeto</span>
+              <h3 id="admin-editor-title">Novo Projeto</h3>
+              <p>Cadastre projetos que aparecem no carrossel público.</p>
+            </div>
+
+            <form id="admin-project-form" class="admin-project-form">
+              <input type="hidden" id="admin-project-id">
+
+              <div class="admin-form-grid">
+                <div>
+                  <label for="admin-project-name">Nome do projeto</label>
+                  <input id="admin-project-name" type="text" placeholder="Ex: Plataforma Comercial" required>
+                </div>
+
+                <div>
+                  <label for="admin-project-url">URL pública</label>
+                  <input id="admin-project-url" type="url" placeholder="https://exemplo.com/" required>
+                </div>
+
+                <div>
+                  <label for="admin-project-domain">Domínio</label>
+                  <input id="admin-project-domain" type="text" placeholder="exemplo.com">
+                </div>
+
+                <div>
+                  <label for="admin-project-category">Categoria</label>
+                  <input id="admin-project-category" type="text" placeholder="Plataforma SaaS / IA">
+                </div>
+
+                <div class="admin-form-full">
+                  <label for="admin-project-description">Descrição</label>
+                  <textarea id="admin-project-description" rows="4" placeholder="Descreva o projeto, objetivo e resultado entregue."></textarea>
+                </div>
+
+                <div class="admin-form-full">
+                  <label for="admin-project-image">Imagem manual opcional</label>
+                  <input id="admin-project-image" type="url" placeholder="https://imagem.com/preview.png">
+                  <small>Quando preenchido, usa essa imagem no lugar do screenshot automático.</small>
+                </div>
+              </div>
+
+              <div class="admin-editor-actions">
+                <button type="button" class="hover-target admin-outline-button" data-admin-editor-close>
+                  Cancelar
+                </button>
+
+                <button type="submit" class="hover-target admin-solid-button">
+                  Salvar Projeto
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.MPAIVA_SUPABASE = {
+      url: "https://mtjfijfuxybuobfohlws.supabase.co",
+      publishableKey: "sb_publishable_UhdYzJkSNyXksKr5nCdRQQ_cFTvT5gO"
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,14 +1,251 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/learning",
-      "destination": "/index.html"
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/desenvolvedor-full-stack-ia",
+      "destination": "/#stack-crescimento",
+      "permanent": true
+    },
+    {
+      "source": "/automacoes-com-ia",
+      "destination": "/#ai-search-context",
+      "permanent": true
+    },
+    {
+      "source": "/agentes-de-ia",
+      "destination": "/#ai-search-context",
+      "permanent": true
+    },
+    {
+      "source": "/sistemas-web-sob-medida",
+      "destination": "/#ai-search-context",
+      "permanent": true
+    },
+    {
+      "source": "/sites-profissionais",
+      "destination": "/#seo-organico",
+      "permanent": true
+    },
+    {
+      "source": "/seo-trafego-organico",
+      "destination": "/#seo-organico",
+      "permanent": true
+    },
+    {
+      "source": "/contrate-me",
+      "destination": "/#proximos-passos",
+      "permanent": true
+    },
+    {
+      "source": "/freelancer-desenvolvedor-full-stack",
+      "destination": "/#proximos-passos",
+      "permanent": true
+    },
+    {
+      "source": "/desenvolvedor-full-stack-pj",
+      "destination": "/#proximos-passos",
+      "permanent": true
+    },
+    {
+      "source": "/cases",
+      "destination": "/#cases",
+      "permanent": true
     }
   ],
-  "crons": [
+  "rewrites": [
     {
-      "path": "/api/learning-sync",
-      "schedule": "17 6 * * *"
+      "source": "/admin",
+      "destination": "/admin.html"
+    },
+    {
+      "source": "/desenvolvedor-full-stack-sao-jose-dos-campos",
+      "destination": "/desenvolvedor-full-stack-sao-jose-dos-campos.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://ghchart.rshah.org https://github-readme-streak-stats.herokuapp.com https://api.microlink.io https://image.thum.io https://s.wordpress.com; connect-src 'self' https://mtjfijfuxybuobfohlws.supabase.co https://api.github.com https://ipwho.is https://ipapi.co https://api.microlink.io https://image.thum.io https://s.wordpress.com; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/admin",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/admin.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/404.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.svg",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "image/svg+xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/favicon-48.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/icon-192.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/icon-512.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/llms-full.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/cv.pdf",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
     }
   ]
 }
