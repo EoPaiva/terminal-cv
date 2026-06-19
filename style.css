@@ -3972,6 +3972,320 @@ body.case-modal-open .case-modal-backdrop {
   }
 }
 
+.admin-content-studio {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.95fr) minmax(420px, 1.05fr);
+  grid-template-areas:
+    "agent preview"
+    "builder preview"
+    "deliverables preview";
+  gap: 0.85rem;
+  align-items: stretch;
+}
+
+.admin-content-agent-card {
+  grid-area: agent;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  border-color: rgba(16, 200, 154, 0.26);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(16, 200, 154, 0.18), transparent 36%),
+    linear-gradient(145deg, rgba(9, 22, 41, 0.96), rgba(4, 12, 27, 0.96));
+}
+
+.admin-content-agent-orb {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.45), transparent 22%),
+    linear-gradient(135deg, #10c89a, #2f80ff);
+  box-shadow: 0 20px 45px rgba(16, 200, 154, 0.2);
+}
+
+.admin-content-agent-orb span {
+  position: absolute;
+  inset: -0.35rem;
+  border: 1px solid rgba(16, 200, 154, 0.28);
+  border-radius: inherit;
+  animation: adminAgentPulse 2.4s ease-in-out infinite;
+}
+
+.admin-content-agent-orb strong {
+  color: #03111f;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 950;
+}
+
+.admin-content-agent-card h4,
+.admin-content-deliverables-card h4,
+.admin-content-preview-head h4 {
+  margin-top: 0.28rem;
+  color: #ffffff;
+  font-size: 1.12rem;
+  font-weight: 850;
+}
+
+.admin-content-agent-card p {
+  margin-top: 0.35rem;
+  color: #9fb0c7;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.admin-agent-status {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: end;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(16, 200, 154, 0.22);
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.admin-agent-status span {
+  color: #7cf4d2;
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
+.admin-agent-status small {
+  color: #9fb0c7;
+  font-size: 0.62rem;
+}
+
+.admin-content-builder-card {
+  grid-area: builder;
+  border-color: rgba(75, 103, 138, 0.48);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(47, 128, 255, 0.12), transparent 36%),
+    linear-gradient(145deg, rgba(9, 22, 41, 0.94), rgba(4, 12, 27, 0.96));
+}
+
+.admin-content-presets {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.admin-content-presets button {
+  min-height: 4.2rem;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.32rem;
+  border: 1px solid rgba(75, 103, 138, 0.46);
+  border-radius: 0.72rem;
+  background: rgba(3, 10, 24, 0.52);
+  color: #b8c7df;
+  font-size: 0.68rem;
+  font-weight: 800;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.admin-content-presets button span {
+  color: #16d9a7;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+}
+
+.admin-content-presets button.active,
+.admin-content-presets button:hover {
+  color: #ffffff;
+  border-color: rgba(16, 200, 154, 0.6);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(16, 200, 154, 0.2), transparent 58%),
+    rgba(16, 200, 154, 0.08);
+  transform: translateY(-1px);
+}
+
+.admin-content-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.admin-content-field-grid label {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.admin-content-field-grid label span {
+  color: #9fb0c7;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.admin-content-field-grid input {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.85rem;
+  border: 1px solid rgba(75, 103, 138, 0.46);
+  border-radius: 0.68rem;
+  padding: 0 0.85rem;
+  background: rgba(2, 7, 18, 0.78);
+  color: #ffffff;
+  font-size: 0.86rem;
+}
+
+.admin-content-field-grid input::placeholder {
+  color: #7f91ad;
+}
+
+.admin-content-field-grid input:focus {
+  outline: none;
+  border-color: rgba(16, 200, 154, 0.72);
+  box-shadow: 0 0 0 3px rgba(16, 200, 154, 0.1);
+}
+
+.admin-content-brief {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.95rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(16, 200, 154, 0.22);
+  border-radius: 0.78rem;
+  background:
+    linear-gradient(90deg, rgba(16, 185, 129, 0.1), transparent),
+    rgba(2, 7, 18, 0.44);
+}
+
+.admin-content-brief strong,
+.admin-content-deliverables strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.82rem;
+}
+
+.admin-content-brief small,
+.admin-content-deliverables span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #9fb0c7;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.admin-content-brief .admin-solid-button {
+  min-width: 150px;
+  min-height: 2.8rem;
+  border-radius: 0.72rem;
+}
+
+.admin-content-deliverables-card {
+  grid-area: deliverables;
+}
+
+.admin-content-deliverables {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+.admin-content-deliverables div {
+  border: 1px solid rgba(75, 103, 138, 0.38);
+  border-radius: 0.68rem;
+  padding: 0.7rem;
+  background: rgba(3, 10, 24, 0.52);
+}
+
+.admin-content-preview-card {
+  grid-area: preview;
+  display: flex;
+  flex-direction: column;
+  min-height: 590px;
+  border-color: rgba(16, 200, 154, 0.22);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(16, 200, 154, 0.14), transparent 34%),
+    radial-gradient(circle at 100% 20%, rgba(47, 128, 255, 0.1), transparent 34%),
+    linear-gradient(145deg, rgba(9, 22, 41, 0.95), rgba(4, 12, 27, 0.96));
+}
+
+.admin-content-preview-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.admin-content-preview-head em {
+  padding: 0.38rem 0.58rem;
+  border-radius: 999px;
+  background: rgba(16, 200, 154, 0.1);
+  color: #7cf4d2;
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.admin-content-preview-card pre {
+  flex: 1;
+  min-height: 0;
+  max-height: 62vh;
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(rgba(16, 200, 154, 0.035) 1px, transparent 1px) 0 0 / 100% 2rem,
+    rgba(2, 7, 18, 0.62);
+  color: #d8e6f8;
+}
+
+@keyframes adminAgentPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
+@media (max-width: 1180px) {
+  .admin-content-studio {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "agent"
+      "builder"
+      "deliverables"
+      "preview";
+  }
+
+  .admin-content-presets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-content-agent-card,
+  .admin-content-field-grid,
+  .admin-content-deliverables,
+  .admin-content-brief {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-content-brief {
+    display: grid;
+  }
+
+  .admin-agent-status {
+    justify-items: start;
+    border-radius: 0.75rem;
+  }
+}
+
 .admin-table-card {
   margin-bottom: 1rem;
   padding: 1rem;

@@ -2845,6 +2845,19 @@
       });
     });
 
+    $$("[data-content-preset]").forEach((button) => {
+      if (button.dataset.boundContentPreset) return;
+      button.dataset.boundContentPreset = "true";
+      button.addEventListener("click", () => {
+        $$("[data-content-preset]").forEach((item) => item.classList.toggle("active", item === button));
+
+        const channel = $("#admin-content-channel");
+        if (channel && button.dataset.contentPreset) {
+          channel.value = button.dataset.contentPreset;
+        }
+      });
+    });
+
     bindClickOnce("#admin-generate-report", () => {
       const activeType = $(".admin-report-type.active")?.dataset.reportType || "weekly";
       setText("admin-report-output", getAdminReportMarkdown(activeType));
@@ -2879,21 +2892,29 @@
 
     bindClickOnce("#admin-generate-content", () => {
       const theme = $("#admin-content-theme")?.value.trim() || "IA aplicada em negócios";
-      const channel = $("#admin-content-channel")?.value.trim() || "LinkedIn";
+      const channel = $("#admin-content-channel")?.value.trim() || $(".admin-content-presets button.active")?.dataset.contentPreset || "LinkedIn";
       const tone = $("#admin-content-tone")?.value.trim() || "profissional, claro e direto";
       const keywords = $("#admin-content-keywords")?.value.trim() || "Desenvolvedor Full Stack, IA aplicada, automação, SEO técnico";
 
       setText("admin-content-output", [
-        `Canal: ${channel}`,
-        `Tom: ${tone}`,
+        `# Rascunho para ${channel}`,
+        "",
         `Tema: ${theme}`,
+        `Tom: ${tone}`,
         `Palavras-chave: ${keywords}`,
         "",
-        "Estrutura sugerida:",
-        "1. Abra com o problema real do negócio.",
-        "2. Explique como sistemas full stack, automação e IA aplicada reduzem atrito operacional.",
-        "3. Mostre um exemplo prático sem prometer resultado garantido.",
-        "4. Feche com CTA para conversar sobre CLT, PJ, freelancer ou projeto."
+        "## Hook",
+        "Muitas empresas não precisam de mais uma ferramenta solta. Elas precisam de sistemas completos que conectem processo, dados, automação e IA aplicada.",
+        "",
+        "## Estrutura sugerida",
+        "1. Abra com o problema real do negócio e o impacto operacional.",
+        "2. Explique como uma solução full stack integra frontend, backend, banco, APIs e automações.",
+        "3. Mostre onde LLMs, RAG ou agentes de IA entram para acelerar trabalho com validação humana.",
+        "4. Inclua uma prova prática: redução de tarefa manual, atendimento mais rápido ou dados mais organizados.",
+        "5. Feche com CTA claro para CLT, PJ, freelancer ou projeto.",
+        "",
+        "## CTA",
+        "Se sua empresa quer transformar processos manuais em sistemas inteligentes, posso ajudar a estruturar e desenvolver a solução."
       ].join("\n"));
       setAdminTemporaryStatus("Rascunho criado");
     });
@@ -2915,6 +2936,30 @@
     $$(".admin-tab-content").forEach((content) => {
       content.classList.toggle("active", content.id === `admin-tab-${tabName}`);
     });
+
+    const adminTabCopy = {
+      overview: ["Visão geral", "Resumo executivo do desempenho do seu portfólio"],
+      reports: ["Relatórios com IA", "Gere leituras executivas, recomendações e próximos passos"],
+      history: ["Dashboard histórico", "Acompanhe acessos, cliques, origens e conversões ao longo do tempo"],
+      opportunities: ["Oportunidades", "Organize contatos, propostas e possíveis contratações"],
+      projects: ["Projetos e cases", "Gerencie projetos publicados, descrições e destaques"],
+      seo: ["SEO e tráfego orgânico", "Monitore estrutura técnica, conteúdo e intenção de busca"],
+      content: ["Conteúdo com IA", "Crie rascunhos, posts, FAQs, CTAs e mensagens estratégicas"],
+      funnel: ["Funil de conversão", "Entenda como visitantes avançam até contato e oportunidade"],
+      performance: ["Performance", "Monitore qualidade técnica, scripts, imagens e rotas"],
+      alerts: ["Alertas", "Acompanhe sinais críticos, riscos e ações recomendadas"],
+      settings: ["Configurações", "Controle preferências, backups e manutenção"],
+      security: ["Logs e segurança", "Revise sessão, regras e eventos administrativos"],
+      changelog: ["Changelog", "Registro das últimas evoluções do painel"],
+      checklist: ["Checklist", "Rotina operacional para manter o site forte"],
+      ideas: ["Ideias futuras", "Backlog estratégico para evoluir o centro de inteligência"]
+    };
+
+    const [title, subtitle] = adminTabCopy[tabName] || adminTabCopy.overview;
+    setText("production-admin-title", title);
+
+    const headerDescription = $("#production-admin-title")?.closest("div")?.querySelector("p");
+    if (headerDescription) headerDescription.textContent = subtitle;
   }
 
   function initProductionAdmin() {
@@ -2927,6 +2972,7 @@
     if (!trigger && !standaloneAdmin) return;
 
     ensureAdminAnalyticsUI();
+    initAdminIntelligenceCenter();
 
     if (trigger) {
       trigger.addEventListener("click", openAdminPanel);

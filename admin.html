@@ -30,7 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css?v=20260619-admin-reports-1" />
+  <link rel="stylesheet" href="style.css?v=20260619-admin-content-1" />
 
   <script>
     tailwind.config = {
@@ -727,20 +727,87 @@
                   </div>
                 </div>
 
-                <div class="admin-report-layout">
-                  <article class="admin-panel-card">
-                    <div class="admin-form-grid">
-                      <div><label for="admin-content-theme">Tema</label><input id="admin-content-theme" type="text" placeholder="IA aplicada em negócios locais"></div>
-                      <div><label for="admin-content-channel">Canal</label><input id="admin-content-channel" type="text" placeholder="LinkedIn / Blog / Site"></div>
-                      <div><label for="admin-content-tone">Tom</label><input id="admin-content-tone" type="text" placeholder="Profissional, claro e direto"></div>
-                      <div><label for="admin-content-keywords">Palavras-chave</label><input id="admin-content-keywords" type="text" placeholder="Full Stack, IA aplicada, automação"></div>
+                <div class="admin-content-studio">
+                  <article class="admin-panel-card admin-content-agent-card">
+                    <div class="admin-content-agent-orb">
+                      <span></span>
+                      <strong>AI</strong>
                     </div>
-                    <button type="button" id="admin-generate-content" class="hover-target admin-solid-button">Gerar rascunho</button>
+
+                    <div>
+                      <span class="admin-kicker">/ agente_editorial</span>
+                      <h4>Agente de posicionamento</h4>
+                      <p>Transforma tema, canal, tom e palavras-chave em uma estrutura pronta para revisar, publicar ou converter em seção do site.</p>
+                    </div>
+
+                    <div class="admin-agent-status">
+                      <span>Online</span>
+                      <small>Modo seguro · revisão humana</small>
+                    </div>
                   </article>
 
-                  <article class="admin-panel-card admin-report-output-card">
-                    <span class="admin-kicker">/ rascunho</span>
-                    <pre id="admin-content-output">Preencha os campos para gerar uma estrutura de conteúdo. Nenhum texto será tratado como dado real sem revisão humana.</pre>
+                  <article class="admin-panel-card admin-content-builder-card">
+                    <div class="admin-content-presets" aria-label="Formatos de conteúdo">
+                      <button type="button" class="active" data-content-preset="LinkedIn"><span>in</span> Post LinkedIn</button>
+                      <button type="button" data-content-preset="Artigo SEO"><span>SEO</span> Artigo SEO</button>
+                      <button type="button" data-content-preset="FAQ"><span>?</span> FAQ</button>
+                      <button type="button" data-content-preset="CTA"><span>↗</span> CTA</button>
+                      <button type="button" data-content-preset="Prospecção"><span>✉</span> Prospecção</button>
+                    </div>
+
+                    <div class="admin-content-field-grid">
+                      <label>
+                        <span>Tema central</span>
+                        <input id="admin-content-theme" type="text" placeholder="IA aplicada em negócios locais">
+                      </label>
+
+                      <label>
+                        <span>Canal</span>
+                        <input id="admin-content-channel" type="text" placeholder="LinkedIn / Blog / Site">
+                      </label>
+
+                      <label>
+                        <span>Tom</span>
+                        <input id="admin-content-tone" type="text" placeholder="Profissional, claro e direto">
+                      </label>
+
+                      <label>
+                        <span>Palavras-chave</span>
+                        <input id="admin-content-keywords" type="text" placeholder="Full Stack, IA aplicada, automação">
+                      </label>
+                    </div>
+
+                    <div class="admin-content-brief">
+                      <div>
+                        <strong>Brief estratégico</strong>
+                        <small>Full Stack · IA aplicada · automação · SEO técnico · oportunidades CLT/PJ</small>
+                      </div>
+                      <button type="button" id="admin-generate-content" class="hover-target admin-solid-button">Gerar rascunho</button>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-content-deliverables-card">
+                    <span class="admin-kicker">/ entregaveis</span>
+                    <h4>Saídas preparadas</h4>
+                    <div class="admin-content-deliverables">
+                      <div><strong>Hook</strong><span>Abertura forte para prender atenção.</span></div>
+                      <div><strong>Estrutura</strong><span>Fluxo lógico com problema, solução e prova.</span></div>
+                      <div><strong>SEO</strong><span>Termos e intenção de busca mapeados.</span></div>
+                      <div><strong>CTA</strong><span>Chamada alinhada a oportunidades e projetos.</span></div>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card admin-report-output-card admin-content-preview-card">
+                    <div class="admin-content-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ rascunho</span>
+                        <h4>Preview editorial</h4>
+                      </div>
+
+                      <em>Pronto para revisar</em>
+                    </div>
+
+                    <pre id="admin-content-output">Escolha um formato, preencha os campos e gere uma estrutura de conteúdo. Nenhum texto é publicado automaticamente: tudo passa por revisão humana antes de ir para LinkedIn, blog ou site.</pre>
                   </article>
                 </div>
               </section>
@@ -988,7 +1055,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js?v=20260619-admin-reports-1"></script>
-  <script src="analytics-pro-complete.js?v=20260619-admin-reports-1"></script>
+  <script src="script.js?v=20260619-admin-content-1"></script>
+  <script src="analytics-pro-complete.js?v=20260619-admin-content-1"></script>
 </body>
 </html>
