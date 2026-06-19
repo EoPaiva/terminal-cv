@@ -30,7 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css?v=20260619-admin-ref-1" />
+  <link rel="stylesheet" href="style.css?v=20260619-admin-reports-1" />
 
   <script>
     tailwind.config = {
@@ -535,36 +535,59 @@
                   </div>
                 </div>
 
-                <div class="admin-report-layout">
-                  <article class="admin-panel-card">
-                    <div class="admin-report-controls">
-                      <button type="button" class="admin-report-type active" data-report-type="daily">Diário</button>
-                      <button type="button" class="admin-report-type" data-report-type="weekly">Semanal</button>
-                      <button type="button" class="admin-report-type" data-report-type="monthly">Mensal</button>
-                      <button type="button" class="admin-report-type" data-report-type="seo">SEO</button>
+                <div class="admin-report-layout admin-report-studio">
+                  <article class="admin-panel-card admin-report-builder-card">
+                    <div class="admin-report-hero">
+                      <div>
+                        <span class="admin-kicker">/ report_builder</span>
+                        <h4>Gerador executivo</h4>
+                        <p>Monte relatórios claros com números, riscos, recomendações e próximos passos.</p>
+                      </div>
+
+                      <strong>IA</strong>
                     </div>
 
-                    <div class="admin-form-grid">
-                      <div>
+                    <div class="admin-report-controls" aria-label="Tipo de relatório">
+                      <button type="button" class="admin-report-type active" data-report-type="daily"><span>◷</span> Diário</button>
+                      <button type="button" class="admin-report-type" data-report-type="weekly"><span>▤</span> Semanal</button>
+                      <button type="button" class="admin-report-type" data-report-type="monthly"><span>◫</span> Mensal</button>
+                      <button type="button" class="admin-report-type" data-report-type="seo"><span>⌕</span> SEO</button>
+                    </div>
+
+                    <div class="admin-form-grid admin-report-date-grid">
+                      <div class="admin-date-field">
                         <label for="admin-report-start">Início</label>
                         <input id="admin-report-start" type="date">
                       </div>
 
-                      <div>
+                      <div class="admin-date-field">
                         <label for="admin-report-end">Fim</label>
                         <input id="admin-report-end" type="date">
                       </div>
                     </div>
 
-                    <div class="admin-actions-grid">
+                    <div class="admin-report-scope">
+                      <span>Inclui tráfego, CTAs, conversões, SEO, projetos e oportunidades.</span>
+                      <b>Modo seguro: não inventa dados reais</b>
+                    </div>
+
+                    <div class="admin-actions-grid admin-report-actions">
                       <button type="button" id="admin-generate-report" class="hover-target admin-solid-button">Gerar relatório</button>
                       <button type="button" id="admin-copy-report" class="hover-target admin-outline-button">Copiar</button>
-                      <button type="button" id="admin-download-report" class="hover-target admin-outline-button">Markdown</button>
+                      <button type="button" id="admin-download-report" class="hover-target admin-outline-button">Exportar Markdown</button>
                     </div>
                   </article>
 
-                  <article class="admin-panel-card admin-report-output-card">
-                    <span class="admin-kicker">/ saida_markdown</span>
+                  <article class="admin-panel-card admin-report-output-card admin-report-preview-card">
+                    <div class="admin-report-preview-head">
+                      <div>
+                        <span class="admin-kicker">/ saida_markdown</span>
+                        <h4>Preview do relatório</h4>
+                      </div>
+
+                      <em>Pronto para copiar</em>
+                    </div>
+
                     <pre id="admin-report-output">Selecione um período e gere o relatório. O painel vai combinar tráfego, cliques, conversões, SEO, projetos e oportunidades apenas quando houver dados disponíveis.</pre>
                   </article>
                 </div>
@@ -965,7 +988,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js?v=20260619-admin-ref-1"></script>
-  <script src="analytics-pro-complete.js?v=20260619-admin-ref-1"></script>
+  <script src="script.js?v=20260619-admin-reports-1"></script>
+  <script src="analytics-pro-complete.js?v=20260619-admin-reports-1"></script>
 </body>
 </html>
