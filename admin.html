@@ -30,7 +30,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260619-admin-intel-1" />
 
   <script>
     tailwind.config = {
@@ -155,23 +155,51 @@
 
               <nav class="admin-nav">
                 <button type="button" class="admin-nav-btn active-tab" data-admin-tab="overview">
-                  01. Overview
+                  01. Visão geral
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="reports">
+                  02. Relatórios com IA
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="history">
+                  03. Dashboard histórico
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="opportunities">
+                  04. Oportunidades
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="projects">
-                  02. Projetos
+                  05. Projetos e cases
                 </button>
 
-                <button type="button" class="admin-nav-btn" data-admin-tab="messages">
-                  03. Mensagens
+                <button type="button" class="admin-nav-btn" data-admin-tab="seo">
+                  06. SEO orgânico
                 </button>
 
-                <button type="button" class="admin-nav-btn" data-admin-tab="analytics">
-                  04. Analytics
+                <button type="button" class="admin-nav-btn" data-admin-tab="content">
+                  07. Conteúdo com IA
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="funnel">
+                  08. Funil
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="performance">
+                  09. Performance
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="alerts">
+                  10. Alertas
                 </button>
 
                 <button type="button" class="admin-nav-btn" data-admin-tab="settings">
-                  05. Configurações
+                  11. Configurações
+                </button>
+
+                <button type="button" class="admin-nav-btn" data-admin-tab="security">
+                  12. Logs e segurança
                 </button>
 
                 <button type="button" id="admin-open-project-editor" class="admin-nav-btn admin-nav-action">
@@ -215,94 +243,233 @@
               </header>
 
               <section id="admin-tab-overview" class="admin-tab-content active">
-                <div class="admin-metrics-grid">
-                  <article class="admin-metric-card">
-                    <span>Projetos</span>
+                <div class="admin-command-strip">
+                  <div>
+                    <strong>Centro de inteligência do portfólio</strong>
+                    <span>Analytics, SEO, oportunidades, projetos e evolução do site em um painel privado.</span>
+                  </div>
+
+                  <div class="admin-command-actions">
+                    <button type="button" class="hover-target admin-outline-button" data-admin-tab-shortcut="reports">Gerar relatório</button>
+                    <button type="button" class="hover-target admin-solid-button" data-admin-tab-shortcut="history">Ver histórico</button>
+                  </div>
+                </div>
+
+                <div class="admin-intel-grid">
+                  <article class="admin-intel-card admin-intel-card-glow">
+                    <span>Visitas totais</span>
+                    <strong id="admin-total-visits">--</strong>
+                    <small>Sem dados suficientes até sincronizar analytics.</small>
+                  </article>
+
+                  <article class="admin-intel-card">
+                    <span>Últimos 7 dias</span>
+                    <strong id="admin-visits-7d">--</strong>
+                    <small>Comparação automática quando houver histórico.</small>
+                  </article>
+
+                  <article class="admin-intel-card">
+                    <span>Últimos 30 dias</span>
+                    <strong id="admin-visits-30d">--</strong>
+                    <small>Janela principal para leitura de crescimento.</small>
+                  </article>
+
+                  <article class="admin-intel-card">
+                    <span>Cliques em CTAs</span>
+                    <strong id="admin-cta-clicks">--</strong>
+                    <small>WhatsApp, currículo, GitHub, LinkedIn e projetos.</small>
+                  </article>
+
+                  <article class="admin-intel-card">
+                    <span>Projetos ativos</span>
                     <strong id="admin-count-projects">--</strong>
-                    <small>itens no carrossel</small>
+                    <small>Itens publicados no carrossel público.</small>
                   </article>
 
-                  <article class="admin-metric-card">
-                    <span>Modo atual</span>
-                    <strong id="admin-current-mode">TECH</strong>
-                    <small>tema público ativo</small>
+                  <article class="admin-intel-card">
+                    <span>Página mais visitada</span>
+                    <strong id="admin-top-page">--</strong>
+                    <small>Aguardando eventos suficientes.</small>
                   </article>
 
-                  <article class="admin-metric-card">
-                    <span>Storage</span>
-                    <strong>Local</strong>
-                    <small>backup no navegador</small>
+                  <article class="admin-intel-card">
+                    <span>Taxa de conversão</span>
+                    <strong id="admin-conversion-rate">--</strong>
+                    <small>Estimativa baseada em cliques de contato.</small>
                   </article>
 
-                  <article class="admin-metric-card">
+                  <article class="admin-intel-card">
                     <span>Supabase</span>
                     <strong id="admin-supabase-status">Auth</strong>
-                    <small>login integrado</small>
+                    <small>Login e leitura protegidos por sessão.</small>
                   </article>
                 </div>
 
-                <div class="admin-two-columns">
-                  <article class="admin-panel-card">
+                <div class="admin-dashboard-grid">
+                  <article class="admin-panel-card admin-ai-summary-card">
                     <div class="admin-card-header">
                       <div>
-                        <span class="admin-kicker">/ próximos_passos</span>
-                        <h3>Roadmap inteligente</h3>
+                        <span class="admin-kicker">/ resumo_inteligente</span>
+                        <h3>Leitura estratégica</h3>
+                        <p id="admin-ai-summary">Sem dados suficientes para uma análise automática. Assim que houver sessões, cliques e origem de tráfego, este bloco passa a sugerir prioridades reais.</p>
                       </div>
                     </div>
 
-                    <div class="admin-roadmap-list">
-                      <div>
-                        <strong>01. CRUD visual</strong>
-                        <span>Adicionar, editar e remover projetos do carrossel.</span>
-                      </div>
-
-                      <div>
-                        <strong>02. Persistência local</strong>
-                        <span>Salva no navegador e atualiza o site em tempo real.</span>
-                      </div>
-
-                      <div>
-                        <strong>03. Cloud ready</strong>
-                        <span>Estrutura preparada para tabela Supabase.</span>
-                      </div>
+                    <div class="admin-signal-list">
+                      <div><span></span><strong>Status do site</strong><small>Online, admin privado e noindex ativo.</small></div>
+                      <div><span></span><strong>Última atualização</strong><small id="admin-last-update">--</small></div>
+                      <div><span></span><strong>Próxima prioridade</strong><small>Conectar oportunidades reais ao Supabase.</small></div>
                     </div>
                   </article>
 
                   <article class="admin-panel-card">
                     <div class="admin-card-header">
                       <div>
-                        <span class="admin-kicker">/ ações_rápidas</span>
-                        <h3>Operações</h3>
+                        <span class="admin-kicker">/ curva_de_crescimento</span>
+                        <h3>Histórico rápido</h3>
+                      </div>
+                    </div>
+
+                    <div class="admin-mini-bars" aria-label="Histórico de acessos dos últimos dias">
+                      <i style="--h: 24%"></i><i style="--h: 38%"></i><i style="--h: 32%"></i><i style="--h: 56%"></i><i style="--h: 48%"></i><i style="--h: 68%"></i><i style="--h: 44%"></i>
+                    </div>
+                    <p class="admin-muted-note">Visual preparado. Dados reais serão exibidos quando houver volume suficiente no analytics.</p>
+                  </article>
+                </div>
+
+                <div class="admin-actions-grid admin-actions-grid-wide">
+                  <button type="button" id="admin-action-new-project" class="hover-target admin-solid-button">Novo Projeto</button>
+                  <button type="button" id="admin-action-export" class="hover-target admin-outline-button">Exportar JSON</button>
+                  <button type="button" id="admin-action-reset" class="hover-target admin-danger-outline-button">Resetar Local</button>
+                  <button type="button" id="admin-action-close" class="hover-target admin-outline-button">Voltar ao Site</button>
+                </div>
+              </section>
+
+              <section id="admin-tab-reports" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ relatorios_com_ia</span>
+                    <h3>Relatórios automáticos com IA</h3>
+                    <p>Gere leituras executivas sem inventar dados: quando uma métrica não existir, o relatório marca “sem dados suficientes”.</p>
+                  </div>
+                </div>
+
+                <div class="admin-report-layout">
+                  <article class="admin-panel-card">
+                    <div class="admin-report-controls">
+                      <button type="button" class="admin-report-type active" data-report-type="daily">Diário</button>
+                      <button type="button" class="admin-report-type" data-report-type="weekly">Semanal</button>
+                      <button type="button" class="admin-report-type" data-report-type="monthly">Mensal</button>
+                      <button type="button" class="admin-report-type" data-report-type="seo">SEO</button>
+                    </div>
+
+                    <div class="admin-form-grid">
+                      <div>
+                        <label for="admin-report-start">Início</label>
+                        <input id="admin-report-start" type="date">
+                      </div>
+
+                      <div>
+                        <label for="admin-report-end">Fim</label>
+                        <input id="admin-report-end" type="date">
                       </div>
                     </div>
 
                     <div class="admin-actions-grid">
-                      <button type="button" id="admin-action-new-project" class="hover-target admin-solid-button">
-                        Novo Projeto
-                      </button>
-
-                      <button type="button" id="admin-action-export" class="hover-target admin-outline-button">
-                        Exportar JSON
-                      </button>
-
-                      <button type="button" id="admin-action-reset" class="hover-target admin-danger-outline-button">
-                        Resetar Local
-                      </button>
-
-                      <button type="button" id="admin-action-close" class="hover-target admin-outline-button">
-                        Voltar ao Site
-                      </button>
+                      <button type="button" id="admin-generate-report" class="hover-target admin-solid-button">Gerar relatório</button>
+                      <button type="button" id="admin-copy-report" class="hover-target admin-outline-button">Copiar</button>
+                      <button type="button" id="admin-download-report" class="hover-target admin-outline-button">Markdown</button>
                     </div>
                   </article>
+
+                  <article class="admin-panel-card admin-report-output-card">
+                    <span class="admin-kicker">/ saida_markdown</span>
+                    <pre id="admin-report-output">Selecione um período e gere o relatório. O painel vai combinar tráfego, cliques, conversões, SEO, projetos e oportunidades apenas quando houver dados disponíveis.</pre>
+                  </article>
+                </div>
+              </section>
+
+              <section id="admin-tab-history" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ dashboard_historico</span>
+                    <h3>Histórico de crescimento</h3>
+                    <p>Acompanhe acessos, cliques, origens, dispositivos e comparação com períodos anteriores.</p>
+                  </div>
+
+                  <div class="admin-filter-pills">
+                    <button type="button" class="active">7 dias</button>
+                    <button type="button">30 dias</button>
+                    <button type="button">90 dias</button>
+                  </div>
+                </div>
+
+                <div class="admin-chart-grid">
+                  <article class="admin-panel-card">
+                    <div class="admin-card-header">
+                      <div>
+                        <span class="admin-kicker">/ acessos_por_dia</span>
+                        <h3>Evolução temporal</h3>
+                      </div>
+                    </div>
+                    <canvas id="admin-history-chart" height="140"></canvas>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <div class="admin-card-header">
+                      <div>
+                        <span class="admin-kicker">/ cliques_por_tipo</span>
+                        <h3>CTAs e conversões</h3>
+                      </div>
+                    </div>
+                    <canvas id="admin-cta-chart" height="140"></canvas>
+                  </article>
+                </div>
+
+                <div class="admin-table-card">
+                  <div class="admin-table-header">
+                    <strong>Páginas e projetos</strong>
+                    <span>Sem dados suficientes para ranking real.</span>
+                  </div>
+                  <div class="admin-data-table">
+                    <div><strong>Página</strong><strong>Visitas</strong><strong>Cliques</strong><strong>Status</strong></div>
+                    <div><span>Home</span><span>--</span><span>--</span><em>Aguardando dados</em></div>
+                    <div><span>Projetos</span><span>--</span><span>--</span><em>Aguardando dados</em></div>
+                    <div><span>São José dos Campos</span><span>--</span><span>--</span><em>Aguardando dados</em></div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="admin-tab-opportunities" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ oportunidades</span>
+                    <h3>Central de oportunidades</h3>
+                    <p>Pipeline para CLT, PJ, freelancer, projetos fechados e parcerias vindas do site.</p>
+                  </div>
+                </div>
+
+                <div class="admin-kanban">
+                  <article><strong>Novo</strong><div class="admin-empty-mini">Sem oportunidades cadastradas.</div></article>
+                  <article><strong>Em conversa</strong><div class="admin-empty-mini">Sem dados suficientes.</div></article>
+                  <article><strong>Proposta enviada</strong><div class="admin-empty-mini">Nenhuma proposta registrada.</div></article>
+                  <article><strong>Fechado</strong><div class="admin-empty-mini">Sem conversões registradas.</div></article>
+                </div>
+
+                <div class="admin-table-card">
+                  <div class="admin-table-header">
+                    <strong>Campos preparados</strong>
+                    <span>Nome, empresa, e-mail, WhatsApp, tipo, origem, status, prioridade, valor, prazo e observações.</span>
+                  </div>
                 </div>
               </section>
 
               <section id="admin-tab-projects" class="admin-tab-content">
                 <div class="admin-card-header admin-section-header">
                   <div>
-                    <span class="admin-kicker">/ projetos_em_produção</span>
-                    <h3>Gestão do carrossel</h3>
-                    <p>Esses itens alimentam o carrossel público do site.</p>
+                    <span class="admin-kicker">/ projetos_e_cases</span>
+                    <h3>Gestão de projetos e cases</h3>
+                    <p>Cadastre, edite, ordene e destaque projetos com descrição comercial e técnica.</p>
                   </div>
 
                   <button type="button" id="admin-new-project-button" class="hover-target admin-solid-button">
@@ -313,23 +480,116 @@
                 <div id="admin-projects-grid" class="admin-projects-grid"></div>
               </section>
 
-              <section id="admin-tab-messages" class="admin-tab-content">
+              <section id="admin-tab-seo" class="admin-tab-content">
                 <div class="admin-card-header admin-section-header">
                   <div>
-                    <span class="admin-kicker">/ mensagens</span>
-                    <h3>Central de oportunidades</h3>
-                    <p>Espaço preparado para futuros formulários, leads e briefings do site.</p>
+                    <span class="admin-kicker">/ seo_trafego_organico</span>
+                    <h3>SEO e tráfego orgânico</h3>
+                    <p>Auditoria visual para title, description, headings, schema, sitemap, robots, links e páginas indexáveis.</p>
                   </div>
                 </div>
 
-                <div class="admin-empty-state">
-                  <span>◇</span>
-                  <h4>Nenhuma mensagem conectada ainda</h4>
-                  <p>Na próxima etapa o formulário público pode salvar briefings no Supabase.</p>
+                <div class="admin-seo-grid">
+                  <article class="admin-score-card">
+                    <span>Score técnico</span>
+                    <strong>92</strong>
+                    <small>Bom. Monitorar conteúdo e links internos.</small>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <h4>Checklist SEO</h4>
+                    <div class="admin-check-list">
+                      <span data-ok="true">Title e meta description configurados</span>
+                      <span data-ok="true">Sitemap e robots.txt presentes</span>
+                      <span data-ok="true">Schema JSON-LD no site público</span>
+                      <span data-ok="warn">Monitorar links quebrados e imagens externas</span>
+                      <span data-ok="warn">Adicionar novas páginas locais quando fizer sentido</span>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <h4>Sugestões de IA</h4>
+                    <p>Priorizar páginas com intenção de contratação: Desenvolvedor Full Stack São José dos Campos, IA aplicada para empresas e automação de processos.</p>
+                  </article>
                 </div>
               </section>
 
-              <section id="admin-tab-analytics" class="admin-tab-content"></section>
+              <section id="admin-tab-content" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ conteudo_com_ia</span>
+                    <h3>Gerador de conteúdo estratégico</h3>
+                    <p>Crie ideias para LinkedIn, artigos, FAQs, CTAs, mensagens de prospecção e descrições de projetos.</p>
+                  </div>
+                </div>
+
+                <div class="admin-report-layout">
+                  <article class="admin-panel-card">
+                    <div class="admin-form-grid">
+                      <div><label for="admin-content-theme">Tema</label><input id="admin-content-theme" type="text" placeholder="IA aplicada em negócios locais"></div>
+                      <div><label for="admin-content-channel">Canal</label><input id="admin-content-channel" type="text" placeholder="LinkedIn / Blog / Site"></div>
+                      <div><label for="admin-content-tone">Tom</label><input id="admin-content-tone" type="text" placeholder="Profissional, claro e direto"></div>
+                      <div><label for="admin-content-keywords">Palavras-chave</label><input id="admin-content-keywords" type="text" placeholder="Full Stack, IA aplicada, automação"></div>
+                    </div>
+                    <button type="button" id="admin-generate-content" class="hover-target admin-solid-button">Gerar rascunho</button>
+                  </article>
+
+                  <article class="admin-panel-card admin-report-output-card">
+                    <span class="admin-kicker">/ rascunho</span>
+                    <pre id="admin-content-output">Preencha os campos para gerar uma estrutura de conteúdo. Nenhum texto será tratado como dado real sem revisão humana.</pre>
+                  </article>
+                </div>
+              </section>
+
+              <section id="admin-tab-funnel" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ funil_de_conversao</span>
+                    <h3>Funil de conversão</h3>
+                    <p>Veja caminhos como home → projetos → WhatsApp, SEO → CTA e currículo → contato.</p>
+                  </div>
+                </div>
+
+                <div class="admin-funnel">
+                  <div><strong>Visita</strong><span>--</span></div>
+                  <div><strong>Projetos</strong><span>--</span></div>
+                  <div><strong>CTA</strong><span>--</span></div>
+                  <div><strong>Contato</strong><span>--</span></div>
+                </div>
+                <p class="admin-muted-note">Sem dados suficientes para calcular avanço e abandono com precisão.</p>
+              </section>
+
+              <section id="admin-tab-performance" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ performance</span>
+                    <h3>Qualidade técnica do site</h3>
+                    <p>Monitor para tempo de carregamento, scripts, imagens, erros e rotas lentas.</p>
+                  </div>
+                </div>
+
+                <div class="admin-intel-grid admin-intel-grid-compact">
+                  <article class="admin-intel-card"><span>Load local</span><strong id="admin-load-time">--</strong><small>Medido no navegador atual.</small></article>
+                  <article class="admin-intel-card"><span>Scripts críticos</span><strong>3</strong><small>Site, Supabase e analytics.</small></article>
+                  <article class="admin-intel-card"><span>Deploy</span><strong>Online</strong><small>Produção responde HTTP 200.</small></article>
+                  <article class="admin-intel-card"><span>Console</span><strong>Monitorado</strong><small>Eventos de erro vão para analytics.</small></article>
+                </div>
+              </section>
+
+              <section id="admin-tab-alerts" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ alertas</span>
+                    <h3>Sistema de alertas</h3>
+                    <p>Prioridades para site fora do ar, CTA sem clique, erro 404, problema SEO e tentativa suspeita.</p>
+                  </div>
+                </div>
+
+                <div class="admin-alert-list">
+                  <article><span class="admin-priority medium">Média</span><strong>Analytics restaurado no admin</strong><small>Monitorar os próximos acessos para confirmar histórico.</small></article>
+                  <article><span class="admin-priority low">Baixa</span><strong>Oportunidades ainda sem banco dedicado</strong><small>Criar tabela protegida quando o formulário público for conectado.</small></article>
+                </div>
+              </section>
 
               <section id="admin-tab-settings" class="admin-tab-content">
                 <div class="admin-card-header admin-section-header">
@@ -366,6 +626,33 @@
                     <button type="button" id="admin-settings-logout" class="hover-target admin-logout-button">
                       Encerrar Sessão
                     </button>
+                  </article>
+                </div>
+              </section>
+
+              <section id="admin-tab-security" class="admin-tab-content">
+                <div class="admin-card-header admin-section-header">
+                  <div>
+                    <span class="admin-kicker">/ logs_seguranca</span>
+                    <h3>Logs e segurança</h3>
+                    <p>Área para acompanhar logins, ações administrativas, exportações, erros e tentativas suspeitas.</p>
+                  </div>
+                </div>
+
+                <div class="admin-security-grid">
+                  <article class="admin-panel-card">
+                    <h4>Regras ativas</h4>
+                    <div class="admin-check-list">
+                      <span data-ok="true">Admin fora do HTML público</span>
+                      <span data-ok="true">Rota /admin com noindex</span>
+                      <span data-ok="true">Login via Supabase Auth</span>
+                      <span data-ok="true">Sem senhas ou tokens privados no frontend</span>
+                    </div>
+                  </article>
+
+                  <article class="admin-panel-card">
+                    <h4>Últimos eventos</h4>
+                    <div class="admin-empty-mini">Sem logs administrativos suficientes para exibir histórico.</div>
                   </article>
                 </div>
               </section>
@@ -448,7 +735,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js?v=20260619-analytics-fix-1"></script>
-  <script src="analytics-pro-complete.js?v=20260619-analytics-fix-1"></script>
+  <script src="script.js?v=20260619-admin-intel-1"></script>
+  <script src="analytics-pro-complete.js?v=20260619-admin-intel-1"></script>
 </body>
 </html>

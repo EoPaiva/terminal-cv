@@ -17,6 +17,8 @@
   let productionSwiper = null;
   let adminSupabaseClient = null;
   let adminSession = null;
+  let adminHistoryChart = null;
+  let adminCtaChart = null;
 
   const $ = (selector, parent = document) => parent.querySelector(selector);
   const $$ = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
@@ -904,8 +906,9 @@
   function ensureAdminAnalyticsUI() {
     const nav = $(".admin-nav");
     const main = $(".admin-main");
+    const hasStrategicHistory = Boolean($("#admin-tab-history"));
 
-    if (nav && !$('[data-admin-tab="analytics"]', nav)) {
+    if (nav && !$('[data-admin-tab="analytics"]', nav) && !hasStrategicHistory) {
       const analyticsButtonHtml = `
         <button type="button" class="admin-nav-btn" data-admin-tab="analytics">
           05. Analytics
@@ -921,7 +924,7 @@
       }
     }
 
-    if (main && !$("#admin-tab-analytics")) {
+    if (main && !$("#admin-tab-analytics") && !hasStrategicHistory) {
       main.insertAdjacentHTML("beforeend", `
         <section id="admin-tab-analytics" class="admin-tab-content"></section>
       `);
@@ -2328,6 +2331,7 @@
 
     renderAdminProjects();
     updateAdminMetrics();
+    initAdminIntelligenceCenter();
   }
 
   function openAdminPanel() {
@@ -2678,6 +2682,222 @@
 
     renderProductionProjects();
     setAdminTemporaryStatus(remoteResult.ok ? "Site sincronizado em todos os dispositivos" : "Sincronização remota indisponível; usando cache local");
+  }
+
+  function getAdminReportMarkdown(type = "weekly") {
+    const projectCount = productionProjects.length;
+    const typeLabel = {
+      daily: "diário",
+      weekly: "semanal",
+      monthly: "mensal",
+      seo: "SEO"
+    }[type] || "executivo";
+
+    return [
+      `# Relatório ${typeLabel} MPAIVA_`,
+      "",
+      `Gerado em: ${new Date().toLocaleString("pt-BR")}`,
+      "",
+      "## Resumo do período",
+      "Sem dados suficientes para afirmar variação de tráfego, origem ou conversões. O painel está preparado para consolidar sessões, cliques e eventos reais do analytics.",
+      "",
+      "## Principais números",
+      `- Projetos publicados no carrossel: ${projectCount}`,
+      "- Visitas totais: sem dados suficientes",
+      "- Cliques em CTAs: sem dados suficientes",
+      "- Oportunidades recebidas: sem dados suficientes",
+      "",
+      "## Pontos positivos",
+      "- Admin privado em rota separada, com autenticação e noindex.",
+      "- Analytics carregado no site público e no painel administrativo.",
+      "- SEO técnico base ativo com sitemap, robots, canonical e schema.",
+      "",
+      "## Problemas identificados",
+      "- Ainda não há volume suficiente de dados para ranking de páginas, funil e oportunidades.",
+      "- O pipeline de oportunidades precisa de tabela dedicada para status, origem e histórico.",
+      "",
+      "## Recomendações",
+      "- Monitorar cliques em WhatsApp, currículo, GitHub e LinkedIn nos próximos 7 dias.",
+      "- Priorizar páginas com intenção local e contratação Full Stack com IA aplicada.",
+      "- Conectar formulário de contato a uma tabela protegida no Supabase.",
+      "",
+      "## Ações prioritárias",
+      "1. Validar se novos eventos aparecem no Dashboard histórico.",
+      "2. Criar estrutura de oportunidades no banco.",
+      "3. Revisar cases com maior potencial comercial.",
+      "",
+      "## Conclusão executiva",
+      "A base do painel está pronta para gestão estratégica. A próxima evolução depende de dados reais suficientes para recomendações mais específicas."
+    ].join("\n");
+  }
+
+  function updateStrategicAdminMetrics() {
+    setText("admin-last-update", document.lastModified || new Date().toLocaleDateString("pt-BR"));
+    setText("admin-total-visits", "--");
+    setText("admin-visits-7d", "--");
+    setText("admin-visits-30d", "--");
+    setText("admin-cta-clicks", "--");
+    setText("admin-top-page", "--");
+    setText("admin-conversion-rate", "--");
+
+    const loadTime = Math.round(performance.now());
+    setText("admin-load-time", `${loadTime}ms`);
+  }
+
+  function initAdminIntelligenceCharts() {
+    if (typeof Chart === "undefined") return;
+
+    const chartColor = getComputedStyle(document.documentElement).getPropertyValue("--accent-color").trim() || "#10b981";
+    const textColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color").trim() || "#94a3b8";
+    const gridColor = "rgba(148, 163, 184, 0.14)";
+    const emptyLabels = ["D-6", "D-5", "D-4", "D-3", "D-2", "Ontem", "Hoje"];
+
+    const historyCanvas = $("#admin-history-chart");
+    if (historyCanvas && !adminHistoryChart) {
+      adminHistoryChart = new Chart(historyCanvas, {
+        type: "line",
+        data: {
+          labels: emptyLabels,
+          datasets: [{
+            label: "Acessos",
+            data: [0, 0, 0, 0, 0, 0, 0],
+            borderColor: chartColor,
+            backgroundColor: "rgba(16, 185, 129, 0.12)",
+            fill: true,
+            tension: 0.42
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: textColor } },
+            tooltip: { callbacks: { label: () => "Sem dados suficientes" } }
+          },
+          scales: {
+            x: { ticks: { color: textColor }, grid: { color: gridColor } },
+            y: { ticks: { color: textColor }, grid: { color: gridColor }, beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    const ctaCanvas = $("#admin-cta-chart");
+    if (ctaCanvas && !adminCtaChart) {
+      adminCtaChart = new Chart(ctaCanvas, {
+        type: "bar",
+        data: {
+          labels: ["WhatsApp", "Currículo", "GitHub", "LinkedIn", "Projetos"],
+          datasets: [{
+            label: "Cliques",
+            data: [0, 0, 0, 0, 0],
+            backgroundColor: [
+              "rgba(16, 185, 129, 0.72)",
+              "rgba(14, 165, 233, 0.58)",
+              "rgba(99, 102, 241, 0.58)",
+              "rgba(20, 184, 166, 0.58)",
+              "rgba(234, 179, 8, 0.5)"
+            ],
+            borderColor: chartColor,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: textColor } },
+            tooltip: { callbacks: { label: () => "Sem dados suficientes" } }
+          },
+          scales: {
+            x: { ticks: { color: textColor }, grid: { color: gridColor } },
+            y: { ticks: { color: textColor }, grid: { color: gridColor }, beginAtZero: true }
+          }
+        }
+      });
+    }
+  }
+
+  function bindAdminIntelligenceControls() {
+    const bindClickOnce = (selector, handler) => {
+      const element = $(selector);
+      if (!element || element.dataset.boundIntelligence) return;
+      element.dataset.boundIntelligence = "true";
+      element.addEventListener("click", handler);
+    };
+
+    $$("[data-admin-tab-shortcut]").forEach((button) => {
+      if (button.dataset.bound) return;
+      button.dataset.bound = "true";
+      button.addEventListener("click", () => activateAdminTab(button.dataset.adminTabShortcut || "overview"));
+    });
+
+    $$(".admin-report-type").forEach((button) => {
+      if (button.dataset.bound) return;
+      button.dataset.bound = "true";
+      button.addEventListener("click", () => {
+        $$(".admin-report-type").forEach((item) => item.classList.toggle("active", item === button));
+      });
+    });
+
+    bindClickOnce("#admin-generate-report", () => {
+      const activeType = $(".admin-report-type.active")?.dataset.reportType || "weekly";
+      setText("admin-report-output", getAdminReportMarkdown(activeType));
+      setAdminTemporaryStatus("Relatório gerado");
+    });
+
+    bindClickOnce("#admin-copy-report", async () => {
+      const content = $("#admin-report-output")?.textContent || "";
+      if (!content) return;
+
+      try {
+        await navigator.clipboard.writeText(content);
+        setAdminTemporaryStatus("Relatório copiado");
+      } catch {
+        setAdminTemporaryStatus("Não foi possível copiar");
+      }
+    });
+
+    bindClickOnce("#admin-download-report", () => {
+      const content = $("#admin-report-output")?.textContent || getAdminReportMarkdown("weekly");
+      const blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `mpaiva-relatorio-${new Date().toISOString().slice(0, 10)}.md`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      setAdminTemporaryStatus("Markdown exportado");
+    });
+
+    bindClickOnce("#admin-generate-content", () => {
+      const theme = $("#admin-content-theme")?.value.trim() || "IA aplicada em negócios";
+      const channel = $("#admin-content-channel")?.value.trim() || "LinkedIn";
+      const tone = $("#admin-content-tone")?.value.trim() || "profissional, claro e direto";
+      const keywords = $("#admin-content-keywords")?.value.trim() || "Desenvolvedor Full Stack, IA aplicada, automação, SEO técnico";
+
+      setText("admin-content-output", [
+        `Canal: ${channel}`,
+        `Tom: ${tone}`,
+        `Tema: ${theme}`,
+        `Palavras-chave: ${keywords}`,
+        "",
+        "Estrutura sugerida:",
+        "1. Abra com o problema real do negócio.",
+        "2. Explique como sistemas full stack, automação e IA aplicada reduzem atrito operacional.",
+        "3. Mostre um exemplo prático sem prometer resultado garantido.",
+        "4. Feche com CTA para conversar sobre CLT, PJ, freelancer ou projeto."
+      ].join("\n"));
+      setAdminTemporaryStatus("Rascunho criado");
+    });
+  }
+
+  function initAdminIntelligenceCenter() {
+    if (!isAdminRoute()) return;
+
+    updateStrategicAdminMetrics();
+    initAdminIntelligenceCharts();
+    bindAdminIntelligenceControls();
   }
 
   function activateAdminTab(tabName) {

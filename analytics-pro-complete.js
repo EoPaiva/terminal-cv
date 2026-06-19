@@ -3426,6 +3426,7 @@
 
   const ensureDashboard = () => {
     const analyticsTab =
+      $("#admin-tab-history") ||
       $("#admin-tab-analytics") ||
       $("#analytics-panel") ||
       $("[data-admin-tab='analytics']");

@@ -3266,6 +3266,8 @@ body.case-modal-open .case-modal-backdrop {
 .admin-nav {
   display: grid;
   gap: 0.55rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
 }
 
 .admin-nav-btn {
@@ -3464,6 +3466,465 @@ body.case-modal-open .case-modal-backdrop {
   font-size: 0.85rem;
   line-height: 1.6;
   margin-top: 0.35rem;
+}
+
+/* =========================
+   ADMIN INTELLIGENCE CENTER
+========================= */
+
+.admin-command-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 24%, var(--border-color));
+  border-radius: 1rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 10%, transparent), transparent 42%),
+    rgba(2, 6, 23, 0.42);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.2);
+}
+
+.admin-command-strip strong,
+.admin-table-header strong {
+  display: block;
+  color: var(--title-color);
+  font-weight: 850;
+}
+
+.admin-command-strip span,
+.admin-table-header span,
+.admin-muted-note {
+  color: var(--text-color);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.admin-command-actions {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.admin-intel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.admin-intel-grid-compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.admin-intel-card,
+.admin-score-card {
+  position: relative;
+  min-height: 124px;
+  padding: 1rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 18%, var(--border-color));
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 85% 12%, color-mix(in srgb, var(--accent-color) 14%, transparent), transparent 46%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.78), rgba(2, 6, 23, 0.72));
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.admin-intel-card::before,
+.admin-score-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-color) 9%, transparent), transparent);
+  opacity: 0;
+  transform: translateX(-60%);
+  transition: opacity 0.25s ease, transform 0.55s ease;
+}
+
+.admin-intel-card:hover,
+.admin-score-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent-color) 38%, var(--border-color));
+  box-shadow: 0 24px 75px rgba(0, 0, 0, 0.28);
+}
+
+.admin-intel-card:hover::before,
+.admin-score-card:hover::before {
+  opacity: 1;
+  transform: translateX(60%);
+}
+
+.admin-intel-card-glow {
+  border-color: color-mix(in srgb, var(--accent-color) 48%, var(--border-color));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-color) 8%, transparent) inset,
+    0 26px 80px color-mix(in srgb, var(--accent-color) 8%, transparent);
+}
+
+.admin-intel-card span,
+.admin-score-card span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: var(--text-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.admin-intel-card strong,
+.admin-score-card strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: 0.62rem 0 0.45rem;
+  color: var(--title-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  line-height: 1;
+}
+
+.admin-intel-card small,
+.admin-score-card small {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: var(--text-color);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.admin-dashboard-grid,
+.admin-chart-grid,
+.admin-report-layout,
+.admin-seo-grid,
+.admin-security-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-ai-summary-card {
+  border-color: color-mix(in srgb, var(--accent-color) 28%, var(--border-color));
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent-color) 14%, transparent), transparent 54%),
+    rgba(0, 0, 0, 0.25);
+}
+
+.admin-signal-list,
+.admin-check-list,
+.admin-alert-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.admin-signal-list div,
+.admin-check-list span,
+.admin-alert-list article,
+.admin-empty-mini,
+.admin-data-table > div,
+.admin-kanban article {
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 0.85rem;
+  background: rgba(2, 6, 23, 0.36);
+}
+
+.admin-signal-list div {
+  position: relative;
+  padding: 0.8rem 0.85rem 0.8rem 2.15rem;
+}
+
+.admin-signal-list div > span {
+  position: absolute;
+  left: 0.85rem;
+  top: 1rem;
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 999px;
+  background: var(--accent-color);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent-color) 60%, transparent);
+}
+
+.admin-signal-list strong,
+.admin-alert-list strong,
+.admin-kanban strong {
+  display: block;
+  color: var(--title-color);
+  font-size: 0.88rem;
+}
+
+.admin-signal-list small,
+.admin-alert-list small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-color);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.admin-mini-bars {
+  height: 190px;
+  display: flex;
+  align-items: end;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 1rem;
+  background:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px) 0 0 / 100% 25%,
+    rgba(2, 6, 23, 0.34);
+}
+
+.admin-mini-bars i {
+  flex: 1;
+  height: var(--h);
+  min-height: 18px;
+  border-radius: 999px 999px 0.35rem 0.35rem;
+  background: linear-gradient(180deg, var(--accent-color), rgba(14, 165, 233, 0.36));
+  box-shadow: 0 0 22px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+.admin-actions-grid-wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.admin-report-controls,
+.admin-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.admin-report-type,
+.admin-filter-pills button {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  background: rgba(2, 6, 23, 0.35);
+  color: var(--text-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.admin-report-type.active,
+.admin-filter-pills button.active,
+.admin-report-type:hover,
+.admin-filter-pills button:hover {
+  color: var(--accent-color);
+  border-color: color-mix(in srgb, var(--accent-color) 38%, var(--border-color));
+  background: color-mix(in srgb, var(--accent-color) 9%, transparent);
+}
+
+.admin-report-output-card pre {
+  min-height: 300px;
+  max-height: 460px;
+  overflow: auto;
+  margin-top: 0.8rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 0.9rem;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--text-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.admin-table-card {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.admin-table-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.admin-data-table {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.admin-data-table > div {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr 0.7fr 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.7rem 0.8rem;
+  color: var(--text-color);
+  font-size: 0.8rem;
+}
+
+.admin-data-table > div:first-child {
+  color: var(--title-color);
+  background: rgba(255, 255, 255, 0.035);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.admin-data-table em {
+  width: fit-content;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(234, 179, 8, 0.1);
+  color: #fde68a;
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.admin-kanban {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.admin-kanban article {
+  min-height: 230px;
+  padding: 0.9rem;
+}
+
+.admin-kanban article > strong {
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.admin-empty-mini {
+  padding: 0.85rem;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.admin-score-card {
+  display: grid;
+  align-content: center;
+}
+
+.admin-score-card strong {
+  color: var(--accent-color);
+  font-size: 3.6rem;
+}
+
+.admin-check-list span {
+  position: relative;
+  padding: 0.72rem 0.8rem 0.72rem 2rem;
+  color: var(--text-color);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.admin-check-list span::before {
+  content: "";
+  position: absolute;
+  left: 0.82rem;
+  top: 0.95rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #fbbf24;
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.3);
+}
+
+.admin-check-list span[data-ok="true"]::before {
+  background: var(--accent-color);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+.admin-funnel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.admin-funnel div {
+  position: relative;
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--accent-color) 20%, var(--border-color));
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at center, color-mix(in srgb, var(--accent-color) 12%, transparent), transparent 60%),
+    rgba(2, 6, 23, 0.38);
+}
+
+.admin-funnel div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -0.55rem;
+  top: 50%;
+  width: 0.8rem;
+  height: 1px;
+  background: color-mix(in srgb, var(--accent-color) 42%, var(--border-color));
+}
+
+.admin-funnel strong {
+  color: var(--title-color);
+  font-size: 0.9rem;
+}
+
+.admin-funnel span {
+  color: var(--accent-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.admin-alert-list article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.8rem;
+  align-items: start;
+  padding: 0.85rem;
+}
+
+.admin-priority {
+  grid-row: span 2;
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.32rem 0.55rem;
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.admin-priority.medium {
+  color: #fde68a;
+  background: rgba(234, 179, 8, 0.1);
+}
+
+.admin-priority.low {
+  color: #bae6fd;
+  background: rgba(14, 165, 233, 0.1);
 }
 
 .admin-section-header {
@@ -5783,4 +6244,57 @@ body.case-modal-open .case-modal-backdrop {
   display: block;
   min-height: 2.4em;
   line-height: 1.45;
+}
+
+@media (max-width: 1180px) {
+  .admin-intel-grid,
+  .admin-intel-grid-compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-dashboard-grid,
+  .admin-chart-grid,
+  .admin-report-layout,
+  .admin-seo-grid,
+  .admin-security-grid,
+  .admin-kanban,
+  .admin-funnel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .admin-command-strip,
+  .admin-main-header,
+  .admin-table-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-command-actions,
+  .admin-command-actions .admin-solid-button,
+  .admin-command-actions .admin-outline-button {
+    width: 100%;
+  }
+
+  .admin-intel-grid,
+  .admin-intel-grid-compact,
+  .admin-dashboard-grid,
+  .admin-chart-grid,
+  .admin-report-layout,
+  .admin-seo-grid,
+  .admin-security-grid,
+  .admin-kanban,
+  .admin-funnel,
+  .admin-actions-grid-wide {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-data-table > div {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-funnel div:not(:last-child)::after {
+    display: none;
+  }
 }
