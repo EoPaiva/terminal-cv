@@ -52,7 +52,7 @@
   <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="/site.css?v=20261018-mono-1" />
+  <link rel="stylesheet" href="/site.css?v=20261018-mono-2" />
 
   <script type="application/ld+json">
     {
@@ -255,26 +255,27 @@
   </div>
 
   <main id="conteudo">
-    <!-- 00 · HERO -->
+    <!-- HERO -->
     <section id="inicio" class="hero" aria-labelledby="hero-title">
-      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-stage" aria-hidden="true"><canvas class="hero-canvas"></canvas></div>
       <div class="wrap hero-inner">
-        <div class="hero-top">
+        <div class="hero-top hero-fade">
           <span class="label" id="hero-status">[ FULL STACK, IA APLICADA &amp; AUTOMAÇÃO ]</span>
           <span class="label label-dim">PORTFOLIO / 2026</span>
         </div>
 
-        <h1 id="hero-title" class="hero-kicker">Mateus Paiva — Desenvolvedor Full Stack focado em IA aplicada</h1>
-
-        <p class="hero-display" aria-hidden="true">
-          <span class="line"><span>Código, produto.</span></span>
-          <span class="line line-dim"><span data-shine>Experiências que marcam.</span></span>
-        </p>
+        <div class="hero-copy">
+          <h1 id="hero-title" class="hero-kicker hero-fade">Mateus Paiva — Engenheiro de IA &amp; Desenvolvedor Full Stack</h1>
+          <p class="hero-display" aria-hidden="true">
+            <span class="line"><span data-split>Código,</span></span>
+            <span class="line"><span data-split>produto.</span></span>
+            <span class="line line-dim"><span data-split data-shine>Experiências</span></span>
+            <span class="line line-dim"><span data-split data-shine>que marcam.</span></span>
+          </p>
+        </div>
 
         <div class="hero-foot hero-fade">
-          <p id="hero-desc" class="lead">
-            Sou Mateus Paiva, Desenvolvedor Full Stack focado em IA aplicada. Desenvolvo plataformas web, backends, interfaces, bancos de dados, integrações com APIs, automações, agentes de IA, soluções com LLM e RAG para transformar processos complexos em sistemas úteis para negócios.
-          </p>
+          <p id="hero-desc" class="lead">Engenheiro de IA e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.</p>
           <div class="hero-actions" id="hero-actions">
             <a href="#cases" class="btn btn-light">Ver trabalhos <i class="arrow" aria-hidden="true"></i></a>
             <a href="#processo" class="btn btn-ghost">Iniciar um projeto <i class="arrow" aria-hidden="true"></i></a>
@@ -282,8 +283,8 @@
         </div>
 
         <div class="hero-bottom hero-fade">
-          <span>São José dos Campos — SP · Atendimento remoto</span>
-          <span class="available"><i class="pulse" aria-hidden="true"></i>Disponível · CLT · PJ · Freelancer</span>
+          <span>São José dos Campos — SP · Remoto</span>
+          <span class="available"><i class="pulse" aria-hidden="true"></i>Engenheiro de IA no Notazz</span>
           <a href="#cases" class="scroll-cue" aria-label="Rolar para os trabalhos">Role <i aria-hidden="true"></i></a>
         </div>
       </div>
@@ -291,166 +292,113 @@
 
     <!-- MARQUEE -->
     <div class="marquee" aria-label="Stack principal">
-      <div class="marquee-row"><div class="marquee-track" data-items="TypeScript|React|Next.js|Node.js|Supabase|PostgreSQL|Tailwind|GSAP|TanStack|Vercel"></div></div>
-      <div class="marquee-row marquee-reverse"><div class="marquee-track" data-items="Claude|OpenAI|Gemini|RAG|MCP|Agentes de IA|LangChain|n8n|NestJS|Prisma|Python|SEO técnico"></div></div>
+      <div class="marquee-row"><div class="marquee-track" data-items="TypeScript|React|Next.js|Node.js|Supabase|PostgreSQL|Claude|OpenAI|RAG|MCP|Agentes de IA|GSAP|Vercel"></div></div>
     </div>
 
-    <!-- 01 · TRABALHO SELECIONADO -->
-    <section id="cases" class="section" aria-labelledby="cases-title">
+    <!-- 01 · TRABALHO -->
+    <section id="cases" class="section work-section" aria-labelledby="cases-title">
       <div class="wrap">
         <header class="section-head reveal">
           <span class="index">01</span>
           <div>
             <span class="label">Trabalho selecionado</span>
-            <h2 id="cases-title" class="h2">Projetos reais, no ar, com problemas de verdade.</h2>
+            <h2 id="cases-title" class="h2" data-words>Projetos reais, no ar, com problemas de verdade.</h2>
           </div>
-          <p class="section-desc">Quatro entregas que mostram frentes diferentes: produto comercial, identidade digital, inteligência artificial e sistema de gestão.</p>
         </header>
-
-        <div class="work">
-          <article class="work-item reveal">
-            <a class="work-visual" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener" aria-label="Abrir AZV Lançamentos">
-              <img src="/assets/work/card-azv.svg" alt="" width="1040" height="500" loading="lazy" />
-            </a>
+      </div>
+      <div class="work-pin">
+        <div class="work-track">
+          <article class="work-card">
+            <a class="work-visual" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener" aria-label="Abrir AZV Lançamentos"><img src="/assets/work/card-azv.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
               <div class="work-meta"><span>01</span><span>Imobiliário</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
               <h3 class="h3">AZV Lançamentos</h3>
-              <p>Vitrine de lançamentos imobiliários da AZV Imóveis. Cada empreendimento ganha uma página própria com ficha verificada, e a home se abre como uma parede de cobogó que gira ao rolar.</p>
-              <ul class="tags"><li>Next.js</li><li>GSAP</li><li>Lenis</li><li>TypeScript</li><li>Vercel</li></ul>
+              <p>Vitrine de lançamentos da AZV Imóveis: cada empreendimento com página própria e uma home que se abre como uma parede de cobogó girando ao rolar.</p>
               <a class="link" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener">azvlancamentos.com.br <i class="arrow" aria-hidden="true"></i></a>
             </div>
           </article>
-
-          <article class="work-item reveal">
-            <a class="work-visual" href="https://upaiva.dev/" aria-label="upaiva.dev, este site">
-              <img src="/assets/work/card-upaiva.svg" alt="" width="1040" height="500" loading="lazy" />
-            </a>
+          <article class="work-card">
+            <a class="work-visual" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener" aria-label="Abrir HumanReply AI"><img src="/assets/work/card-humanreply.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
-              <div class="work-meta"><span>02</span><span>Identidade digital</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
-              <h3 class="h3">upaiva.dev</h3>
-              <p>Este site. Um portfólio que muda o discurso para cada visitante nos modos Tech, Contrate-me e Cliente, com analytics próprio e painel administrativo para publicar projetos.</p>
-              <ul class="tags"><li>JavaScript</li><li>Supabase</li><li>Analytics próprio</li><li>SEO técnico</li><li>Vercel</li></ul>
-              <a class="link" href="#projetos-producao">Ver projetos publicados <i class="arrow" aria-hidden="true"></i></a>
-            </div>
-          </article>
-
-          <article class="work-item reveal">
-            <a class="work-visual" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener" aria-label="Abrir HumanReply AI">
-              <img src="/assets/work/card-humanreply.svg" alt="" width="1040" height="500" loading="lazy" />
-            </a>
-            <div class="work-body">
-              <div class="work-meta"><span>03</span><span>Inteligência artificial</span><span class="status"><i class="pulse" aria-hidden="true"></i>Em validação</span></div>
+              <div class="work-meta"><span>02</span><span>Inteligência artificial</span><span class="status"><i class="pulse" aria-hidden="true"></i>Em validação</span></div>
               <h3 class="h3">HumanReply AI</h3>
-              <p>SaaS de IA para atendimento, suporte e vendas B2B. Reescreve respostas no tom da empresa, detecta mensagens ruins antes do envio e guarda o contexto de cada conversa.</p>
-              <ul class="tags"><li>TanStack Start</li><li>TypeScript</li><li>LLMs</li><li>Vercel</li></ul>
+              <p>SaaS de IA para atendimento e vendas B2B. Reescreve respostas no tom da empresa, detecta mensagens ruins antes do envio e guarda o contexto de cada conversa.</p>
               <a class="link" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener">contextual-chat-lab.vercel.app <i class="arrow" aria-hidden="true"></i></a>
             </div>
           </article>
-
-          <article class="work-item reveal">
-            <a class="work-visual" href="https://studiojmarq.com/" target="_blank" rel="noopener" aria-label="Abrir Studio JM">
-              <img src="/assets/work/card-studiojm.svg" alt="" width="1040" height="500" loading="lazy" />
-            </a>
+          <article class="work-card">
+            <a class="work-visual" href="https://studiojmarq.com/" target="_blank" rel="noopener" aria-label="Abrir Studio JM"><img src="/assets/work/card-studiojm.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
-              <div class="work-meta"><span>04</span><span>Arquitetura · Gestão</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <div class="work-meta"><span>03</span><span>Arquitetura · Gestão</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
               <h3 class="h3">Studio JM</h3>
-              <p>Plataforma para estúdio de arquitetura e interiores: portfólio com galerias, briefing com envio de referências e painel administrativo conectado ao Supabase.</p>
-              <ul class="tags"><li>HTML</li><li>Tailwind</li><li>JavaScript</li><li>Supabase</li></ul>
+              <p>Plataforma para estúdio de arquitetura: portfólio com galerias, briefing com referências e painel administrativo conectado ao Supabase.</p>
               <a class="link" href="https://studiojmarq.com/" target="_blank" rel="noopener">studiojmarq.com <i class="arrow" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="work-card">
+            <a class="work-visual" href="https://upaiva.dev/" aria-label="upaiva.dev, este site"><img src="/assets/work/card-upaiva.svg" alt="" width="1040" height="500" loading="lazy" /></a>
+            <div class="work-body">
+              <div class="work-meta"><span>04</span><span>Identidade digital</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <h3 class="h3">upaiva.dev</h3>
+              <p>Este site. Muda o discurso para cada visitante nos modos Tech, Contrate-me e Cliente, com analytics próprio e painel para publicar projetos.</p>
+              <a class="link" href="#projetos-producao">Ver projetos publicados <i class="arrow" aria-hidden="true"></i></a>
             </div>
           </article>
         </div>
       </div>
-    </section>
-
-    <!-- 02 · EM PRODUÇÃO -->
-    <section id="projetos-producao" class="section section-alt" aria-labelledby="producao-title">
       <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">02</span>
-          <div>
-            <span class="label">Em produção</span>
-            <h2 id="producao-title" class="h2">Plataformas, sistemas e interfaces publicados.</h2>
+        <div id="projetos-producao" class="production" aria-labelledby="producao-title">
+          <div class="production-head">
+            <span class="label">Também no ar</span>
+            <h3 id="producao-title" class="label label-dim">Lista atualizada pelo painel · passe o mouse para ver a prévia</h3>
           </div>
-          <p class="section-desc">Lista atualizada pelo painel administrativo. Passe o mouse para ver a prévia de cada projeto.</p>
-        </header>
-        <ol class="index-list" id="production-list" aria-live="polite"></ol>
+          <ol class="index-list" id="production-list" aria-live="polite"></ol>
+        </div>
       </div>
       <div class="preview" aria-hidden="true"><img alt="" /></div>
     </section>
 
-    <!-- 03 · SERVIÇOS -->
-    <section id="servicos" class="section" aria-labelledby="services-title">
+    <!-- 02 · SERVIÇOS -->
+    <section id="servicos" class="section section-alt" aria-labelledby="services-title">
+      <span id="ai-search-context" class="anchor" aria-hidden="true"></span>
       <div class="wrap">
         <header class="section-head reveal">
-          <span class="index">03</span>
+          <span class="index">02</span>
           <div>
             <span class="label" id="services-kicker">Serviços</span>
             <h2 id="services-title" class="h2">Soluções digitais completas com Full Stack, automação e IA aplicada.</h2>
           </div>
-          <p class="section-desc" id="services-description">Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.</p>
+          <p class="section-desc" id="services-description">Sistemas web, agentes de IA, automações e integrações com APIs para negócios.</p>
         </header>
         <div class="rows" id="services-list"></div>
+        <p class="services-more reveal"><a href="/sistemas-web-inteligentes" class="link" data-analytics-intent="sistemas-web-inteligentes">Ver sistemas web inteligentes <i class="arrow" aria-hidden="true"></i></a></p>
       </div>
     </section>
 
-    <!-- 04 · O QUE EU DESENVOLVO -->
-    <section id="ai-search-context" class="section section-alt" aria-labelledby="ai-title">
+    <!-- 03 · MANIFESTO -->
+    <section id="diferencial" class="section manifesto" aria-labelledby="differential-title">
+      <span id="stack-crescimento" class="anchor" aria-hidden="true"></span>
+      <span id="seo-organico" class="anchor" aria-hidden="true"></span>
+      <div class="wrap">
+        <span class="label">03 · Diferencial</span>
+        <h2 id="differential-title" class="visually-hidden">O diferencial</h2>
+        <p class="manifesto-text" data-scrub>Engenharia full stack, IA aplicada e visão de operação na mesma entrega. Sem promessa artificial: código rápido, claro e pensado para ser encontrado.</p>
+        <p class="visually-hidden" id="differential-description">Não é apenas criar telas ou scripts. É entender o problema, modelar dados, integrar APIs e entregar uma solução completa.</p>
+        <div class="principles-row" id="differential-list"></div>
+        <p id="limites-transparencia" class="manifesto-note reveal">IA aplicada com validação humana. SEO técnico não garante posição no Google, mas cria a base certa para indexação, performance e crescimento orgânico.</p>
+      </div>
+    </section>
+
+    <!-- 04 · PROCESSO -->
+    <section id="processo" class="section section-alt" aria-labelledby="process-title">
       <div class="wrap">
         <header class="section-head reveal">
           <span class="index">04</span>
           <div>
-            <span class="label">Resposta direta</span>
-            <h2 id="ai-title" class="h2">O que eu desenvolvo</h2>
-          </div>
-          <p class="section-desc">Soluções digitais completas unindo desenvolvimento full stack, IA aplicada, automação, SEO técnico e visão de negócio.</p>
-        </header>
-        <div class="grid grid-3" aria-label="Resumo profissional para mecanismos de busca e assistentes de IA">
-          <article class="cell reveal">
-            <span class="cell-n">01</span>
-            <h3>Sistemas web completos</h3>
-            <p>Aplicações com frontend, backend, banco de dados, autenticação, APIs e deploy para organizar processos, dados, atendimento e operações.</p>
-            <a href="/sistemas-web-inteligentes" class="link" data-analytics-intent="sistemas-web-inteligentes">Ver sistemas web inteligentes <i class="arrow" aria-hidden="true"></i></a>
-          </article>
-          <article class="cell reveal">
-            <span class="cell-n">02</span>
-            <h3>Plataformas SaaS</h3>
-            <p>Estrutura de produto com usuários, permissões, painéis, integrações e base para vender, operar e evoluir serviços digitais.</p>
-          </article>
-          <article class="cell reveal">
-            <span class="cell-n">03</span>
-            <h3>Automações com IA</h3>
-            <p>Fluxos inteligentes para reduzir tarefas repetitivas, analisar mensagens, gerar respostas, acionar APIs e conectar ferramentas.</p>
-          </article>
-          <article class="cell reveal">
-            <span class="cell-n">04</span>
-            <h3>Agentes de IA</h3>
-            <p>Assistentes com LLM, RAG, memória contextual e bases de conhecimento para atendimento, suporte, triagem e decisão.</p>
-          </article>
-          <article class="cell reveal">
-            <span class="cell-n">05</span>
-            <h3>Integrações com APIs</h3>
-            <p>Conexão entre sistemas, CRMs, bancos de dados, gateways de pagamento, WhatsApp, ferramentas externas e fluxos internos.</p>
-          </article>
-          <article class="cell reveal">
-            <span class="cell-n">06</span>
-            <h3>Sites com SEO técnico</h3>
-            <p>Sites profissionais, landing pages e páginas comerciais com performance, semântica, copywriting e base para tráfego orgânico.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 · PROCESSO -->
-    <section id="processo" class="section" aria-labelledby="process-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">05</span>
-          <div>
             <span class="label">Processo</span>
-            <h2 id="process-title" class="h2">Um método claro para transformar problema em solução.</h2>
+            <h2 id="process-title" class="h2">Do problema à solução, em cinco passos.</h2>
           </div>
-          <p class="section-desc" id="process-description">Escolha o foco e o tipo de entrega. A mensagem do WhatsApp será montada automaticamente com base na sua necessidade.</p>
+          <p class="section-desc" id="process-description">Escolha o foco e o tipo de entrega. A mensagem do WhatsApp é montada automaticamente.</p>
         </header>
 
         <ol class="steps" id="process-steps"></ol>
@@ -493,179 +441,70 @@
       </div>
     </section>
 
-    <!-- 06 · STACK -->
-    <section id="stack-crescimento" class="section section-alt" aria-labelledby="stack-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">06</span>
-          <div>
-            <span class="label">Stack &amp; prova técnica</span>
-            <h2 id="stack-title" class="h2">Stack, IA e crescimento orgânico em uma única entrega.</h2>
-          </div>
-          <p class="section-desc">A entrega conecta interface, backend, dados, integrações, automações e SEO técnico. A stack é apresentada por uso real, não como lista inflada de tecnologias.</p>
-        </header>
-        <div class="grid grid-3">
-          <article class="cell reveal"><span class="cell-n">FE</span><h3>Frontend e experiência</h3><p>React, Next.js, JavaScript, TypeScript, Tailwind CSS, HTML semântico e responsividade para criar interfaces rápidas, claras e acessíveis.</p></article>
-          <article class="cell reveal"><span class="cell-n">BE</span><h3>Backend, APIs e regras</h3><p>Node.js, APIs REST, autenticação, webhooks, integrações, permissões e lógica de negócio para sustentar sistemas completos.</p></article>
-          <article class="cell reveal"><span class="cell-n">DB</span><h3>Dados e persistência</h3><p>PostgreSQL, Supabase, SQLite, tabelas relacionais, storage, políticas de acesso e organização de dados para operação real.</p></article>
-          <article class="cell reveal"><span class="cell-n">AI</span><h3>IA aplicada</h3><p>LLMs, RAG, agentes de IA, memória contextual, assistentes internos, análise de mensagens e geração de respostas com contexto.</p></article>
-          <article class="cell reveal"><span class="cell-n">SEO</span><h3>SEO técnico</h3><p>Estrutura semântica, metadados, schema, conteúdo orientado à intenção de busca, performance e base para tráfego orgânico sustentável.</p></article>
-          <article class="cell reveal"><span class="cell-n">OPS</span><h3>Deploy e infraestrutura</h3><p>Vercel, Railway, Supabase, GitHub, variáveis de ambiente, versionamento e publicação para colocar soluções no ar com rastreabilidade.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 07 · SEO E TRANSPARÊNCIA -->
-    <section id="seo-organico" class="section" aria-labelledby="seo-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">07</span>
-          <div>
-            <span class="label">SEO &amp; tráfego orgânico</span>
-            <h2 id="seo-title" class="h2">Desenvolvimento pensado para ser encontrado.</h2>
-          </div>
-          <p class="section-desc">Não basta ter um site bonito. Ele precisa ser rápido, claro, indexável e estruturado para atrair tráfego orgânico. Uno desenvolvimento full stack, SEO técnico e estratégia de conteúdo para criar páginas que funcionam como ativos digitais.</p>
-        </header>
-        <div class="grid grid-4">
-          <article class="cell reveal"><span class="cell-n">SEO</span><h3>SEO técnico</h3><p>HTML semântico, headings, title, meta description, sitemap, robots.txt, schema JSON-LD, URLs amigáveis e performance mobile.</p></article>
-          <article class="cell reveal"><span class="cell-n">ORG</span><h3>Conteúdo estratégico</h3><p>Páginas organizadas por intenção de busca, clareza comercial, termos pesquisados e diferença entre tráfego orgânico e mídia paga.</p></article>
-          <article class="cell reveal"><span class="cell-n">CVR</span><h3>Conversão</h3><p>CTAs claros, proposta de valor específica, fluxo simples de contato e estrutura preparada para evolução.</p></article>
-          <article class="cell reveal"><span class="cell-n">GSC</span><h3>Monitoramento</h3><p>Base preparada para acompanhar indexação, ajustes de Search Console, evolução de conteúdo e melhorias sem promessa de ranking garantido.</p></article>
-        </div>
-
-        <div id="limites-transparencia" class="principles reveal">
-          <div class="principles-head">
-            <span class="label">Limites &amp; transparência</span>
-            <h3 class="h3">Como trabalho com IA e SEO</h3>
-            <p>Tecnologia precisa gerar clareza, não promessa exagerada. IA aplicada e SEO técnico entram como apoio estratégico para melhorar processos, conteúdo, produtividade e descoberta orgânica.</p>
-          </div>
-          <div class="principles-list">
-            <div><h4>IA aplicada com validação humana</h4><p>IA aplicada não substitui estratégia, processo ou validação humana. Ela entra para acelerar tarefas, organizar informações, apoiar atendimento, gerar respostas e melhorar produtividade.</p></div>
-            <div><h4>SEO técnico sem promessa artificial</h4><p>SEO técnico não garante posição no Google, mas cria uma base mais correta para indexação, performance, clareza de conteúdo e crescimento orgânico.</p></div>
-            <div><h4>Boas práticas, não “segredos”</h4><p>A abordagem acompanha boas práticas de mecanismos de busca: facilitar rastreamento, indexação e entendimento do conteúdo. Não existe fórmula honesta para garantir primeira posição.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 08 · DIFERENCIAL -->
-    <section id="diferencial" class="section section-alt" aria-labelledby="differential-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">08</span>
-          <div>
-            <span class="label">Diferencial</span>
-            <h2 id="differential-title" class="h2">O diferencial está em unir engenharia Full Stack, IA aplicada, operação e visão estratégica.</h2>
-          </div>
-          <p class="section-desc" id="differential-description">Não é apenas criar telas ou scripts. É entender o problema, modelar dados, integrar APIs, desenhar fluxos, automatizar decisões e entregar uma solução digital completa para uso real.</p>
-        </header>
-        <div class="grid grid-4" id="differential-list"></div>
-      </div>
-    </section>
-
-    <!-- 09 · TRAJETÓRIA -->
+    <!-- 05 · TRAJETÓRIA -->
     <section id="trajetoria" class="section" aria-labelledby="timeline-title">
       <div class="wrap">
         <header class="section-head reveal">
-          <span class="index">09</span>
+          <span class="index">05</span>
           <div>
-            <span class="label">Trajetória profissional</span>
+            <span class="label">Trajetória</span>
             <h2 id="timeline-title" class="h2">Da operação ao produto.</h2>
           </div>
-          <p class="section-desc">Uma evolução que conecta operação, suporte, produto, processos e tecnologia aplicada para construir soluções digitais com visão prática.</p>
+          <p class="section-desc"><a class="link" href="perfil-profissional.html">Perfil profissional completo <i class="arrow" aria-hidden="true"></i></a></p>
         </header>
-        <ol class="timeline">
-          <li class="reveal is-now"><time>Out/2026 – Presente</time><div><h3>Engenheiro de IA</h3><span class="org">Notazz</span><p>Atuação como Engenheiro de IA, desenvolvendo soluções com inteligência artificial aplicada ao produto e à operação.</p><ul class="tags"><li>IA aplicada</li><li>LLM</li><li>Produto</li></ul></div></li>
-          <li class="reveal"><time>Em paralelo</time><div><h3>Desenvolvimento Full Stack, IA Aplicada &amp; Estratégia</h3><span class="org">São José dos Campos</span><p>Foco atual em sistemas web inteligentes, plataformas SaaS, automações, integrações com APIs, agentes de IA, soluções com LLM/RAG, dados e melhoria de processos.</p><ul class="tags"><li>Full Stack</li><li>IA aplicada</li><li>LLM/RAG</li></ul></div></li>
-          <li class="reveal"><time>Mar/2026 – Jun/2026</time><div><h3>Analista de Suporte</h3><span class="org">Orbizz.ai</span><p>Suporte técnico e operacional, acompanhamento de chamados, orientação a usuários, análise inicial de problemas e comunicação entre cliente, produto e tecnologia.</p><ul class="tags"><li>Suporte técnico</li><li>SaaS</li><li>Cliente &amp; produto</li></ul></div></li>
-          <li class="reveal"><time>Out/2024 – Nov/2025</time><div><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span><p>Retorno ao ambiente industrial com foco em excelência fabril, testes elétricos, qualidade e apoio à eficiência operacional.</p><ul class="tags"><li>Excelência fabril</li><li>Testes</li><li>Eficiência</li></ul></div></li>
-          <li class="reveal"><time>Set/2024 – Out/2024</time><div><h3>Prevenção de Perdas e Gestão Logística</h3><span class="org">Unissul Supermercados</span><p>Atuação estratégica em prevenção de perdas, organização de estoque, controle operacional e preservação de ativos.</p><ul class="tags"><li>Logística</li><li>Controle</li><li>Rotina operacional</li></ul></div></li>
-          <li class="reveal"><time>Jan/2023 – Dez/2024</time><div><h3>Sócio-Fundador e Diretor de Operações</h3><span class="org">AspectMania LTDA</span><p>Gestão de infraestrutura digital, liderança de desenvolvedores, suporte técnico especializado, organização financeira e operação com grande volume de usuários.</p><ul class="tags"><li>Operações</li><li>Produto digital</li><li>Suporte</li></ul></div></li>
-          <li class="reveal"><time>Abr/2021 – Fev/2023</time><div><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span><p>Atuação em ambiente industrial com foco em testes elétricos, controle de qualidade, segurança operacional e conformidade técnica.</p><ul class="tags"><li>Qualidade</li><li>Processos</li><li>Conformidade</li></ul></div></li>
+        <ol class="tl">
+          <li class="tl-row is-now"><time>Out/2026 – Presente</time><h3>Engenheiro de IA</h3><span class="org">Notazz</span></li>
+          <li class="tl-row"><time>Em paralelo</time><h3>Desenvolvimento Full Stack, IA Aplicada &amp; Estratégia</h3><span class="org">São José dos Campos</span></li>
+          <li class="tl-row"><time>Mar/2026 – Jun/2026</time><h3>Analista de Suporte</h3><span class="org">Orbizz.ai</span></li>
+          <li class="tl-row"><time>Out/2024 – Nov/2025</time><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span></li>
+          <li class="tl-row"><time>Set/2024 – Out/2024</time><h3>Prevenção de Perdas e Gestão Logística</h3><span class="org">Unissul Supermercados</span></li>
+          <li class="tl-row"><time>Jan/2023 – Dez/2024</time><h3>Sócio-Fundador e Diretor de Operações</h3><span class="org">AspectMania LTDA</span></li>
+          <li class="tl-row"><time>Abr/2021 – Fev/2023</time><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span></li>
         </ol>
       </div>
     </section>
 
-    <!-- 10 · GITHUB -->
-    <section id="github" class="section section-alt" aria-labelledby="github-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">10</span>
-          <div>
-            <span class="label">Atividade técnica</span>
-            <h2 id="github-title" class="h2">Registro público de evolução.</h2>
-          </div>
-          <p class="section-desc">Dados públicos do GitHub, lidos direto da API. Se ela oscilar, a seção continua de pé.</p>
+    <!-- 06 · FAQ -->
+    <section id="faq" class="section section-alt" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <header class="faq-head reveal">
+          <span class="index">06</span>
+          <span class="label">Perguntas frequentes</span>
+          <h2 id="faq-title" class="h2">Dúvidas antes de começar.</h2>
         </header>
-        <div class="gh">
-          <dl class="gh-stats reveal">
-            <div><dt>Repositórios públicos</dt><dd id="gh-repos">—</dd></div>
-            <div><dt>Stack dominante</dt><dd id="gh-lang">Full Stack</dd></div>
-            <div><dt>Último update</dt><dd id="gh-updated">—</dd></div>
-          </dl>
-          <ol class="index-list gh-list" id="gh-list"><li class="index-empty">Carregando repositórios públicos…</li></ol>
-          <a class="link" href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">Abrir repositórios no GitHub <i class="arrow" aria-hidden="true"></i></a>
+        <div class="faq-lists">
+          <div class="faq" id="faq-mode"></div>
+          <div class="faq">
+          <details><summary>Quem é Mateus Paiva?</summary><p>Mateus Paiva é um Desenvolvedor Full Stack focado em IA aplicada, automação de processos, sistemas web inteligentes, agentes de IA, LLM, RAG, integrações com APIs e plataformas digitais para negócios.</p></details>
+          <details><summary>Mateus Paiva faz apenas sites?</summary><p>Não. Além de sites profissionais, ele desenvolve sistemas web, dashboards, plataformas SaaS, automações, integrações com APIs e agentes de IA.</p></details>
+          <details><summary>Quais soluções Mateus Paiva desenvolve para empresas?</summary><p>Ele desenvolve sistemas web inteligentes, plataformas SaaS, dashboards, painéis de gestão, automações de processos, integrações com APIs, agentes de IA, soluções com LLM e RAG, SEO técnico e aplicações digitais completas para eficiência e crescimento.</p></details>
+          <details><summary>Mateus Paiva está aberto a oportunidades CLT, PJ ou freelancer?</summary><p>Sim. Mateus Paiva está aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento full stack, IA aplicada, automação, sistemas web, SEO técnico e soluções digitais.</p></details>
+          <details><summary>O que é SEO técnico no contexto do site?</summary><p>SEO técnico é a estruturação do site para facilitar leitura, indexação e compreensão por mecanismos de busca, considerando performance, HTML semântico, metadados, sitemap, robots.txt, schema e organização das páginas.</p></details>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 11 · FAQ -->
-    <section id="faq" class="section" aria-labelledby="faq-title">
-      <div class="wrap narrow">
-        <header class="section-head reveal">
-          <span class="index">11</span>
-          <div>
-            <span class="label">Perguntas frequentes</span>
-            <h2 id="faq-title" class="h2">Dúvidas antes de iniciar um projeto.</h2>
-          </div>
-        </header>
-        <div class="faq" id="faq-mode"></div>
-        <div class="faq">
-          <details class="reveal"><summary>Quem é Mateus Paiva?</summary><p>Mateus Paiva é um Desenvolvedor Full Stack focado em IA aplicada, automação de processos, sistemas web inteligentes, agentes de IA, LLM, RAG, integrações com APIs e plataformas digitais para negócios.</p></details>
-          <details class="reveal"><summary>Mateus Paiva faz apenas sites?</summary><p>Não. Além de sites profissionais, ele desenvolve sistemas web, dashboards, plataformas SaaS, automações, integrações com APIs e agentes de IA.</p></details>
-          <details class="reveal"><summary>Quais soluções Mateus Paiva desenvolve para empresas?</summary><p>Ele desenvolve sistemas web inteligentes, plataformas SaaS, dashboards, painéis de gestão, automações de processos, integrações com APIs, agentes de IA, soluções com LLM e RAG, SEO técnico e aplicações digitais completas para eficiência e crescimento.</p></details>
-          <details class="reveal"><summary>Mateus Paiva está aberto a oportunidades CLT, PJ ou freelancer?</summary><p>Sim. Mateus Paiva está aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento full stack, IA aplicada, automação, sistemas web, SEO técnico e soluções digitais.</p></details>
-          <details class="reveal"><summary>O que é SEO técnico no contexto do site?</summary><p>SEO técnico é a estruturação do site para facilitar leitura, indexação e compreensão por mecanismos de busca, considerando performance, HTML semântico, metadados, sitemap, robots.txt, schema e organização das páginas.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- 12 · PRÓXIMOS PASSOS -->
-    <section id="proximos-passos" class="section section-alt" aria-labelledby="next-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <span class="index">12</span>
-          <div>
-            <span class="label">Próximos passos</span>
-            <h2 id="next-title" class="h2">Escolha o tipo de solução ou oportunidade.</h2>
-          </div>
-          <p class="section-desc">Atalhos diretos para conversar com contexto, seja para integrar IA, criar um site com SEO, desenvolver um sistema sob medida ou falar sobre oportunidade CLT/PJ.</p>
-        </header>
-        <div class="grid grid-4 intents">
-          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="integrar-ia" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20integrar%20IA%20ao%20meu%20neg%C3%B3cio%20e%20entender%20uma%20solu%C3%A7%C3%A3o%20poss%C3%ADvel."><span class="cell-n">A</span><strong>Quero integrar IA ao meu negócio</strong><span>Agentes, automações e fluxos inteligentes conectados à operação.</span><i class="arrow" aria-hidden="true"></i></a>
-          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="site-seo" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20um%20site%20preparado%20para%20tr%C3%A1fego%20org%C3%A2nico%20e%20SEO%20t%C3%A9cnico."><span class="cell-n">B</span><strong>Quero um site preparado para tráfego orgânico</strong><span>Performance, semântica, SEO técnico e páginas com foco em busca.</span><i class="arrow" aria-hidden="true"></i></a>
-          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="sistema-sob-medida" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Preciso%20de%20um%20sistema%20sob%20medida%20para%20organizar%20um%20processo%20da%20empresa."><span class="cell-n">C</span><strong>Preciso de um sistema sob medida</strong><span>Backend, frontend, banco de dados, APIs e painéis para processos reais.</span><i class="arrow" aria-hidden="true"></i></a>
-          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="oportunidade-clt-pj" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20conversar%20sobre%20uma%20oportunidade%20CLT%2FPJ%20ou%20projeto%20freelancer."><span class="cell-n">D</span><strong>Conversar sobre oportunidade CLT/PJ</strong><span>Disponível para projetos, parcerias, freelance e atuação remota/híbrida.</span><i class="arrow" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 13 · CONTATO -->
+    <!-- 07 · CONTATO -->
     <section id="contato" class="section contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <span class="label">13 · Contato</span>
+        <span class="label">07 · Contato</span>
         <h2 id="contact-title" class="contact-display">
-          <span class="line"><span>Vamos construir algo</span></span>
-          <span class="line line-dim"><span data-shine>que marque.</span></span>
+          <span class="line"><span data-split>Vamos construir</span></span>
+          <span class="line line-dim"><span data-split data-shine>algo que marque.</span></span>
         </h2>
-        <p class="lead">Disponível para oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento Full Stack, IA aplicada, automação, SEO técnico, APIs, dados e plataformas SaaS.</p>
         <div class="contact-actions">
           <a class="btn btn-light btn-lg" target="_blank" rel="noopener" data-analytics-intent="whatsapp-contato" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Vi%20seu%20site%20e%20quero%20conversar.">Chamar no WhatsApp <i class="arrow" aria-hidden="true"></i></a>
           <a class="btn btn-ghost btn-lg" href="mailto:mpaiiva21@gmail.com" data-analytics-intent="email-contato">Enviar e-mail <i class="arrow" aria-hidden="true"></i></a>
           <button class="btn btn-ghost btn-lg" type="button" id="copy-email" data-email="mpaiiva21@gmail.com">Copiar e-mail</button>
         </div>
+        <div id="proximos-passos" class="intents" aria-label="Atalhos de conversa">
+          <a class="intent" target="_blank" rel="noopener" data-analytics-intent="integrar-ia" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20integrar%20IA%20ao%20meu%20neg%C3%B3cio%20e%20entender%20uma%20solu%C3%A7%C3%A3o%20poss%C3%ADvel.">Integrar IA ao negócio <i class="arrow" aria-hidden="true"></i></a>
+          <a class="intent" target="_blank" rel="noopener" data-analytics-intent="site-seo" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20um%20site%20preparado%20para%20tr%C3%A1fego%20org%C3%A2nico%20e%20SEO%20t%C3%A9cnico.">Site com SEO técnico <i class="arrow" aria-hidden="true"></i></a>
+          <a class="intent" target="_blank" rel="noopener" data-analytics-intent="sistema-sob-medida" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Preciso%20de%20um%20sistema%20sob%20medida%20para%20organizar%20um%20processo%20da%20empresa.">Sistema sob medida <i class="arrow" aria-hidden="true"></i></a>
+          <a class="intent" target="_blank" rel="noopener" data-analytics-intent="oportunidade-clt-pj" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20conversar%20sobre%20um%20projeto%20freelancer%20ou%20parceria.">Projeto ou parceria <i class="arrow" aria-hidden="true"></i></a>
+        </div>
         <ul class="contact-links">
-          <li><a href="perfil-profissional.html">Perfil profissional <i class="arrow" aria-hidden="true"></i></a></li>
           <li><a href="https://www.linkedin.com/in/mateus-paiva-19804b284" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a></li>
           <li><a href="https://github.com/EoPaiva" target="_blank" rel="noopener">GitHub <i class="arrow" aria-hidden="true"></i></a></li>
           <li><a href="cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf <i class="arrow" aria-hidden="true"></i></a></li>
@@ -675,11 +514,11 @@
   </main>
 
   <footer class="footer">
+    <p class="footer-giant" aria-hidden="true"><span>mPaiva_</span></p>
     <div class="wrap footer-inner">
       <div class="footer-brand">
-        <a href="#inicio" class="wordmark wordmark-lg">mPaiva<span class="caret"></span></a>
         <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
-        <p class="dim">Aberto a oportunidades CLT, PJ, freelancer, projetos e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+        <p class="dim">Engenheiro de IA no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
       </div>
       <nav class="footer-col" aria-label="Acesso rápido">
         <h4>Acesso rápido</h4>
@@ -716,7 +555,10 @@
   <div class="toast" role="status" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" defer></script>
-  <script src="/site.js?v=20261018-mono-1" defer></script>
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/site.js?v=20261018-mono-2" defer></script>
   <script src="/analytics-pro-complete.js?v=20260619-audit-agent-1" defer></script>
 </body>
 </html>
