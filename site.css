@@ -93,10 +93,16 @@ button, select { font: inherit; color: inherit; }
 
 /* ---------- cursor e progresso ---------- */
 body::after { content: ""; position: fixed; inset: 0; z-index: 85; pointer-events: none; opacity: .05; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.cursor { position: fixed; left: 0; top: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #fff; mix-blend-mode: difference; pointer-events: none; z-index: 90; opacity: 0; transition: width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), opacity .3s; }
-.cursor.is-on { opacity: 1; }
-.cursor.is-hover { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
-@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+.cursor, .cursor-ring { position: fixed; left: 0; top: 0; border-radius: 50%; pointer-events: none; z-index: 90; opacity: 0; mix-blend-mode: difference; transition: opacity .3s; }
+.cursor { width: 8px; height: 8px; margin: -4px 0 0 -4px; background: #fff; }
+.cursor-ring { width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1px solid rgba(255,255,255,.7); transition: opacity .3s, width .45s var(--ease), height .45s var(--ease), margin .45s var(--ease), background .45s var(--ease), border-color .45s var(--ease); }
+.cursor.is-on, .cursor-ring.is-on { opacity: 1; }
+.cursor-ring.is-hover { width: 72px; height: 72px; margin: -36px 0 0 -36px; background: #fff; border-color: #fff; }
+.cursor.is-hover { opacity: 0; }
+.cursor-ring.is-down { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor: auto !important; }
+@media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none; } }
 
 .progress { position: fixed; left: 0; right: 0; top: 0; height: 1px; z-index: 60; pointer-events: none; }
 .progress span { display: block; height: 100%; background: #fff; transform-origin: left; transform: scaleX(0); }
@@ -290,6 +296,8 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 85; pointer-event
 .work-visual { position: relative; display: block; border: 1px solid var(--line); border-radius: 24px; background: radial-gradient(120% 90% at 50% 0%, #131313, #040404 70%); overflow: hidden; aspect-ratio: 16 / 9; }
 .work-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 7%; transition: transform 1.4s var(--ease); }
 .work-visual:hover img { transform: scale(1.05); }
+.work-visual::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.11), transparent 60%); transition: opacity .5s var(--ease); }
+.work-visual:hover::after { opacity: 1; }
 .work-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 14px 40px; align-items: start; }
 .work-body .work-meta, .work-body .h3 { grid-column: 1; }
 .work-body p, .work-body .link { grid-column: 2; }
@@ -353,6 +361,10 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 85; pointer-event
 .footer-giant > span, .footer-giant .ch { display: inline-block; color: transparent; background: linear-gradient(180deg, #fff 18%, #bdbdbd 58%, #5c5c5c 100%); -webkit-background-clip: text; background-clip: text; }
 .footer-giant .ch { transform-origin: 50% 85%; will-change: transform, opacity, filter; }
 .footer-giant .fg-caret { animation: blink 1.05s steps(1) infinite; }
+.has-ambient .footer-giant { --glow: .55; }
+@media (max-width: 600px) { .footer-giant { font-size: 21vw; } }
+.has-ambient .footer-giant > span { visibility: hidden; }
+.has-ambient .footer-giant::after { display: none; }
 .footer-giant::before { content: ""; position: absolute; inset: 0 max(10%, calc(50% - 480px)); z-index: -1; transform: scale(calc(.6 + var(--glow) * .4)); background: radial-gradient(closest-side, rgba(255,255,255,.16), rgba(255,255,255,0)); opacity: var(--glow); pointer-events: none; }
 .footer-giant::after { content: attr(data-text); position: absolute; inset: 0; padding: inherit; color: transparent; background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,255,255,.95) 50%, rgba(255,255,255,0) 58%) var(--shine) 0 / 250% 100% no-repeat; -webkit-background-clip: text; background-clip: text; pointer-events: none; }
 
