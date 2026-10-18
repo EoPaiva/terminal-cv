@@ -75,7 +75,7 @@
           "name": "Mateus Paiva",
           "url": "https://upaiva.dev/",
           "image": "https://upaiva.dev/assets/mpaiva-brand.png",
-          "jobTitle": "Desenvolvedor Full Stack focado em IA Aplicada",
+          "jobTitle": "Engenheiro de IA e Líder do setor de IA",
           "worksFor": {
             "@type": "Organization",
             "name": "Notazz"
@@ -222,12 +222,6 @@
       </div>
 
       <div class="nav-end">
-        <div class="modes" role="group" aria-label="Modo de leitura do site">
-          <button id="btn-tech" type="button" data-mode-btn="tech" aria-pressed="true">Tech</button>
-          <button id="btn-hire" type="button" data-mode-btn="hire" aria-pressed="false">Contrate-me</button>
-          <button id="btn-client" type="button" data-mode-btn="client" aria-pressed="false">Cliente</button>
-          <span class="modes-thumb" aria-hidden="true"></span>
-        </div>
         <a href="#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
       </div>
@@ -244,15 +238,9 @@
       <a href="#faq"><small>06</small>FAQ</a>
       <a href="#contato"><small>07</small>Contato</a>
     </div>
-    <div class="menu-modes" role="group" aria-label="Modo de leitura do site">
-      <span class="label label-dim">Ler como</span>
-      <div>
-        <button type="button" data-mode-btn="tech" aria-pressed="true">Tech</button>
-        <button type="button" data-mode-btn="hire" aria-pressed="false">Contrate-me</button>
-        <button type="button" data-mode-btn="client" aria-pressed="false">Cliente</button>
-      </div>
-    </div>
   </div>
+
+  <canvas class="ambient" aria-hidden="true"></canvas>
 
   <main id="conteudo">
     <!-- HERO -->
@@ -284,7 +272,7 @@
 
         <div class="hero-bottom hero-fade">
           <span>São José dos Campos — SP · Remoto</span>
-          <span class="available"><i class="pulse" aria-hidden="true"></i>Engenheiro de IA no Notazz</span>
+          <span class="available"><i class="pulse" aria-hidden="true"></i>Líder de IA no Notazz</span>
           <a href="#cases" class="scroll-cue" aria-label="Rolar para os trabalhos">Role <i aria-hidden="true"></i></a>
         </div>
       </div>
@@ -309,9 +297,18 @@
       <div class="work-pin">
         <div class="work-track">
           <article class="work-card">
+            <a class="work-visual" href="https://choque.online" target="_blank" rel="noopener" aria-label="Abrir CHOQUE BGR"><img src="/assets/work/card-choque.svg" alt="" width="1040" height="500" loading="lazy" /></a>
+            <div class="work-body">
+              <div class="work-meta"><span>01</span><span>Sistema de gestão</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <h3 class="h3">CHOQUE BGR</h3>
+              <p>Plataforma de gestão para uma unidade de roleplay: bot Discord com ponto por voz, carreira, disciplina e treinamentos, centro de comando web com login Discord e recrutamento público com prova cronometrada. Mais de mil testes automatizados.</p>
+              <a class="link" href="https://choque.online" target="_blank" rel="noopener">choque.online <i class="arrow" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="work-card">
             <a class="work-visual" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener" aria-label="Abrir AZV Lançamentos"><img src="/assets/work/card-azv.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
-              <div class="work-meta"><span>01</span><span>Imobiliário</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <div class="work-meta"><span>02</span><span>Imobiliário</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
               <h3 class="h3">AZV Lançamentos</h3>
               <p>Vitrine de lançamentos da AZV Imóveis: cada empreendimento com página própria e uma home que se abre como uma parede de cobogó girando ao rolar.</p>
               <a class="link" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener">azvlancamentos.com.br <i class="arrow" aria-hidden="true"></i></a>
@@ -320,7 +317,7 @@
           <article class="work-card">
             <a class="work-visual" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener" aria-label="Abrir HumanReply AI"><img src="/assets/work/card-humanreply.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
-              <div class="work-meta"><span>02</span><span>Inteligência artificial</span><span class="status"><i class="pulse" aria-hidden="true"></i>Em validação</span></div>
+              <div class="work-meta"><span>03</span><span>Inteligência artificial</span><span class="status"><i class="pulse" aria-hidden="true"></i>Em validação</span></div>
               <h3 class="h3">HumanReply AI</h3>
               <p>SaaS de IA para atendimento e vendas B2B. Reescreve respostas no tom da empresa, detecta mensagens ruins antes do envio e guarda o contexto de cada conversa.</p>
               <a class="link" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener">contextual-chat-lab.vercel.app <i class="arrow" aria-hidden="true"></i></a>
@@ -329,7 +326,7 @@
           <article class="work-card">
             <a class="work-visual" href="https://studiojmarq.com/" target="_blank" rel="noopener" aria-label="Abrir Studio JM"><img src="/assets/work/card-studiojm.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
-              <div class="work-meta"><span>03</span><span>Arquitetura · Gestão</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <div class="work-meta"><span>04</span><span>Arquitetura · Gestão</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
               <h3 class="h3">Studio JM</h3>
               <p>Plataforma para estúdio de arquitetura: portfólio com galerias, briefing com referências e painel administrativo conectado ao Supabase.</p>
               <a class="link" href="https://studiojmarq.com/" target="_blank" rel="noopener">studiojmarq.com <i class="arrow" aria-hidden="true"></i></a>
@@ -338,7 +335,7 @@
           <article class="work-card">
             <a class="work-visual" href="https://upaiva.dev/" aria-label="upaiva.dev, este site"><img src="/assets/work/card-upaiva.svg" alt="" width="1040" height="500" loading="lazy" /></a>
             <div class="work-body">
-              <div class="work-meta"><span>04</span><span>Identidade digital</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <div class="work-meta"><span>05</span><span>Identidade digital</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
               <h3 class="h3">upaiva.dev</h3>
               <p>Este site. Muda o discurso para cada visitante nos modos Tech, Contrate-me e Cliente, com analytics próprio e painel para publicar projetos.</p>
               <a class="link" href="#projetos-producao">Ver projetos publicados <i class="arrow" aria-hidden="true"></i></a>
@@ -453,7 +450,7 @@
           <p class="section-desc"><a class="link" href="perfil-profissional.html">Perfil profissional completo <i class="arrow" aria-hidden="true"></i></a></p>
         </header>
         <ol class="tl">
-          <li class="tl-row is-now"><time>Out/2026 – Presente</time><h3>Engenheiro de IA</h3><span class="org">Notazz</span></li>
+          <li class="tl-row is-now"><time>Out/2026 – Presente</time><h3>Engenheiro de IA · Líder do setor de IA</h3><span class="org">Notazz</span></li>
           <li class="tl-row"><time>Em paralelo</time><h3>Desenvolvimento Full Stack, IA Aplicada &amp; Estratégia</h3><span class="org">São José dos Campos</span></li>
           <li class="tl-row"><time>Mar/2026 – Jun/2026</time><h3>Analista de Suporte</h3><span class="org">Orbizz.ai</span></li>
           <li class="tl-row"><time>Out/2024 – Nov/2025</time><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span></li>
@@ -488,7 +485,10 @@
     <!-- 07 · CONTATO -->
     <section id="contato" class="section contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <span class="label">07 · Contato</span>
+        <div class="contact-top">
+          <span class="label">07 · Contato</span>
+          <span class="label label-dim contact-live"><i class="pulse" aria-hidden="true"></i>Disponível para projetos · SJC <time id="local-time">--:--</time></span>
+        </div>
         <h2 id="contact-title" class="contact-display">
           <span class="line"><span data-split>Vamos construir</span></span>
           <span class="line line-dim"><span data-split data-shine>algo que marque.</span></span>
@@ -514,11 +514,11 @@
   </main>
 
   <footer class="footer">
-    <p class="footer-giant" aria-hidden="true"><span>mPaiva_</span></p>
+    <p class="footer-giant" aria-hidden="true" data-text="mPaiva_"><span class="fg-word">mPaiva</span><span class="fg-caret">_</span></p>
     <div class="wrap footer-inner">
       <div class="footer-brand">
         <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
-        <p class="dim">Engenheiro de IA no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+        <p class="dim">Engenheiro de IA e líder do setor de IA no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
       </div>
       <nav class="footer-col" aria-label="Acesso rápido">
         <h4>Acesso rápido</h4>
