@@ -16,7 +16,7 @@
   const MODES = {
     "tech": {
       "heroStatus": "[ FULL STACK, IA APLICADA & AUTOMAÇÃO ]",
-      "heroDesc": "Sou Mateus Paiva, Desenvolvedor Full Stack focado em IA aplicada. Desenvolvo plataformas web, backends, interfaces, bancos de dados, integrações com APIs, automações, agentes de IA, soluções com LLM e RAG para transformar processos complexos em sistemas úteis para negócios.",
+      "heroDesc": "Engenheiro de IA e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
       "servicesTitle": "Soluções digitais completas com Full Stack, automação e IA aplicada.",
       "servicesDescription": "Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.",
       "services": [
@@ -120,7 +120,7 @@
     },
     "hire": {
       "heroStatus": "[ CONTRATE-ME: CLT, PJ, FREELANCER & PROJETOS ]",
-      "heroDesc": "Disponível para oportunidades CLT, PJ, freelancer, projetos fechados e parcerias. Atuo criando sistemas web completos, plataformas SaaS, integrações com APIs, automações, agentes de IA, soluções com LLM/RAG e estruturas digitais preparadas para SEO e crescimento orgânico.",
+      "heroDesc": "Engenheiro de IA no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
       "servicesTitle": "Aberto a oportunidades em Full Stack, IA aplicada, automação e crescimento digital.",
       "servicesDescription": "Posso entrar em times, projetos ou operações que precisam transformar problemas reais em software: backend, frontend, banco de dados, APIs, automações, IA aplicada, SEO técnico e entrega publicada.",
       "services": [
@@ -225,7 +225,7 @@
     },
     "client": {
       "heroStatus": "[ SOLUÇÕES DIGITAIS, IA & EFICIÊNCIA ]",
-      "heroDesc": "Criação de soluções digitais completas: sistemas web, plataformas, dashboards, automações, integrações com APIs e recursos de IA para organizar processos, reduzir trabalho manual e gerar mais clareza para decisões.",
+      "heroDesc": "Sistemas web, dashboards, automações e IA para organizar processos, reduzir trabalho manual e dar mais clareza às decisões.",
       "servicesTitle": "Soluções digitais completas para o seu negócio operar melhor.",
       "servicesDescription": "Soluções pensadas para transformar uma ideia, processo ou serviço em sistema funcional, plataforma SaaS, painel de gestão, automação inteligente ou aplicação com IA integrada, sempre com base técnica para SEO e tráfego orgânico.",
       "services": [
@@ -448,8 +448,8 @@
     setText("#differential-title", m.differentialTitle);
     setText("#differential-description", m.differentialDescription);
     swap($("#differential-list"), m.differentials.map((d, i) => `
-      <article class="cell reveal">
-        <span class="cell-n">${pad(i + 1)}</span>
+      <article class="principle reveal">
+        <span class="n">${pad(i + 1)}</span>
         <h3>${esc(d.title)}</h3>
         <p>${esc(d.text)}</p>
       </article>`).join(""));
@@ -504,6 +504,7 @@
         </a>
       </li>`).join("");
     observeReveals(ol);
+    window.ScrollTrigger?.refresh();
   };
 
   const loadProjects = async () => {
@@ -553,39 +554,6 @@
     list.addEventListener("pointerleave", () => { on = false; box.classList.remove("is-on"); });
   };
 
-  /* ---------- github ---------- */
-  const loadGitHub = async () => {
-    const listEl = $("#gh-list");
-    if (!listEl) return;
-    const fmt = (d) => new Date(d).toLocaleDateString("pt-BR", { day: "2-digit", month: "short" }).replace(".", "");
-    try {
-      const [user, repos] = await Promise.all([
-        fetch("https://api.github.com/users/EoPaiva").then((r) => r.ok ? r.json() : Promise.reject(r.status)),
-        fetch("https://api.github.com/users/EoPaiva/repos?sort=updated&per_page=8").then((r) => r.ok ? r.json() : Promise.reject(r.status))
-      ]);
-      setText("#gh-repos", String(user.public_repos ?? "—"));
-      const visible = repos.filter((r) => !r.fork && r.name !== "EoPaiva").slice(0, 6);
-      const langs = {};
-      repos.forEach((r) => { if (r.language) langs[r.language] = (langs[r.language] || 0) + 1; });
-      const top = Object.entries(langs).sort((a, b) => b[1] - a[1])[0];
-      if (top) setText("#gh-lang", top[0]);
-      if (repos[0]?.pushed_at) setText("#gh-updated", fmt(repos[0].pushed_at));
-      listEl.innerHTML = visible.map((r, i) => `
-        <li class="reveal">
-          <a href="${esc(safeUrl(r.html_url))}" target="_blank" rel="noopener">
-            <span class="n">${pad(i + 1)}</span>
-            <span class="t">${esc(r.name)}</span>
-            <span class="c">${esc(r.description || "Repositório público.")}</span>
-            <span class="d">${esc(r.language || "—")} · ${esc(fmt(r.pushed_at))}</span>
-            <i class="arrow" aria-hidden="true"></i>
-          </a>
-        </li>`).join("") || '<li class="index-empty">Nenhum repositório público encontrado.</li>';
-      observeReveals(listEl);
-    } catch (_) {
-      listEl.innerHTML = '<li class="index-empty"><a class="link" href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">Ver repositórios no GitHub <i class="arrow" aria-hidden="true"></i></a></li>';
-    }
-  };
-
   /* ---------- marquee ---------- */
   const initMarquee = () => {
     $$(".marquee-track[data-items]").forEach((track) => {
@@ -595,61 +563,143 @@
     });
   };
 
-  /* ---------- canvas do hero ---------- */
+  /* ---------- planeta do hero (canvas 2D, pontos em esfera + anéis orbitais) ---------- */
   const initHeroCanvas = () => {
     const canvas = $(".hero-canvas");
     if (!canvas || !canvas.getContext) return;
     const ctx = canvas.getContext("2d");
-    let w = 0, h = 0, dpr = 1, cols = 0, rows = 0, gap = 28, raf = 0, visible = true, t0 = performance.now();
-    let mx = -9999, my = -9999;
+    let size = 0, dpr = 1, raf = 0, visible = true, t0 = performance.now();
+    let tiltX = 0, tiltY = 0, targetX = 0, targetY = 0;
+    let sphere = [], rings = [], stars = [];
+
+    const build = () => {
+      const small = size < 520;
+      const n = small ? 700 : 1300;
+      const golden = Math.PI * (3 - Math.sqrt(5));
+      sphere = Array.from({ length: n }, (_, i) => {
+        const y = 1 - (i / (n - 1)) * 2;
+        const r = Math.sqrt(1 - y * y);
+        const th = golden * i;
+        return [Math.cos(th) * r, y, Math.sin(th) * r];
+      });
+      const ring = (radius, count, tilt, yaw, speed, spread) => ({
+        radius, tilt, yaw, speed,
+        pts: Array.from({ length: count }, (_, i) => ({ a: (i / count) * Math.PI * 2 + Math.random() * 0.02, o: (Math.random() - 0.5) * spread, s: Math.random() }))
+      });
+      rings = [
+        ring(1.55, small ? 220 : 380, 1.18, -0.42, 0.16, 0.06),
+        ring(1.95, small ? 160 : 280, 1.32, 0.55, -0.1, 0.03),
+        ring(2.35, small ? 70 : 120, 1.05, 0.15, 0.06, 0.12)
+      ];
+      stars = Array.from({ length: small ? 50 : 110 }, () => ({ x: Math.random(), y: Math.random(), r: Math.random() * 1.1 + 0.2, p: Math.random() * 6.28 }));
+    };
 
     const resize = () => {
       const r = canvas.getBoundingClientRect();
+      if (!r.width) return;
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = r.width; h = r.height;
-      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      size = r.width;
+      canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      gap = w < 700 ? 22 : 28;
-      cols = Math.ceil(w / gap) + 1; rows = Math.ceil(h / gap) + 1;
-      if (reduced.matches) draw(4000);
+      build();
+      if (reduced.matches) draw(9000);
+    };
+
+    // rotação: yaw (y), depois pitch (x)
+    const rot = (p, yaw, pitch) => {
+      const cy = Math.cos(yaw), sy = Math.sin(yaw), cx = Math.cos(pitch), sx = Math.sin(pitch);
+      const x = p[0] * cy + p[2] * sy, z0 = -p[0] * sy + p[2] * cy;
+      return [x, p[1] * cx - z0 * sx, p[1] * sx + z0 * cx];
     };
 
     const draw = (time) => {
       const t = time / 1000;
+      const w = size, h = canvas.height / dpr, cx = w / 2, cy = h / 2, R = w * 0.215;
       ctx.clearRect(0, 0, w, h);
-      const small = w < 700;
-      const ox = w * (small ? 0.92 : 0.74), oy = h * (small ? 0.2 : 0.5), R = small ? w * 0.36 : Math.min(w, h) * 0.3;
-      const band = ((t * 0.11) % 1.4 - 0.2) * w;
-      for (let j = 0; j < rows; j++) {
-        for (let i = 0; i < cols; i++) {
-          const x = i * gap, y = j * gap;
-          const dx = x - ox, dy = y - oy, d = Math.hypot(dx, dy);
-          let a = 0.1;
-          const ring = Math.abs(d - R);
-          if (ring < 70) a += (1 - ring / 70) * 0.28 * (0.6 + 0.4 * Math.sin(t * 1.4 + Math.atan2(dy, dx) * 3));
-          const b = Math.abs(x + y * 0.35 - band);
-          if (b < 120) a += (1 - b / 120) * 0.22;
-          const m = Math.hypot(x - mx, y - my);
-          if (m < 140) a += (1 - m / 140) * 0.45;
-          const fade = Math.min(1, (h - y) / (h * 0.35));
-          a *= Math.max(0, fade) * Math.min(1, x / (w * 0.25) + 0.25);
-          if (a < 0.02) continue;
-          ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
-          ctx.fillRect(x - 0.75, y - 0.75, 1.5, 1.5);
-        }
+
+      stars.forEach((s) => {
+        const a = 0.15 + 0.35 * (0.5 + 0.5 * Math.sin(t * 1.3 + s.p));
+        ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
+        ctx.fillRect(s.x * w, s.y * h, s.r, s.r);
+      });
+
+      tiltX += (targetX - tiltX) * 0.05; tiltY += (targetY - tiltY) * 0.05;
+      const yaw = t * 0.16 + tiltX * 0.5, pitch = -0.32 + tiltY * 0.3;
+
+      // anéis: separa partes de trás e da frente para a oclusão
+      const front = [], back = [];
+      rings.forEach((rg, ri) => {
+        rg.pts.forEach((p) => {
+          const a = p.a + t * rg.speed;
+          const rr = rg.radius + p.o;
+          let q = [Math.cos(a) * rr, 0, Math.sin(a) * rr];
+          q = rot(q, rg.yaw, 0); q = rot(q, 0, rg.tilt - Math.PI / 2 + pitch * 0.4);
+          q = rot(q, tiltX * 0.25, 0);
+          const item = { x: cx + q[0] * R, y: cy + q[1] * R, z: q[2], ri, s: p.s };
+          (q[2] < 0 ? back : front).push(item);
+        });
+      });
+      const dot = (it, alpha, r) => { ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`; ctx.fillRect(it.x - r / 2, it.y - r / 2, r, r); };
+      back.forEach((it) => {
+        const inside = Math.hypot(it.x - cx, it.y - cy) < R * 1.02;
+        if (inside) return;
+        dot(it, 0.12 + 0.18 * it.s, it.ri === 2 ? 1.2 : 1.1);
+      });
+
+      // halo
+      const halo = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.9);
+      halo.addColorStop(0, "rgba(255,255,255,.10)"); halo.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(cx, cy, R * 1.9, 0, Math.PI * 2); ctx.fill();
+      // disco escuro para esconder o que passa atrás
+      const disc = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R);
+      disc.addColorStop(0, "#151515"); disc.addColorStop(1, "#030303");
+      ctx.fillStyle = disc; ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
+
+      // esfera de pontos com luz e faixa de varredura
+      const scan = Math.sin(t * 0.7) * 0.9;
+      for (let i = 0; i < sphere.length; i++) {
+        const q = rot(sphere[i], yaw, pitch);
+        if (q[2] < -0.15) continue;
+        const light = Math.pow(Math.max(0, -q[0] * 0.5 - q[1] * 0.5 + q[2] * 0.71), 1.6);
+        const band = Math.max(0, 1 - Math.abs(q[1] - scan) / 0.08);
+        const depth = (q[2] + 1) / 2;
+        let a = 0.05 + light * 1.05 + band * 0.7 * depth;
+        if (q[2] < 0) a *= 0.25;
+        const r = 0.7 + depth * 0.9 + light * 1.2 + band * 0.9;
+        ctx.fillStyle = `rgba(255,255,255,${Math.min(1, a).toFixed(3)})`;
+        ctx.fillRect(cx + q[0] * R - r / 2, cy + q[1] * R - r / 2, r, r);
       }
-      ctx.strokeStyle = "rgba(255,255,255,.14)";
-      ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.arc(ox, oy, R, 0, Math.PI * 2); ctx.stroke();
-      ctx.strokeStyle = "rgba(255,255,255,.06)";
-      ctx.beginPath(); ctx.ellipse(ox, oy, R * 1.35, R * 0.38, -0.35, 0, Math.PI * 2); ctx.stroke();
-      const ang = t * 0.5;
-      const px = ox + Math.cos(ang) * R * 1.35 * Math.cos(-0.35) - Math.sin(ang) * R * 0.38 * Math.sin(-0.35);
-      const py = oy + Math.cos(ang) * R * 1.35 * Math.sin(-0.35) + Math.sin(ang) * R * 0.38 * Math.cos(-0.35);
-      ctx.fillStyle = "#fff";
-      ctx.beginPath(); ctx.arc(px, py, 2.6, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = "rgba(255,255,255,.12)";
-      ctx.beginPath(); ctx.arc(px, py, 9, 0, Math.PI * 2); ctx.fill();
+      // borda
+      ctx.strokeStyle = "rgba(255,255,255,.22)"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+
+      // brilho na borda iluminada
+      const rim = ctx.createRadialGradient(cx - R * 0.45, cy - R * 0.5, R * 0.2, cx - R * 0.2, cy - R * 0.25, R * 1.05);
+      rim.addColorStop(0, "rgba(255,255,255,.10)"); rim.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.fillStyle = rim; ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
+
+      front.forEach((it) => dot(it, 0.4 + 0.55 * it.s, it.ri === 2 ? 1.8 : 1.5));
+
+      // satélites com rastro
+      [[0, 0.0, 4], [1, 2.4, 3], [2, 4.4, 2.4]].forEach(([ri, phase, rad]) => {
+        const rg = rings[ri];
+        for (let k = 14; k >= 0; k--) {
+          const a = phase + (t - k * 0.04) * rg.speed * 3.2;
+          let q = [Math.cos(a) * rg.radius, 0, Math.sin(a) * rg.radius];
+          q = rot(q, rg.yaw, 0); q = rot(q, 0, rg.tilt - Math.PI / 2 + pitch * 0.4); q = rot(q, tiltX * 0.25, 0);
+          const x = cx + q[0] * R, y = cy + q[1] * R;
+          if (q[2] < 0 && Math.hypot(x - cx, y - cy) < R) continue;
+          if (k === 0) {
+            const g = ctx.createRadialGradient(x, y, 0, x, y, rad * 6);
+            g.addColorStop(0, "rgba(255,255,255,.55)"); g.addColorStop(1, "rgba(255,255,255,0)");
+            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, rad * 6, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI * 2); ctx.fill();
+          } else {
+            ctx.fillStyle = `rgba(255,255,255,${(0.5 * (1 - k / 15)).toFixed(3)})`;
+            ctx.beginPath(); ctx.arc(x, y, rad * (1 - k / 18), 0, Math.PI * 2); ctx.fill();
+          }
+        }
+      });
     };
 
     const loop = (now) => { draw(now - t0); raf = visible ? requestAnimationFrame(loop) : 0; };
@@ -664,11 +714,78 @@
     document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
     reduced.addEventListener?.("change", () => { stop(); resize(); start(); });
     if (finePointer.matches) {
-      const hero = canvas.parentElement;
-      hero.addEventListener("pointermove", (e) => { const r = canvas.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
-      hero.addEventListener("pointerleave", () => { mx = my = -9999; });
+      window.addEventListener("pointermove", (e) => { targetX = (e.clientX / innerWidth - 0.5) * 2; targetY = (e.clientY / innerHeight - 0.5) * 2; }, { passive: true });
     }
     start();
+  };
+
+  /* ---------- movimento com GSAP (ScrollTrigger + SplitText) ---------- */
+  const initMotion = () => {
+    const { gsap, ScrollTrigger, SplitText } = window;
+    if (!gsap || !ScrollTrigger) return false;
+    gsap.registerPlugin(ScrollTrigger);
+    if (SplitText) gsap.registerPlugin(SplitText);
+    document.documentElement.classList.add("has-gsap");
+    const mm = gsap.matchMedia();
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // título do hero letra a letra; trechos com brilho sobem inteiros
+      $$(".hero [data-split]").forEach((el, i) => {
+        if (SplitText && !el.hasAttribute("data-shine")) {
+          const split = new SplitText(el, { type: "chars", charsClass: "split-char" });
+          gsap.from(split.chars, { yPercent: 115, duration: 1.2, ease: "expo.out", stagger: 0.025, delay: 0.15 + i * 0.1 });
+        } else {
+          gsap.from(el, { yPercent: 110, duration: 1.3, ease: "expo.out", delay: 0.2 + i * 0.1 });
+        }
+      });
+      gsap.from(".hero-stage", { scale: 0.7, opacity: 0, duration: 2.2, ease: "expo.out", delay: 0.1 });
+
+      // saída do hero: planeta cresce e o texto sobe
+      gsap.timeline({ scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } })
+        .to(".hero-stage", { scale: 1.35, yPercent: -18, opacity: 0.25, ease: "none" }, 0)
+        .to(".hero-copy", { yPercent: -30, opacity: 0, ease: "none" }, 0);
+
+      // títulos de seção palavra a palavra
+      if (SplitText) {
+        $$("[data-words]").forEach((el) => {
+          const split = new SplitText(el, { type: "words,lines", linesClass: "split-line", mask: "lines" });
+          gsap.from(split.words, { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.04, scrollTrigger: { trigger: el, start: "top 85%" } });
+        });
+      }
+
+      // contato: linhas sobem ao entrar
+      $$(".contact [data-split]").forEach((el, i) => {
+        gsap.from(el, { yPercent: 110, duration: 1.3, ease: "expo.out", delay: i * 0.1, scrollTrigger: { trigger: ".contact-display", start: "top 80%" } });
+      });
+
+      // manifesto: palavras acendem conforme a rolagem
+      $$("[data-scrub]").forEach((el) => {
+        const words = el.textContent.trim().split(/\s+/);
+        el.innerHTML = words.map((w) => `<span class="w">${esc(w)}</span>`).join(" ");
+        gsap.to($$(".w", el), { opacity: 1, stagger: 0.1, ease: "none", scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: true } });
+      });
+
+      // assinatura gigante do rodapé
+      gsap.from(".footer-giant span", { yPercent: 60, opacity: 0, ease: "none", scrollTrigger: { trigger: ".footer", start: "top bottom", end: "top 40%", scrub: true } });
+    });
+
+    // trabalho: faixa horizontal fixada no computador
+    mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
+      const track = $(".work-track");
+      const pin = $(".work-pin");
+      if (!track || !pin) return;
+      const distance = () => Math.max(0, track.scrollWidth - innerWidth);
+      gsap.to(track, {
+        x: () => -distance(), ease: "none",
+        scrollTrigger: { trigger: pin, start: "center center", end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 }
+      });
+      $$(".work-card .work-visual img").forEach((img) => {
+        gsap.fromTo(img, { scale: 1.12 }, { scale: 1, ease: "none", scrollTrigger: { trigger: pin, start: "center center", end: () => `+=${distance()}`, scrub: true } });
+      });
+    });
+
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+    return true;
   };
 
   /* ---------- cursor ---------- */
@@ -769,9 +886,9 @@
     initCopy();
     observeReveals();
     initHeroCanvas();
+    initMotion();
     requestAnimationFrame(() => document.body.classList.add("is-ready"));
     loadProjects();
-    loadGitHub();
   };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
