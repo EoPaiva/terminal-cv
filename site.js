@@ -1,0 +1,779 @@
+/* upaiva.dev — interações da home (preto e branco). Sem dependências além do supabase-js. */
+(() => {
+  "use strict";
+
+  const $ = (s, p = document) => p.querySelector(s);
+  const $$ = (s, p = document) => Array.from(p.querySelectorAll(s));
+  const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
+  const pad = (n) => String(n).padStart(2, "0");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const WHATSAPP = "https://wa.me/55035988042182";
+  const wa = (text) => `${WHATSAPP}?text=${encodeURIComponent(text)}`;
+  const MODE_KEY = "mpaiva_mode";
+  const KICKERS = { tech: "Serviços · Tech", hire: "Serviços · Contrate-me", client: "Serviços · Para empresas" };
+
+  const MODES = {
+    "tech": {
+      "heroStatus": "[ FULL STACK, IA APLICADA & AUTOMAÇÃO ]",
+      "heroDesc": "Sou Mateus Paiva, Desenvolvedor Full Stack focado em IA aplicada. Desenvolvo plataformas web, backends, interfaces, bancos de dados, integrações com APIs, automações, agentes de IA, soluções com LLM e RAG para transformar processos complexos em sistemas úteis para negócios.",
+      "servicesTitle": "Soluções digitais completas com Full Stack, automação e IA aplicada.",
+      "servicesDescription": "Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.",
+      "services": [
+        {
+          "title": "Sistemas web full stack",
+          "text": "Desenvolvimento de plataformas, painéis e aplicações completas com frontend, backend, banco de dados, autenticação, APIs e deploy.",
+          "tags": [
+            "Frontend",
+            "Backend",
+            "Banco de dados",
+            "Deploy"
+          ]
+        },
+        {
+          "title": "IA aplicada e agentes inteligentes",
+          "text": "Criação de automações, agentes de IA, fluxos com LLM e soluções RAG para apoiar atendimento, análise, triagem e decisões operacionais.",
+          "tags": [
+            "Agentes de IA",
+            "LLM",
+            "RAG",
+            "Triagem inteligente"
+          ]
+        },
+        {
+          "title": "Automação, APIs e dados",
+          "text": "Integrações com APIs, rotinas automatizadas, dashboards e bancos de dados para transformar informações dispersas em operação organizada.",
+          "tags": [
+            "Integrações",
+            "APIs",
+            "Dashboards",
+            "Dados"
+          ]
+        }
+      ],
+      "processDescription": "Escolha o foco e o tipo de entrega. A mensagem do WhatsApp será montada automaticamente com base na sua necessidade.",
+      "processSteps": [
+        {
+          "title": "Diagnóstico",
+          "text": "Entendimento do problema, objetivo, dados, rotina atual e oportunidades de automação ou IA aplicada.",
+          "output": "Mapa inicial da solução."
+        },
+        {
+          "title": "Arquitetura",
+          "text": "Definição de frontend, backend, banco de dados, APIs, automações, agentes de IA e regras de negócio.",
+          "output": "Plano técnico de entrega."
+        },
+        {
+          "title": "Construção",
+          "text": "Desenvolvimento full stack com foco em usabilidade, integrações, segurança básica, performance e evolução.",
+          "output": "Sistema funcional."
+        },
+        {
+          "title": "SEO e IA aplicada",
+          "text": "Estruturação de metadados, schema, performance, automações, agentes e fluxos inteligentes quando agregam valor.",
+          "output": "Base técnica preparada para descoberta."
+        },
+        {
+          "title": "Publicação e evolução",
+          "text": "Deploy, validação, ajustes finais, orientação de uso e próximos incrementos para crescimento.",
+          "output": "Solução pronta para uso real."
+        }
+      ],
+      "differentialTitle": "O diferencial está em unir engenharia Full Stack, IA aplicada, operação e visão estratégica.",
+      "differentialDescription": "Não é apenas criar telas ou scripts. É entender o problema, modelar dados, integrar APIs, desenhar fluxos, automatizar decisões e entregar uma solução digital completa para uso real.",
+      "differentials": [
+        {
+          "title": "Full Stack aplicado",
+          "text": "Capacidade de construir interface, lógica, dados, APIs e deploy em uma solução coerente."
+        },
+        {
+          "title": "IA com uso real",
+          "text": "Agentes, automações, LLM e RAG aplicados a problemas concretos, não apenas demonstrações."
+        },
+        {
+          "title": "Visão operacional",
+          "text": "Experiência prática com processos, rotinas, qualidade e execução para desenhar sistemas úteis."
+        },
+        {
+          "title": "Estratégia de negócio",
+          "text": "Leitura para priorizar tecnologia que gera eficiência, clareza, escala e valor."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Você faz só sites?",
+          "answer": "Não. Meu foco é desenvolvimento Full Stack com IA aplicada: frontend, backend, banco de dados, APIs, automações, agentes de IA e sistemas completos para negócios."
+        },
+        {
+          "question": "Você cria plataformas e sistemas completos?",
+          "answer": "Sim. Posso construir painéis, plataformas SaaS, sistemas internos, dashboards, integrações e aplicações web inteligentes com publicação em ambiente real."
+        },
+        {
+          "question": "Você trabalha com LLM, RAG e agentes de IA?",
+          "answer": "Sim. Posso mapear processos e criar soluções com agentes de IA, fluxos com LLM, bases de conhecimento, RAG, APIs e automações para reduzir tarefas repetitivas."
+        },
+        {
+          "question": "Você também pensa em SEO e tráfego orgânico?",
+          "answer": "Sim. Estruturo páginas e aplicações com SEO técnico, metadados, schema, performance, HTML semântico e copywriting para melhorar descoberta por buscadores e IAs de pesquisa."
+        }
+      ]
+    },
+    "hire": {
+      "heroStatus": "[ CONTRATE-ME: CLT, PJ, FREELANCER & PROJETOS ]",
+      "heroDesc": "Disponível para oportunidades CLT, PJ, freelancer, projetos fechados e parcerias. Atuo criando sistemas web completos, plataformas SaaS, integrações com APIs, automações, agentes de IA, soluções com LLM/RAG e estruturas digitais preparadas para SEO e crescimento orgânico.",
+      "servicesTitle": "Aberto a oportunidades em Full Stack, IA aplicada, automação e crescimento digital.",
+      "servicesDescription": "Posso entrar em times, projetos ou operações que precisam transformar problemas reais em software: backend, frontend, banco de dados, APIs, automações, IA aplicada, SEO técnico e entrega publicada.",
+      "services": [
+        {
+          "title": "CLT ou PJ em desenvolvimento Full Stack",
+          "text": "Atuação em frontend, backend, banco de dados, APIs, manutenção, evolução de produto e publicação de aplicações.",
+          "tags": [
+            "JavaScript",
+            "Backend",
+            "Frontend",
+            "Deploy"
+          ]
+        },
+        {
+          "title": "Projetos freelancer e escopos fechados",
+          "text": "Criação de sistemas web, landing pages estratégicas, dashboards, plataformas e automações com entrega objetiva.",
+          "tags": [
+            "Escopo",
+            "Prazo",
+            "Publicação",
+            "Evolução"
+          ]
+        },
+        {
+          "title": "IA aplicada para operação e atendimento",
+          "text": "Desenvolvimento de agentes, fluxos com LLM, RAG, triagem, bases de conhecimento e integrações com ferramentas do negócio.",
+          "tags": [
+            "Agentes de IA",
+            "LLM",
+            "RAG",
+            "APIs"
+          ]
+        },
+        {
+          "title": "Cargos compatíveis e frentes de contribuição",
+          "text": "Perfil adequado para vagas júnior/pleno e projetos que exigem entrega prática, comunicação clara e visão de produto.",
+          "tags": [
+            "Full Stack Jr/Pleno",
+            "Front-end ou Back-end",
+            "Automações e IA",
+            "Analista de Sistemas"
+          ]
+        }
+      ],
+      "processDescription": "Escolha o foco e o tipo de entrega. A mensagem do WhatsApp será montada com contexto para contratação, freelas, projetos ou parcerias.",
+      "processSteps": [
+        {
+          "title": "Conversa inicial",
+          "text": "Alinhamos vaga, projeto, escopo, rotina, stack, maturidade do produto e resultado esperado.",
+          "output": "Contexto claro."
+        },
+        {
+          "title": "Avaliação técnica",
+          "text": "Compartilho portfólio, perfil profissional, GitHub e exemplos de entregas ligadas ao desafio.",
+          "output": "Critérios alinhados."
+        },
+        {
+          "title": "Modelo de contratação",
+          "text": "Definimos CLT, PJ, freelancer, projeto fechado ou parceria com expectativas, prazos e responsabilidades.",
+          "output": "Formato definido."
+        },
+        {
+          "title": "Execução e evolução",
+          "text": "Entro no fluxo com comunicação objetiva, entregas incrementais, documentação e melhoria contínua.",
+          "output": "Entrega acompanhável."
+        }
+      ],
+      "differentialTitle": "Full Stack com IA aplicada, SEO técnico e visão de negócio em uma entrega só.",
+      "differentialDescription": "A proposta é contribuir além da tela: entender produto, modelar dados, integrar serviços, automatizar processos, documentar decisões e entregar soluções digitais que geram eficiência.",
+      "differentials": [
+        {
+          "title": "Entrega full stack",
+          "text": "Interface, backend, APIs, banco de dados e publicação conectados para resolver o problema completo."
+        },
+        {
+          "title": "IA aplicada com critério",
+          "text": "Agentes, LLM, RAG e automações usados para eficiência real, não como enfeite técnico."
+        },
+        {
+          "title": "SEO e crescimento",
+          "text": "Desenvolvimento pensado para performance, indexação, tráfego orgânico e clareza comercial."
+        },
+        {
+          "title": "Comunicação de negócio",
+          "text": "Capacidade de traduzir tecnologia em prioridade, impacto, escopo e próximos passos."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Você está aberto a CLT, PJ e freelancer?",
+          "answer": "Sim. Estou aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em Full Stack, IA aplicada, automação, APIs, SEO técnico e plataformas digitais."
+        },
+        {
+          "question": "Que tipo de vaga ou projeto combina com seu perfil?",
+          "answer": "Desenvolvimento Full Stack, produto web, automação de processos, integrações com APIs, agentes de IA, SaaS, dashboards, SEO técnico e soluções digitais para negócios."
+        },
+        {
+          "question": "Você consegue atuar além de criar telas?",
+          "answer": "Sim. Posso atuar em frontend, backend, banco de dados, APIs, automação, IA aplicada, publicação, documentação e evolução do produto."
+        }
+      ]
+    },
+    "client": {
+      "heroStatus": "[ SOLUÇÕES DIGITAIS, IA & EFICIÊNCIA ]",
+      "heroDesc": "Criação de soluções digitais completas: sistemas web, plataformas, dashboards, automações, integrações com APIs e recursos de IA para organizar processos, reduzir trabalho manual e gerar mais clareza para decisões.",
+      "servicesTitle": "Soluções digitais completas para o seu negócio operar melhor.",
+      "servicesDescription": "Soluções pensadas para transformar uma ideia, processo ou serviço em sistema funcional, plataforma SaaS, painel de gestão, automação inteligente ou aplicação com IA integrada, sempre com base técnica para SEO e tráfego orgânico.",
+      "services": [
+        {
+          "title": "Sistema web ou plataforma SaaS",
+          "text": "Aplicação sob medida para organizar atendimento, operação, dados, clientes, serviços ou processos internos em uma interface profissional.",
+          "tags": [
+            "Painel",
+            "Login",
+            "Dados",
+            "Deploy"
+          ]
+        },
+        {
+          "title": "Automação de processos com IA",
+          "text": "Fluxos para reduzir tarefas manuais, integrar ferramentas, padronizar respostas, organizar demandas e acelerar rotinas com inteligência artificial aplicada.",
+          "tags": [
+            "Fluxos",
+            "APIs",
+            "Triagem",
+            "Relatórios"
+          ]
+        },
+        {
+          "title": "Agentes de IA e soluções inteligentes",
+          "text": "Aplicações com agentes de IA, LLM, RAG e bases de conhecimento para atendimento, consulta de dados, análise, recomendação e apoio à decisão.",
+          "tags": [
+            "Agentes IA",
+            "LLM",
+            "RAG",
+            "Base de conhecimento"
+          ]
+        }
+      ],
+      "processDescription": "Você explica a necessidade, eu organizo a solução, construo e entrego com orientação de uso.",
+      "processSteps": [
+        {
+          "title": "Conversa inicial",
+          "text": "Você explica o problema, rotina atual, ferramentas usadas e resultado esperado.",
+          "output": "Necessidade entendida."
+        },
+        {
+          "title": "Proposta de solução",
+          "text": "Eu organizo escopo, telas, dados, automações, integrações e caminho técnico.",
+          "output": "Escopo definido."
+        },
+        {
+          "title": "Desenvolvimento",
+          "text": "Construção da solução full stack com acompanhamento, ajustes, validação visual e lógica funcional.",
+          "output": "Sistema em operação."
+        },
+        {
+          "title": "Entrega e evolução",
+          "text": "Publicação, explicação de uso, melhorias de performance e próximos passos com automação ou IA.",
+          "output": "Solução pronta para crescer."
+        }
+      ],
+      "differentialTitle": "Você não contrata apenas código. Você contrata tecnologia aplicada ao negócio.",
+      "differentialDescription": "O objetivo é entregar uma solução que conecte processo, dados, interface, automação e IA para gerar eficiência, clareza e resultado.",
+      "differentials": [
+        {
+          "title": "Foco em operação real",
+          "text": "A solução é pensada para atendimento, venda, organização, dados ou eficiência interna."
+        },
+        {
+          "title": "Sistema completo",
+          "text": "Interface, lógica, banco de dados, APIs e deploy conectados em uma entrega funcional."
+        },
+        {
+          "title": "IA aplicada com clareza",
+          "text": "Automação e inteligência artificial entram onde fazem sentido para reduzir esforço e acelerar decisões."
+        },
+        {
+          "title": "Entrega personalizada",
+          "text": "Cada projeto é desenhado conforme negócio, objetivo, processo e possibilidade de evolução."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Você faz só site ou também sistema?",
+          "answer": "Faço sistemas e soluções digitais completas. Um site pode fazer parte da entrega, mas o foco pode incluir painel, banco de dados, APIs, automações e IA aplicada."
+        },
+        {
+          "question": "Você consegue automatizar processos do meu negócio?",
+          "answer": "Sim. Posso mapear tarefas repetitivas e criar fluxos com formulários, integrações, APIs, dashboards, notificações e recursos de IA."
+        },
+        {
+          "question": "Você faz manutenção e evolução depois?",
+          "answer": "Sim. A manutenção pode incluir ajustes, publicação, performance, novas telas, automações, integrações e evolução com IA aplicada conforme o projeto cresce."
+        }
+      ]
+    }
+  };
+
+  const HERO_ACTIONS = {
+    tech: [
+      { label: "Ver trabalhos", href: "#cases", cls: "btn-light" },
+      { label: "Iniciar um projeto", href: "#processo", cls: "btn-ghost" }
+    ],
+    hire: [
+      { label: "Ver perfil profissional", href: "perfil-profissional.html", cls: "btn-light" },
+      { label: "Falar sobre oportunidade", href: wa("Olá, Mateus. Vi seu site e quero conversar sobre uma oportunidade CLT, PJ ou freelancer."), cls: "btn-ghost", external: true, intent: "whatsapp-oportunidade-hero" }
+    ],
+    client: [
+      { label: "Quero automatizar um processo", href: "#processo", cls: "btn-light" },
+      { label: "Ver projetos no ar", href: "#projetos-producao", cls: "btn-ghost" }
+    ]
+  };
+
+  const RESULT_BY_MODE = {
+    tech: "Escopo técnico, arquitetura, integrações e entrega full stack com IA aplicada.",
+    hire: "Oportunidade profissional, modelo CLT/PJ/freelancer e aderência ao desafio técnico.",
+    client: "Solução digital clara para reduzir trabalho manual, organizar processos e melhorar presença digital."
+  };
+
+  const MESSAGE_BY_MODE = {
+    tech: (f, d) => `Olá, Mateus. Quero conversar sobre ${f.toLowerCase()} com entrega em ${d.toLowerCase()}, considerando backend, frontend, APIs, IA aplicada e SEO técnico.`,
+    hire: (f, d) => `Olá, Mateus. Quero conversar sobre uma oportunidade ou projeto. O foco é ${f} com modelo de entrega em ${d}. Podemos falar sobre CLT, PJ, freelancer ou parceria?`,
+    client: (f, d) => `Olá, Mateus. Tenho uma demanda de ${f} e quero entender uma solução em ${d} para meu negócio. Podemos conversar?`
+  };
+
+  const DEFAULT_PROJECTS = [
+    { id: "upaiva_dev", name: "Upaiva.dev", url: "https://upaiva.dev/", domain: "upaiva.dev", category: "Full Stack / IA Aplicada / Automação", description: "Plataforma profissional para apresentar sistemas full stack, IA aplicada e automação." },
+    { id: "studio_jm", name: "Studio JM", url: "https://studiojmarq.com/", domain: "studiojmarq.com", category: "Site institucional / Arquitetura", description: "Plataforma digital para arquitetura e interiores, com apresentação visual premium." },
+    { id: "projeto_casal", name: "Projeto Casal", url: "https://projeto-casal-one.vercel.app/", domain: "projeto-casal-one.vercel.app", category: "Experiência interativa / Front-end", description: "Experimento autoral com animações, áudio e efeitos visuais em JavaScript puro." },
+    { id: "oasis_customs", name: "Oasis Customs", url: "https://oasis-customs-main.vercel.app/", domain: "oasis-customs-main.vercel.app", category: "Calculadora operacional / RP", description: "Calculadora automotiva para FiveM RP com descontos, repasses e painel resumo." },
+    { id: "taf_prf", name: "Sistema TAF PRF", url: "https://projeto-taf-prf.vercel.app/", domain: "projeto-taf-prf.vercel.app", category: "Automação de recrutamento / FiveM", description: "Recrutamento com avaliação dinâmica, correção automática e relatórios." },
+    { id: "fitpro", name: "FitPro", url: "https://fit-pro-woad.vercel.app/", domain: "fit-pro-woad.vercel.app", category: "Plataforma fitness / Gestão de treinos", description: "Protótipo para personal trainers e alunos com dashboard, agenda e gráficos." }
+  ];
+
+  /* ---------- reveal ---------- */
+  const io = "IntersectionObserver" in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 })
+    : null;
+
+  const observeReveals = (root = document) => {
+    $$(".reveal:not(.in), .steps:not(.in), .contact-display .line:not(.in)", root).forEach((el, i) => {
+      if (!io || reduced.matches) { el.classList.add("in"); return; }
+      if (el.classList.contains("reveal") && !el.style.transitionDelay) {
+        const siblings = el.parentElement ? $$(":scope > .reveal", el.parentElement) : [];
+        const idx = siblings.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = `${Math.min(idx, 6) * 80}ms`;
+      }
+      io.observe(el);
+    });
+  };
+
+  /* ---------- modos ---------- */
+  let currentMode = "tech";
+
+  const moveThumb = () => {
+    const btn = $(`.modes [data-mode-btn="${currentMode}"]`);
+    const thumb = $(".modes-thumb");
+    if (!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = `${btn.offsetWidth}px`;
+    thumb.style.transform = `translateX(${btn.offsetLeft}px)`;
+  };
+
+  const tagList = (tags = []) => tags.length ? `<ul class="tags">${tags.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : "";
+
+  const setText = (sel, value) => { const el = $(sel); if (el && value != null) el.textContent = value; };
+
+  const swap = (el, html) => {
+    if (!el) return;
+    el.innerHTML = html;
+    observeReveals(el);
+  };
+
+  const updateProcessWhatsApp = () => {
+    const focus = $("#focus-select")?.value || "Sistema web full stack";
+    const delivery = $("#delivery-select")?.value || "Solução funcional";
+    setText("#process-result", RESULT_BY_MODE[currentMode]);
+    const btn = $("#process-whatsapp-button");
+    if (btn) btn.href = wa(MESSAGE_BY_MODE[currentMode](focus, delivery));
+  };
+
+  const applyMode = (mode, { persist = true } = {}) => {
+    if (!MODES[mode]) mode = "tech";
+    currentMode = mode;
+    const m = MODES[mode];
+    document.body.dataset.mode = mode;
+    $$("[data-mode-btn]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.modeBtn === mode)));
+    moveThumb();
+
+    setText("#hero-status", m.heroStatus);
+    setText("#hero-desc", m.heroDesc);
+    const actions = $("#hero-actions");
+    if (actions) {
+      actions.innerHTML = HERO_ACTIONS[mode].map((a) => `<a href="${esc(a.href)}" class="btn ${a.cls}"${a.external ? ' target="_blank" rel="noopener"' : ""}${a.intent ? ` data-analytics-intent="${a.intent}"` : ""}>${esc(a.label)} <i class="arrow" aria-hidden="true"></i></a>`).join("");
+    }
+
+    setText("#services-kicker", KICKERS[mode]);
+    setText("#services-title", m.servicesTitle);
+    setText("#services-description", m.servicesDescription);
+    swap($("#services-list"), m.services.map((s, i) => `
+      <article class="row reveal">
+        <span class="n">${pad(i + 1)}</span>
+        <h3>${esc(s.title)}</h3>
+        <div class="row-body"><p>${esc(s.text)}</p>${tagList(s.tags)}</div>
+      </article>`).join(""));
+
+    setText("#process-description", m.processDescription);
+    const steps = $("#process-steps");
+    if (steps) {
+      steps.classList.remove("in");
+      steps.innerHTML = m.processSteps.map((s, i) => `
+        <li class="step">
+          <span class="n">${pad(i + 1)}</span>
+          <h3>${esc(s.title)}</h3>
+          <p>${esc(s.text)}</p>
+          <span class="out">${esc(s.output)}</span>
+        </li>`).join("");
+      requestAnimationFrame(() => observeReveals(steps.parentElement));
+    }
+
+    setText("#differential-title", m.differentialTitle);
+    setText("#differential-description", m.differentialDescription);
+    swap($("#differential-list"), m.differentials.map((d, i) => `
+      <article class="cell reveal">
+        <span class="cell-n">${pad(i + 1)}</span>
+        <h3>${esc(d.title)}</h3>
+        <p>${esc(d.text)}</p>
+      </article>`).join(""));
+
+    swap($("#faq-mode"), m.faq.map((f) => `<details class="reveal"><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join(""));
+
+    updateProcessWhatsApp();
+    if (persist) { try { localStorage.setItem(MODE_KEY, mode); } catch (_) { /* armazenamento indisponível */ } }
+  };
+
+  const initModes = () => {
+    let saved = null;
+    try { saved = localStorage.getItem(MODE_KEY); } catch (_) { saved = null; }
+    const fromUrl = new URLSearchParams(location.search).get("modo");
+    applyMode(MODES[fromUrl] ? fromUrl : (MODES[saved] ? saved : "tech"), { persist: false });
+    $$("[data-mode-btn]").forEach((b) => b.addEventListener("click", () => applyMode(b.dataset.modeBtn)));
+    $("#focus-select")?.addEventListener("change", updateProcessWhatsApp);
+    $("#delivery-select")?.addEventListener("change", updateProcessWhatsApp);
+    window.addEventListener("resize", moveThumb, { passive: true });
+    if (document.fonts?.ready) document.fonts.ready.then(moveThumb);
+  };
+
+  /* ---------- projetos em produção ---------- */
+  const shotUrl = (url) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1400`;
+  const domainOf = (url) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch (_) { return ""; } };
+  const safeUrl = (url) => { try { const u = new URL(url); return /^https?:$/.test(u.protocol) ? u.href : "#"; } catch (_) { return "#"; } };
+  const cleanCopy = (v) => String(v ?? "").replace(/Painel\s+Admin\w*\s*MPAIVA_?/gi, "Painel de gestão").replace(/\bpainel\s+admin\w*\b/gi, "painel de gestão");
+
+  const normalizeProject = (p) => {
+    const url = safeUrl(p.url || p.project_url || p.public_url || "");
+    return {
+      name: cleanCopy(p.name || p.title || "Projeto"),
+      url,
+      domain: cleanCopy(p.domain || domainOf(url)),
+      category: cleanCopy(p.category || "Projeto digital"),
+      image: p.image_url || p.imageUrl || ""
+    };
+  };
+
+  const renderProjects = (list) => {
+    const ol = $("#production-list");
+    if (!ol) return;
+    if (!list.length) { ol.innerHTML = '<li class="index-empty">Nenhum projeto publicado no momento.</li>'; return; }
+    ol.innerHTML = list.map((p, i) => `
+      <li class="reveal">
+        <a href="${esc(p.url)}" target="_blank" rel="noopener" data-preview="${esc(p.image || shotUrl(p.url))}" data-analytics-intent="projeto-producao">
+          <span class="n">${pad(i + 1)}</span>
+          <span class="t">${esc(p.name)}</span>
+          <span class="c">${esc(p.category)}</span>
+          <span class="d">${esc(p.domain)}</span>
+          <i class="arrow" aria-hidden="true"></i>
+        </a>
+      </li>`).join("");
+    observeReveals(ol);
+  };
+
+  const loadProjects = async () => {
+    const fallback = DEFAULT_PROJECTS.map(normalizeProject);
+    const { supabaseUrl, supabaseKey } = document.body.dataset;
+    if (!window.supabase?.createClient || !supabaseUrl || !supabaseKey) { renderProjects(fallback); return; }
+    try {
+      const client = window.supabase.createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false } });
+      const { data, error } = await client
+        .from("production_projects")
+        .select("id,name,url,domain,category,description,image_url,sort_order,updated_at")
+        .order("sort_order", { ascending: true })
+        .order("updated_at", { ascending: false });
+      if (error) throw error;
+      const rows = (data || []).filter((r) => r && (r.name || r.title) && (r.url || r.project_url || r.public_url)).map(normalizeProject);
+      renderProjects(rows.length ? rows : fallback);
+    } catch (_) {
+      renderProjects(fallback);
+    }
+  };
+
+  const initPreview = () => {
+    const box = $(".preview");
+    const img = box && $("img", box);
+    const list = $("#production-list");
+    if (!box || !img || !list || !finePointer.matches) return;
+    img.addEventListener("error", () => box.classList.add("is-empty"));
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0, on = false;
+    const loop = () => {
+      cx += (x - cx) * 0.16; cy += (y - cy) * 0.16;
+      box.style.left = `${cx}px`; box.style.top = `${cy}px`;
+      raf = on || Math.abs(x - cx) > 0.5 ? requestAnimationFrame(loop) : 0;
+    };
+    list.addEventListener("pointermove", (e) => {
+      x = e.clientX + 220; y = e.clientY;
+      if (x + 190 > innerWidth) x = e.clientX - 220;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    list.addEventListener("pointerover", (e) => {
+      const a = e.target.closest("a[data-preview]");
+      if (!a) return;
+      box.dataset.label = $(".d", a)?.textContent || "";
+      if (img.getAttribute("src") !== a.dataset.preview) { box.classList.remove("is-empty"); img.src = a.dataset.preview; }
+      if (!on) { cx = e.clientX + 220; cy = e.clientY; }
+      on = true; box.classList.add("is-on");
+    });
+    list.addEventListener("pointerleave", () => { on = false; box.classList.remove("is-on"); });
+  };
+
+  /* ---------- github ---------- */
+  const loadGitHub = async () => {
+    const listEl = $("#gh-list");
+    if (!listEl) return;
+    const fmt = (d) => new Date(d).toLocaleDateString("pt-BR", { day: "2-digit", month: "short" }).replace(".", "");
+    try {
+      const [user, repos] = await Promise.all([
+        fetch("https://api.github.com/users/EoPaiva").then((r) => r.ok ? r.json() : Promise.reject(r.status)),
+        fetch("https://api.github.com/users/EoPaiva/repos?sort=updated&per_page=8").then((r) => r.ok ? r.json() : Promise.reject(r.status))
+      ]);
+      setText("#gh-repos", String(user.public_repos ?? "—"));
+      const visible = repos.filter((r) => !r.fork && r.name !== "EoPaiva").slice(0, 6);
+      const langs = {};
+      repos.forEach((r) => { if (r.language) langs[r.language] = (langs[r.language] || 0) + 1; });
+      const top = Object.entries(langs).sort((a, b) => b[1] - a[1])[0];
+      if (top) setText("#gh-lang", top[0]);
+      if (repos[0]?.pushed_at) setText("#gh-updated", fmt(repos[0].pushed_at));
+      listEl.innerHTML = visible.map((r, i) => `
+        <li class="reveal">
+          <a href="${esc(safeUrl(r.html_url))}" target="_blank" rel="noopener">
+            <span class="n">${pad(i + 1)}</span>
+            <span class="t">${esc(r.name)}</span>
+            <span class="c">${esc(r.description || "Repositório público.")}</span>
+            <span class="d">${esc(r.language || "—")} · ${esc(fmt(r.pushed_at))}</span>
+            <i class="arrow" aria-hidden="true"></i>
+          </a>
+        </li>`).join("") || '<li class="index-empty">Nenhum repositório público encontrado.</li>';
+      observeReveals(listEl);
+    } catch (_) {
+      listEl.innerHTML = '<li class="index-empty"><a class="link" href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">Ver repositórios no GitHub <i class="arrow" aria-hidden="true"></i></a></li>';
+    }
+  };
+
+  /* ---------- marquee ---------- */
+  const initMarquee = () => {
+    $$(".marquee-track[data-items]").forEach((track) => {
+      const items = track.dataset.items.split("|").map((s) => s.trim()).filter(Boolean);
+      const run = items.map((t) => `<span>${esc(t)}</span><span class="sep" aria-hidden="true">/</span>`).join("");
+      track.innerHTML = run + run.replace(/<span>/g, '<span aria-hidden="true">');
+    });
+  };
+
+  /* ---------- canvas do hero ---------- */
+  const initHeroCanvas = () => {
+    const canvas = $(".hero-canvas");
+    if (!canvas || !canvas.getContext) return;
+    const ctx = canvas.getContext("2d");
+    let w = 0, h = 0, dpr = 1, cols = 0, rows = 0, gap = 28, raf = 0, visible = true, t0 = performance.now();
+    let mx = -9999, my = -9999;
+
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = r.width; h = r.height;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      gap = w < 700 ? 22 : 28;
+      cols = Math.ceil(w / gap) + 1; rows = Math.ceil(h / gap) + 1;
+      if (reduced.matches) draw(4000);
+    };
+
+    const draw = (time) => {
+      const t = time / 1000;
+      ctx.clearRect(0, 0, w, h);
+      const small = w < 700;
+      const ox = w * (small ? 0.92 : 0.74), oy = h * (small ? 0.2 : 0.5), R = small ? w * 0.36 : Math.min(w, h) * 0.3;
+      const band = ((t * 0.11) % 1.4 - 0.2) * w;
+      for (let j = 0; j < rows; j++) {
+        for (let i = 0; i < cols; i++) {
+          const x = i * gap, y = j * gap;
+          const dx = x - ox, dy = y - oy, d = Math.hypot(dx, dy);
+          let a = 0.1;
+          const ring = Math.abs(d - R);
+          if (ring < 70) a += (1 - ring / 70) * 0.28 * (0.6 + 0.4 * Math.sin(t * 1.4 + Math.atan2(dy, dx) * 3));
+          const b = Math.abs(x + y * 0.35 - band);
+          if (b < 120) a += (1 - b / 120) * 0.22;
+          const m = Math.hypot(x - mx, y - my);
+          if (m < 140) a += (1 - m / 140) * 0.45;
+          const fade = Math.min(1, (h - y) / (h * 0.35));
+          a *= Math.max(0, fade) * Math.min(1, x / (w * 0.25) + 0.25);
+          if (a < 0.02) continue;
+          ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
+          ctx.fillRect(x - 0.75, y - 0.75, 1.5, 1.5);
+        }
+      }
+      ctx.strokeStyle = "rgba(255,255,255,.14)";
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(ox, oy, R, 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = "rgba(255,255,255,.06)";
+      ctx.beginPath(); ctx.ellipse(ox, oy, R * 1.35, R * 0.38, -0.35, 0, Math.PI * 2); ctx.stroke();
+      const ang = t * 0.5;
+      const px = ox + Math.cos(ang) * R * 1.35 * Math.cos(-0.35) - Math.sin(ang) * R * 0.38 * Math.sin(-0.35);
+      const py = oy + Math.cos(ang) * R * 1.35 * Math.sin(-0.35) + Math.sin(ang) * R * 0.38 * Math.cos(-0.35);
+      ctx.fillStyle = "#fff";
+      ctx.beginPath(); ctx.arc(px, py, 2.6, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,.12)";
+      ctx.beginPath(); ctx.arc(px, py, 9, 0, Math.PI * 2); ctx.fill();
+    };
+
+    const loop = (now) => { draw(now - t0); raf = visible ? requestAnimationFrame(loop) : 0; };
+    const start = () => { if (!raf && visible && !reduced.matches && !document.hidden) raf = requestAnimationFrame(loop); };
+    const stop = () => { cancelAnimationFrame(raf); raf = 0; };
+
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? start() : stop(); }).observe(canvas);
+    }
+    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
+    reduced.addEventListener?.("change", () => { stop(); resize(); start(); });
+    if (finePointer.matches) {
+      const hero = canvas.parentElement;
+      hero.addEventListener("pointermove", (e) => { const r = canvas.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
+      hero.addEventListener("pointerleave", () => { mx = my = -9999; });
+    }
+    start();
+  };
+
+  /* ---------- cursor ---------- */
+  const initCursor = () => {
+    const c = $(".cursor");
+    if (!c || !finePointer.matches || reduced.matches) return;
+    let x = 0, y = 0, cx = 0, cy = 0;
+    const loop = () => {
+      cx += (x - cx) * 0.22; cy += (y - cy) * 0.22;
+      c.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      requestAnimationFrame(loop);
+    };
+    document.addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; c.classList.add("is-on"); }, { passive: true });
+    document.addEventListener("pointerleave", () => c.classList.remove("is-on"));
+    document.addEventListener("pointerover", (e) => c.classList.toggle("is-hover", !!e.target.closest("a, button, summary, select")));
+    requestAnimationFrame(loop);
+  };
+
+  /* ---------- rolagem: progresso, nav, link ativo ---------- */
+  const initScroll = () => {
+    const bar = $(".progress span");
+    const nav = $(".nav");
+    const menuBtn = $(".menu-btn");
+    let last = scrollY, ticking = false;
+    const update = () => {
+      const y = scrollY;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (bar) bar.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+      if (nav) {
+        nav.classList.toggle("is-scrolled", y > 24);
+        const menuOpen = menuBtn?.getAttribute("aria-expanded") === "true";
+        nav.classList.toggle("is-hidden", !menuOpen && y > 600 && y > last + 4);
+        if (y < last - 4) nav.classList.remove("is-hidden");
+      }
+      last = y; ticking = false;
+    };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+
+    const links = $$(".nav-links a");
+    const targets = links.map((a) => $(a.getAttribute("href"))).filter(Boolean);
+    if ("IntersectionObserver" in window && targets.length) {
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${e.target.id}`));
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      targets.forEach((t) => spy.observe(t));
+    }
+  };
+
+  /* ---------- menu ---------- */
+  const initMenu = () => {
+    const btn = $(".menu-btn");
+    const menu = $("#menu");
+    if (!btn || !menu) return;
+    const set = (open) => {
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      menu.hidden = !open;
+      document.documentElement.style.overflow = open ? "hidden" : "";
+      if (open) $(".nav")?.classList.remove("is-hidden");
+    };
+    btn.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
+    menu.addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { set(false); btn.focus(); } });
+  };
+
+  /* ---------- copiar e-mail ---------- */
+  const toast = (msg) => {
+    const el = $(".toast");
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add("is-on");
+    clearTimeout(toast.t);
+    toast.t = setTimeout(() => el.classList.remove("is-on"), 2200);
+  };
+
+  const initCopy = () => {
+    const btn = $("#copy-email");
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      const email = btn.dataset.email;
+      try { await navigator.clipboard.writeText(email); toast("E-mail copiado"); }
+      catch (_) { toast(email); }
+    });
+  };
+
+  /* ---------- início ---------- */
+  const boot = () => {
+    initMarquee();
+    initModes();
+    initMenu();
+    initScroll();
+    initCursor();
+    initPreview();
+    initCopy();
+    observeReveals();
+    initHeroCanvas();
+    requestAnimationFrame(() => document.body.classList.add("is-ready"));
+    loadProjects();
+    loadGitHub();
+  };
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
