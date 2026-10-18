@@ -1,0 +1,87 @@
+/* Subpáginas do upaiva.dev: usa os tokens e componentes de site.css e acrescenta o layout de página. */
+
+.page-hero { position: relative; min-height: min(100svh, 980px); display: flex; align-items: flex-end; padding: calc(var(--nav-h) + 72px) 0 clamp(56px, 7vw, 96px); overflow: hidden; isolation: isolate; }
+.page-hero .wrap { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 32px; }
+.page-hero-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.page-title { font: 300 clamp(48px, 8.4vw, 132px)/.95 var(--display); letter-spacing: -.05em; color: #fff; max-width: 14ch; text-wrap: balance; }
+.page-title em { font-style: normal; color: var(--dim); }
+.page-hero-bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px 48px; align-items: end; }
+.page-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.page-orb { position: absolute; z-index: 1; top: 50%; right: max(-10vw, -160px); width: min(62vw, 900px, 110svh); aspect-ratio: 1; transform: translateY(-55%); pointer-events: none; }
+.page-orb canvas { width: 100%; height: 100%; display: block; }
+
+.p-section { position: relative; padding: clamp(88px, 11vw, 160px) 0; border-top: 1px solid var(--line); }
+.p-section.alt { background: var(--panel); }
+.p-head { display: grid; grid-template-columns: 90px minmax(0, 1.25fr) minmax(0, .9fr); gap: 22px 48px; align-items: end; margin-bottom: clamp(48px, 6vw, 84px); }
+.p-head > div { display: flex; flex-direction: column; gap: 22px; }
+.p-head p { color: var(--muted); line-height: 1.7; max-width: 52ch; }
+
+.p-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid var(--line); }
+.p-card { position: relative; padding: 32px 28px 36px 0; display: flex; flex-direction: column; gap: 14px; isolation: isolate; }
+.p-card + .p-card { padding-left: 28px; border-left: 1px solid var(--line); }
+.p-card .n { font: 100 44px/.9 var(--thin); color: #fff; }
+.p-card h3 { font: 300 clamp(22px, 2vw, 28px)/1.15 var(--display); letter-spacing: -.02em; color: #fff; }
+.p-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+.p-card::before { content: ""; position: absolute; top: -1px; left: 0; width: 100%; height: 1px; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease-io); }
+.p-cards.in .p-card::before, .p-card.in::before { transform: scaleX(1); }
+
+.p-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px clamp(40px, 6vw, 96px); align-items: start; }
+.p-split > div { display: flex; flex-direction: column; gap: 24px; }
+.p-split p { color: var(--muted); line-height: 1.75; }
+.p-list { border-top: 1px solid var(--line); counter-reset: p; }
+.p-list li { counter-increment: p; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--line); font: 300 clamp(19px, 1.7vw, 24px)/1.3 var(--display); letter-spacing: -.015em; color: #fff; transition: padding .5s var(--ease); }
+.p-list li::before { content: counter(p, decimal-leading-zero); font: 500 11px var(--label); letter-spacing: .2em; color: var(--dim); }
+.p-list li:hover { padding-left: 10px; }
+.p-list li small { display: block; margin-top: 6px; font: 400 14.5px/1.6 var(--text); letter-spacing: 0; color: var(--muted); }
+
+.p-prose { max-width: 72ch; display: flex; flex-direction: column; gap: 20px; color: var(--muted); line-height: 1.8; }
+.p-prose h3 { font: 300 clamp(24px, 2.4vw, 32px)/1.2 var(--display); letter-spacing: -.02em; color: #fff; margin-top: 18px; }
+.p-prose strong { color: var(--soft); font-weight: 400; }
+.p-prose a { color: #fff; border-bottom: 1px solid var(--line-2); }
+
+.p-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.p-tags li { padding: 8px 14px; border: 1px solid var(--line-2); border-radius: 99px; font: 500 10.5px/1 var(--label); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+.p-cta { padding: clamp(110px, 14vw, 200px) 0; border-top: 1px solid var(--line); text-align: left; }
+.p-cta .wrap { display: flex; flex-direction: column; gap: 36px; }
+.p-cta h2 { font: 300 clamp(44px, 7.6vw, 120px)/.95 var(--display); letter-spacing: -.05em; color: #fff; max-width: 16ch; }
+.p-cta h2 em { font-style: normal; color: var(--dim); }
+.p-cta p { color: var(--muted); max-width: 56ch; line-height: 1.7; }
+
+.footer-sub .footer-giant { --glow: .5; }
+
+@media (max-width: 900px) {
+  .p-head { grid-template-columns: 1fr; }
+  .p-head .index { display: none; }
+  .p-split { grid-template-columns: 1fr; }
+  .page-hero-bottom { grid-template-columns: 1fr; }
+  .page-orb { width: 120vw; right: -40vw; top: 34%; opacity: .55; }
+  .p-card, .p-card + .p-card { padding: 28px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+}
+
+/* Grade de cards em 3 colunas fixas (6 cards = 2 linhas) */
+.p-cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.p-cards-3 .p-card:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+.p-cards-3 .p-card:nth-child(n+4) { border-top: 1px solid var(--line); }
+@media (max-width: 900px) {
+  .p-cards-3 { grid-template-columns: 1fr; }
+  .p-cards-3 .p-card:nth-child(n+4) { border-top: 0; }
+}
+
+/* celular: ações empilhadas e sem estouro lateral */
+.page-hero-bottom > * { min-width: 0; }
+@media (max-width: 600px) {
+  .page-actions { flex-direction: column; align-items: stretch; }
+  .page-actions .btn { justify-content: center; height: auto; min-height: 56px; padding: 16px 20px; white-space: normal; text-align: center; line-height: 1.4; }
+}
+.page-hero-top .label { line-height: 1.7; }
+
+/* perfil-profissional: descrição nas linhas da trajetória e grupos de competências */
+.tl-detail .tl-row p { grid-column: 2 / -1; max-width: 64ch; font-size: 15px; line-height: 1.7; color: var(--muted); }
+.p-stack { display: flex; flex-direction: column; gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
+.p-stack > div { display: flex; flex-direction: column; gap: 14px; }
+.p-list li small { grid-column: 2; margin-top: -10px; }
+.p-list li small a { color: #fff; border-bottom: 1px solid var(--line-2); }
+@media (max-width: 900px) {
+  .tl-detail .tl-row p { grid-column: auto; }
+}
