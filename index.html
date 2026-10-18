@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,8 +11,9 @@
   />
   <meta name="author" content="Mateus Paiva" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#020617" />
-  <meta name="msapplication-TileColor" content="#020617" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="color-scheme" content="dark" />
   <link rel="canonical" href="https://upaiva.dev/" />
   <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/" />
   <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/" />
@@ -48,22 +49,10 @@
   <meta name="twitter:image" content="https://upaiva.dev/assets/og-mateus-paiva.png" />
   <meta name="twitter:image:alt" content="M PAIVA_ - Desenvolvedor Full Stack com IA Aplicada, Automação e SEO Técnico" />
 
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.min.js"></script>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="style.css?v=20260619-audit-agent-1" />
+  <link rel="stylesheet" href="/site.css?v=20261018-mono-1" />
 
   <script type="application/ld+json">
     {
@@ -205,1156 +194,524 @@
       ]
     }
   </script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            mono: ['"JetBrains Mono"', "monospace"],
-            sans: ["Inter", "sans-serif"]
-          },
-          colors: {
-            theme: {
-              bg: "var(--bg-color)",
-              card: "var(--card-color)",
-              border: "var(--border-color)",
-              accent: "var(--accent-color)",
-              text: "var(--text-color)",
-              title: "var(--title-color)"
-            }
-          }
-        }
-      }
-    };
-  </script>
 </head>
 
 <body
-  id="main-body"
-  class="bg-theme-bg text-theme-text font-sans selection:bg-theme-accent selection:text-black"
+  data-mode="tech"
   data-supabase-url="https://mtjfijfuxybuobfohlws.supabase.co"
   data-supabase-key="sb_publishable_UhdYzJkSNyXksKr5nCdRQQ_cFTvT5gO"
 >
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <div id="custom-cursor" class="hidden md:block"></div>
-  <div id="scroll-progress"></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-  <nav class="quick-nav" aria-label="Navegação rápida do site">
-    <a href="#top" class="quick-nav-link active" aria-label="Ir para o início">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Início</span>
-    </a>
+  <nav id="top" class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="#inicio" class="wordmark" aria-label="MPAIVA_, voltar ao início">mPaiva<span class="caret"></span></a>
 
-    <a href="#servicos" class="quick-nav-link" aria-label="Ir para serviços">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Serviços</span>
-    </a>
+      <div class="nav-links">
+        <a href="#cases">Trabalho</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#processo">Processo</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#faq">FAQ</a>
+      </div>
 
-    <a href="#cases" class="quick-nav-link" aria-label="Ir para cases">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Cases</span>
-    </a>
-
-    <a href="#projetos-producao" class="quick-nav-link" aria-label="Ir para projetos em produção">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Produção</span>
-    </a>
-
-    <a href="#processo" class="quick-nav-link" aria-label="Ir para processo">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Processo</span>
-    </a>
-
-    <a href="#diferencial" class="quick-nav-link" aria-label="Ir para diferencial">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Diferencial</span>
-    </a>
-
-    <a href="#faq" class="quick-nav-link" aria-label="Ir para perguntas frequentes">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">FAQ</span>
-    </a>
-
-    <a href="#contato" class="quick-nav-link" aria-label="Ir para contato">
-      <span class="quick-nav-dot"></span>
-      <span class="quick-nav-label">Contato</span>
-    </a>
-
-    <button
-      id="quick-scroll-down"
-      class="quick-nav-bottom hover-target"
-      type="button"
-      aria-label="Ir para próxima seção"
-    >
-      ↓
-    </button>
-
-    <button
-      id="back-to-top"
-      class="quick-nav-top hover-target"
-      type="button"
-      aria-label="Voltar ao topo"
-    >
-      ↑
-    </button>
-  </nav>
-
-  <nav id="top" class="site-nav w-full bg-theme-bg/95 backdrop-blur-md border-b border-theme-border">
-    <div class="max-w-6xl mx-auto px-4 py-5 nav-bar-shell">
-      <div class="nav-main-row">
-        <a href="#" class="brand-signature hover-target" aria-label="Mateus Paiva">
-          <span class="brand-stack">
-            <span class="brand-topline">
-              <span class="brand-markbox">M</span>
-              <span class="brand-name">
-                PAIVA<span class="brand-underscore">_</span>
-              </span>
-            </span>
-
-            <span class="brand-subtitle brand-subtitle-header">
-              Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico
-            </span>
-          </span>
-        </a>
-
-        <div class="nav-controls">
-          <div class="nav-mode-shell">
-            <button id="btn-tech" type="button" class="hover-target px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all bg-theme-accent text-black">
-              MODO TECH
-            </button>
-
-            <button id="btn-hire" type="button" class="hover-target px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all text-slate-400" aria-label="Modo Contrate-me">
-              CONTRATE-ME
-            </button>
-
-            <button id="btn-client" type="button" class="hover-target px-4 py-1.5 rounded-full text-[10px] font-bold uppercase transition-all text-slate-400">
-              MODO CLIENTE
-            </button>
-          </div>
-
-          <div class="nav-links hidden xl:flex font-mono text-xs items-center">
-            <a href="#servicos" class="hover-target hover:text-theme-title transition-colors">./serviços</a>
-            <a href="#cases" class="hover-target hover:text-theme-title transition-colors">./cases</a>
-            <a href="#projetos-producao" class="hover-target hover:text-theme-title transition-colors">./produção</a>
-            <a href="#processo" class="hover-target hover:text-theme-title transition-colors">./processo</a>
-            <a href="#diferencial" class="hover-target hover:text-theme-title transition-colors">./diferencial</a>
-            <a href="#faq" class="hover-target hover:text-theme-title transition-colors">./faq</a>
-            <a href="#github" class="hover-target hover:text-theme-title transition-colors">./github</a>
-
-            <a href="perfil-profissional.html" class="hover-target group relative overflow-hidden bg-theme-accent/10 text-theme-accent border border-theme-accent/20 px-3 py-1 rounded hover:bg-theme-accent hover:text-black transition-all">
-              <span class="relative z-10">Perfil Profissional</span>
-              <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/25 skew-x-12"></span>
-            </a>
-          </div>
+      <div class="nav-end">
+        <div class="modes" role="group" aria-label="Modo de leitura do site">
+          <button id="btn-tech" type="button" data-mode-btn="tech" aria-pressed="true">Tech</button>
+          <button id="btn-hire" type="button" data-mode-btn="hire" aria-pressed="false">Contrate-me</button>
+          <button id="btn-client" type="button" data-mode-btn="client" aria-pressed="false">Cliente</button>
+          <span class="modes-thumb" aria-hidden="true"></span>
         </div>
+        <a href="#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
       </div>
     </div>
   </nav>
 
-  <main id="conteudo">
-    <section class="hero-section min-h-screen flex items-center pt-20 md:pt-16 px-6">
-      <div class="hero-grid max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="hero-copy reveal active">
-          <div id="hero-status" class="hero-status font-mono text-theme-accent mb-4 text-xs tracking-widest uppercase">
-            [ FULL STACK, IA APLICADA & AUTOMAÇÃO ]
-          </div>
-
-          <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-theme-title leading-tight mb-6">
-            Desenvolvedor Full Stack focado em <span class="text-theme-accent">IA aplicada</span>.
-          </h1>
-
-          <p id="hero-desc" class="text-base md:text-lg mb-10 leading-relaxed">
-            Crio sistemas web, plataformas, automações, integrações, agentes de IA e estruturas digitais preparadas para SEO, tráfego orgânico e crescimento. Minha entrega une desenvolvimento full stack, inteligência artificial aplicada, automação, integrações e visão estratégica de negócio.
-          </p>
-
-          <div class="hero-actions flex flex-wrap gap-4">
-            <a href="#servicos" class="hero-primary-action hover-target px-8 py-4 bg-theme-accent text-black font-bold rounded shadow-lg uppercase text-xs transition-all hover:scale-105">
-              Tenho uma ideia ou processo para automatizar
-            </a>
-
-            <a href="#projetos-producao" class="hero-secondary-action hover-target px-8 py-4 border border-theme-border text-theme-title font-bold rounded uppercase text-xs transition-all hover:border-theme-accent hover:text-theme-accent">
-              Ver projetos publicados
-            </a>
-
-            <a href="perfil-profissional.html" class="hero-secondary-action hover-target group relative overflow-hidden px-8 py-4 border border-theme-accent/30 text-theme-accent font-bold rounded uppercase text-xs transition-all hover:bg-theme-accent hover:text-black">
-              <span class="relative z-10">Me contratar / Falar sobre oportunidade</span>
-              <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/25 skew-x-12"></span>
-            </a>
-          </div>
-
-          <div class="hero-proof-strip" aria-label="Diferenciais principais">
-            <span>Sistemas full stack</span>
-            <span>Agentes IA e RAG</span>
-            <span>SEO técnico e orgânico</span>
-          </div>
-        </div>
-
-        <div class="hero-visual-panel reveal active" aria-label="Globo digital abstrato representando IA aplicada, automação e sistemas conectados">
-          <div class="hero-globe-stage">
-            <canvas id="hero-globe-canvas" aria-hidden="true"></canvas>
-            <div class="hero-globe-fallback" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="hero-globe-vignette"></div>
-          </div>
-
-          <div class="hero-globe-caption">
-            <span>AI NETWORK</span>
-            <strong>Full Stack · APIs · RAG · SEO</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="ai-search-context" class="ai-context-section py-20 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="ai-context-header reveal">
-          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / resposta_direta
-          </span>
-
-          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            O que eu desenvolvo
-          </h2>
-
-          <p class="text-theme-text leading-relaxed">
-            Soluções digitais completas unindo desenvolvimento full stack, IA aplicada, automação, SEO técnico e visão de negócio.
-          </p>
-        </div>
-
-        <div class="ai-answer-grid reveal" aria-label="Resumo profissional para mecanismos de busca e assistentes de IA">
-          <article class="ai-answer-card">
-            <span>01</span>
-            <h3>Sistemas web completos</h3>
-            <p>
-              Aplicações com frontend, backend, banco de dados, autenticação, APIs e deploy para organizar processos, dados, atendimento e operações.
-            </p>
-            <a
-              href="/sistemas-web-inteligentes"
-              class="ai-answer-card-cta hover-target"
-              data-analytics-intent="sistemas-web-inteligentes"
-              aria-label="Ver página sobre sistemas web inteligentes"
-            >
-              Ver sistemas web inteligentes
-            </a>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>02</span>
-            <h3>Plataformas SaaS</h3>
-            <p>
-              Estrutura de produto com usuários, permissões, painéis, integrações e base para vender, operar e evoluir serviços digitais.
-            </p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>03</span>
-            <h3>Automações com IA</h3>
-            <p>
-              Fluxos inteligentes para reduzir tarefas repetitivas, analisar mensagens, gerar respostas, acionar APIs e conectar ferramentas.
-            </p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>04</span>
-            <h3>Agentes de IA</h3>
-            <p>
-              Assistentes com LLM, RAG, memória contextual e bases de conhecimento para atendimento, suporte, triagem e decisão.
-            </p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>05</span>
-            <h3>Integrações com APIs</h3>
-            <p>
-              Conexão entre sistemas, CRMs, bancos de dados, gateways de pagamento, WhatsApp, ferramentas externas e fluxos internos.
-            </p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>06</span>
-            <h3>Sites com SEO técnico</h3>
-            <p>
-              Sites profissionais, landing pages e páginas comerciais com performance, semântica, copywriting e base para tráfego orgânico.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="seo-organico" class="ai-context-section py-20 px-6 border-t border-theme-border">
-      <div class="max-w-6xl mx-auto">
-        <div class="ai-context-header reveal">
-          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / seo_trafego_organico
-          </span>
-
-          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            Desenvolvimento pensado para ser encontrado
-          </h2>
-
-          <p class="text-theme-text leading-relaxed">
-            Não basta ter um site bonito. Ele precisa ser rápido, claro, indexável e estruturado para atrair tráfego orgânico. Uno desenvolvimento full stack, SEO técnico e estratégia de conteúdo para criar páginas que funcionam como ativos digitais.
-          </p>
-        </div>
-
-        <div class="ai-answer-grid reveal" aria-label="Base de SEO técnico e tráfego orgânico">
-          <article class="ai-answer-card">
-            <span>SEO</span>
-            <h3>SEO técnico</h3>
-            <p>HTML semântico, headings, title, meta description, sitemap, robots.txt, schema JSON-LD, URLs amigáveis e performance mobile.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>ORG</span>
-            <h3>Conteúdo estratégico</h3>
-            <p>Páginas organizadas por intenção de busca, clareza comercial, termos pesquisados e diferença entre tráfego orgânico e mídia paga.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>CVR</span>
-            <h3>Conversão</h3>
-            <p>CTAs claros, proposta de valor específica, fluxo simples de contato e estrutura preparada para evolução.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>GSC</span>
-            <h3>Monitoramento</h3>
-            <p>Base preparada para acompanhar indexação, ajustes de Search Console, evolução de conteúdo e melhorias sem promessa de ranking garantido.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="limites-transparencia" class="ai-context-section py-20 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="ai-context-header reveal">
-          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / limites_transparencia
-          </span>
-
-          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            Como trabalho com IA e SEO
-          </h2>
-
-          <p class="text-theme-text leading-relaxed">
-            Tecnologia precisa gerar clareza, não promessa exagerada. IA aplicada e SEO técnico entram como apoio estratégico para melhorar processos, conteúdo, produtividade e descoberta orgânica.
-          </p>
-        </div>
-
-        <div class="transparency-grid reveal" aria-label="Limites e transparência sobre IA aplicada e SEO técnico">
-          <article class="transparency-card">
-            <span>IA</span>
-            <h3>IA aplicada com validação humana</h3>
-            <p>
-              IA aplicada não substitui estratégia, processo ou validação humana. Ela entra para acelerar tarefas, organizar informações, apoiar atendimento, gerar respostas e melhorar produtividade.
-            </p>
-          </article>
-
-          <article class="transparency-card">
-            <span>SEO</span>
-            <h3>SEO técnico sem promessa artificial</h3>
-            <p>
-              SEO técnico não garante posição no Google, mas cria uma base mais correta para indexação, performance, clareza de conteúdo e crescimento orgânico.
-            </p>
-          </article>
-
-          <article class="transparency-card">
-            <span>GGL</span>
-            <h3>Boas práticas, não “segredos”</h3>
-            <p>
-              A abordagem acompanha boas práticas de mecanismos de busca: facilitar rastreamento, indexação e entendimento do conteúdo. Não existe fórmula honesta para garantir primeira posição.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="stack-crescimento" class="ai-context-section py-20 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="ai-context-header reveal">
-          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / stack_prova_tecnica
-          </span>
-
-          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            Stack, IA e crescimento orgânico em uma única entrega
-          </h2>
-
-          <p class="text-theme-text leading-relaxed">
-            A entrega conecta interface, backend, dados, integrações, automações e SEO técnico. A stack é apresentada por uso real, não como lista inflada de tecnologias.
-          </p>
-        </div>
-
-        <div class="ai-answer-grid reveal" aria-label="Stack técnica e prova de execução full stack">
-          <article class="ai-answer-card">
-            <span>FE</span>
-            <h3>Frontend e experiência</h3>
-            <p>React, Next.js, JavaScript, TypeScript, Tailwind CSS, HTML semântico e responsividade para criar interfaces rápidas, claras e acessíveis.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>BE</span>
-            <h3>Backend, APIs e regras</h3>
-            <p>Node.js, APIs REST, autenticação, webhooks, integrações, permissões e lógica de negócio para sustentar sistemas completos.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>DB</span>
-            <h3>Dados e persistência</h3>
-            <p>PostgreSQL, Supabase, SQLite, tabelas relacionais, storage, políticas de acesso e organização de dados para operação real.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>AI</span>
-            <h3>IA aplicada</h3>
-            <p>LLMs, RAG, agentes de IA, memória contextual, assistentes internos, análise de mensagens e geração de respostas com contexto.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>SEO</span>
-            <h3>SEO técnico</h3>
-            <p>Estrutura semântica, metadados, schema, conteúdo orientado à intenção de busca, performance e base para tráfego orgânico sustentável.</p>
-          </article>
-
-          <article class="ai-answer-card">
-            <span>OPS</span>
-            <h3>Deploy e infraestrutura</h3>
-            <p>Vercel, Railway, Supabase, GitHub, variáveis de ambiente, versionamento e publicação para colocar soluções no ar com rastreabilidade.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="proximos-passos" class="py-20 px-6 border-t border-theme-border">
-      <div class="max-w-6xl mx-auto">
-        <div class="max-w-3xl mb-10 reveal">
-          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / próximos_passos
-          </span>
-
-          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            Escolha o tipo de solução ou oportunidade
-          </h2>
-
-          <p class="text-theme-text leading-relaxed">
-            Atalhos diretos para conversar com contexto, seja para integrar IA, criar um site com SEO, desenvolver um sistema sob medida ou falar sobre oportunidade CLT/PJ.
-          </p>
-        </div>
-
-        <div class="intent-grid reveal">
-          <a href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20integrar%20IA%20ao%20meu%20neg%C3%B3cio%20e%20entender%20uma%20solu%C3%A7%C3%A3o%20poss%C3%ADvel." target="_blank" rel="noopener noreferrer" class="hover-target cta-intent-card">
-            <span class="cta-intent-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M12 3v3" />
-                <path d="M12 18v3" />
-                <path d="M3 12h3" />
-                <path d="M18 12h3" />
-                <path d="M7.8 7.8l2.1 2.1" />
-                <path d="M14.1 14.1l2.1 2.1" />
-                <circle cx="12" cy="12" r="3.2" />
-              </svg>
-            </span>
-            <span class="cta-intent-copy">
-              <strong>Quero integrar IA ao meu negócio</strong>
-              <small>Agentes, automações e fluxos inteligentes conectados à operação.</small>
-            </span>
-            <span class="cta-intent-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M9 7h8v8" />
-              </svg>
-            </span>
-          </a>
-
-          <a href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20um%20site%20preparado%20para%20tr%C3%A1fego%20org%C3%A2nico%20e%20SEO%20t%C3%A9cnico." target="_blank" rel="noopener noreferrer" class="hover-target cta-intent-card">
-            <span class="cta-intent-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M4 18V6" />
-                <path d="M4 18h16" />
-                <path d="M7 14l3-3 3 2 5-6" />
-                <path d="M16 7h2v2" />
-              </svg>
-            </span>
-            <span class="cta-intent-copy">
-              <strong>Quero um site preparado para tráfego orgânico</strong>
-              <small>Performance, semântica, SEO técnico e páginas com foco em busca.</small>
-            </span>
-            <span class="cta-intent-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M9 7h8v8" />
-              </svg>
-            </span>
-          </a>
-
-          <a href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Preciso%20de%20um%20sistema%20sob%20medida%20para%20organizar%20um%20processo%20da%20empresa." target="_blank" rel="noopener noreferrer" class="hover-target cta-intent-card">
-            <span class="cta-intent-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <rect x="4" y="5" width="16" height="14" rx="2" />
-                <path d="M8 9h8" />
-                <path d="M8 13h4" />
-                <path d="M15 13h1" />
-              </svg>
-            </span>
-            <span class="cta-intent-copy">
-              <strong>Preciso de um sistema sob medida</strong>
-              <small>Backend, frontend, banco de dados, APIs e painéis para processos reais.</small>
-            </span>
-            <span class="cta-intent-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M9 7h8v8" />
-              </svg>
-            </span>
-          </a>
-
-          <a href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20conversar%20sobre%20uma%20oportunidade%20CLT%2FPJ%20ou%20projeto%20freelancer." target="_blank" rel="noopener noreferrer" class="hover-target cta-intent-card">
-            <span class="cta-intent-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M6 8h12" />
-                <path d="M6 12h8" />
-                <path d="M6 16h5" />
-                <path d="M15 16l2 2 4-5" />
-              </svg>
-            </span>
-            <span class="cta-intent-copy">
-              <strong>Conversar sobre oportunidade CLT/PJ</strong>
-              <small>Disponível para projetos, parcerias, freelance e atuação remota/híbrida.</small>
-            </span>
-            <span class="cta-intent-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                <path d="M7 17 17 7" />
-                <path d="M9 7h8v8" />
-              </svg>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicos" class="py-24 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="max-w-3xl mb-14 reveal">
-          <span id="services-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / serviços_tech
-          </span>
-
-          <h2 id="services-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            Soluções digitais completas com Full Stack, automação e IA aplicada.
-          </h2>
-
-          <p id="services-description" class="text-theme-text leading-relaxed">
-            Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.
-          </p>
-        </div>
-
-        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section id="cases" class="py-24 px-6 border-t border-theme-border">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 reveal gap-8">
-          <div class="max-w-3xl">
-            <span id="cases-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-              / cases_tech
-            </span>
-
-            <h2 id="cases-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-              Projetos de sistemas web, automação e IA aplicada em contexto real.
-            </h2>
-
-            <p id="cases-description" class="text-theme-text leading-relaxed">
-              Cada case mostra problema, arquitetura da solução, tecnologias, integrações, automações e resultado entregue em plataformas, dashboards, sistemas internos e experiências digitais publicadas.
-            </p>
-          </div>
-
-          <div id="case-filter-container" class="flex flex-wrap gap-2 font-mono text-[10px]"></div>
-        </div>
-
-        <div id="cases-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section id="projetos-producao" class="production-section py-24 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-10 reveal">
-          <div class="max-w-3xl">
-            <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-              / projetos_em_produção
-            </span>
-
-            <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-              Plataformas, sistemas e interfaces publicados em ambiente real.
-            </h2>
-
-            <p class="text-theme-text leading-relaxed">
-              Uma vitrine de soluções digitais desenvolvidas com foco em arquitetura, usabilidade, integrações, automação, performance, SEO técnico e utilidade para negócios.
-            </p>
-          </div>
-
-          <div class="production-actions">
-            <div class="production-carousel-controls">
-              <button
-                id="production-prev"
-                type="button"
-                class="hover-target production-nav-button"
-                aria-label="Voltar projetos"
-              >
-                ←
-              </button>
-
-              <button
-                id="production-next"
-                type="button"
-                class="hover-target production-nav-button"
-                aria-label="Avançar projetos"
-              >
-                →
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="production-shell reveal">
-          <div class="production-terminal-bar">
-            <div class="production-window-dots" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-
-            <span class="production-terminal-title">production.projects</span>
-
-            <span class="production-terminal-status">
-              live_preview: auto
-            </span>
-          </div>
-
-          <button
-            id="production-side-prev"
-            type="button"
-            class="hover-target production-side-button production-side-prev"
-            aria-label="Projeto anterior"
-          >
-            ‹
-          </button>
-
-          <button
-            id="production-side-next"
-            type="button"
-            class="hover-target production-side-button production-side-next"
-            aria-label="Próximo projeto"
-          >
-            ›
-          </button>
-
-          <div class="swiper production-swiper">
-            <div
-              id="production-projects-track"
-              class="swiper-wrapper production-track"
-              aria-live="polite"
-            ></div>
-
-            <div id="production-pagination" class="swiper-pagination production-pagination"></div>
-          </div>
-        </div>
-
-
-      </div>
-    </section>
-
-    <section id="processo" class="py-24 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
-          <div class="reveal lg:sticky lg:top-28">
-            <span id="process-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-              / processo_tech
-            </span>
-
-            <h2 id="process-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-              Um método claro para transformar problema em solução.
-            </h2>
-
-            <p id="process-description" class="text-theme-text leading-relaxed mb-8">
-              Escolha o foco e o tipo de entrega. A mensagem do WhatsApp será montada automaticamente com base na sua necessidade.
-            </p>
-
-            <div class="bg-theme-card border border-theme-border rounded-2xl p-6">
-              <div class="flex items-center gap-3 mb-5">
-                <span class="pulse-dot"></span>
-                <span id="process-status" class="font-mono text-theme-accent text-[10px] uppercase tracking-widest">
-                  pipeline ativo
-                </span>
-              </div>
-
-              <div class="grid grid-cols-1 gap-4">
-                <div>
-                  <label for="focus-select" class="intel-label block mb-2">Foco</label>
-                  <select id="focus-select" class="select-control">
-                    <option value="Sistema web full stack">Sistema web full stack</option>
-                    <option value="Automação de processos">Automação de processos</option>
-                    <option value="IA aplicada e agentes">IA aplicada e agentes</option>
-                    <option value="Plataforma SaaS">Plataforma SaaS</option>
-                    <option value="Integrações com APIs">Integrações com APIs</option>
-                    <option value="SEO técnico e tráfego orgânico">SEO técnico e tráfego orgânico</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="delivery-select" class="intel-label block mb-2">Entrega</label>
-                  <select id="delivery-select" class="select-control">
-                    <option value="Solução funcional">Solução funcional</option>
-                    <option value="Landing page">Landing page</option>
-                    <option value="Plataforma personalizada">Plataforma personalizada</option>
-                    <option value="Painel de gestão">Painel de gestão</option>
-                    <option value="Diagnóstico estratégico">Diagnóstico estratégico</option>
-                    <option value="Automação integrada">Automação integrada</option>
-                  </select>
-                </div>
-
-                <div class="process-metric">
-                  <p class="intel-label">resultado esperado</p>
-                  <p id="process-result" class="text-theme-text text-sm mt-2 leading-relaxed">
-                    Processos mais claros, redução de tarefas repetitivas e entrega técnica com visão de negócio.
-                  </p>
-                </div>
-              </div>
-
-              <a
-                id="process-whatsapp-button"
-                href="https://wa.me/55035988042182"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover-target inline-flex mt-6 px-6 py-3 bg-theme-accent text-black font-bold rounded uppercase text-xs transition-all hover:scale-105"
-              >
-                Iniciar Conversa
-              </a>
-
-              <div class="whatsapp-hint">
-                <span class="pulse-dot"></span>
-                <span>Resposta estimada: 5 minutos a 1 hora</span>
-              </div>
-            </div>
-          </div>
-
-          <div id="process-grid" class="space-y-5" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="diferencial" class="py-24 px-6 border-t border-theme-border">
-      <div class="max-w-6xl mx-auto">
-        <div class="max-w-3xl mb-14 reveal">
-          <span id="differential-kicker" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / diferencial
-          </span>
-
-          <h2 id="differential-title" class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            O diferencial está em unir tecnologia, operação e visão estratégica.
-          </h2>
-
-          <p id="differential-description" class="text-theme-text leading-relaxed">
-            Não é apenas desenvolver telas ou códigos. É entender o problema, desenhar o fluxo, reduzir atrito e entregar uma solução que faça sentido para o uso real.
-          </p>
-        </div>
-
-        <div id="differential-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-      </div>
-    </section>
-
-    <section id="trajetoria" class="timeline-section py-24 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto">
-        <div class="timeline-heading reveal">
-          <span>/ trajetória_profissional</span>
-          <h2>TIMELINE_<wbr>PROFISSIONAL</h2>
-          <p>
-            Uma evolução que conecta operação, suporte, produto, processos e tecnologia aplicada para construir soluções digitais com visão prática.
-          </p>
-        </div>
-
-        <div class="timeline-track" aria-label="Linha do tempo profissional">
-          <article class="timeline-item reveal">
-            <div class="timeline-node"><span class="timeline-dot"></span></div>
-            <div class="timeline-card">
-              <div class="timeline-card-top">
-                <span class="timeline-period">Abr/2021 – Fev/2023</span>
-                <span class="timeline-company">Aptiv Manufatura</span>
-              </div>
-              <h3>Operador de Produção</h3>
-              <p>Atuação em ambiente industrial com foco em testes elétricos, controle de qualidade, segurança operacional e conformidade técnica.</p>
-              <div class="timeline-tags" aria-label="Competências">
-                <span>Qualidade</span>
-                <span>Processos</span>
-                <span>Conformidade</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-node"><span class="timeline-dot"></span></div>
-            <div class="timeline-card">
-              <div class="timeline-card-top">
-                <span class="timeline-period">Jan/2023 – Dez/2024</span>
-                <span class="timeline-company">AspectMania LTDA</span>
-              </div>
-              <h3>Sócio-Fundador e Diretor de Operações</h3>
-              <p>Gestão de infraestrutura digital, liderança de desenvolvedores, suporte técnico especializado, organização financeira e operação com grande volume de usuários.</p>
-              <div class="timeline-tags" aria-label="Competências">
-                <span>Operações</span>
-                <span>Produto digital</span>
-                <span>Suporte</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-node"><span class="timeline-dot"></span></div>
-            <div class="timeline-card">
-              <div class="timeline-card-top">
-                <span class="timeline-period">Set/2024 – Out/2024</span>
-                <span class="timeline-company">Unissul Supermercados</span>
-              </div>
-              <h3>Prevenção de Perdas e Gestão Logística</h3>
-              <p>Atuação estratégica em prevenção de perdas, organização de estoque, controle operacional e preservação de ativos.</p>
-              <div class="timeline-tags" aria-label="Competências">
-                <span>Logística</span>
-                <span>Controle</span>
-                <span>Rotina operacional</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-node"><span class="timeline-dot"></span></div>
-            <div class="timeline-card">
-              <div class="timeline-card-top">
-                <span class="timeline-period">Out/2024 – Nov/2025</span>
-                <span class="timeline-company">Aptiv Manufatura</span>
-              </div>
-              <h3>Operador de Produção</h3>
-              <p>Retorno ao ambiente industrial com foco em excelência fabril, testes elétricos, qualidade e apoio à eficiência operacional.</p>
-              <div class="timeline-tags" aria-label="Competências">
-                <span>Excelência fabril</span>
-                <span>Testes</span>
-                <span>Eficiência</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-node"><span class="timeline-dot"></span></div>
-            <div class="timeline-card">
-              <div class="timeline-card-top">
-                <span class="timeline-period">Mar/2026 – Jun/2026</span>
-                <span class="timeline-company">Orbizz.ai</span>
-              </div>
-              <h3>Analista de Suporte</h3>
-              <p>Atuação em suporte técnico e operacional, acompanhamento de chamados, orientação a usuários, análise inicial de problemas e comunicação entre cliente, produto e tecnologia.</p>
-              <div class="timeline-tags" aria-label="Competências">
-                <span>Suporte técnico</span>
-                <span>SaaS</span>
-                <span>Cliente & produto</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item timeline-current reveal">
-            <div class="timeline-node"><span class="timeline-dot-active"></span></div>
-            <div class="timeline-card">
-              <div class="timeline-card-top">
-                <span class="timeline-period">Presente</span>
-                <span class="timeline-company">São José dos Campos</span>
-              </div>
-              <h3>Desenvolvimento Full Stack, IA Aplicada & Estratégia</h3>
-              <p>Foco atual em sistemas web inteligentes, plataformas SaaS, automações, integrações com APIs, agentes de IA, soluções com LLM/RAG, dados e melhoria de processos.</p>
-              <div class="timeline-tags" aria-label="Competências">
-                <span>Full Stack</span>
-                <span>IA aplicada</span>
-                <span>LLM/RAG</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="py-24 px-6 border-t border-theme-border">
-      <div class="max-w-4xl mx-auto">
-        <div class="mb-14 reveal">
-          <span class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]">
-            / perguntas_frequentes
-          </span>
-
-          <h2 class="text-3xl md:text-4xl font-bold text-theme-title mt-4 mb-6">
-            Dúvidas frequentes antes de iniciar um projeto.
-          </h2>
-
-          <p class="text-theme-text leading-relaxed">
-            Respostas rápidas sobre sistemas web inteligentes, plataformas full stack, automação com IA, APIs, publicação, manutenção, SEO técnico e evolução das soluções.
-          </p>
-        </div>
-
-        <div id="faq-list" class="space-y-4"></div>
-      </div>
-    </section>
-
-    <section id="github" class="py-24 px-6 border-t border-theme-border bg-black/10">
-      <div class="max-w-6xl mx-auto flex flex-col gap-8">
-        <h2 class="font-mono text-2xl text-theme-title mb-4 reveal tracking-widest uppercase">
-          <span class="text-theme-accent">/</span> Dashboard_GitHub
-        </h2>
-
-        <div class="github-activity-card reveal">
-          <div class="github-activity-header">
-            <div>
-              <h3>Registro público de evolução</h3>
-              <p id="github-activity-status">Carregando repositórios públicos...</p>
-            </div>
-
-            <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover-target github-activity-link">
-              Ver GitHub
-            </a>
-          </div>
-
-          <div id="github-activity-grid" class="github-activity-grid" aria-label="Mapa visual de atividade pública no GitHub"></div>
-
-          <div class="github-activity-legend" aria-hidden="true">
-            <span>menos</span>
-            <i data-level="0"></i>
-            <i data-level="1"></i>
-            <i data-level="2"></i>
-            <i data-level="3"></i>
-            <span>mais</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-          <div class="github-signal-card reveal">
-            <span class="github-signal-kicker">/ atividade_tecnica</span>
-            <h3 id="github-signal-title">GitHub sem dependência externa instável.</h3>
-            <p id="github-signal-copy">
-              O painel agora usa estrutura própria do site e dados públicos quando disponíveis. Se a API oscilar, o visual permanece estável.
-            </p>
-
-            <div class="github-signal-list">
-              <span>Repositórios públicos</span>
-              <span>Atualizações recentes</span>
-              <span>Stack dominante</span>
-            </div>
-          </div>
-
-          <div class="bg-theme-card border border-theme-border p-6 rounded-xl reveal shadow-xl h-full flex flex-col justify-center">
-            <h3 class="font-mono text-theme-accent text-[11px] font-bold uppercase mb-6 tracking-widest">
-              GitHub Intelligence
-            </h3>
-
-            <div class="grid grid-cols-2 gap-4">
-              <div class="process-metric">
-                <p class="intel-label">repos públicos</p>
-                <p id="github-repos-count" class="intel-number mt-2">Projetos</p>
-              </div>
-
-              <div class="process-metric">
-                <p class="intel-label">stack dominante</p>
-                <p id="github-top-language" class="text-theme-title font-bold mt-2">Full Stack</p>
-              </div>
-
-              <div class="process-metric col-span-2">
-                <p class="intel-label">último update</p>
-                <p id="github-last-update" class="text-theme-text text-sm mt-2">Projetos em evolução</p>
-              </div>
-            </div>
-
-            <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover-target inline-flex mt-6 px-6 py-3 bg-theme-accent text-black font-bold rounded uppercase text-xs transition-all hover:scale-105 w-fit">
-              Abrir Repositórios
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="py-24 px-6 border-t border-theme-border">
-      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center md:text-left">
-        <div class="reveal">
-          <h2 class="text-3xl font-bold text-theme-title mb-6">
-            Pronto para transformar uma ideia em solução?
-          </h2>
-
-          <p class="text-base mb-10 text-theme-text leading-relaxed">
-            Disponível para oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento Full Stack, IA aplicada, automação, SEO técnico, APIs, dados e plataformas SaaS.
-          </p>
-
-          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-            <a id="contact-whatsapp-button" href="https://wa.me/55035988042182" target="_blank" rel="noopener noreferrer" class="hover-target flex items-center gap-2 px-8 py-4 bg-theme-accent text-black font-bold rounded shadow-lg uppercase text-xs transition-all hover:scale-105">
-              Chamar no WhatsApp
-            </a>
-
-            <a href="mailto:mpaiiva21@gmail.com" class="hover-target flex items-center gap-2 px-8 py-4 border border-theme-border text-theme-title font-bold rounded uppercase text-xs transition-all hover:border-theme-accent">
-              Enviar E-mail
-            </a>
-
-            <a href="perfil-profissional.html" class="hover-target group relative overflow-hidden flex items-center gap-2 px-8 py-4 border border-theme-accent/30 text-theme-accent font-bold rounded uppercase text-xs transition-all hover:bg-theme-accent hover:text-black">
-              <span class="relative z-10">Perfil Profissional</span>
-              <span class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/25 skew-x-12"></span>
-            </a>
-
-            <button id="btn-copy" class="hover-target px-8 py-4 border border-theme-border text-theme-title font-bold rounded uppercase text-xs transition-all hover:border-theme-accent">
-              <span id="copy-text">Copiar Endereço</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-[#0d1117] border border-slate-800 rounded-lg p-6 font-mono text-[11px] sm:text-xs shadow-2xl reveal text-left">
-          <div class="flex gap-2 mb-4 border-b border-slate-800 pb-4">
-            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-          </div>
-
-          <p class="text-blue-400">const <span class="text-white">mateus_paiva</span> = {</p>
-          <p class="pl-4 mt-1"><span class="text-purple-400">posicionamento:</span> <span class="text-orange-400">"Full Stack + IA + SEO"</span>,</p>
-          <p class="pl-4 mt-1"><span class="text-purple-400">perfil_publico:</span> <span class="text-orange-400">"perfil-profissional.html"</span>,</p>
-          <p class="pl-4 mt-1"><span class="text-purple-400">whatsapp:</span> {</p>
-          <p class="pl-8 text-green-400">mensagem_pre_pronta: true,</p>
-          <p class="pl-8 text-green-400">resposta_estimada: "5min a 1h"</p>
-          <p class="pl-4">},</p>
-          <p class="pl-4 mt-1"><span class="text-purple-400">metodo:</span> ["Diagnóstico", "Arquitetura", "Desenvolvimento", "SEO", "Evolução"],</p>
-          <p class="pl-4 mt-1"><span class="text-purple-400">github:</span> {</p>
-          <p class="pl-8 text-green-400">repos_publicos: <span id="code-repos-count">"projetos"</span>,</p>
-          <p class="pl-8 text-green-400">stack_dominante: "<span id="code-top-language">Full Stack</span>"</p>
-          <p class="pl-4">}</p>
-          <p class="text-blue-400">}</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="py-16 border-t border-theme-border bg-black/40">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-      <div>
-        <a href="#" class="brand-signature brand-signature-footer hover-target mb-4" aria-label="Mateus Paiva">
-          <span class="brand-stack">
-            <span class="brand-topline">
-              <span class="brand-markbox">M</span>
-              <span class="brand-name">
-                PAIVA<span class="brand-underscore">_</span>
-              </span>
-            </span>
-
-            <span class="brand-subtitle">
-              Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico
-            </span>
-          </span>
-        </a>
-
-        <p class="text-xs text-theme-title leading-relaxed mt-4 font-semibold">
-          Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico
-        </p>
-
-        <p class="text-xs text-theme-text leading-relaxed mt-3">
-          Aberto a oportunidades CLT, PJ, freelancer, projetos e parcerias.
-          <br>
-          São José dos Campos — SP · Atendimento remoto
-        </p>
-      </div>
-
-      <div>
-        <h4 class="text-theme-title font-bold mb-6 uppercase tracking-widest text-[10px]">Acesso Rápido</h4>
-
-        <ul class="space-y-3 text-xs font-mono text-theme-text">
-          <li><a href="#servicos" class="hover-target hover:text-theme-accent transition-colors">> Serviços</a></li>
-          <li><a href="#cases" class="hover-target hover:text-theme-accent transition-colors">> Cases</a></li>
-          <li><a href="#projetos-producao" class="hover-target hover:text-theme-accent transition-colors">> Projetos em produção</a></li>
-          <li><a href="#processo" class="hover-target hover:text-theme-accent transition-colors">> Processo</a></li>
-          <li><a href="#limites-transparencia" class="hover-target hover:text-theme-accent transition-colors">> Limites e transparência</a></li>
-          <li><a href="#diferencial" class="hover-target hover:text-theme-accent transition-colors">> Diferencial</a></li>
-          <li><a href="#faq" class="hover-target hover:text-theme-accent transition-colors">> FAQ</a></li>
-          <li><a href="/desenvolvedor-full-stack-sao-jose-dos-campos" class="hover-target hover:text-theme-accent transition-colors">> Full Stack em SJC</a></li>
-          <li><a href="perfil-profissional.html" class="hover-target hover:text-theme-accent transition-colors">> Perfil Profissional</a></li>
-          <li><a href="llms.txt" class="hover-target hover:text-theme-accent transition-colors">> Resumo para IA</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-theme-title font-bold mb-6 uppercase tracking-widest text-[10px]">Redes Oficiais</h4>
-
-        <div class="flex flex-col gap-4">
-          <a href="https://linkedin.com/in/mateus-paiva-19804b284" target="_blank" rel="noopener noreferrer" class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">LinkedIn</a>
-          <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">GitHub</a>
-          <a id="footer-whatsapp-button" href="https://wa.me/55035988042182" target="_blank" rel="noopener noreferrer" class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">WhatsApp</a>
-          <a href="cv.pdf" download class="hover-target text-theme-text hover:text-theme-accent transition-colors font-mono text-xs">Baixar CV.PDF</a>
-        </div>
-      </div>
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="#cases"><small>01</small>Trabalho</a>
+      <a href="#projetos-producao"><small>02</small>Em produção</a>
+      <a href="#servicos"><small>03</small>Serviços</a>
+      <a href="#processo"><small>04</small>Processo</a>
+      <a href="#trajetoria"><small>05</small>Trajetória</a>
+      <a href="#faq"><small>06</small>FAQ</a>
+      <a href="#contato"><small>07</small>Contato</a>
     </div>
-
-    <div class="text-center text-[10px] font-mono tracking-widest uppercase text-theme-text border-t border-theme-border pt-8 mx-6">
-      M PAIVA_ // DESENVOLVEDOR FULL STACK · IA APLICADA · AUTOMAÇÃO · SEO TÉCNICO
-    </div>
-  </footer>
-
-  <div id="case-modal" class="case-modal" aria-hidden="true">
-    <div class="case-modal-backdrop" data-close-modal></div>
-
-    <div class="case-modal-panel">
-      <button class="case-modal-close hover-target" type="button" data-close-modal aria-label="Fechar modal">
-        ×
-      </button>
-
-      <span id="modal-category" class="font-mono text-theme-accent text-[10px] uppercase tracking-[0.3em]"></span>
-
-      <h2 id="modal-title" class="text-3xl font-bold text-theme-title mt-4 mb-4"></h2>
-
-      <p id="modal-objective" class="text-theme-text leading-relaxed mb-6"></p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="modal-block">
-          <h3>Problema resolvido</h3>
-          <p id="modal-problem"></p>
-        </div>
-
-        <div class="modal-block">
-          <h3>Resultado entregue</h3>
-          <p id="modal-result"></p>
-        </div>
-      </div>
-
-      <div class="modal-block mb-6">
-        <h3>Funcionalidades</h3>
-        <ul id="modal-features" class="space-y-2"></ul>
-      </div>
-
-      <div class="modal-block mb-6">
-        <h3>Tecnologias usadas</h3>
-        <div id="modal-stack" class="flex flex-wrap gap-2"></div>
-      </div>
-
-      <div class="flex flex-wrap gap-3">
-        <a id="modal-project-link" href="#" target="_blank" rel="noopener noreferrer" class="hover-target px-6 py-3 bg-theme-accent text-black font-bold rounded uppercase text-xs">
-          Ver Projeto
-        </a>
-
-        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="hover-target px-6 py-3 border border-theme-border text-theme-title font-bold rounded uppercase text-xs">
-          Ver GitHub
-        </a>
+    <div class="menu-modes" role="group" aria-label="Modo de leitura do site">
+      <span class="label label-dim">Ler como</span>
+      <div>
+        <button type="button" data-mode-btn="tech" aria-pressed="true">Tech</button>
+        <button type="button" data-mode-btn="hire" aria-pressed="false">Contrate-me</button>
+        <button type="button" data-mode-btn="client" aria-pressed="false">Cliente</button>
       </div>
     </div>
   </div>
 
-  <script>
-    window.MPAIVA_SUPABASE = {
-      url: "https://mtjfijfuxybuobfohlws.supabase.co",
-      publishableKey: "sb_publishable_UhdYzJkSNyXksKr5nCdRQQ_cFTvT5gO"
-    };
-  </script>
+  <main id="conteudo">
+    <!-- 00 · HERO -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <div class="hero-top">
+          <span class="label" id="hero-status">[ FULL STACK, IA APLICADA &amp; AUTOMAÇÃO ]</span>
+          <span class="label label-dim">PORTFOLIO / 2026</span>
+        </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="script.js?v=20260619-audit-agent-1"></script>
-  <script src="analytics-pro-complete.js?v=20260619-audit-agent-1"></script>
+        <h1 id="hero-title" class="hero-kicker">Mateus Paiva — Desenvolvedor Full Stack focado em IA aplicada</h1>
+
+        <p class="hero-display" aria-hidden="true">
+          <span class="line"><span>Código, produto.</span></span>
+          <span class="line line-dim"><span data-shine>Experiências que marcam.</span></span>
+        </p>
+
+        <div class="hero-foot hero-fade">
+          <p id="hero-desc" class="lead">
+            Sou Mateus Paiva, Desenvolvedor Full Stack focado em IA aplicada. Desenvolvo plataformas web, backends, interfaces, bancos de dados, integrações com APIs, automações, agentes de IA, soluções com LLM e RAG para transformar processos complexos em sistemas úteis para negócios.
+          </p>
+          <div class="hero-actions" id="hero-actions">
+            <a href="#cases" class="btn btn-light">Ver trabalhos <i class="arrow" aria-hidden="true"></i></a>
+            <a href="#processo" class="btn btn-ghost">Iniciar um projeto <i class="arrow" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-bottom hero-fade">
+          <span>São José dos Campos — SP · Atendimento remoto</span>
+          <span class="available"><i class="pulse" aria-hidden="true"></i>Disponível · CLT · PJ · Freelancer</span>
+          <a href="#cases" class="scroll-cue" aria-label="Rolar para os trabalhos">Role <i aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-label="Stack principal">
+      <div class="marquee-row"><div class="marquee-track" data-items="TypeScript|React|Next.js|Node.js|Supabase|PostgreSQL|Tailwind|GSAP|TanStack|Vercel"></div></div>
+      <div class="marquee-row marquee-reverse"><div class="marquee-track" data-items="Claude|OpenAI|Gemini|RAG|MCP|Agentes de IA|LangChain|n8n|NestJS|Prisma|Python|SEO técnico"></div></div>
+    </div>
+
+    <!-- 01 · TRABALHO SELECIONADO -->
+    <section id="cases" class="section" aria-labelledby="cases-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">Trabalho selecionado</span>
+            <h2 id="cases-title" class="h2">Projetos reais, no ar, com problemas de verdade.</h2>
+          </div>
+          <p class="section-desc">Quatro entregas que mostram frentes diferentes: produto comercial, identidade digital, inteligência artificial e sistema de gestão.</p>
+        </header>
+
+        <div class="work">
+          <article class="work-item reveal">
+            <a class="work-visual" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener" aria-label="Abrir AZV Lançamentos">
+              <img src="/assets/work/card-azv.svg" alt="" width="1040" height="500" loading="lazy" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span>01</span><span>Imobiliário</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <h3 class="h3">AZV Lançamentos</h3>
+              <p>Vitrine de lançamentos imobiliários da AZV Imóveis. Cada empreendimento ganha uma página própria com ficha verificada, e a home se abre como uma parede de cobogó que gira ao rolar.</p>
+              <ul class="tags"><li>Next.js</li><li>GSAP</li><li>Lenis</li><li>TypeScript</li><li>Vercel</li></ul>
+              <a class="link" href="https://azvlancamentos.com.br/" target="_blank" rel="noopener">azvlancamentos.com.br <i class="arrow" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <a class="work-visual" href="https://upaiva.dev/" aria-label="upaiva.dev, este site">
+              <img src="/assets/work/card-upaiva.svg" alt="" width="1040" height="500" loading="lazy" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span>02</span><span>Identidade digital</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <h3 class="h3">upaiva.dev</h3>
+              <p>Este site. Um portfólio que muda o discurso para cada visitante nos modos Tech, Contrate-me e Cliente, com analytics próprio e painel administrativo para publicar projetos.</p>
+              <ul class="tags"><li>JavaScript</li><li>Supabase</li><li>Analytics próprio</li><li>SEO técnico</li><li>Vercel</li></ul>
+              <a class="link" href="#projetos-producao">Ver projetos publicados <i class="arrow" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <a class="work-visual" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener" aria-label="Abrir HumanReply AI">
+              <img src="/assets/work/card-humanreply.svg" alt="" width="1040" height="500" loading="lazy" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span>03</span><span>Inteligência artificial</span><span class="status"><i class="pulse" aria-hidden="true"></i>Em validação</span></div>
+              <h3 class="h3">HumanReply AI</h3>
+              <p>SaaS de IA para atendimento, suporte e vendas B2B. Reescreve respostas no tom da empresa, detecta mensagens ruins antes do envio e guarda o contexto de cada conversa.</p>
+              <ul class="tags"><li>TanStack Start</li><li>TypeScript</li><li>LLMs</li><li>Vercel</li></ul>
+              <a class="link" href="https://contextual-chat-lab.vercel.app" target="_blank" rel="noopener">contextual-chat-lab.vercel.app <i class="arrow" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="work-item reveal">
+            <a class="work-visual" href="https://studiojmarq.com/" target="_blank" rel="noopener" aria-label="Abrir Studio JM">
+              <img src="/assets/work/card-studiojm.svg" alt="" width="1040" height="500" loading="lazy" />
+            </a>
+            <div class="work-body">
+              <div class="work-meta"><span>04</span><span>Arquitetura · Gestão</span><span class="status"><i class="pulse" aria-hidden="true"></i>No ar</span></div>
+              <h3 class="h3">Studio JM</h3>
+              <p>Plataforma para estúdio de arquitetura e interiores: portfólio com galerias, briefing com envio de referências e painel administrativo conectado ao Supabase.</p>
+              <ul class="tags"><li>HTML</li><li>Tailwind</li><li>JavaScript</li><li>Supabase</li></ul>
+              <a class="link" href="https://studiojmarq.com/" target="_blank" rel="noopener">studiojmarq.com <i class="arrow" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · EM PRODUÇÃO -->
+    <section id="projetos-producao" class="section section-alt" aria-labelledby="producao-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Em produção</span>
+            <h2 id="producao-title" class="h2">Plataformas, sistemas e interfaces publicados.</h2>
+          </div>
+          <p class="section-desc">Lista atualizada pelo painel administrativo. Passe o mouse para ver a prévia de cada projeto.</p>
+        </header>
+        <ol class="index-list" id="production-list" aria-live="polite"></ol>
+      </div>
+      <div class="preview" aria-hidden="true"><img alt="" /></div>
+    </section>
+
+    <!-- 03 · SERVIÇOS -->
+    <section id="servicos" class="section" aria-labelledby="services-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">03</span>
+          <div>
+            <span class="label" id="services-kicker">Serviços</span>
+            <h2 id="services-title" class="h2">Soluções digitais completas com Full Stack, automação e IA aplicada.</h2>
+          </div>
+          <p class="section-desc" id="services-description">Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.</p>
+        </header>
+        <div class="rows" id="services-list"></div>
+      </div>
+    </section>
+
+    <!-- 04 · O QUE EU DESENVOLVO -->
+    <section id="ai-search-context" class="section section-alt" aria-labelledby="ai-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Resposta direta</span>
+            <h2 id="ai-title" class="h2">O que eu desenvolvo</h2>
+          </div>
+          <p class="section-desc">Soluções digitais completas unindo desenvolvimento full stack, IA aplicada, automação, SEO técnico e visão de negócio.</p>
+        </header>
+        <div class="grid grid-3" aria-label="Resumo profissional para mecanismos de busca e assistentes de IA">
+          <article class="cell reveal">
+            <span class="cell-n">01</span>
+            <h3>Sistemas web completos</h3>
+            <p>Aplicações com frontend, backend, banco de dados, autenticação, APIs e deploy para organizar processos, dados, atendimento e operações.</p>
+            <a href="/sistemas-web-inteligentes" class="link" data-analytics-intent="sistemas-web-inteligentes">Ver sistemas web inteligentes <i class="arrow" aria-hidden="true"></i></a>
+          </article>
+          <article class="cell reveal">
+            <span class="cell-n">02</span>
+            <h3>Plataformas SaaS</h3>
+            <p>Estrutura de produto com usuários, permissões, painéis, integrações e base para vender, operar e evoluir serviços digitais.</p>
+          </article>
+          <article class="cell reveal">
+            <span class="cell-n">03</span>
+            <h3>Automações com IA</h3>
+            <p>Fluxos inteligentes para reduzir tarefas repetitivas, analisar mensagens, gerar respostas, acionar APIs e conectar ferramentas.</p>
+          </article>
+          <article class="cell reveal">
+            <span class="cell-n">04</span>
+            <h3>Agentes de IA</h3>
+            <p>Assistentes com LLM, RAG, memória contextual e bases de conhecimento para atendimento, suporte, triagem e decisão.</p>
+          </article>
+          <article class="cell reveal">
+            <span class="cell-n">05</span>
+            <h3>Integrações com APIs</h3>
+            <p>Conexão entre sistemas, CRMs, bancos de dados, gateways de pagamento, WhatsApp, ferramentas externas e fluxos internos.</p>
+          </article>
+          <article class="cell reveal">
+            <span class="cell-n">06</span>
+            <h3>Sites com SEO técnico</h3>
+            <p>Sites profissionais, landing pages e páginas comerciais com performance, semântica, copywriting e base para tráfego orgânico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · PROCESSO -->
+    <section id="processo" class="section" aria-labelledby="process-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">05</span>
+          <div>
+            <span class="label">Processo</span>
+            <h2 id="process-title" class="h2">Um método claro para transformar problema em solução.</h2>
+          </div>
+          <p class="section-desc" id="process-description">Escolha o foco e o tipo de entrega. A mensagem do WhatsApp será montada automaticamente com base na sua necessidade.</p>
+        </header>
+
+        <ol class="steps" id="process-steps"></ol>
+
+        <div class="composer reveal">
+          <div class="composer-head">
+            <span class="label"><i class="pulse" aria-hidden="true"></i><span id="process-status">Pipeline ativo</span></span>
+            <span class="label label-dim">Resposta estimada: 5 minutos a 1 hora</span>
+          </div>
+          <div class="composer-body">
+            <label class="field">
+              <span>Foco</span>
+              <select id="focus-select">
+                <option>Sistema web full stack</option>
+                <option>Automação de processos</option>
+                <option>IA aplicada e agentes</option>
+                <option>Plataforma SaaS</option>
+                <option>Integrações com APIs</option>
+                <option>SEO técnico e tráfego orgânico</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Entrega</span>
+              <select id="delivery-select">
+                <option>Solução funcional</option>
+                <option>Landing page</option>
+                <option>Plataforma personalizada</option>
+                <option>Painel de gestão</option>
+                <option>Diagnóstico estratégico</option>
+                <option>Automação integrada</option>
+              </select>
+            </label>
+            <div class="composer-result">
+              <span class="label label-dim">Resultado esperado</span>
+              <p id="process-result">Escopo técnico, arquitetura, integrações e entrega full stack com IA aplicada.</p>
+            </div>
+            <a id="process-whatsapp-button" class="btn btn-light" href="https://wa.me/55035988042182" target="_blank" rel="noopener" data-analytics-intent="whatsapp-processo">Iniciar conversa <i class="arrow" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · STACK -->
+    <section id="stack-crescimento" class="section section-alt" aria-labelledby="stack-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">06</span>
+          <div>
+            <span class="label">Stack &amp; prova técnica</span>
+            <h2 id="stack-title" class="h2">Stack, IA e crescimento orgânico em uma única entrega.</h2>
+          </div>
+          <p class="section-desc">A entrega conecta interface, backend, dados, integrações, automações e SEO técnico. A stack é apresentada por uso real, não como lista inflada de tecnologias.</p>
+        </header>
+        <div class="grid grid-3">
+          <article class="cell reveal"><span class="cell-n">FE</span><h3>Frontend e experiência</h3><p>React, Next.js, JavaScript, TypeScript, Tailwind CSS, HTML semântico e responsividade para criar interfaces rápidas, claras e acessíveis.</p></article>
+          <article class="cell reveal"><span class="cell-n">BE</span><h3>Backend, APIs e regras</h3><p>Node.js, APIs REST, autenticação, webhooks, integrações, permissões e lógica de negócio para sustentar sistemas completos.</p></article>
+          <article class="cell reveal"><span class="cell-n">DB</span><h3>Dados e persistência</h3><p>PostgreSQL, Supabase, SQLite, tabelas relacionais, storage, políticas de acesso e organização de dados para operação real.</p></article>
+          <article class="cell reveal"><span class="cell-n">AI</span><h3>IA aplicada</h3><p>LLMs, RAG, agentes de IA, memória contextual, assistentes internos, análise de mensagens e geração de respostas com contexto.</p></article>
+          <article class="cell reveal"><span class="cell-n">SEO</span><h3>SEO técnico</h3><p>Estrutura semântica, metadados, schema, conteúdo orientado à intenção de busca, performance e base para tráfego orgânico sustentável.</p></article>
+          <article class="cell reveal"><span class="cell-n">OPS</span><h3>Deploy e infraestrutura</h3><p>Vercel, Railway, Supabase, GitHub, variáveis de ambiente, versionamento e publicação para colocar soluções no ar com rastreabilidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · SEO E TRANSPARÊNCIA -->
+    <section id="seo-organico" class="section" aria-labelledby="seo-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">07</span>
+          <div>
+            <span class="label">SEO &amp; tráfego orgânico</span>
+            <h2 id="seo-title" class="h2">Desenvolvimento pensado para ser encontrado.</h2>
+          </div>
+          <p class="section-desc">Não basta ter um site bonito. Ele precisa ser rápido, claro, indexável e estruturado para atrair tráfego orgânico. Uno desenvolvimento full stack, SEO técnico e estratégia de conteúdo para criar páginas que funcionam como ativos digitais.</p>
+        </header>
+        <div class="grid grid-4">
+          <article class="cell reveal"><span class="cell-n">SEO</span><h3>SEO técnico</h3><p>HTML semântico, headings, title, meta description, sitemap, robots.txt, schema JSON-LD, URLs amigáveis e performance mobile.</p></article>
+          <article class="cell reveal"><span class="cell-n">ORG</span><h3>Conteúdo estratégico</h3><p>Páginas organizadas por intenção de busca, clareza comercial, termos pesquisados e diferença entre tráfego orgânico e mídia paga.</p></article>
+          <article class="cell reveal"><span class="cell-n">CVR</span><h3>Conversão</h3><p>CTAs claros, proposta de valor específica, fluxo simples de contato e estrutura preparada para evolução.</p></article>
+          <article class="cell reveal"><span class="cell-n">GSC</span><h3>Monitoramento</h3><p>Base preparada para acompanhar indexação, ajustes de Search Console, evolução de conteúdo e melhorias sem promessa de ranking garantido.</p></article>
+        </div>
+
+        <div id="limites-transparencia" class="principles reveal">
+          <div class="principles-head">
+            <span class="label">Limites &amp; transparência</span>
+            <h3 class="h3">Como trabalho com IA e SEO</h3>
+            <p>Tecnologia precisa gerar clareza, não promessa exagerada. IA aplicada e SEO técnico entram como apoio estratégico para melhorar processos, conteúdo, produtividade e descoberta orgânica.</p>
+          </div>
+          <div class="principles-list">
+            <div><h4>IA aplicada com validação humana</h4><p>IA aplicada não substitui estratégia, processo ou validação humana. Ela entra para acelerar tarefas, organizar informações, apoiar atendimento, gerar respostas e melhorar produtividade.</p></div>
+            <div><h4>SEO técnico sem promessa artificial</h4><p>SEO técnico não garante posição no Google, mas cria uma base mais correta para indexação, performance, clareza de conteúdo e crescimento orgânico.</p></div>
+            <div><h4>Boas práticas, não “segredos”</h4><p>A abordagem acompanha boas práticas de mecanismos de busca: facilitar rastreamento, indexação e entendimento do conteúdo. Não existe fórmula honesta para garantir primeira posição.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · DIFERENCIAL -->
+    <section id="diferencial" class="section section-alt" aria-labelledby="differential-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">08</span>
+          <div>
+            <span class="label">Diferencial</span>
+            <h2 id="differential-title" class="h2">O diferencial está em unir engenharia Full Stack, IA aplicada, operação e visão estratégica.</h2>
+          </div>
+          <p class="section-desc" id="differential-description">Não é apenas criar telas ou scripts. É entender o problema, modelar dados, integrar APIs, desenhar fluxos, automatizar decisões e entregar uma solução digital completa para uso real.</p>
+        </header>
+        <div class="grid grid-4" id="differential-list"></div>
+      </div>
+    </section>
+
+    <!-- 09 · TRAJETÓRIA -->
+    <section id="trajetoria" class="section" aria-labelledby="timeline-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">09</span>
+          <div>
+            <span class="label">Trajetória profissional</span>
+            <h2 id="timeline-title" class="h2">Da operação ao produto.</h2>
+          </div>
+          <p class="section-desc">Uma evolução que conecta operação, suporte, produto, processos e tecnologia aplicada para construir soluções digitais com visão prática.</p>
+        </header>
+        <ol class="timeline">
+          <li class="reveal is-now"><time>Presente</time><div><h3>Desenvolvimento Full Stack, IA Aplicada &amp; Estratégia</h3><span class="org">São José dos Campos</span><p>Foco atual em sistemas web inteligentes, plataformas SaaS, automações, integrações com APIs, agentes de IA, soluções com LLM/RAG, dados e melhoria de processos.</p><ul class="tags"><li>Full Stack</li><li>IA aplicada</li><li>LLM/RAG</li></ul></div></li>
+          <li class="reveal"><time>Mar/2026 – Jun/2026</time><div><h3>Analista de Suporte</h3><span class="org">Orbizz.ai</span><p>Suporte técnico e operacional, acompanhamento de chamados, orientação a usuários, análise inicial de problemas e comunicação entre cliente, produto e tecnologia.</p><ul class="tags"><li>Suporte técnico</li><li>SaaS</li><li>Cliente &amp; produto</li></ul></div></li>
+          <li class="reveal"><time>Out/2024 – Nov/2025</time><div><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span><p>Retorno ao ambiente industrial com foco em excelência fabril, testes elétricos, qualidade e apoio à eficiência operacional.</p><ul class="tags"><li>Excelência fabril</li><li>Testes</li><li>Eficiência</li></ul></div></li>
+          <li class="reveal"><time>Set/2024 – Out/2024</time><div><h3>Prevenção de Perdas e Gestão Logística</h3><span class="org">Unissul Supermercados</span><p>Atuação estratégica em prevenção de perdas, organização de estoque, controle operacional e preservação de ativos.</p><ul class="tags"><li>Logística</li><li>Controle</li><li>Rotina operacional</li></ul></div></li>
+          <li class="reveal"><time>Jan/2023 – Dez/2024</time><div><h3>Sócio-Fundador e Diretor de Operações</h3><span class="org">AspectMania LTDA</span><p>Gestão de infraestrutura digital, liderança de desenvolvedores, suporte técnico especializado, organização financeira e operação com grande volume de usuários.</p><ul class="tags"><li>Operações</li><li>Produto digital</li><li>Suporte</li></ul></div></li>
+          <li class="reveal"><time>Abr/2021 – Fev/2023</time><div><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span><p>Atuação em ambiente industrial com foco em testes elétricos, controle de qualidade, segurança operacional e conformidade técnica.</p><ul class="tags"><li>Qualidade</li><li>Processos</li><li>Conformidade</li></ul></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 10 · GITHUB -->
+    <section id="github" class="section section-alt" aria-labelledby="github-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">10</span>
+          <div>
+            <span class="label">Atividade técnica</span>
+            <h2 id="github-title" class="h2">Registro público de evolução.</h2>
+          </div>
+          <p class="section-desc">Dados públicos do GitHub, lidos direto da API. Se ela oscilar, a seção continua de pé.</p>
+        </header>
+        <div class="gh">
+          <dl class="gh-stats reveal">
+            <div><dt>Repositórios públicos</dt><dd id="gh-repos">—</dd></div>
+            <div><dt>Stack dominante</dt><dd id="gh-lang">Full Stack</dd></div>
+            <div><dt>Último update</dt><dd id="gh-updated">—</dd></div>
+          </dl>
+          <ol class="index-list gh-list" id="gh-list"><li class="index-empty">Carregando repositórios públicos…</li></ol>
+          <a class="link" href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">Abrir repositórios no GitHub <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · FAQ -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <header class="section-head reveal">
+          <span class="index">11</span>
+          <div>
+            <span class="label">Perguntas frequentes</span>
+            <h2 id="faq-title" class="h2">Dúvidas antes de iniciar um projeto.</h2>
+          </div>
+        </header>
+        <div class="faq" id="faq-mode"></div>
+        <div class="faq">
+          <details class="reveal"><summary>Quem é Mateus Paiva?</summary><p>Mateus Paiva é um Desenvolvedor Full Stack focado em IA aplicada, automação de processos, sistemas web inteligentes, agentes de IA, LLM, RAG, integrações com APIs e plataformas digitais para negócios.</p></details>
+          <details class="reveal"><summary>Mateus Paiva faz apenas sites?</summary><p>Não. Além de sites profissionais, ele desenvolve sistemas web, dashboards, plataformas SaaS, automações, integrações com APIs e agentes de IA.</p></details>
+          <details class="reveal"><summary>Quais soluções Mateus Paiva desenvolve para empresas?</summary><p>Ele desenvolve sistemas web inteligentes, plataformas SaaS, dashboards, painéis de gestão, automações de processos, integrações com APIs, agentes de IA, soluções com LLM e RAG, SEO técnico e aplicações digitais completas para eficiência e crescimento.</p></details>
+          <details class="reveal"><summary>Mateus Paiva está aberto a oportunidades CLT, PJ ou freelancer?</summary><p>Sim. Mateus Paiva está aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento full stack, IA aplicada, automação, sistemas web, SEO técnico e soluções digitais.</p></details>
+          <details class="reveal"><summary>O que é SEO técnico no contexto do site?</summary><p>SEO técnico é a estruturação do site para facilitar leitura, indexação e compreensão por mecanismos de busca, considerando performance, HTML semântico, metadados, sitemap, robots.txt, schema e organização das páginas.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · PRÓXIMOS PASSOS -->
+    <section id="proximos-passos" class="section section-alt" aria-labelledby="next-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <span class="index">12</span>
+          <div>
+            <span class="label">Próximos passos</span>
+            <h2 id="next-title" class="h2">Escolha o tipo de solução ou oportunidade.</h2>
+          </div>
+          <p class="section-desc">Atalhos diretos para conversar com contexto, seja para integrar IA, criar um site com SEO, desenvolver um sistema sob medida ou falar sobre oportunidade CLT/PJ.</p>
+        </header>
+        <div class="grid grid-4 intents">
+          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="integrar-ia" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20integrar%20IA%20ao%20meu%20neg%C3%B3cio%20e%20entender%20uma%20solu%C3%A7%C3%A3o%20poss%C3%ADvel."><span class="cell-n">A</span><strong>Quero integrar IA ao meu negócio</strong><span>Agentes, automações e fluxos inteligentes conectados à operação.</span><i class="arrow" aria-hidden="true"></i></a>
+          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="site-seo" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20um%20site%20preparado%20para%20tr%C3%A1fego%20org%C3%A2nico%20e%20SEO%20t%C3%A9cnico."><span class="cell-n">B</span><strong>Quero um site preparado para tráfego orgânico</strong><span>Performance, semântica, SEO técnico e páginas com foco em busca.</span><i class="arrow" aria-hidden="true"></i></a>
+          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="sistema-sob-medida" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Preciso%20de%20um%20sistema%20sob%20medida%20para%20organizar%20um%20processo%20da%20empresa."><span class="cell-n">C</span><strong>Preciso de um sistema sob medida</strong><span>Backend, frontend, banco de dados, APIs e painéis para processos reais.</span><i class="arrow" aria-hidden="true"></i></a>
+          <a class="intent reveal" target="_blank" rel="noopener" data-analytics-intent="oportunidade-clt-pj" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Quero%20conversar%20sobre%20uma%20oportunidade%20CLT%2FPJ%20ou%20projeto%20freelancer."><span class="cell-n">D</span><strong>Conversar sobre oportunidade CLT/PJ</strong><span>Disponível para projetos, parcerias, freelance e atuação remota/híbrida.</span><i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · CONTATO -->
+    <section id="contato" class="section contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <span class="label">13 · Contato</span>
+        <h2 id="contact-title" class="contact-display">
+          <span class="line"><span>Vamos construir algo</span></span>
+          <span class="line line-dim"><span data-shine>que marque.</span></span>
+        </h2>
+        <p class="lead">Disponível para oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em desenvolvimento Full Stack, IA aplicada, automação, SEO técnico, APIs, dados e plataformas SaaS.</p>
+        <div class="contact-actions">
+          <a class="btn btn-light btn-lg" target="_blank" rel="noopener" data-analytics-intent="whatsapp-contato" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus.%20Vi%20seu%20site%20e%20quero%20conversar.">Chamar no WhatsApp <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="mailto:mpaiiva21@gmail.com" data-analytics-intent="email-contato">Enviar e-mail <i class="arrow" aria-hidden="true"></i></a>
+          <button class="btn btn-ghost btn-lg" type="button" id="copy-email" data-email="mpaiiva21@gmail.com">Copiar e-mail</button>
+        </div>
+        <ul class="contact-links">
+          <li><a href="perfil-profissional.html">Perfil profissional <i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/mateus-paiva-19804b284" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="https://github.com/EoPaiva" target="_blank" rel="noopener">GitHub <i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf <i class="arrow" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <a href="#inicio" class="wordmark wordmark-lg">mPaiva<span class="caret"></span></a>
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Aberto a oportunidades CLT, PJ, freelancer, projetos e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="#servicos">Serviços</a>
+        <a href="#cases">Trabalho</a>
+        <a href="#projetos-producao">Projetos em produção</a>
+        <a href="#processo">Processo</a>
+        <a href="#limites-transparencia">Limites e transparência</a>
+        <a href="#diferencial">Diferencial</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="perfil-profissional.html">Perfil profissional</a>
+        <a href="llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://linkedin.com/in/mateus-paiva-19804b284" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <span>Feito à mão · HTML, CSS e JavaScript</span>
+      <a href="#inicio" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" defer></script>
+  <script src="/site.js?v=20261018-mono-1" defer></script>
+  <script src="/analytics-pro-complete.js?v=20260619-audit-agent-1" defer></script>
 </body>
 </html>
