@@ -10,7 +10,7 @@
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   const WHATSAPP = "https://wa.me/55035988042182";
   const wa = (text) => `${WHATSAPP}?text=${encodeURIComponent(text)}`;
-  const KICKERS = { tech: "Serviços · Tech", hire: "Serviços · Contrate-me", client: "Serviços · Para empresas" };
+  const KICKERS = { tech: "Serviços", hire: "Serviços · Contrate-me", client: "Serviços · Para empresas" };
 
   const MODES = {
     "tech": {
@@ -426,6 +426,7 @@
       steps.classList.remove("in");
       steps.innerHTML = m.processSteps.map((s, i) => `
         <li class="step">
+          <i class="bar" aria-hidden="true"></i>
           <span class="n">${pad(i + 1)}</span>
           <h3>${esc(s.title)}</h3>
           <p>${esc(s.text)}</p>
@@ -701,6 +702,129 @@
     start();
   };
 
+  /* ---------- constelação: as partículas do planeta mudam de forma a cada seção ---------- */
+  const initAmbient = () => {
+    const canvas = $(".ambient");
+    if (!canvas || !canvas.getContext || reduced.matches || !("IntersectionObserver" in window)) return;
+    const ctx = canvas.getContext("2d");
+    let w = 0, h = 0, U = 0, dpr = 1, small = false, raf = 0;
+    let N = 0, rnd = [], pos = [], from = [], fade = 0, fadeTarget = 0;
+    let shape = "none", switchAt = 0, yaw = 0, pitch = 0, yawT = 0, pitchT = 0;
+    const DUR = 1700;
+    const TAU = Math.PI * 2;
+
+    const rot = (p, a, b) => {
+      const ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      const x = p[0] * ca + p[2] * sa, z = -p[0] * sa + p[2] * ca;
+      return [x, p[1] * cb - z * sb, p[1] * sb + z * cb];
+    };
+
+    // cada forma devolve coordenadas locais; o deslocamento lateral deixa o texto livre no computador
+    const SHAPES = {
+      helix: { ox: 0.95, oy: 0, a: 1, f: (i, u, r, t) => {
+        const strand = i % 2, a = u * TAU * 2.2 + t * 0.45 + strand * Math.PI;
+        let x = Math.cos(a) * 0.42, z = Math.sin(a) * 0.42;
+        if (i % 9 === 0) { const s = r[0] * 2 - 1; x *= s; z *= s; }
+        return rot([x, (u - 0.5) * 2.4, z], 0, 0.3);
+      } },
+      wave: { ox: 0, oy: 0.35, a: 0.9, f: (i, u, r, t) => {
+        const cols = Math.ceil(Math.sqrt(N * 3)), c = i % cols, row = Math.floor(i / cols), rows = Math.ceil(N / cols);
+        const x = (c / cols - 0.5) * 4.6, z = (row / rows - 0.5) * 2.2;
+        const y = Math.sin(x * 1.4 + t * 1.1) * 0.16 + Math.cos(z * 2.6 + t * 0.8) * 0.1;
+        return rot([x, y, z], 0, -0.42);
+      } },
+      flow: { ox: 0, oy: 0.25, a: 0.55, f: (i, u, r, t) => {
+        if (r[1] < 0.42) {
+          const k = Math.floor(r[2] * 5), a = r[0] * TAU + t * (0.6 + k * 0.08), rr = 0.1 + r[1] * 0.18;
+          return [(k - 2) * 0.88 + Math.cos(a) * rr, Math.sin(a) * rr * 0.6, Math.sin(a) * rr];
+        }
+        const s = (u + t * 0.035) % 1, x = (s - 0.5) * 4.4;
+        return [x, Math.sin(s * TAU * 2.5 + t * 0.6) * 0.07 + (r[0] - 0.5) * 0.05, (r[2] - 0.5) * 0.2];
+      } },
+      rise: { ox: 0.95, oy: 0, a: 1, f: (i, u, r, t) => {
+        const a = u * TAU * 3 + t * 0.35, rr = 0.12 + u * 0.62;
+        return rot([Math.cos(a) * rr, (0.5 - u) * 2.2 + (r[0] - 0.5) * 0.04, Math.sin(a) * rr], 0, 0.25);
+      } },
+      dust: { ox: 0, oy: 0, a: 0.8, f: (i, u, r, t) => {
+        const th = r[0] * TAU, ph = Math.acos(r[1] * 2 - 1), rr = 1.2 + r[2] * 1.6;
+        return rot([Math.sin(ph) * Math.cos(th) * rr * 1.5, Math.cos(ph) * rr * 0.8, Math.sin(ph) * Math.sin(th) * rr], t * 0.025, 0);
+      } },
+      ring: { ox: 1.0, oy: -0.05, a: 1, f: (i, u, r, t) => {
+        const a = u * TAU + t * 0.22, b = r[0] * TAU, rr = 0.7 + Math.cos(b) * 0.055 + (r[1] - 0.5) * 0.05;
+        return rot(rot([Math.cos(a) * rr, Math.sin(b) * 0.055, Math.sin(a) * rr], 0, 1.15), 0.5, 0);
+      } }
+    };
+    const MAP = { servicos: "helix", diferencial: "wave", processo: "flow", trajetoria: "rise", faq: "dust", contato: "ring" };
+
+    const resize = () => {
+      w = innerWidth; h = innerHeight; dpr = Math.min(window.devicePixelRatio || 1, 2);
+      small = w < 900; U = Math.min(w, h) * (small ? 0.4 : 0.42);
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = small ? 520 : 950;
+      if (n !== N) {
+        N = n;
+        rnd = Array.from({ length: N }, () => [Math.random(), Math.random(), Math.random()]);
+        pos = rnd.map((r) => [(r[0] - 0.5) * 6, (r[1] - 0.5) * 4, (r[2] - 0.5) * 3]);
+        from = pos.map((p) => p.slice());
+      }
+    };
+
+    const target = (i, t) => {
+      const sh = SHAPES[shape];
+      const p = rot(sh.f(i, i / N, rnd[i], t), yaw, pitch);
+      p[0] += small ? 0 : sh.ox * (w / h > 1.2 ? 1.25 : 1); p[1] += small ? 0 : sh.oy;
+      return p;
+    };
+
+    const draw = (now) => {
+      const t = now / 1000;
+      fade += (fadeTarget - fade) * 0.06;
+      yaw += (yawT - yaw) * 0.04; pitch += (pitchT - pitch) * 0.04;
+      ctx.clearRect(0, 0, w, h);
+      if (fade < 0.005 && fadeTarget === 0) { raf = 0; return; }
+      const cx = w / 2, cy = h / 2, base = (small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
+      for (let i = 0; i < N; i++) {
+        let p = pos[i];
+        if (shape !== "none") {
+          const q = target(i, t);
+          const d = (rnd[i][0] * 0.35);
+          let k = Math.min(1, Math.max(0, ((now - switchAt) / DUR - d) / (1 - 0.35)));
+          k = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+          const f = from[i];
+          p = pos[i] = [f[0] + (q[0] - f[0]) * k, f[1] + (q[1] - f[1]) * k, f[2] + (q[2] - f[2]) * k];
+        }
+        const s = 3 / (3 + p[2]);
+        if (s <= 0) continue;
+        const a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
+        if (a < 0.01) continue;
+        const r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
+        ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
+        ctx.fillRect(cx + p[0] * U * s - r / 2, cy + p[1] * U * s - r / 2, r, r);
+      }
+      raf = requestAnimationFrame(draw);
+    };
+    const start = () => { if (!raf && !document.hidden) raf = requestAnimationFrame(draw); };
+
+    const setShape = (next) => {
+      if (next === shape) return;
+      if (next === "none") { fadeTarget = 0; start(); return; }
+      from = pos.map((p) => p.slice());
+      shape = next; switchAt = performance.now(); fadeTarget = 1; start();
+    };
+
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setShape(MAP[e.target.id] || "none"); });
+    }, { rootMargin: "-50% 0px -50% 0px" });
+    $$("main > section, .footer").forEach((sec) => spy.observe(sec));
+    document.addEventListener("visibilitychange", () => { if (document.hidden) { cancelAnimationFrame(raf); raf = 0; } else if (fadeTarget) start(); });
+    if (finePointer.matches) {
+      window.addEventListener("pointermove", (e) => { yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
+    }
+  };
+
   /* ---------- movimento com GSAP (ScrollTrigger + SplitText) ---------- */
   const initMotion = () => {
     const { gsap, ScrollTrigger, SplitText } = window;
@@ -746,6 +870,51 @@
         el.innerHTML = words.map((w) => `<span class="w">${esc(w)}</span>`).join(" ");
         gsap.to($$(".w", el), { opacity: 1, stagger: 0.1, ease: "none", scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: true } });
       });
+
+      // rótulos de seção se decodificam ao entrar, como um terminal
+      const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_";
+      $$(".section-head .label, .faq-head .label, .manifesto .label, .contact-top > .label").forEach((el) => {
+        const text = el.textContent;
+        const st = { p: 0 };
+        gsap.to(st, {
+          p: 1, duration: 1.1, ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          onUpdate: () => {
+            const n = Math.floor(st.p * text.length);
+            el.textContent = text.slice(0, n) + text.slice(n).replace(/[^\s·]/g, () => GLYPHS[(Math.random() * GLYPHS.length) | 0]);
+          },
+          onComplete: () => { el.textContent = text; }
+        });
+      });
+
+      // processo: a linha percorre os cinco passos conforme a rolagem
+      const steps = $("#process-steps");
+      if (steps) {
+        steps.classList.add("is-scrubbed");
+        const tl = gsap.timeline({ scrollTrigger: { trigger: steps, start: "top 78%", end: "bottom 52%", scrub: 0.8 } });
+        $$(".step", steps).forEach((st, i) => {
+          tl.fromTo($(".bar", st), { scaleX: 0 }, { scaleX: 1, ease: "none", duration: 1 }, i)
+            .fromTo($$(".n, h3, p, .out", st), { opacity: 0.18, y: 18 }, { opacity: 1, y: 0, ease: "power2.out", duration: 0.8, stagger: 0.06 }, i + 0.2);
+        });
+      }
+
+      // trajetória: cada cargo entra por baixo de uma máscara
+      $$(".tl-row").forEach((row) => {
+        gsap.from(row.children, { yPercent: 60, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.06, scrollTrigger: { trigger: row, start: "top 90%" } });
+      });
+
+      // botões magnéticos
+      if (finePointer.matches) {
+        $$(".hero .btn, .contact-actions .btn, .nav-cta").forEach((btn) => {
+          const xTo = gsap.quickTo(btn, "x", { duration: 0.6, ease: "power3.out" });
+          const yTo = gsap.quickTo(btn, "y", { duration: 0.6, ease: "power3.out" });
+          btn.addEventListener("pointermove", (e) => {
+            const r = btn.getBoundingClientRect();
+            xTo((e.clientX - r.left - r.width / 2) * 0.28); yTo((e.clientY - r.top - r.height / 2) * 0.4);
+          });
+          btn.addEventListener("pointerleave", () => { xTo(0); yTo(0); });
+        });
+      }
 
       // assinatura do rodapé: letras chegam do fundo, desfocadas, e um brilho metálico atravessa a palavra
       const giant = $(".footer-giant");
@@ -875,6 +1044,15 @@
     });
   };
 
+  /* ---------- horário local no contato ---------- */
+  const initClock = () => {
+    const el = $("#local-time");
+    if (!el || !window.Intl) return;
+    const fmt = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
+    const tick = () => { el.textContent = fmt.format(new Date()); };
+    tick(); setInterval(tick, 30000);
+  };
+
   /* ---------- início ---------- */
   const boot = () => {
     initMarquee();
@@ -884,8 +1062,10 @@
     initCursor();
     initPreview();
     initCopy();
+    initClock();
     observeReveals();
     initHeroCanvas();
+    initAmbient();
     initMotion();
     requestAnimationFrame(() => document.body.classList.add("is-ready"));
     loadProjects();
