@@ -761,16 +761,57 @@
       small = w < 900; U = Math.min(w, h) * (small ? 0.4 : 0.42);
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = small ? 520 : 950;
+      const n = small ? 1000 : 2200;
       if (n !== N) {
         N = n;
         rnd = Array.from({ length: N }, () => [Math.random(), Math.random(), Math.random()]);
         pos = rnd.map((r) => [(r[0] - 0.5) * 6, (r[1] - 0.5) * 4, (r[2] - 0.5) * 3]);
         from = pos.map((p) => p.slice());
+        push = rnd.map(() => [0, 0]);
       }
+      sampleName();
     };
 
-    const target = (i, t) => {
+    // assinatura: as mesmas partículas desenham o nome no rodapé
+    const giant = $(".footer-giant");
+    let namePts = [], push = [], mx = -9999, my = -9999;
+    const sampleName = () => {
+      if (!giant || !N) return;
+      const r = giant.getBoundingClientRect(), cs = getComputedStyle(giant);
+      if (!r.width) return;
+      const W = Math.ceil(r.width), H = Math.ceil(r.height);
+      const off = document.createElement("canvas"); off.width = W; off.height = H;
+      const o = off.getContext("2d");
+      const size = parseFloat(cs.fontSize);
+      o.font = `500 ${size}px ${cs.fontFamily}`;
+      if ("letterSpacing" in o) o.letterSpacing = cs.letterSpacing;
+      o.textAlign = "center"; o.textBaseline = "middle"; o.fillStyle = "#fff";
+      o.fillText(giant.dataset.text || "mPaiva_", W / 2, parseFloat(cs.paddingTop) + (H - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)) / 2);
+      const data = o.getImageData(0, 0, W, H).data;
+      const step = Math.max(2, Math.round(size / 70));
+      const pts = [];
+      for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (data[(y * W + x) * 4 + 3] > 140) pts.push([x + (Math.random() - 0.5) * step, y + (Math.random() - 0.5) * step]);
+      if (!pts.length) return;
+      for (let k = pts.length - 1; k > 0; k--) { const j = (Math.random() * (k + 1)) | 0; [pts[k], pts[j]] = [pts[j], pts[k]]; }
+      namePts = Array.from({ length: N }, (_, i) => pts[i % pts.length]);
+      document.documentElement.classList.add("has-ambient");
+    };
+    let nameRect = null;
+    const nameTarget = (i, t, cx, cy) => {
+      const p = namePts[i];
+      if (!p || !nameRect) return [0, 0, 0];
+      let X = nameRect.left + p[0], Y = nameRect.top + p[1];
+      // o cursor espalha as partículas e elas voltam com mola
+      const dx = X - mx, dy = Y - my, d = Math.hypot(dx, dy), R = small ? 0 : 110;
+      let px = 0, py = 0;
+      if (d < R && d > 0.01) { const f = Math.pow(1 - d / R, 2) * 70; px = (dx / d) * f; py = (dy / d) * f; }
+      const q = push[i]; q[0] += (px - q[0]) * 0.14; q[1] += (py - q[1]) * 0.14;
+      X += q[0] + Math.sin(t * 1.3 + i) * 0.6; Y += q[1] + Math.cos(t * 1.1 + i * 0.7) * 0.6;
+      return [(X - cx) / U, (Y - cy) / U, 0];
+    };
+
+    const target = (i, t, cx, cy) => {
+      if (shape === "name") return nameTarget(i, t, cx, cy);
       const sh = SHAPES[shape];
       const p = rot(sh.f(i, i / N, rnd[i], t), yaw, pitch);
       p[0] += small ? 0 : sh.ox * (w / h > 1.2 ? 1.25 : 1); p[1] += small ? 0 : sh.oy;
@@ -783,22 +824,34 @@
       yaw += (yawT - yaw) * 0.04; pitch += (pitchT - pitch) * 0.04;
       ctx.clearRect(0, 0, w, h);
       if (fade < 0.005 && fadeTarget === 0) { raf = 0; return; }
-      const cx = w / 2, cy = h / 2, base = (small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
+      const cx = w / 2, cy = h / 2, isName = shape === "name";
+      const base = (isName ? 0.95 : small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
+      let shineX = 0, shineW = 1;
+      if (isName && giant) {
+        nameRect = giant.getBoundingClientRect();
+        shineW = nameRect.width; shineX = nameRect.left + ((t * 0.28) % 1.6 - 0.3) * shineW;
+      }
+      const dur = isName ? 2400 : DUR;
       for (let i = 0; i < N; i++) {
         let p = pos[i];
         if (shape !== "none") {
-          const q = target(i, t);
+          const q = target(i, t, cx, cy);
           const d = (rnd[i][0] * 0.35);
-          let k = Math.min(1, Math.max(0, ((now - switchAt) / DUR - d) / (1 - 0.35)));
+          let k = Math.min(1, Math.max(0, ((now - switchAt) / dur - d) / (1 - 0.35)));
           k = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
           const f = from[i];
           p = pos[i] = [f[0] + (q[0] - f[0]) * k, f[1] + (q[1] - f[1]) * k, f[2] + (q[2] - f[2]) * k];
         }
         const s = 3 / (3 + p[2]);
         if (s <= 0) continue;
-        const a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
+        let a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
+        let r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
+        if (isName) {
+          const X = cx + p[0] * U, band = Math.exp(-Math.pow((X - shineX) / (shineW * 0.07), 2));
+          a = Math.min(1, base * (0.62 + rnd[i][1] * 0.38) + band * 0.5 * fade);
+          r = (small ? 1.3 : 1.7) + band * 1.2;
+        }
         if (a < 0.01) continue;
-        const r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
         ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
         ctx.fillRect(cx + p[0] * U * s - r / 2, cy + p[1] * U * s - r / 2, r, r);
       }
@@ -807,21 +860,24 @@
     const start = () => { if (!raf && !document.hidden) raf = requestAnimationFrame(draw); };
 
     const setShape = (next) => {
-      if (next === shape) return;
+      if (next === shape && fadeTarget === 1) return;
       if (next === "none") { fadeTarget = 0; start(); return; }
       from = pos.map((p) => p.slice());
-      shape = next; switchAt = performance.now(); fadeTarget = 1; start();
+      if (next !== shape || fade < 0.05) switchAt = performance.now();
+      shape = next; fadeTarget = 1; start();
     };
 
     resize();
     window.addEventListener("resize", resize, { passive: true });
+    document.fonts?.ready.then(sampleName);
     const spy = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) setShape(MAP[e.target.id] || "none"); });
+      entries.forEach((e) => { if (e.isIntersecting) setShape(e.target.classList.contains("footer") ? (namePts.length ? "name" : "none") : MAP[e.target.id] || "none"); });
     }, { rootMargin: "-50% 0px -50% 0px" });
     $$("main > section, .footer").forEach((sec) => spy.observe(sec));
     document.addEventListener("visibilitychange", () => { if (document.hidden) { cancelAnimationFrame(raf); raf = 0; } else if (fadeTarget) start(); });
     if (finePointer.matches) {
-      window.addEventListener("pointermove", (e) => { yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
+      window.addEventListener("pointermove", (e) => { mx = e.clientX; my = e.clientY; yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
+      document.documentElement.addEventListener("pointerleave", () => { mx = my = -9999; });
     }
   };
 
@@ -854,8 +910,10 @@
       // títulos de seção palavra a palavra
       if (SplitText) {
         $$("[data-words]").forEach((el) => {
-          const split = new SplitText(el, { type: "words,lines", linesClass: "split-line", mask: "lines" });
-          gsap.from(split.words, { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.04, scrollTrigger: { trigger: el, start: "top 85%" } });
+          // letras giram de baixo para cima, em 3D, dentro de uma máscara por linha
+          const split = new SplitText(el, { type: "lines,words,chars", linesClass: "split-line", mask: "lines" });
+          gsap.set(split.lines, { perspective: 700 });
+          gsap.from(split.chars, { yPercent: 120, rotationX: -95, opacity: 0, transformOrigin: "50% 100% -20px", duration: 1.15, ease: "expo.out", stagger: 0.014, scrollTrigger: { trigger: el, start: "top 85%" } });
         });
       }
 
@@ -903,6 +961,21 @@
         gsap.from(row.children, { yPercent: 60, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.06, scrollTrigger: { trigger: row, start: "top 90%" } });
       });
 
+      // cards de trabalho: inclinação 3D e reflexo que segue o mouse
+      if (finePointer.matches) {
+        $$(".work-visual").forEach((card) => {
+          const rx = gsap.quickTo(card, "rotationX", { duration: 0.7, ease: "power3.out" });
+          const ry = gsap.quickTo(card, "rotationY", { duration: 0.7, ease: "power3.out" });
+          gsap.set(card, { transformPerspective: 1100 });
+          card.addEventListener("pointermove", (e) => {
+            const r = card.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+            rx((0.5 - py) * 9); ry((px - 0.5) * 11);
+            card.style.setProperty("--gx", `${(px * 100).toFixed(1)}%`); card.style.setProperty("--gy", `${(py * 100).toFixed(1)}%`);
+          });
+          card.addEventListener("pointerleave", () => { rx(0); ry(0); });
+        });
+      }
+
       // botões magnéticos
       if (finePointer.matches) {
         $$(".hero .btn, .contact-actions .btn, .nav-cta").forEach((btn) => {
@@ -918,7 +991,7 @@
 
       // assinatura do rodapé: letras chegam do fundo, desfocadas, e um brilho metálico atravessa a palavra
       const giant = $(".footer-giant");
-      if (giant && SplitText) {
+      if (giant && SplitText && !document.documentElement.classList.contains("has-ambient")) {
         const split = new SplitText(giant.querySelector(".fg-word"), { type: "chars", charsClass: "ch" });
         const chars = [...split.chars, giant.querySelector(".fg-caret")];
         gsap.timeline({ scrollTrigger: { trigger: giant, start: "top bottom", end: "center 45%", scrub: 1.2, refreshPriority: -1 } })
@@ -948,6 +1021,11 @@
         x: () => -distance(), ease: "none",
         scrollTrigger: { trigger: pin, start: "center center", end: () => `+=${distance()}`, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 }
       });
+      // os cards inclinam conforme a velocidade da rolagem
+      const cards = $$(".work-card");
+      const skewTo = gsap.quickTo(cards, "skewX", { duration: 0.5, ease: "power3.out" });
+      ScrollTrigger.create({ trigger: pin, start: "center center", end: () => `+=${distance()}`, onUpdate: (self) => skewTo(gsap.utils.clamp(-7, 7, self.getVelocity() / -320)) });
+      ScrollTrigger.addEventListener("scrollEnd", () => skewTo(0));
       $$(".work-card .work-visual img").forEach((img) => {
         gsap.fromTo(img, { scale: 1.12 }, { scale: 1, ease: "none", scrollTrigger: { trigger: pin, start: "center center", end: () => `+=${distance()}`, scrub: true } });
       });
@@ -959,17 +1037,28 @@
 
   /* ---------- cursor ---------- */
   const initCursor = () => {
-    const c = $(".cursor");
-    if (!c || !finePointer.matches || reduced.matches) return;
-    let x = 0, y = 0, cx = 0, cy = 0;
+    const c = $(".cursor"), ring = $(".cursor-ring");
+    if (!c || !ring || !finePointer.matches || reduced.matches) return;
+    // um cursor só: o ponto segue o mouse sem atraso e o anel vem logo atrás
+    document.documentElement.classList.add("has-cursor");
+    let x = -100, y = -100, rx = -100, ry = -100;
     const loop = () => {
-      cx += (x - cx) * 0.22; cy += (y - cy) * 0.22;
-      c.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
+      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
       requestAnimationFrame(loop);
     };
-    document.addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; c.classList.add("is-on"); }, { passive: true });
-    document.addEventListener("pointerleave", () => c.classList.remove("is-on"));
-    document.addEventListener("pointerover", (e) => c.classList.toggle("is-hover", !!e.target.closest("a, button, summary, select")));
+    document.addEventListener("pointermove", (e) => {
+      x = e.clientX; y = e.clientY;
+      c.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      c.classList.add("is-on"); ring.classList.add("is-on");
+    }, { passive: true });
+    document.documentElement.addEventListener("pointerleave", () => { c.classList.remove("is-on"); ring.classList.remove("is-on"); });
+    document.addEventListener("pointerover", (e) => {
+      const on = !!e.target.closest("a, button, summary, select");
+      c.classList.toggle("is-hover", on); ring.classList.toggle("is-hover", on);
+    });
+    document.addEventListener("pointerdown", () => ring.classList.add("is-down"));
+    document.addEventListener("pointerup", () => ring.classList.remove("is-down"));
     requestAnimationFrame(loop);
   };
 
