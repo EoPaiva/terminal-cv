@@ -10,7 +10,6 @@
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
   const WHATSAPP = "https://wa.me/55035988042182";
   const wa = (text) => `${WHATSAPP}?text=${encodeURIComponent(text)}`;
-  const MODE_KEY = "mpaiva_mode";
   const KICKERS = { tech: "Serviços · Tech", hire: "Serviços · Contrate-me", client: "Serviços · Para empresas" };
 
   const MODES = {
@@ -120,7 +119,7 @@
     },
     "hire": {
       "heroStatus": "[ CONTRATE-ME: CLT, PJ, FREELANCER & PROJETOS ]",
-      "heroDesc": "Engenheiro de IA no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
+      "heroDesc": "Engenheiro de IA e líder do setor de IA no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
       "servicesTitle": "Aberto a oportunidades em Full Stack, IA aplicada, automação e crescimento digital.",
       "servicesDescription": "Posso entrar em times, projetos ou operações que precisam transformar problemas reais em software: backend, frontend, banco de dados, APIs, automações, IA aplicada, SEO técnico e entrega publicada.",
       "services": [
@@ -380,14 +379,6 @@
   /* ---------- modos ---------- */
   let currentMode = "tech";
 
-  const moveThumb = () => {
-    const btn = $(`.modes [data-mode-btn="${currentMode}"]`);
-    const thumb = $(".modes-thumb");
-    if (!btn || !thumb || !btn.offsetWidth) return;
-    thumb.style.width = `${btn.offsetWidth}px`;
-    thumb.style.transform = `translateX(${btn.offsetLeft}px)`;
-  };
-
   const tagList = (tags = []) => tags.length ? `<ul class="tags">${tags.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : "";
 
   const setText = (sel, value) => { const el = $(sel); if (el && value != null) el.textContent = value; };
@@ -406,13 +397,11 @@
     if (btn) btn.href = wa(MESSAGE_BY_MODE[currentMode](focus, delivery));
   };
 
-  const applyMode = (mode, { persist = true } = {}) => {
+  const applyMode = (mode) => {
     if (!MODES[mode]) mode = "tech";
     currentMode = mode;
     const m = MODES[mode];
     document.body.dataset.mode = mode;
-    $$("[data-mode-btn]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.modeBtn === mode)));
-    moveThumb();
 
     setText("#hero-status", m.heroStatus);
     setText("#hero-desc", m.heroDesc);
@@ -457,19 +446,12 @@
     swap($("#faq-mode"), m.faq.map((f) => `<details class="reveal"><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join(""));
 
     updateProcessWhatsApp();
-    if (persist) { try { localStorage.setItem(MODE_KEY, mode); } catch (_) { /* armazenamento indisponível */ } }
   };
 
   const initModes = () => {
-    let saved = null;
-    try { saved = localStorage.getItem(MODE_KEY); } catch (_) { saved = null; }
-    const fromUrl = new URLSearchParams(location.search).get("modo");
-    applyMode(MODES[fromUrl] ? fromUrl : (MODES[saved] ? saved : "tech"), { persist: false });
-    $$("[data-mode-btn]").forEach((b) => b.addEventListener("click", () => applyMode(b.dataset.modeBtn)));
+    applyMode("tech");
     $("#focus-select")?.addEventListener("change", updateProcessWhatsApp);
     $("#delivery-select")?.addEventListener("change", updateProcessWhatsApp);
-    window.addEventListener("resize", moveThumb, { passive: true });
-    if (document.fonts?.ready) document.fonts.ready.then(moveThumb);
   };
 
   /* ---------- projetos em produção ---------- */
@@ -765,8 +747,26 @@
         gsap.to($$(".w", el), { opacity: 1, stagger: 0.1, ease: "none", scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: true } });
       });
 
-      // assinatura gigante do rodapé
-      gsap.from(".footer-giant span", { yPercent: 60, opacity: 0, ease: "none", scrollTrigger: { trigger: ".footer", start: "top bottom", end: "top 40%", scrub: true } });
+      // assinatura do rodapé: letras chegam do fundo, desfocadas, e um brilho metálico atravessa a palavra
+      const giant = $(".footer-giant");
+      if (giant && SplitText) {
+        const split = new SplitText(giant.querySelector(".fg-word"), { type: "chars", charsClass: "ch" });
+        const chars = [...split.chars, giant.querySelector(".fg-caret")];
+        gsap.timeline({ scrollTrigger: { trigger: giant, start: "top bottom", end: "center 45%", scrub: 1.2, refreshPriority: -1 } })
+          .from(chars, { opacity: 0, filter: "blur(28px)", scale: 2.6, rotationX: -75, yPercent: 35, z: 260, ease: "power3.out", duration: 1, stagger: { each: 0.09, from: "center" } }, 0)
+          .from(giant, { letterSpacing: "0.32em", ease: "power2.out", duration: 1.2 }, 0)
+          .fromTo(giant, { "--glow": 0 }, { "--glow": 1, ease: "power1.in", duration: 0.6 }, 0.5)
+          .fromTo(giant, { "--shine": "160%" }, { "--shine": "-60%", ease: "power2.inOut", duration: 0.7 }, 1.1);
+        // brilho que acompanha o cursor depois da chegada
+        if (finePointer.matches) {
+          const setShine = gsap.quickTo(giant, "--shine", { duration: 0.8, ease: "power3.out", unit: "%" });
+          giant.addEventListener("pointermove", (e) => {
+            const r = giant.getBoundingClientRect();
+            setShine(83.3 - ((e.clientX - r.left) / r.width) * 66.7);
+          });
+          giant.addEventListener("pointerleave", () => setShine(-60));
+        }
+      }
     });
 
     // trabalho: faixa horizontal fixada no computador
