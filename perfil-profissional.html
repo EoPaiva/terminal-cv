@@ -12,15 +12,15 @@
   />
   <meta name="author" content="Mateus Paiva" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#020617" />
-  <meta name="msapplication-TileColor" content="#020617" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="msapplication-TileColor" content="#000000" />
 
   <link rel="canonical" href="https://upaiva.dev/perfil-profissional.html" />
   <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/perfil-profissional.html" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
   <link rel="manifest" href="/site.webmanifest" />
 
   <meta property="og:type" content="profile" />
@@ -29,7 +29,7 @@
   <meta property="og:title" content="Mateus Paiva | Desenvolvedor Full Stack com IA Aplicada" />
   <meta
     property="og:description"
-    content="Sistemas web, automações, agentes de IA, SEO técnico e soluções digitais. Aberto a CLT, PJ, freelancer e projetos."
+    content="Sistemas web, automações, agentes de IA, SEO técnico e soluções digitais. Projetos freelancer e parcerias."
   />
   <meta property="og:url" content="https://upaiva.dev/perfil-profissional.html" />
   <meta property="og:image" content="https://upaiva.dev/assets/og-mateus-paiva.png" />
@@ -43,14 +43,10 @@
   <meta name="twitter:title" content="Mateus Paiva | Desenvolvedor Full Stack com IA Aplicada" />
   <meta
     name="twitter:description"
-    content="Sistemas web, automações, agentes de IA, SEO técnico e soluções digitais. Aberto a CLT, PJ, freelancer e projetos."
+    content="Sistemas web, automações, agentes de IA, SEO técnico e soluções digitais. Projetos freelancer e parcerias."
   />
   <meta name="twitter:image" content="https://upaiva.dev/assets/og-mateus-paiva.png" />
   <meta name="twitter:image:alt" content="M PAIVA_ - Desenvolvedor Full Stack com IA Aplicada, Automação e SEO Técnico" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
     {
@@ -97,1103 +93,222 @@
           "SEO técnico",
           "Tráfego orgânico",
           "Copywriting",
-          "Plataformas SaaS",
-          "Oportunidades CLT, PJ e freelancer"
+          "Plataformas SaaS"
         ]
       }
     }
   </script>
-
-  <style>
-    :root {
-      --bg: #020617;
-      --card: #0f172a;
-      --card-2: #111c31;
-      --border: #1e293b;
-      --accent: #10b981;
-      --accent-2: #3b82f6;
-      --text: #94a3b8;
-      --title: #f8fafc;
-      --muted: #64748b;
-      --danger: #f59e0b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, rgba(16, 185, 129, 0.16), transparent 34rem),
-        radial-gradient(circle at top right, rgba(59, 130, 246, 0.14), transparent 32rem),
-        linear-gradient(180deg, #020617 0%, #050b18 45%, #020617 100%);
-      color: var(--text);
-      font-family: Inter, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page-shell {
-      width: min(1180px, calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(2, 6, 23, 0.78);
-      border-bottom: 1px solid rgba(30, 41, 59, 0.9);
-    }
-
-    .nav-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      color: var(--title);
-      font-family: "JetBrains Mono", monospace;
-      font-weight: 800;
-      letter-spacing: 0;
-      text-transform: uppercase;
-    }
-
-    .brand-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 0.45rem;
-      background: var(--accent);
-      color: #020617;
-      box-shadow: 0 0 30px rgba(16, 185, 129, 0.32);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .button {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.7rem;
-      padding: 0.8rem 1rem;
-      border-radius: 0.7rem;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.72);
-      color: var(--title);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
-    }
-
-    .button::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      transform: translateX(-120%) skewX(-18deg);
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.26), transparent);
-      transition: transform 0.75s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .button:hover::after {
-      transform: translateX(120%) skewX(-18deg);
-    }
-
-    .button-primary {
-      border-color: rgba(16, 185, 129, 0.35);
-      background: var(--accent);
-      color: #020617;
-      box-shadow: 0 14px 38px rgba(16, 185, 129, 0.18);
-    }
-
-    .button-primary:hover {
-      color: #020617;
-      background: #34d399;
-    }
-
-    .hero {
-      padding: 5.5rem 0 3rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 2rem;
-      align-items: stretch;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: var(--accent);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      margin-bottom: 1.25rem;
-    }
-
-    .pulse {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 22px var(--accent);
-      animation: pulse 1.7s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.45;
-        transform: scale(0.82);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.2);
-      }
-    }
-
-    .hero-title {
-      max-width: 880px;
-      color: var(--title);
-      font-size: clamp(2.55rem, 6vw, 5.5rem);
-      line-height: 1.02;
-      letter-spacing: 0;
-      font-weight: 900;
-      margin-bottom: 1.35rem;
-    }
-
-    .animated-gradient {
-      position: relative;
-      display: inline-block;
-      color: transparent;
-      background: linear-gradient(90deg, var(--accent), #67e8f9, var(--accent-2), var(--accent));
-      background-size: 260% auto;
-      background-clip: text;
-      -webkit-background-clip: text;
-      transition: transform 0.35s ease, filter 0.35s ease;
-      animation: gradientFlow 8s linear infinite;
-    }
-
-    .animated-gradient:hover {
-      transform: translateY(-4px) scale(1.015);
-      filter: drop-shadow(0 0 22px rgba(16, 185, 129, 0.34));
-    }
-
-    @keyframes gradientFlow {
-      to {
-        background-position: 260% center;
-      }
-    }
-
-    .hero-description {
-      max-width: 780px;
-      font-size: 1.08rem;
-      color: #b6c3d7;
-      margin-bottom: 2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .tag {
-      border: 1px solid rgba(30, 41, 59, 0.96);
-      background: rgba(15, 23, 42, 0.62);
-      color: var(--accent);
-      border-radius: 999px;
-      padding: 0.55rem 0.75rem;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.64rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .profile-card {
-      position: relative;
-      min-height: 100%;
-      border: 1px solid rgba(30, 41, 59, 0.96);
-      border-radius: 1.5rem;
-      padding: 1.4rem;
-      background:
-        radial-gradient(circle at top right, rgba(16, 185, 129, 0.16), transparent 42%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
-        rgba(15, 23, 42, 0.78);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
-      overflow: hidden;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      inset: 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.08);
-      border-radius: 1.1rem;
-      pointer-events: none;
-    }
-
-    .terminal-header {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(30, 41, 59, 0.94);
-      margin-bottom: 1.2rem;
-    }
-
-    .dot {
-      width: 0.65rem;
-      height: 0.65rem;
-      border-radius: 999px;
-      background: #ef4444;
-    }
-
-    .dot:nth-child(2) {
-      background: #f59e0b;
-    }
-
-    .dot:nth-child(3) {
-      background: #22c55e;
-    }
-
-    .terminal-label {
-      margin-left: auto;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.68rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .profile-name {
-      color: var(--title);
-      font-size: 1.3rem;
-      font-weight: 900;
-      margin-bottom: 0.45rem;
-    }
-
-    .profile-role {
-      color: #cbd5e1;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.76rem;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-
-    .profile-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      margin: 1.2rem 0;
-    }
-
-    .metric {
-      border: 1px solid rgba(30, 41, 59, 0.98);
-      border-radius: 1rem;
-      background: rgba(2, 6, 23, 0.48);
-      padding: 1rem;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .metric:hover {
-      transform: translateY(-4px);
-      border-color: rgba(16, 185, 129, 0.5);
-    }
-
-    .metric span {
-      display: block;
-      color: var(--muted);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.35rem;
-    }
-
-    .metric strong {
-      color: var(--title);
-      font-size: 1.35rem;
-      line-height: 1;
-    }
-
-    .code-block {
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid rgba(30, 41, 59, 0.98);
-      border-radius: 1rem;
-      background: rgba(2, 6, 23, 0.55);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.75rem;
-      color: #cbd5e1;
-    }
-
-    .code-block span {
-      color: var(--accent);
-    }
-
-    .section {
-      padding: 3.2rem 0;
-      border-top: 1px solid rgba(30, 41, 59, 0.72);
-    }
-
-    .section-title {
-      color: var(--title);
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: 0;
-      font-weight: 900;
-      margin-bottom: 1rem;
-    }
-
-    .section-description {
-      max-width: 760px;
-      color: #b6c3d7;
-      margin-bottom: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-      position: relative;
-      border: 1px solid rgba(30, 41, 59, 0.96);
-      border-radius: 1.2rem;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-        rgba(15, 23, 42, 0.7);
-      padding: 1.25rem;
-      overflow: hidden;
-      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, var(--accent), transparent 45%);
-      opacity: 0;
-      transition: opacity 0.28s ease;
-      pointer-events: none;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(16, 185, 129, 0.54);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
-    }
-
-    .card:hover::before {
-      opacity: 0.08;
-    }
-
-    .card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-kicker {
-      display: block;
-      color: var(--accent);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.65rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 0.9rem;
-    }
-
-    .card h3 {
-      color: var(--title);
-      font-size: 1.1rem;
-      line-height: 1.25;
-      margin-bottom: 0.7rem;
-    }
-
-    .card p {
-      font-size: 0.93rem;
-      color: #a9b8cf;
-    }
-
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .timeline-item {
-      position: relative;
-      border-left: 2px solid rgba(16, 185, 129, 0.34);
-      padding-left: 1.25rem;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -0.42rem;
-      top: 0.2rem;
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 22px rgba(16, 185, 129, 0.6);
-    }
-
-    .skill-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-    }
-
-    .skill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.7rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(30, 41, 59, 0.98);
-      background: rgba(2, 6, 23, 0.42);
-      color: #dbeafe;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-    }
-
-    .skill::before {
-      content: ">";
-      color: var(--accent);
-    }
-
-    .skill:hover {
-      transform: translateY(-3px);
-      color: var(--accent);
-      border-color: rgba(16, 185, 129, 0.5);
-    }
-
-    .footer {
-      padding: 3rem 0;
-      border-top: 1px solid rgba(30, 41, 59, 0.72);
-      text-align: center;
-    }
-
-    .footer p {
-      color: var(--muted);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 3.5rem;
-      }
-
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 1rem 0;
-      }
-
-      .nav-actions {
-        justify-content: flex-start;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .page-shell {
-        width: min(100% - 1rem, 1180px);
-      }
-
-      .hero-title {
-        font-size: clamp(2.1rem, 12vw, 2.6rem);
-        line-height: 1.04;
-      }
-
-      .profile-metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .hero-actions {
-        width: 100%;
-      }
-    }
-
-    @media print {
-      body {
-        background: #ffffff;
-        color: #111827;
-      }
-
-      body::before,
-      .nav,
-      .hero-actions,
-      .footer {
-        display: none;
-      }
-
-      .hero,
-      .section {
-        padding: 1.2rem 0;
-      }
-
-      .card,
-      .profile-card,
-      .metric,
-      .code-block {
-        border-color: #d1d5db;
-        background: #ffffff;
-        box-shadow: none;
-      }
-
-      .hero-title,
-      .section-title,
-      .card h3,
-      .profile-name,
-      .metric strong {
-        color: #111827;
-      }
-
-      .animated-gradient {
-        color: #111827;
-        background: none;
-        -webkit-text-fill-color: #111827;
-      }
-
-      .tag,
-      .skill,
-      .card-kicker,
-      .eyebrow {
-        color: #047857;
-      }
-    }
-  </style>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261018-sub-1" />
+  <link rel="stylesheet" href="/page.css?v=20261018-sub-1" />
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="page-shell nav-inner">
-      <a href="index.html" class="brand" aria-label="Voltar ao site principal">
-        <span class="brand-mark">M</span>
-        PAIVA<span style="color: var(--accent)">_</span>
-      </a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
 
-      <div class="nav-actions">
-        <a class="button" href="index.html">Voltar ao site</a>
-        <a class="button" href="cv.pdf" download>Baixar CV.PDF</a>
-        <a class="button button-primary" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus!%20Vi%20seu%20perfil%20profissional%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">
-          Conversar
-        </a>
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="/#cases">Trabalho</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#trajetoria">Trajetória</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
       </div>
     </div>
   </nav>
 
-  <main>
-    <section class="hero">
-      <div class="page-shell hero-grid">
-        <div class="reveal">
-          <div class="eyebrow">
-            <span class="pulse"></span>
-            Perfil profissional estratégico
-          </div>
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="/#cases"><small>01</small>Trabalho</a>
+      <a href="/#servicos"><small>02</small>Serviços</a>
+      <a href="/#processo"><small>03</small>Processo</a>
+      <a href="/#trajetoria"><small>04</small>Trajetória</a>
+      <a href="/#faq"><small>05</small>FAQ</a>
+      <a href="/#contato"><small>06</small>Contato</a>
+    </div>
+  </div>
 
-          <h1 class="hero-title">
-            Mateus Paiva<br>
-            <span class="animated-gradient">Desenvolvedor Full Stack</span><br>
-            IA Aplicada<br>
-            Automação & Plataformas Inteligentes
-          </h1>
-
-          <p class="hero-description">
-            Perfil técnico-estratégico voltado à criação de soluções digitais completas: frontend, backend, banco de
-            dados, APIs, automações, agentes de IA, LLM, RAG, dashboards, SEO técnico e sistemas web inteligentes para
-            negócios que buscam crescimento, eficiência, tráfego orgânico e evolução operacional.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="#competencias">Ver competências</a>
-            <a class="button" href="#trajetoria">Ver trajetória</a>
-            <a class="button" href="cv.pdf" download>Download PDF</a>
-          </div>
-
-          <div class="hero-tags">
-            <span class="tag">IA Aplicada</span>
-            <span class="tag">Full Stack</span>
-            <span class="tag">APIs</span>
-            <span class="tag">LLM/RAG</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Automação</span>
-            <span class="tag">SEO Técnico</span>
-            <span class="tag">SaaS</span>
-          </div>
+  <main id="conteudo">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-orb" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label">[ Full Stack · IA aplicada · Automação ]</span>
+          <span class="label label-dim">Perfil profissional / 2026</span>
         </div>
-
-        <aside class="profile-card reveal" aria-label="Resumo profissional">
-          <div class="terminal-header">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="terminal-label">profile.exec</span>
+        <h1 id="page-title" class="page-title">Mateus Paiva, <em>Full Stack com IA aplicada.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">Perfil técnico-estratégico voltado à criação de soluções digitais completas: frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG, dashboards, SEO técnico e sistemas web inteligentes para negócios que buscam crescimento, eficiência e evolução operacional.</p>
+          <div class="page-actions">
+            <a class="btn btn-light btn-lg" href="#trajetoria">Ver trajetória <i class="arrow" aria-hidden="true"></i></a>
+            <a class="btn btn-ghost btn-lg" href="/cv.pdf" download>Baixar CV.pdf <i class="arrow" aria-hidden="true"></i></a>
           </div>
-
-          <h2 class="profile-name">Mateus Paiva Bernardes de Almeida</h2>
-
-          <p class="profile-role">
-            São José dos Campos — SP<br>
-            Engenharia de Inteligência Artificial em andamento<br>
-            Formação em Recursos Humanos em andamento<br>
-            GitHub: EoPaiva
-          </p>
-
-          <div class="profile-metrics">
-            <div class="metric">
-              <span>Foco central</span>
-              <strong>Full Stack + IA</strong>
-            </div>
-
-            <div class="metric">
-              <span>Visão complementar</span>
-              <strong>APIs + Dados</strong>
-            </div>
-
-            <div class="metric">
-              <span>Base prática</span>
-              <strong>Operação</strong>
-            </div>
-
-            <div class="metric">
-              <span>Direção</span>
-              <strong>Eficiência</strong>
-            </div>
-          </div>
-
-          <div class="code-block">
-            <p><span>const</span> perfil = {</p>
-            <p>&nbsp;&nbsp;tecnologia: "Full Stack, IA, APIs",</p>
-            <p>&nbsp;&nbsp;automacao: "Agentes, LLM, RAG",</p>
-            <p>&nbsp;&nbsp;objetivo: "Crescimento e eficiência"</p>
-            <p>};</p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="posicionamento" class="section">
-      <div class="page-shell">
-        <div class="reveal">
-          <span class="eyebrow">
-            <span class="pulse"></span>
-            Posicionamento
-          </span>
-
-          <h2 class="section-title">Um perfil Full Stack com IA aplicada, leitura operacional e visão de negócio.</h2>
-
-          <p class="section-description">
-            A proposta profissional é unir desenvolvimento Full Stack, automação de processos, inteligência artificial,
-            dados e estratégia. Não apenas construir telas ou scripts, mas entender o cenário, organizar fluxos, integrar
-            sistemas e criar soluções digitais completas que façam sentido no uso real.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card reveal">
-            <span class="card-kicker">01 / Full Stack</span>
-            <h3>Sistemas web inteligentes</h3>
-            <p>
-              Criação de plataformas, painéis, interfaces, backend, banco de dados, APIs, integrações e deploy para
-              transformar ideias em sistemas funcionais.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">02 / IA Aplicada</span>
-            <h3>Agentes, LLM e RAG para problemas reais</h3>
-            <p>
-              Construção de automações inteligentes, agentes de IA, fluxos com modelos de linguagem, RAG, análise de
-              dados e melhoria de rotinas empresariais.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">03 / Estratégia</span>
-            <h3>SEO, produto e crescimento orgânico</h3>
-            <p>
-              Estruturação de páginas, sistemas e plataformas com metadados, HTML semântico, schema, performance,
-              copywriting e arquitetura de informação para apoiar descoberta e conversão.
-            </p>
-          </article>
         </div>
       </div>
     </section>
 
-    <section id="competencias" class="section">
-      <div class="page-shell">
+    <section id="posicionamento" class="p-section" aria-labelledby="resumo-title">
+      <div class="wrap p-split">
         <div class="reveal">
-          <span class="eyebrow">
-            <span class="pulse"></span>
-            Competências
-          </span>
-
-          <h2 class="section-title">Stack técnica para construir, integrar e evoluir soluções digitais.</h2>
-
-          <p class="section-description">
-            Conjunto de competências orientado à criação de sistemas full stack, plataformas SaaS, automações,
-            integrações com APIs, aplicações com IA e apoio à tomada de decisão.
-          </p>
+          <span class="label">01 · Resumo</span>
+          <h2 id="resumo-title" class="h2" data-words>Full Stack com IA aplicada, leitura operacional e visão de negócio.</h2>
+          <p>A proposta profissional é unir desenvolvimento Full Stack, automação de processos, inteligência artificial, dados e estratégia. Não apenas construir telas ou scripts, mas entender o cenário, organizar fluxos, integrar sistemas e criar soluções digitais completas que façam sentido no uso real.</p>
         </div>
-
-        <div class="skill-cloud reveal">
-          <span class="skill">Python</span>
-          <span class="skill">JavaScript</span>
-          <span class="skill">HTML</span>
-          <span class="skill">CSS</span>
-          <span class="skill">Node.js</span>
-          <span class="skill">Full Stack</span>
-          <span class="skill">Backend</span>
-          <span class="skill">Frontend</span>
-          <span class="skill">APIs</span>
-          <span class="skill">Bancos de dados</span>
-          <span class="skill">Git</span>
-          <span class="skill">GitHub</span>
-          <span class="skill">VSCode</span>
-          <span class="skill">Excel</span>
-          <span class="skill">Power BI</span>
-          <span class="skill">Automação</span>
-          <span class="skill">IA Aplicada</span>
-          <span class="skill">Agentes de IA</span>
-          <span class="skill">LLM</span>
-          <span class="skill">RAG</span>
-          <span class="skill">SaaS</span>
-          <span class="skill">Machine Learning</span>
-          <span class="skill">SEO Técnico</span>
-          <span class="skill">Tráfego Orgânico</span>
-          <span class="skill">Copywriting</span>
-          <span class="skill">Processos</span>
-          <span class="skill">Comunicação</span>
-          <span class="skill">Feedback</span>
-        </div>
+        <ul class="p-list">
+          <li>Mateus Paiva Bernardes de Almeida<small>Engenheiro de IA · Líder do setor de IA no Notazz desde outubro de 2026</small></li>
+          <li>São José dos Campos — SP<small>Atendimento remoto</small></li>
+          <li>Engenharia de Inteligência Artificial<small>Formação em andamento</small></li>
+          <li>Formação em Recursos Humanos<small>Formação em andamento</small></li>
+          <li>GitHub: EoPaiva<small><a href="https://github.com/EoPaiva" target="_blank" rel="noopener">github.com/EoPaiva</a></small></li>
+        </ul>
       </div>
     </section>
 
-    <section id="entregas" class="section">
-      <div class="page-shell">
-        <div class="reveal">
-          <span class="eyebrow">
-            <span class="pulse"></span>
-            Frentes de atuação
-          </span>
-
-          <h2 class="section-title">Onde esse perfil gera valor.</h2>
-
-          <p class="section-description">
-            O diferencial está em conectar execução técnica, IA aplicada, entendimento de rotina, operação, dados e
-            indicadores para resolver problemas reais de negócio.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <article class="card reveal">
-            <span class="card-kicker">Full Stack & Produto</span>
-            <h3>Sistemas, plataformas SaaS e dashboards</h3>
-            <p>
-              Desenvolvimento de sistemas web inteligentes, painéis administrativos, dashboards, plataformas SaaS,
-              interfaces responsivas, backend, banco de dados e deploy.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">Automação & IA</span>
-            <h3>Agentes de IA e automação de processos</h3>
-            <p>
-              Estruturação de fluxos com APIs, agentes, LLM, RAG, triagens e automações para organizar demandas,
-              acelerar respostas, reduzir retrabalho e aumentar eficiência.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">Dados & Indicadores</span>
-            <h3>Leitura de performance e decisão</h3>
-            <p>
-              Uso de Excel, Power BI, dashboards, bancos de dados e lógica analítica para organizar informações,
-              acompanhar indicadores e transformar dados dispersos em visão gerencial.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">SEO & Crescimento</span>
-            <h3>Descoberta orgânica, copy e conversão</h3>
-            <p>
-              Estruturação técnica e textual para páginas mais claras, indexáveis e preparadas para ranquear em buscas,
-              respostas de IA e fluxos comerciais.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="trajetoria" class="section">
-      <div class="page-shell">
-        <div class="reveal">
-          <span class="eyebrow">
-            <span class="pulse"></span>
-            Trajetória
-          </span>
-
-          <h2 class="section-title">Experiência prática com base operacional e evolução para tecnologia aplicada.</h2>
-
-          <p class="section-description">
-            A trajetória combina vivência em ambiente industrial, controle de qualidade, conformidade técnica, estoque,
-            padronização e evolução para desenvolvimento Full Stack, IA aplicada, automação, dados, SEO técnico e gestão estratégica.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <article class="card timeline-item reveal">
-            <span class="card-kicker">Aptiv Manufatura e Serviços de Distribuição LTDA</span>
-            <h3>Operador de Produção</h3>
-            <p>
-              Atuação com testes elétricos, controle de qualidade, garantia de conformidade técnica e ambiente orientado
-              a processos.
-            </p>
-          </article>
-
-          <article class="card timeline-item reveal">
-            <span class="card-kicker">Unissul Supermercados</span>
-            <h3>Repositor</h3>
-            <p>
-              Organização e controle de estoque, suporte operacional, padronização e apoio à rotina logística.
-            </p>
-          </article>
-
-          <article class="card timeline-item reveal">
-            <span class="card-kicker">Orbizz.ai · 03/2026 a 06/2026</span>
-            <h3>Analista de Suporte</h3>
-            <p>
-              Suporte técnico e operacional, acompanhamento de chamados, orientação a usuários, análise inicial de problemas
-              e comunicação entre cliente, produto e tecnologia em ambiente SaaS.
-            </p>
-          </article>
-
-          <article class="card timeline-item reveal">
-            <span class="card-kicker">Formação em andamento</span>
-            <h3>Engenharia de Inteligência Artificial & Recursos Humanos</h3>
-            <p>
-              Desenvolvimento de repertório técnico e humano para atuar na interseção entre IA, automação, análise de
-              dados, processos, pessoas e estratégia.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="formacao" class="section">
-      <div class="page-shell">
-        <div class="reveal">
-          <span class="eyebrow">
-            <span class="pulse"></span>
-            Formação e cursos
-          </span>
-
-          <h2 class="section-title">Aprendizado direcionado para tecnologia, IA e gestão.</h2>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card reveal">
-            <span class="card-kicker">Formação acadêmica</span>
-            <h3>Engenharia de Inteligência Artificial</h3>
-            <p>Formação em andamento com foco em IA aplicada, automação, dados e soluções inteligentes.</p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">Formação acadêmica</span>
-            <h3>Formação em Recursos Humanos</h3>
-            <p>Formação em andamento para fortalecer atuação em pessoas, processos, indicadores e gestão estratégica.</p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card-kicker">Cursos complementares</span>
-            <h3>Full Stack, IA, APIs, Dados e SEO Técnico</h3>
-            <p>
-              Python para IA, Engenharia de IA, JavaScript, Node.js, APIs, HTML/CSS responsivo, Git/GitHub, Excel
-              Avançado, Power BI, SEO técnico, automação, comunicação e estratégia de produto.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="section">
-      <div class="page-shell">
-        <div class="card reveal">
-          <span class="card-kicker">Contato</span>
-          <h2 class="section-title">Disponível para CLT, PJ, freelancer, projetos e parcerias estratégicas.</h2>
-          <p class="section-description">
-            Aberto a desafios envolvendo desenvolvimento Full Stack, IA aplicada, automação de processos, integrações
-            com APIs, agentes de IA, LLM/RAG, plataformas SaaS, SEO técnico, tráfego orgânico, análise de dados e soluções digitais completas.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus!%20Vi%20seu%20perfil%20profissional%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">
-              Chamar no WhatsApp
-            </a>
-
-            <a class="button" href="mailto:mpaiiva21@gmail.com">
-              Enviar e-mail
-            </a>
-
-            <a class="button" href="https://github.com/EoPaiva" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-
-            <a class="button" href="cv.pdf" download>
-              Baixar CV.PDF
-            </a>
+    <section id="trajetoria" class="p-section alt" aria-labelledby="trajetoria-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Trajetória</span>
+            <h2 id="trajetoria-title" class="h2" data-words>Base operacional que evoluiu para tecnologia aplicada.</h2>
           </div>
+          <p>Vivência em ambiente industrial, controle de qualidade, conformidade técnica, estoque e padronização, com evolução para desenvolvimento Full Stack, IA aplicada, automação, dados, SEO técnico e gestão estratégica.</p>
+        </header>
+        <ol class="tl tl-detail">
+          <li class="tl-row is-now"><time datetime="2026-10-01">Out/2026 – Presente</time><h3>Engenheiro de IA · Líder do setor de IA</h3><span class="org">Notazz</span></li>
+          <li class="tl-row"><time datetime="2026-03">Mar/2026 – Jun/2026</time><h3>Analista de Suporte</h3><span class="org">Orbizz.ai</span><p>Suporte técnico e operacional, acompanhamento de chamados, orientação a usuários, análise inicial de problemas e comunicação entre cliente, produto e tecnologia em ambiente SaaS.</p></li>
+          <li class="tl-row"><time>Indústria</time><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span><p>Testes elétricos, controle de qualidade, garantia de conformidade técnica e ambiente orientado a processos.</p></li>
+          <li class="tl-row"><time>Varejo</time><h3>Repositor</h3><span class="org">Unissul Supermercados</span><p>Organização e controle de estoque, suporte operacional, padronização e apoio à rotina logística.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="competencias" class="p-section" aria-labelledby="competencias-title">
+      <div class="wrap p-split">
+        <div class="reveal">
+          <span class="label">03 · Competências</span>
+          <h2 id="competencias-title" class="h2" data-words>Stack técnica para construir, integrar e evoluir soluções digitais.</h2>
+          <p>Conjunto de competências orientado à criação de sistemas full stack, plataformas SaaS, automações, integrações com APIs, aplicações com IA e apoio à tomada de decisão.</p>
+        </div>
+        <div class="p-stack reveal">
+          <div>
+            <span class="label label-dim">Linguagens e base</span>
+            <ul class="p-tags"><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Node.js</li><li>Full Stack</li><li>Backend</li><li>Frontend</li><li>APIs</li><li>Bancos de dados</li></ul>
+          </div>
+          <div>
+            <span class="label label-dim">IA e automação</span>
+            <ul class="p-tags"><li>IA aplicada</li><li>Agentes de IA</li><li>LLM</li><li>RAG</li><li>Machine Learning</li><li>Automação</li><li>SaaS</li></ul>
+          </div>
+          <div>
+            <span class="label label-dim">Ferramentas e dados</span>
+            <ul class="p-tags"><li>Git</li><li>GitHub</li><li>VSCode</li><li>Excel</li><li>Power BI</li></ul>
+          </div>
+          <div>
+            <span class="label label-dim">Crescimento e pessoas</span>
+            <ul class="p-tags"><li>SEO técnico</li><li>Tráfego orgânico</li><li>Copywriting</li><li>Processos</li><li>Comunicação</li><li>Feedback</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="entregas" class="p-section alt" aria-labelledby="entregas-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Frentes de atuação</span>
+            <h2 id="entregas-title" class="h2" data-words>Onde esse perfil gera valor.</h2>
+          </div>
+          <p>O diferencial está em conectar execução técnica, IA aplicada, entendimento de rotina, operação, dados e indicadores para resolver problemas reais de negócio.</p>
+        </header>
+        <div class="p-cards">
+          <article class="p-card reveal"><span class="n">01</span><h3>Sistemas, plataformas SaaS e dashboards</h3><p>Sistemas web inteligentes, painéis administrativos, dashboards, plataformas SaaS, interfaces responsivas, backend, banco de dados e deploy.</p></article>
+          <article class="p-card reveal"><span class="n">02</span><h3>Agentes de IA e automação de processos</h3><p>Fluxos com APIs, agentes, LLM, RAG, triagens e automações para organizar demandas, acelerar respostas, reduzir retrabalho e aumentar eficiência.</p></article>
+          <article class="p-card reveal"><span class="n">03</span><h3>Leitura de performance e decisão</h3><p>Excel, Power BI, dashboards, bancos de dados e lógica analítica para organizar informações, acompanhar indicadores e transformar dados dispersos em visão gerencial.</p></article>
+          <article class="p-card reveal"><span class="n">04</span><h3>Descoberta orgânica, copy e conversão</h3><p>Estrutura técnica e textual para páginas mais claras, indexáveis e preparadas para buscas, respostas de IA e fluxos comerciais.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" class="p-section" aria-labelledby="formacao-title">
+      <div class="wrap p-split">
+        <div class="reveal">
+          <span class="label">05 · Formação e cursos</span>
+          <h2 id="formacao-title" class="h2" data-words>Aprendizado direcionado para tecnologia, IA e gestão.</h2>
+          <p>Repertório técnico e humano para atuar na interseção entre IA, automação, análise de dados, processos, pessoas e estratégia.</p>
+        </div>
+        <ul class="p-list">
+          <li>Engenharia de Inteligência Artificial<small>Em andamento · IA aplicada, automação, dados e soluções inteligentes.</small></li>
+          <li>Formação em Recursos Humanos<small>Em andamento · pessoas, processos, indicadores e gestão estratégica.</small></li>
+          <li>Cursos complementares<small>Python para IA, Engenharia de IA, JavaScript, Node.js, APIs, HTML/CSS responsivo, Git/GitHub, Excel Avançado, Power BI, SEO técnico, automação, comunicação e estratégia de produto.</small></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contato" class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">06 · Contato</span>
+        <h2 id="cta-title" data-words>Projetos freelancer e <em>parcerias estratégicas.</em></h2>
+        <p>Aberto a projetos freelancer e parcerias envolvendo desenvolvimento Full Stack, IA aplicada, automação de processos, integrações com APIs, agentes de IA, LLM/RAG, plataformas SaaS, SEO técnico, análise de dados e soluções digitais completas.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="https://wa.me/55035988042182?text=Ol%C3%A1%2C%20Mateus!%20Vi%20seu%20perfil%20profissional%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener">Chamar no WhatsApp <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="mailto:mpaiiva21@gmail.com">Enviar e-mail <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/cv.pdf" download>Baixar CV.pdf <i class="arrow" aria-hidden="true"></i></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="page-shell">
-      <p>M PAIVA_ — Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
-      <p>Aberto a oportunidades CLT, PJ, freelancer, projetos e parcerias. São José dos Campos — SP · Atendimento remoto</p>
+  <footer class="footer footer-sub">
+    <p class="footer-giant" aria-hidden="true" data-text="mPaiva_"><span class="fg-word">mPaiva</span><span class="fg-caret">_</span></p>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Engenheiro de IA e líder do setor de IA no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://linkedin.com/in/mateus-paiva-19804b284" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <span>Feito à mão · HTML, CSS e JavaScript</span>
+      <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
     </div>
   </footer>
 
-  <script>
-    const revealElements = document.querySelectorAll(".reveal");
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("active");
-          revealObserver.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
-
-    document.querySelectorAll(".card, .profile-card").forEach((card) => {
-      card.addEventListener("mousemove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        card.style.background = `
-          radial-gradient(circle at ${x}px ${y}px, rgba(16, 185, 129, 0.12), transparent 28%),
-          linear-gradient(135deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
-          rgba(15, 23, 42, 0.7)
-        `;
-      });
-
-      card.addEventListener("mouseleave", () => {
-        card.style.background = "";
-      });
-    });
-  </script>
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261018-sub-1" defer></script>
 </body>
 </html>
