@@ -52,7 +52,7 @@
   <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="/site.css?v=20261018-mono-2" />
+  <link rel="stylesheet" href="/site.css?v=20261031-agora" />
 
   <script type="application/ld+json">
     {
@@ -223,6 +223,7 @@
       </div>
 
       <div class="nav-end">
+        <button class="term-btn" type="button" aria-haspopup="dialog" aria-controls="term" aria-label="Abrir terminal"><span class="term-glyph" aria-hidden="true">&gt;_</span><kbd>Ctrl K</kbd></button>
         <a href="#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
       </div>
@@ -273,7 +274,7 @@
 
         <div class="hero-bottom hero-fade">
           <span>São José dos Campos — SP · Remoto</span>
-          <span class="available"><i class="pulse" aria-hidden="true"></i>Head of AI no Notazz</span>
+          <a href="#agora" class="available role-chip"><i class="pulse" aria-hidden="true"></i><span>Head of AI</span><b>Notazz</b></a>
           <a href="#cases" class="scroll-cue" aria-label="Rolar para os trabalhos">Role <i aria-hidden="true"></i></a>
         </div>
       </div>
@@ -283,6 +284,26 @@
     <div class="marquee" aria-label="Stack principal">
       <div class="marquee-row"><div class="marquee-track" data-items="TypeScript|React|Next.js|Node.js|Supabase|PostgreSQL|Claude|OpenAI|RAG|MCP|Agentes de IA|GSAP|Vercel"></div></div>
     </div>
+
+    <!-- AGORA · HEAD OF AI -->
+    <section id="agora" class="now" aria-labelledby="now-title">
+      <div class="now-stage">
+        <div class="wrap now-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Agora</span>
+          <span class="label label-dim">Notazz · desde Out/2026</span>
+        </div>
+        <h2 id="now-title" class="now-giant" data-text="Head of AI"><span class="ng-word">Head of AI</span></h2>
+        <div class="wrap now-foot">
+          <p class="now-lead">À frente da área de inteligência artificial do <strong>Notazz</strong>: estratégia, agentes, automações e LLMs aplicados ao produto.</p>
+          <ol class="now-pillars">
+            <li><span>01</span>Estratégia de IA</li>
+            <li><span>02</span>Agentes e automações</li>
+            <li><span>03</span>LLM e RAG no produto</li>
+            <li><span>04</span>Liderança do setor</li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
     <!-- 01 · TRABALHO -->
     <section id="cases" class="section work-section" aria-labelledby="cases-title">
@@ -451,7 +472,7 @@
           <p class="section-desc"><a class="link" href="perfil-profissional.html">Perfil profissional completo <i class="arrow" aria-hidden="true"></i></a></p>
         </header>
         <ol class="tl">
-          <li class="tl-row is-now"><time>Out/2026 – Presente</time><h3>Head of AI</h3><span class="org">Notazz</span></li>
+          <li class="tl-row is-now"><time>Out/2026 – Presente</time><h3><a href="#agora" class="tl-now">Head of AI</a></h3><span class="org">Notazz</span></li>
           <li class="tl-row"><time>Em paralelo</time><h3>Desenvolvimento Full Stack, IA Aplicada &amp; Estratégia</h3><span class="org">São José dos Campos</span></li>
           <li class="tl-row"><time>Mar/2026 – Jun/2026</time><h3>Analista de Suporte</h3><span class="org">Orbizz.ai</span></li>
           <li class="tl-row"><time>Out/2024 – Nov/2025</time><h3>Operador de Produção</h3><span class="org">Aptiv Manufatura</span></li>
@@ -553,13 +574,27 @@
     </div>
   </footer>
 
+  <dialog id="term" class="term" aria-labelledby="term-title">
+    <div class="term-bar">
+      <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span id="term-title">mpaiva@upaiva.dev: ~</span>
+      <button class="term-close" type="button" aria-label="Fechar terminal">esc</button>
+    </div>
+    <div class="term-out" role="log" aria-live="polite"></div>
+    <form class="term-line" autocomplete="off">
+      <label for="term-input" class="term-ps">~ $</label>
+      <input id="term-input" class="term-input" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="send" />
+    </form>
+    <div class="term-chips" aria-label="Comandos sugeridos"></div>
+  </dialog>
+
   <div class="toast" role="status" aria-live="polite"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" defer></script>
   <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
   <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
   <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
-  <script src="/site.js?v=20261031-head" defer></script>
+  <script src="/site.js?v=20261031-agora" defer></script>
   <script src="/analytics-pro-complete.js?v=20260619-audit-agent-1" defer></script>
 </body>
 </html>
