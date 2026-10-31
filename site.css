@@ -434,17 +434,19 @@ html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor
 }
 
 /* ---------- agora: Head of AI desenhado pelas partículas ---------- */
-.now { position: relative; height: 165svh; border-top: 1px solid var(--line); }
+.now { position: relative; height: 140svh; border-top: 1px solid var(--line); }
 .now-stage { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: clamp(28px, 4vw, 52px); padding: calc(var(--nav-h) + 12px) 0 clamp(28px, 5vw, 56px); overflow: hidden; }
-.now-stage::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(1200px, 120vw); aspect-ratio: 2.4; transform: translate(-50%, -54%) scale(calc(.7 + var(--now, 0) * .3)); background: radial-gradient(closest-side, rgba(255,255,255,.09), rgba(255,255,255,0)); opacity: var(--now, 0); pointer-events: none; }
+.now-stage::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(1200px, 120vw); aspect-ratio: 2.4; transform: translate(-50%, -54%) scale(calc(.7 + var(--now, 0) * .3)); background: radial-gradient(closest-side, rgba(255,255,255,.045), rgba(255,255,255,0)); opacity: var(--now, 0); pointer-events: none; }
 .now-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .now-top .label { display: inline-flex; align-items: center; gap: 12px; }
 .now-top .label:first-child { color: #fff; }
-.now-giant { --shine: -60%; position: relative; z-index: 2; margin: 0; padding: 0 var(--gutter); font: 400 clamp(52px, 15vw, 268px)/1 var(--display); letter-spacing: -.055em; text-align: center; white-space: nowrap; }
+.now-giant { --shine: -60%; position: relative; z-index: 2; margin: 0; padding: 0 var(--gutter); font: 300 clamp(48px, 10.5vw, 184px)/1.02 var(--display); letter-spacing: -.05em; text-align: center; white-space: nowrap; }
 .now-giant .ng-word { display: inline-block; color: transparent; background: linear-gradient(180deg, #fff 18%, #bdbdbd 58%, #5c5c5c 100%); -webkit-background-clip: text; background-clip: text; }
 .now-giant::after { content: attr(data-text); position: absolute; inset: 0; padding: inherit; color: transparent; background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,255,255,.95) 50%, rgba(255,255,255,0) 58%) var(--shine) 0 / 250% 100% no-repeat; -webkit-background-clip: text; background-clip: text; pointer-events: none; }
-.has-role-pts .now-giant .ng-word { visibility: hidden; }
-.has-role-pts .now-giant::after { display: none; }
+.has-role-pts .now-giant .ng-word { opacity: 0; filter: blur(12px); transform: scale(1.015); transition: opacity 1.8s var(--ease), filter 1.8s var(--ease), transform 2.4s var(--ease); }
+.has-role-pts .now-giant.is-formed .ng-word { opacity: 1; filter: blur(0); transform: none; }
+.has-role-pts .now-giant.is-formed::after { animation: now-shine 2.6s .9s var(--ease-io) both; }
+@keyframes now-shine { from { background-position: 160% 0; } to { background-position: -60% 0; } }
 .now-foot { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 28px clamp(32px, 6vw, 96px); align-items: end; }
 .now-lead { font: 300 clamp(20px, 1.9vw, 27px)/1.35 var(--display); letter-spacing: -.015em; color: var(--muted); max-width: 30ch; }
 .now-lead strong { font-weight: 300; color: #fff; }
@@ -511,7 +513,7 @@ html.term-open .cursor, html.term-open .cursor-ring { opacity: 0 !important; }
   .term-input { font-size: 16px; }
 }
 @media (max-width: 600px) {
-  .now-giant { font-size: 17vw; }
+  .now-giant { font-size: 13.5vw; }
   .role-chip b { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
