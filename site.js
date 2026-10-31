@@ -15,7 +15,7 @@
   const MODES = {
     "tech": {
       "heroStatus": "[ FULL STACK, IA APLICADA & AUTOMAÇÃO ]",
-      "heroDesc": "Engenheiro de IA e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
+      "heroDesc": "Head of AI no Notazz e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
       "servicesTitle": "Soluções digitais completas com Full Stack, automação e IA aplicada.",
       "servicesDescription": "Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.",
       "services": [
@@ -119,7 +119,7 @@
     },
     "hire": {
       "heroStatus": "[ CONTRATE-ME: CLT, PJ, FREELANCER & PROJETOS ]",
-      "heroDesc": "Engenheiro de IA e líder do setor de IA no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
+      "heroDesc": "Head of AI no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
       "servicesTitle": "Aberto a oportunidades em Full Stack, IA aplicada, automação e crescimento digital.",
       "servicesDescription": "Posso entrar em times, projetos ou operações que precisam transformar problemas reais em software: backend, frontend, banco de dados, APIs, automações, IA aplicada, SEO técnico e entrega publicada.",
       "services": [
