@@ -754,14 +754,14 @@
         return rot(rot([Math.cos(a) * rr, Math.sin(b) * 0.055, Math.sin(a) * rr], 0, 1.15), 0.5, 0);
       } }
     };
-    const MAP = { servicos: "helix", diferencial: "wave", processo: "flow", trajetoria: "rise", faq: "dust", contato: "ring" };
+    const MAP = { agora: "role", servicos: "helix", diferencial: "wave", processo: "flow", trajetoria: "rise", faq: "dust", contato: "ring" };
 
     const resize = () => {
       w = innerWidth; h = innerHeight; dpr = Math.min(window.devicePixelRatio || 1, 2);
       small = w < 900; U = Math.min(w, h) * (small ? 0.4 : 0.42);
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = small ? 1000 : 2200;
+      const n = small ? 1400 : 3200;
       if (n !== N) {
         N = n;
         rnd = Array.from({ length: N }, () => [Math.random(), Math.random(), Math.random()]);
@@ -769,38 +769,44 @@
         from = pos.map((p) => p.slice());
         push = rnd.map(() => [0, 0]);
       }
-      sampleName();
+      sampleTexts();
     };
 
-    // assinatura: as mesmas partículas desenham o nome no rodapé
+    // as mesmas partículas escrevem textos: o cargo em "Agora" e a assinatura no rodapé
     const giant = $(".footer-giant");
-    let namePts = [], push = [], mx = -9999, my = -9999;
-    const sampleName = () => {
-      if (!giant || !N) return;
-      const r = giant.getBoundingClientRect(), cs = getComputedStyle(giant);
+    const TEXTS = {
+      name: { el: giant, weight: 500, cls: "has-ambient", pts: [] },
+      role: { el: $(".now-giant"), weight: 400, cls: "has-role-pts", pts: [] }
+    };
+    let push = [], mx = -9999, my = -9999;
+    const sampleText = (tt) => {
+      const el = tt.el;
+      if (!el || !N) return;
+      const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
       if (!r.width) return;
       const W = Math.ceil(r.width), H = Math.ceil(r.height);
       const off = document.createElement("canvas"); off.width = W; off.height = H;
-      const o = off.getContext("2d");
+      const o = off.getContext("2d", { willReadFrequently: true });
       const size = parseFloat(cs.fontSize);
-      o.font = `500 ${size}px ${cs.fontFamily}`;
+      o.font = `${tt.weight} ${size}px ${cs.fontFamily}`;
       if ("letterSpacing" in o) o.letterSpacing = cs.letterSpacing;
       o.textAlign = "center"; o.textBaseline = "middle"; o.fillStyle = "#fff";
-      o.fillText(giant.dataset.text || "mPaiva_", W / 2, parseFloat(cs.paddingTop) + (H - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)) / 2);
+      o.fillText(el.dataset.text, W / 2, parseFloat(cs.paddingTop) + (H - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)) / 2);
       const data = o.getImageData(0, 0, W, H).data;
       const step = Math.max(2, Math.round(size / 70));
       const pts = [];
       for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (data[(y * W + x) * 4 + 3] > 140) pts.push([x + (Math.random() - 0.5) * step, y + (Math.random() - 0.5) * step]);
       if (!pts.length) return;
       for (let k = pts.length - 1; k > 0; k--) { const j = (Math.random() * (k + 1)) | 0; [pts[k], pts[j]] = [pts[j], pts[k]]; }
-      namePts = Array.from({ length: N }, (_, i) => pts[i % pts.length]);
-      document.documentElement.classList.add("has-ambient");
+      tt.pts = Array.from({ length: N }, (_, i) => pts[i % pts.length]);
+      document.documentElement.classList.add(tt.cls);
     };
-    let nameRect = null;
-    const nameTarget = (i, t, cx, cy) => {
-      const p = namePts[i];
-      if (!p || !nameRect) return [0, 0, 0];
-      let X = nameRect.left + p[0], Y = nameRect.top + p[1];
+    const sampleTexts = () => Object.values(TEXTS).forEach(sampleText);
+    let textRect = null;
+    const textTarget = (i, t, cx, cy) => {
+      const p = TEXTS[shape].pts[i];
+      if (!p || !textRect) return [0, 0, 0];
+      let X = textRect.left + p[0], Y = textRect.top + p[1];
       // o cursor espalha as partículas e elas voltam com mola
       const dx = X - mx, dy = Y - my, d = Math.hypot(dx, dy), R = small ? 0 : 110;
       let px = 0, py = 0;
@@ -811,7 +817,7 @@
     };
 
     const target = (i, t, cx, cy) => {
-      if (shape === "name") return nameTarget(i, t, cx, cy);
+      if (TEXTS[shape]) return textTarget(i, t, cx, cy);
       const sh = SHAPES[shape];
       const p = rot(sh.f(i, i / N, rnd[i], t), yaw, pitch);
       p[0] += small ? 0 : sh.ox * (w / h > 1.2 ? 1.25 : 1); p[1] += small ? 0 : sh.oy;
@@ -824,12 +830,12 @@
       yaw += (yawT - yaw) * 0.04; pitch += (pitchT - pitch) * 0.04;
       ctx.clearRect(0, 0, w, h);
       if (fade < 0.005 && fadeTarget === 0) { raf = 0; return; }
-      const cx = w / 2, cy = h / 2, isName = shape === "name";
+      const cx = w / 2, cy = h / 2, isName = !!TEXTS[shape];
       const base = (isName ? 0.95 : small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
       let shineX = 0, shineW = 1;
-      if (isName && giant) {
-        nameRect = giant.getBoundingClientRect();
-        shineW = nameRect.width; shineX = nameRect.left + ((t * 0.28) % 1.6 - 0.3) * shineW;
+      if (isName) {
+        textRect = TEXTS[shape].el.getBoundingClientRect();
+        shineW = textRect.width; shineX = textRect.left + ((t * 0.28) % 1.6 - 0.3) * shineW;
       }
       const dur = isName ? 2400 : DUR;
       for (let i = 0; i < N; i++) {
@@ -869,9 +875,12 @@
 
     resize();
     window.addEventListener("resize", resize, { passive: true });
-    document.fonts?.ready.then(sampleName);
+    document.fonts?.ready.then(sampleTexts);
     const spy = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) setShape(e.target.classList.contains("footer") ? (namePts.length ? "name" : "none") : MAP[e.target.id] || "none"); });
+      entries.forEach((e) => { if (e.isIntersecting) {
+        const next = e.target.classList.contains("footer") ? "name" : MAP[e.target.id] || "none";
+        setShape(TEXTS[next] && !TEXTS[next].pts.length ? "none" : next);
+      } });
     }, { rootMargin: "-50% 0px -50% 0px" });
     $$("main > section, .footer").forEach((sec) => spy.observe(sec));
     document.addEventListener("visibilitychange", () => { if (document.hidden) { cancelAnimationFrame(raf); raf = 0; } else if (fadeTarget) start(); });
@@ -987,6 +996,28 @@
           });
           btn.addEventListener("pointerleave", () => { xTo(0); yTo(0); });
         });
+      }
+
+      // agora: o palco acende, o texto entra e os pilares se preenchem durante a rolagem
+      const now = $(".now");
+      if (now) {
+        const stage = now.querySelector(".now-stage");
+        gsap.timeline({ scrollTrigger: { trigger: now, start: "top 75%", end: "bottom 40%", scrub: 1 } })
+          .fromTo(stage, { "--now": 0 }, { "--now": 1, ease: "power2.out", duration: 0.35 })
+          .to(stage, { "--now": 1, duration: 0.4 })
+          .to(stage, { "--now": 0, ease: "power2.in", duration: 0.25 });
+        gsap.from([...now.querySelectorAll(".now-top .label"), now.querySelector(".now-lead")], {
+          y: 28, opacity: 0, filter: "blur(8px)", duration: 1.2, ease: "expo.out", stagger: 0.1,
+          scrollTrigger: { trigger: now, start: "top 45%" }
+        });
+        const pillars = $$(".now-pillars li", now);
+        gsap.from(pillars, { y: 22, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: now, start: "top 35%" } });
+        gsap.timeline({ scrollTrigger: { trigger: now, start: "top 30%", end: "bottom bottom", scrub: 0.8 } })
+          .fromTo(pillars, { "--fill": 0 }, { "--fill": 1, ease: "none", stagger: 0.5, duration: 1 });
+        const ng = now.querySelector(".now-giant");
+        if (!document.documentElement.classList.contains("has-role-pts")) {
+          gsap.fromTo(ng, { "--shine": "160%" }, { "--shine": "-60%", duration: 1.6, ease: "power2.inOut", scrollTrigger: { trigger: now, start: "top 40%" } });
+        }
       }
 
       // assinatura do rodapé: letras chegam do fundo, desfocadas, e um brilho metálico atravessa a palavra
@@ -1142,6 +1173,150 @@
     tick(); setInterval(tick, 30000);
   };
 
+  /* ---------- terminal: Ctrl K abre um console para navegar pelo portfólio ---------- */
+  const initTerminal = () => {
+    const dlg = $("#term"), btn = $(".term-btn");
+    if (!dlg || typeof dlg.showModal !== "function") { if (btn) btn.hidden = true; return; }
+    const out = $(".term-out", dlg), form = $(".term-line", dlg), input = $(".term-input", dlg), chips = $(".term-chips", dlg);
+    const EMAIL = "mpaiiva21@gmail.com";
+    const SECTIONS = { inicio: "inicio", agora: "agora", trabalho: "cases", servicos: "servicos", processo: "processo", trajetoria: "trajetoria", faq: "faq", contato: "contato" };
+    const history = [];
+    let hIdx = 0, greeted = false, queue = Promise.resolve();
+
+    // cada linha é [texto] ou [texto, classe] ou { href, text }; tudo vira nó de texto, nada de HTML vindo do usuário
+    const line = (parts, cls) => {
+      const p = document.createElement("p");
+      if (cls) p.className = cls;
+      (Array.isArray(parts) ? parts : [parts]).forEach((part) => {
+        if (part && part.href) {
+          const a = document.createElement("a");
+          a.href = part.href; a.textContent = part.text;
+          if (/^https?:/.test(part.href)) { a.target = "_blank"; a.rel = "noopener"; }
+          p.append(a);
+        } else if (Array.isArray(part)) {
+          const sp = document.createElement("span"); sp.className = part[1]; sp.textContent = part[0]; p.append(sp);
+        } else p.append(document.createTextNode(part ?? ""));
+      });
+      return p;
+    };
+    const typeIn = (p) => new Promise((done) => {
+      out.append(p); out.scrollTop = out.scrollHeight;
+      if (reduced.matches) return done();
+      const nodes = [];
+      const walk = (n) => n.nodeType === 3 ? nodes.push([n, n.textContent]) : n.childNodes.forEach(walk);
+      walk(p);
+      nodes.forEach(([n]) => { n.textContent = ""; });
+      let k = 0, c = 0;
+      const step = () => {
+        for (let burst = 0; burst < 6 && k < nodes.length; burst++) {
+          const [n, full] = nodes[k];
+          n.textContent = full.slice(0, ++c);
+          if (c >= full.length) { k++; c = 0; }
+        }
+        out.scrollTop = out.scrollHeight;
+        k < nodes.length ? requestAnimationFrame(step) : done();
+      };
+      step();
+    });
+    const row = (r) => {
+      if (r === "") return Object.assign(document.createElement("div"), { className: "gap" });
+      if (typeof r === "string") return line(r);
+      if (r.length === 2 && typeof r[0] === "string" && typeof r[1] === "string") return line(r[0], r[1]);
+      return line(r[0]);
+    };
+    const print = (...rows) => (queue = queue.then(() => rows.reduce((q, r) => q.then(() => typeIn(row(r))), Promise.resolve())));
+    const go = (id) => { close(); setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: reduced.matches ? "auto" : "smooth" }), 180); };
+
+    const projects = () => $$(".work-card").map((card) => ({ title: $("h3", card)?.textContent.trim(), href: $("a[href^='http']", card)?.href }));
+    const COMMANDS = {
+      help: { d: "lista os comandos", run: () => print(
+        ["comandos disponíveis:", "dim"],
+        ...Object.entries(COMMANDS).filter(([, c]) => c.d).map(([k, c]) => [[[k.padEnd(16), "hi"], c.d]]),
+        "", ["dica: Tab completa, ↑ ↓ repetem comandos.", "dim"]) },
+      sobre: { d: "quem é o Mateus", run: () => print(
+        [[["Mateus Paiva", "hi"]]],
+        "Head of AI no Notazz e desenvolvedor full stack.",
+        "Plataformas, agentes de IA, automações e integrações.",
+        ["São José dos Campos, SP · atendimento remoto", "dim"]) },
+      agora: { d: "o cargo atual", run: () => { print("Head of AI · Notazz · desde Out/2026"); go("agora"); } },
+      projetos: { d: "trabalhos selecionados", run: () => print(...projects().map((p, i) => [[[String(i + 1).padStart(2, "0") + "  ", "dim"], p.href ? { href: p.href, text: p.title } : p.title]])) },
+      stack: { d: "ferramentas do dia a dia", run: () => print(($(".marquee-track")?.dataset.items || "").split("|").join(" · ")) },
+      contato: { d: "como falar comigo", run: () => print(
+        [[["email     ", "dim"], { href: `mailto:${EMAIL}`, text: EMAIL }]],
+        [[["whatsapp  ", "dim"], { href: WHATSAPP, text: "+55 35 98804-2182" }]],
+        [[["linkedin  ", "dim"], { href: "https://linkedin.com/in/mateus-paiva-19804b284", text: "mateus-paiva" }]],
+        [[["github    ", "dim"], { href: "https://github.com/EoPaiva", text: "EoPaiva" }]]) },
+      email: { d: "copia o e-mail", run: async () => {
+        try { await navigator.clipboard.writeText(EMAIL); print(`copiado: ${EMAIL}`); } catch (_) { print(EMAIL); }
+      } },
+      cv: { d: "abre o currículo em PDF", run: () => { print("abrindo cv.pdf…"); window.open("/cv.pdf", "_blank", "noopener"); } },
+      ir: { d: "ir <seção>  ex.: ir trabalho", run: (arg) => {
+        const id = SECTIONS[(arg || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")];
+        if (!id) return print(`seções: ${Object.keys(SECTIONS).join(", ")}`);
+        go(id);
+      } },
+      hora: { d: "horário em São José dos Campos", run: () => print(new Intl.DateTimeFormat("pt-BR", { dateStyle: "full", timeStyle: "short", timeZone: "America/Sao_Paulo" }).format(new Date())) },
+      limpar: { d: "limpa a tela", run: () => { out.textContent = ""; } },
+      sair: { d: "fecha o terminal", run: () => close() },
+      "sudo contratar": { run: () => {
+        print(["[sudo] verificando permissões…", "dim"], "acesso concedido. abrindo conversa no WhatsApp.");
+        queue.then(() => setTimeout(() => window.open(wa("Olá, Mateus. Vim pelo terminal do seu site e quero conversar sobre um projeto."), "_blank", "noopener"), 400));
+      } }
+    };
+    const ALIASES = { ajuda: "help", "?": "help", whoami: "sobre", ls: "projetos", trabalho: "projetos", clear: "limpar", cls: "limpar", exit: "sair", cd: "ir", goto: "ir", date: "hora", contratar: "sudo contratar", "sudo hire-me": "sudo contratar" };
+
+    const exec = (raw) => {
+      const text = raw.trim();
+      if (!text) return;
+      history.push(text); hIdx = history.length;
+      out.append(line(text, "cmd"));
+      const low = text.toLowerCase();
+      const key = COMMANDS[low] ? low : ALIASES[low] || (() => { const [c] = low.split(/\s+/); return COMMANDS[c] ? c : ALIASES[c]; })();
+      const arg = low.split(/\s+/).slice(1).join(" ");
+      if (key && COMMANDS[key]) COMMANDS[key].run(arg);
+      else print(`comando não encontrado: ${text}. digite help.`);
+    };
+
+    const open = () => {
+      if (dlg.open) return;
+      dlg.showModal();
+      document.documentElement.classList.add("term-open");
+      if (!greeted) {
+        greeted = true;
+        print([[["mPaiva_ ", "hi"], "terminal · v1.0"]], ["Head of AI no Notazz · full stack", "dim"], "", "digite help, ou toque num comando abaixo.");
+      }
+      setTimeout(() => input.focus(), 30);
+    };
+    const close = () => { if (dlg.open) dlg.close(); };
+    dlg.addEventListener("close", () => { document.documentElement.classList.remove("term-open"); btn?.focus({ preventScroll: true }); });
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
+    $(".term-close", dlg)?.addEventListener("click", close);
+    btn?.addEventListener("click", open);
+    document.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); dlg.open ? close() : open(); }
+    });
+    if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) { const kbd = $("kbd", btn); if (kbd) kbd.textContent = "⌘ K"; }
+
+    form.addEventListener("submit", (e) => { e.preventDefault(); const v = input.value; input.value = ""; exec(v); });
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowUp" && history.length) { e.preventDefault(); hIdx = Math.max(0, hIdx - 1); input.value = history[hIdx]; }
+      else if (e.key === "ArrowDown") { e.preventDefault(); hIdx = Math.min(history.length, hIdx + 1); input.value = history[hIdx] || ""; }
+      else if (e.key === "Tab") {
+        const v = input.value.toLowerCase();
+        if (!v) return;
+        e.preventDefault();
+        const hit = [...Object.keys(COMMANDS), ...Object.keys(ALIASES)].find((k) => k.startsWith(v));
+        if (hit) input.value = hit;
+      }
+    });
+    ["help", "sobre", "projetos", "contato", "sudo contratar"].forEach((c) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.textContent = c;
+      b.addEventListener("click", () => { exec(c); input.focus(); });
+      chips.append(b);
+    });
+  };
+
   /* ---------- início ---------- */
   const boot = () => {
     initMarquee();
@@ -1152,6 +1327,7 @@
     initPreview();
     initCopy();
     initClock();
+    initTerminal();
     observeReveals();
     initHeroCanvas();
     initAmbient();
