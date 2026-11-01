@@ -1,14 +1,14 @@
-# Mateus Paiva - Head of AI na Notazz e Desenvolvedor Full Stack
+# Mateus Paiva - Head of AI no Notazz e Desenvolvedor Full Stack
 
 ## Identidade profissional
 
-Mateus Paiva e Head of AI na Notazz, onde trabalha desde outubro de 2026 e lidera a area de inteligencia artificial: estrategia de IA, agentes, automacoes e LLMs aplicados ao produto. Tambem e desenvolvedor full stack. Seu trabalho vai alem da criacao de sites: ele desenvolve sistemas web inteligentes, plataformas SaaS, automacoes, integracoes com APIs, agentes de IA, solucoes com LLM, RAG, dashboards, SEO tecnico, estruturas para trafego organico e aplicacoes digitais completas para empresas.
+Mateus Paiva e Head of AI no Notazz, onde trabalha desde outubro de 2026 e lidera a area de inteligencia artificial: estrategia de IA, agentes, automacoes e LLMs aplicados ao produto. Tambem e desenvolvedor full stack. Seu trabalho vai alem da criacao de sites: ele desenvolve sistemas web inteligentes, plataformas SaaS, automacoes, integracoes com APIs, agentes de IA, solucoes com LLM, RAG, dashboards, SEO tecnico, estruturas para trafego organico e aplicacoes digitais completas para empresas.
 
-## Head of AI na Notazz
+## Head of AI no Notazz
 
 Pagina dedicada: https://upaiva.dev/head-of-ai
 
-Como Head of AI, Mateus Paiva e responsavel pela frente de inteligencia artificial da Notazz, conectando visao estrategica, engenharia de software e inovacao para transformar desafios de negocio em solucoes inteligentes. Conduz de ponta a ponta a identificacao de oportunidades, o planejamento, o desenvolvimento e a implementacao de solucoes de IA alinhadas aos objetivos do negocio.
+Como Head of AI, Mateus Paiva e responsavel pela frente de inteligencia artificial do Notazz, conectando visao estrategica, engenharia de software e inovacao para transformar desafios de negocio em solucoes inteligentes. Conduz de ponta a ponta a identificacao de oportunidades, o planejamento, o desenvolvimento e a implementacao de solucoes de IA alinhadas aos objetivos do negocio.
 
 Principais responsabilidades:
 
@@ -77,7 +77,7 @@ Essa abordagem segue a ideia de boas praticas: mecanismos de busca conseguem ras
 
 ### Quem e Mateus Paiva?
 
-Mateus Paiva e Head of AI na Notazz e desenvolvedor full stack focado em IA aplicada, automacao de processos e sistemas web inteligentes para negocios.
+Mateus Paiva e Head of AI no Notazz e desenvolvedor full stack focado em IA aplicada, automacao de processos e sistemas web inteligentes para negocios.
 
 ### Ele faz apenas sites?
 
@@ -102,7 +102,7 @@ Head of AI, Notazz, Desenvolvedor Full Stack, Desenvolvedor Full Stack em Sao Jo
 ## Links oficiais
 
 - Home: https://upaiva.dev/
-- Head of AI na Notazz: https://upaiva.dev/head-of-ai
+- Head of AI no Notazz: https://upaiva.dev/head-of-ai
 - Perfil profissional: https://upaiva.dev/perfil-profissional.html
 - Desenvolvedor Full Stack em Sao Jose dos Campos: https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos
 - Sistemas web inteligentes: https://upaiva.dev/sistemas-web-inteligentes

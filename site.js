@@ -15,7 +15,7 @@
   const MODES = {
     "tech": {
       "heroStatus": "[ FULL STACK, IA APLICADA & AUTOMAÇÃO ]",
-      "heroDesc": "Head of AI na Notazz e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
+      "heroDesc": "Head of AI no Notazz e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
       "servicesTitle": "Soluções digitais completas com Full Stack, automação e IA aplicada.",
       "servicesDescription": "Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.",
       "services": [
@@ -118,13 +118,13 @@
       ]
     },
     "hire": {
-      "heroStatus": "[ CONTRATE-ME: CLT, PJ, FREELANCER & PROJETOS ]",
-      "heroDesc": "Head of AI na Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
+      "heroStatus": "[ CONTRATE-ME: FREELANCER & PARCERIAS ]",
+      "heroDesc": "Head of AI no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
       "servicesTitle": "Aberto a oportunidades em Full Stack, IA aplicada, automação e crescimento digital.",
       "servicesDescription": "Posso entrar em times, projetos ou operações que precisam transformar problemas reais em software: backend, frontend, banco de dados, APIs, automações, IA aplicada, SEO técnico e entrega publicada.",
       "services": [
         {
-          "title": "CLT ou PJ em desenvolvimento Full Stack",
+          "title": "Projetos freelancer em desenvolvimento Full Stack",
           "text": "Atuação em frontend, backend, banco de dados, APIs, manutenção, evolução de produto e publicação de aplicações.",
           "tags": [
             "JavaScript",
@@ -178,7 +178,7 @@
         },
         {
           "title": "Modelo de contratação",
-          "text": "Definimos CLT, PJ, freelancer, projeto fechado ou parceria com expectativas, prazos e responsabilidades.",
+          "text": "Definimos freelancer, projeto fechado ou parceria com expectativas, prazos e responsabilidades.",
           "output": "Formato definido."
         },
         {
@@ -209,8 +209,8 @@
       ],
       "faq": [
         {
-          "question": "Você está aberto a CLT, PJ e freelancer?",
-          "answer": "Sim. Estou aberto a oportunidades CLT, PJ, freelancer, projetos fechados e parcerias em Full Stack, IA aplicada, automação, APIs, SEO técnico e plataformas digitais."
+          "question": "Você está aberto a projetos freelancer e parcerias?",
+          "answer": "Sim. Estou aberto a projetos freelancer, projetos fechados e parcerias em Full Stack, IA aplicada, automação, APIs, SEO técnico e plataformas digitais."
         },
         {
           "question": "Que tipo de vaga ou projeto combina com seu perfil?",
@@ -326,7 +326,7 @@
     ],
     hire: [
       { label: "Ver perfil profissional", href: "perfil-profissional.html", cls: "btn-light" },
-      { label: "Falar sobre oportunidade", href: wa("Olá, Mateus. Vi seu site e quero conversar sobre uma oportunidade CLT, PJ ou freelancer."), cls: "btn-ghost", external: true, intent: "whatsapp-oportunidade-hero" }
+      { label: "Falar sobre oportunidade", href: wa("Olá, Mateus. Vi seu site e quero conversar sobre um projeto freelancer ou parceria."), cls: "btn-ghost", external: true, intent: "whatsapp-oportunidade-hero" }
     ],
     client: [
       { label: "Quero automatizar um processo", href: "#processo", cls: "btn-light" },
@@ -336,13 +336,13 @@
 
   const RESULT_BY_MODE = {
     tech: "Escopo técnico, arquitetura, integrações e entrega full stack com IA aplicada.",
-    hire: "Oportunidade profissional, modelo CLT/PJ/freelancer e aderência ao desafio técnico.",
+    hire: "Projeto freelancer ou parceria, com escopo e aderência ao desafio técnico.",
     client: "Solução digital clara para reduzir trabalho manual, organizar processos e melhorar presença digital."
   };
 
   const MESSAGE_BY_MODE = {
     tech: (f, d) => `Olá, Mateus. Quero conversar sobre ${f.toLowerCase()} com entrega em ${d.toLowerCase()}, considerando backend, frontend, APIs, IA aplicada e SEO técnico.`,
-    hire: (f, d) => `Olá, Mateus. Quero conversar sobre uma oportunidade ou projeto. O foco é ${f} com modelo de entrega em ${d}. Podemos falar sobre CLT, PJ, freelancer ou parceria?`,
+    hire: (f, d) => `Olá, Mateus. Quero conversar sobre uma oportunidade ou projeto. O foco é ${f} com modelo de entrega em ${d}. Podemos falar sobre freelancer ou parceria?`,
     client: (f, d) => `Olá, Mateus. Tenho uma demanda de ${f} e quero entender uma solução em ${d} para meu negócio. Podemos conversar?`
   };
 
@@ -754,7 +754,7 @@
         return rot(rot([Math.cos(a) * rr, Math.sin(b) * 0.055, Math.sin(a) * rr], 0, 1.15), 0.5, 0);
       } }
     };
-    const MAP = { agora: "role", servicos: "helix", diferencial: "wave", processo: "flow", trajetoria: "rise", faq: "dust", contato: "ring" };
+    const MAP = { servicos: "helix", diferencial: "wave", processo: "flow", trajetoria: "rise", faq: "dust", contato: "ring" };
 
     const resize = () => {
       w = innerWidth; h = innerHeight; dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -767,57 +767,10 @@
         rnd = Array.from({ length: N }, () => [Math.random(), Math.random(), Math.random()]);
         pos = rnd.map((r) => [(r[0] - 0.5) * 6, (r[1] - 0.5) * 4, (r[2] - 0.5) * 3]);
         from = pos.map((p) => p.slice());
-        push = rnd.map(() => [0, 0]);
       }
-      sampleTexts();
     };
 
-    // as mesmas partículas escrevem textos: o cargo em "Agora" e a assinatura no rodapé
-    const giant = $(".footer-giant");
-    const TEXTS = {
-      name: { el: giant, weight: 500, cls: "has-ambient", pts: [] },
-      role: { el: $(".now-giant"), weight: 300, cls: "has-role-pts", pts: [] }
-    };
-    let push = [], mx = -9999, my = -9999;
-    const sampleText = (tt) => {
-      const el = tt.el;
-      if (!el || !N) return;
-      const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
-      if (!r.width) return;
-      const W = Math.ceil(r.width), H = Math.ceil(r.height);
-      const off = document.createElement("canvas"); off.width = W; off.height = H;
-      const o = off.getContext("2d", { willReadFrequently: true });
-      const size = parseFloat(cs.fontSize);
-      o.font = `${tt.weight} ${size}px ${cs.fontFamily}`;
-      if ("letterSpacing" in o) o.letterSpacing = cs.letterSpacing;
-      o.textAlign = "center"; o.textBaseline = "middle"; o.fillStyle = "#fff";
-      o.fillText(el.dataset.text, W / 2, parseFloat(cs.paddingTop) + (H - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)) / 2);
-      const data = o.getImageData(0, 0, W, H).data;
-      const step = Math.max(2, Math.round(size / 70));
-      const pts = [];
-      for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (data[(y * W + x) * 4 + 3] > 140) pts.push([x + (Math.random() - 0.5) * step, y + (Math.random() - 0.5) * step]);
-      if (!pts.length) return;
-      for (let k = pts.length - 1; k > 0; k--) { const j = (Math.random() * (k + 1)) | 0; [pts[k], pts[j]] = [pts[j], pts[k]]; }
-      tt.pts = Array.from({ length: N }, (_, i) => pts[i % pts.length]);
-      document.documentElement.classList.add(tt.cls);
-    };
-    const sampleTexts = () => Object.values(TEXTS).forEach(sampleText);
-    let textRect = null, roleDim = 1, formed = false;
-    const textTarget = (i, t, cx, cy) => {
-      const p = TEXTS[shape].pts[i];
-      if (!p || !textRect) return [0, 0, 0];
-      let X = textRect.left + p[0], Y = textRect.top + p[1];
-      // o cursor espalha as partículas e elas voltam com mola
-      const soft = shape === "role", dx = X - mx, dy = Y - my, d = Math.hypot(dx, dy), R = small ? 0 : soft ? 80 : 110;
-      let px = 0, py = 0;
-      if (d < R && d > 0.01) { const f = Math.pow(1 - d / R, 2) * (soft ? 34 : 70); px = (dx / d) * f; py = (dy / d) * f; }
-      const q = push[i]; q[0] += (px - q[0]) * 0.14; q[1] += (py - q[1]) * 0.14;
-      X += q[0] + Math.sin(t * 1.3 + i) * 0.6; Y += q[1] + Math.cos(t * 1.1 + i * 0.7) * 0.6;
-      return [(X - cx) / U, (Y - cy) / U, 0];
-    };
-
-    const target = (i, t, cx, cy) => {
-      if (TEXTS[shape]) return textTarget(i, t, cx, cy);
+    const target = (i, t) => {
       const sh = SHAPES[shape];
       const p = rot(sh.f(i, i / N, rnd[i], t), yaw, pitch);
       p[0] += small ? 0 : sh.ox * (w / h > 1.2 ? 1.25 : 1); p[1] += small ? 0 : sh.oy;
@@ -830,37 +783,22 @@
       yaw += (yawT - yaw) * 0.04; pitch += (pitchT - pitch) * 0.04;
       ctx.clearRect(0, 0, w, h);
       if (fade < 0.005 && fadeTarget === 0) { raf = 0; return; }
-      const cx = w / 2, cy = h / 2, isName = !!TEXTS[shape], isRole = shape === "role";
-      // no cargo, as partículas montam o texto e depois cedem lugar à tipografia, ficando só como poeira fina
-      const nowFormed = isRole && fadeTarget === 1 && now - switchAt > 2300;
-      if (nowFormed !== formed) { formed = nowFormed; TEXTS.role.el?.classList.toggle("is-formed", formed); }
-      roleDim += ((formed ? 0.16 : 1) - roleDim) * 0.035;
-      const base = (isName ? (isRole ? 0.85 * roleDim : 0.95) : small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
-      let shineX = 0, shineW = 1;
-      if (isName) {
-        textRect = TEXTS[shape].el.getBoundingClientRect();
-        shineW = textRect.width; shineX = textRect.left + ((t * 0.28) % 1.6 - 0.3) * shineW;
-      }
-      const dur = isName ? 2400 : DUR;
+      const cx = w / 2, cy = h / 2;
+      const base = (small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
       for (let i = 0; i < N; i++) {
         let p = pos[i];
         if (shape !== "none") {
-          const q = target(i, t, cx, cy);
+          const q = target(i, t);
           const d = (rnd[i][0] * 0.35);
-          let k = Math.min(1, Math.max(0, ((now - switchAt) / dur - d) / (1 - 0.35)));
+          let k = Math.min(1, Math.max(0, ((now - switchAt) / DUR - d) / (1 - 0.35)));
           k = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
           const f = from[i];
           p = pos[i] = [f[0] + (q[0] - f[0]) * k, f[1] + (q[1] - f[1]) * k, f[2] + (q[2] - f[2]) * k];
         }
         const s = 3 / (3 + p[2]);
         if (s <= 0) continue;
-        let a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
-        let r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
-        if (isName) {
-          const X = cx + p[0] * U, band = Math.exp(-Math.pow((X - shineX) / (shineW * 0.07), 2));
-          a = Math.min(1, base * (0.62 + rnd[i][1] * 0.38) + (isRole ? 0 : band * 0.5 * fade));
-          r = isRole ? (small ? 1 : 1.2) : (small ? 1.3 : 1.7) + band * 1.2;
-        }
+        const a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
+        const r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
         if (a < 0.01) continue;
         ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
         ctx.fillRect(cx + p[0] * U * s - r / 2, cy + p[1] * U * s - r / 2, r, r);
@@ -873,24 +811,55 @@
       if (next === shape && fadeTarget === 1) return;
       if (next === "none") { fadeTarget = 0; start(); return; }
       from = pos.map((p) => p.slice());
-      if (next !== shape || fade < 0.05) { switchAt = performance.now(); roleDim = 1; }
+      if (next !== shape || fade < 0.05) switchAt = performance.now();
       shape = next; fadeTarget = 1; start();
     };
 
     resize();
     window.addEventListener("resize", resize, { passive: true });
-    document.fonts?.ready.then(sampleTexts);
+    // cada seção escolhe uma forma; o card "Agora" e o rodapé têm desenho próprio, então as partículas se apagam
     const spy = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) {
-        const next = e.target.classList.contains("footer") ? "name" : MAP[e.target.id] || "none";
-        setShape(TEXTS[next] && !TEXTS[next].pts.length ? "none" : next);
-      } });
+      entries.forEach((e) => { if (e.isIntersecting) setShape(MAP[e.target.id] || "none"); });
     }, { rootMargin: "-50% 0px -50% 0px" });
     $$("main > section, .footer").forEach((sec) => spy.observe(sec));
     document.addEventListener("visibilitychange", () => { if (document.hidden) { cancelAnimationFrame(raf); raf = 0; } else if (fadeTarget) start(); });
     if (finePointer.matches) {
-      window.addEventListener("pointermove", (e) => { mx = e.clientX; my = e.clientY; yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
-      document.documentElement.addEventListener("pointerleave", () => { mx = my = -9999; });
+      window.addEventListener("pointermove", (e) => { yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
+    }
+  };
+
+  /* ---------- agora: rede neural dentro do card e brilho que segue o cursor ---------- */
+  const initNow = () => {
+    const card = $(".now-card");
+    if (!card) return;
+    const state = card._net = { reveal: 1 };
+    const canvas = $(".now-net", card), visual = $(".now-visual", card);
+    if (window.MPNet && canvas && visual) {
+      window.MPNet(canvas, visual, {
+        pointerHost: card,
+        layout: (w, h) => (w < 620
+          ? { cx: w * 0.5, cy: h * 0.5, S: Math.min(w * 0.27, h * 0.36) }
+          : { cx: w * 0.57, cy: h * 0.46, S: Math.min(w * 0.235, h * 0.33) }),
+        progress: () => { const r = card.getBoundingClientRect(); return (innerHeight - r.top) / (innerHeight + r.height); },
+        reveal: () => state.reveal,
+        spinScroll: 1.6,
+        hoverRadius: 120,
+        mask: (ctx, w, h) => {
+          const g = w < 620 ? ctx.createLinearGradient(0, 0, 0, h) : ctx.createLinearGradient(0, 0, w, 0);
+          if (w < 620) { g.addColorStop(0.55, "#000"); g.addColorStop(1, "rgba(0,0,0,0)"); }
+          else { g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(0.22, "rgba(0,0,0,.4)"); g.addColorStop(0.46, "#000"); }
+          return g;
+        }
+      });
+    }
+    if (finePointer.matches) {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        card.style.setProperty("--my", `${e.clientY - r.top}px`);
+        card.classList.add("is-lit");
+      });
+      card.addEventListener("pointerleave", () => { card.classList.remove("is-lit"); card.style.removeProperty("--mx"); card.style.removeProperty("--my"); });
     }
   };
 
@@ -1002,47 +971,23 @@
         });
       }
 
-      // agora: o palco acende, o texto entra e os pilares se preenchem durante a rolagem
-      const now = $(".now");
-      if (now) {
-        const stage = now.querySelector(".now-stage");
-        gsap.timeline({ scrollTrigger: { trigger: now, start: "top 75%", end: "bottom 40%", scrub: 1 } })
-          .fromTo(stage, { "--now": 0 }, { "--now": 1, ease: "power2.out", duration: 0.35 })
-          .to(stage, { "--now": 1, duration: 0.4 })
-          .to(stage, { "--now": 0, ease: "power2.in", duration: 0.25 });
-        gsap.from([...now.querySelectorAll(".now-top .label"), now.querySelector(".now-lead"), now.querySelector(".now-link")].filter(Boolean), {
-          y: 28, opacity: 0, filter: "blur(8px)", duration: 1.2, ease: "expo.out", stagger: 0.1,
-          scrollTrigger: { trigger: now, start: "top 45%" }
-        });
-        const pillars = $$(".now-pillars li", now);
-        gsap.from(pillars, { y: 22, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: now, start: "top 35%" } });
-        gsap.timeline({ scrollTrigger: { trigger: now, start: "top 30%", end: "bottom bottom", scrub: 0.8 } })
-          .fromTo(pillars, { "--fill": 0 }, { "--fill": 1, ease: "none", stagger: 0.5, duration: 1 });
-        const ng = now.querySelector(".now-giant");
-        if (!document.documentElement.classList.contains("has-role-pts")) {
-          gsap.fromTo(ng, { "--shine": "160%" }, { "--shine": "-60%", duration: 1.6, ease: "power2.inOut", scrollTrigger: { trigger: now, start: "top 40%" } });
-        }
-      }
-
-      // assinatura do rodapé: letras chegam do fundo, desfocadas, e um brilho metálico atravessa a palavra
-      const giant = $(".footer-giant");
-      if (giant && SplitText && !document.documentElement.classList.contains("has-ambient")) {
-        const split = new SplitText(giant.querySelector(".fg-word"), { type: "chars", charsClass: "ch" });
-        const chars = [...split.chars, giant.querySelector(".fg-caret")];
-        gsap.timeline({ scrollTrigger: { trigger: giant, start: "top bottom", end: "center 45%", scrub: 1.2, refreshPriority: -1 } })
-          .from(chars, { opacity: 0, filter: "blur(28px)", scale: 2.6, rotationX: -75, yPercent: 35, z: 260, ease: "power3.out", duration: 1, stagger: { each: 0.09, from: "center" } }, 0)
-          .from(giant, { letterSpacing: "0.32em", ease: "power2.out", duration: 1.2 }, 0)
-          .fromTo(giant, { "--glow": 0 }, { "--glow": 1, ease: "power1.in", duration: 0.6 }, 0.5)
-          .fromTo(giant, { "--shine": "160%" }, { "--shine": "-60%", ease: "power2.inOut", duration: 0.7 }, 1.1);
-        // brilho que acompanha o cursor depois da chegada
-        if (finePointer.matches) {
-          const setShine = gsap.quickTo(giant, "--shine", { duration: 0.8, ease: "power3.out", unit: "%" });
-          giant.addEventListener("pointermove", (e) => {
-            const r = giant.getBoundingClientRect();
-            setShine(83.3 - ((e.clientX - r.left) / r.width) * 66.7);
-          });
-          giant.addEventListener("pointerleave", () => setShine(-60));
-        }
+      // agora: o card se abre com a rolagem, a rede se monta camada a camada e o texto sobe linha a linha
+      const card = $(".now-card");
+      if (card) {
+        const net = card._net || { reveal: 1 };
+        const radius = () => getComputedStyle(card).borderTopLeftRadius;
+        net.reveal = 0;
+        // com o card aberto, o recorte sai (um clip-path parado ainda custa a cada quadro do canvas)
+        gsap.timeline({ scrollTrigger: { trigger: card, start: "top 96%", end: "top 28%", scrub: 0.9, invalidateOnRefresh: true }, onUpdate() { if (this.progress() > 0.999) card.style.clipPath = "none"; } })
+          .fromTo(card, { clipPath: () => `inset(9% 7% 9% 7% round ${parseFloat(radius()) * 1.6}px)` }, { clipPath: () => `inset(0% 0% 0% 0% round ${radius()})`, ease: "power2.out", duration: 1 }, 0)
+          .fromTo(net, { reveal: 0 }, { reveal: 1, ease: "none", duration: 0.85 }, 0.15);
+        const enter = { trigger: card, start: "top 62%" };
+        gsap.from($$(".nt-line > span", card), { yPercent: 108, duration: 1.3, ease: "expo.out", stagger: 0.09, scrollTrigger: enter });
+        gsap.from([...$$(".now-top .label", card), $(".now-lead", card)], { y: 18, opacity: 0, filter: "blur(6px)", duration: 1.1, ease: "expo.out", stagger: 0.08, delay: 0.25, scrollTrigger: enter });
+        gsap.from($(".now-cta", card), { opacity: 0, y: 14, duration: 1.1, ease: "expo.out", delay: 0.45, clearProps: "transform", scrollTrigger: enter });
+        const pillars = $$(".now-pillars li", card);
+        gsap.from(pillars, { y: 16, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.07, delay: 0.5, scrollTrigger: enter });
+        gsap.fromTo(pillars, { "--fill": 0 }, { "--fill": 1, duration: 1.1, ease: "power3.inOut", stagger: 0.18, delay: 0.7, scrollTrigger: enter });
       }
     });
 
@@ -1239,11 +1184,11 @@
         "", ["dica: Tab completa, ↑ ↓ repetem comandos.", "dim"]) },
       sobre: { d: "quem é o Mateus", run: () => print(
         [[["Mateus Paiva", "hi"]]],
-        "Head of AI na Notazz e desenvolvedor full stack.",
+        "Head of AI no Notazz e desenvolvedor full stack.",
         "Plataformas, agentes de IA, automações e integrações.",
         ["São José dos Campos, SP · atendimento remoto", "dim"]) },
       agora: { d: "o cargo atual", run: () => { print("Head of AI · Notazz · desde Out/2026", [[["detalhes: ", "dim"], { href: "/head-of-ai", text: "upaiva.dev/head-of-ai" }]]); go("agora"); } },
-      notazz: { d: "o que faço na Notazz", run: () => {
+      notazz: { d: "o que faço no Notazz", run: () => {
         print([[["Head of AI · Notazz", "hi"]]], "estratégia, agentes, LLMs, automação e integrações.", ["abrindo a página…", "dim"]);
         queue.then(() => setTimeout(() => { window.location.href = "/head-of-ai"; }, 500));
       } },
@@ -1291,7 +1236,7 @@
       document.documentElement.classList.add("term-open");
       if (!greeted) {
         greeted = true;
-        print([[["mPaiva_ ", "hi"], "terminal · v1.0"]], ["Head of AI na Notazz · full stack", "dim"], "", "digite help, ou toque num comando abaixo.");
+        print([[["mPaiva_ ", "hi"], "terminal · v1.0"]], ["Head of AI no Notazz · full stack", "dim"], "", "digite help, ou toque num comando abaixo.");
       }
       setTimeout(() => input.focus(), 30);
     };
@@ -1339,6 +1284,7 @@
     observeReveals();
     initHeroCanvas();
     initAmbient();
+    initNow();
     initMotion();
     requestAnimationFrame(() => document.body.classList.add("is-ready"));
     loadProjects();
