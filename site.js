@@ -767,10 +767,51 @@
         rnd = Array.from({ length: N }, () => [Math.random(), Math.random(), Math.random()]);
         pos = rnd.map((r) => [(r[0] - 0.5) * 6, (r[1] - 0.5) * 4, (r[2] - 0.5) * 3]);
         from = pos.map((p) => p.slice());
+        push = rnd.map(() => [0, 0]);
       }
+      sampleText();
     };
 
-    const target = (i, t) => {
+    // no fim da página, as mesmas partículas se juntam e escrevem a assinatura mPaiva_
+    const NAME = { el: $(".footer-giant"), pts: [] };
+    let push = [], mx = -9999, my = -9999, textRect = null;
+    const sampleText = () => {
+      const el = NAME.el;
+      if (!el || !N) return;
+      const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+      if (!r.width) return;
+      const W = Math.ceil(r.width), H = Math.ceil(r.height);
+      const off = document.createElement("canvas"); off.width = W; off.height = H;
+      const o = off.getContext("2d", { willReadFrequently: true });
+      const size = parseFloat(cs.fontSize);
+      o.font = `500 ${size}px ${cs.fontFamily}`;
+      if ("letterSpacing" in o) o.letterSpacing = cs.letterSpacing;
+      o.textAlign = "center"; o.textBaseline = "middle"; o.fillStyle = "#fff";
+      o.fillText(el.dataset.text, W / 2, parseFloat(cs.paddingTop) + (H - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)) / 2);
+      const data = o.getImageData(0, 0, W, H).data;
+      const step = Math.max(2, Math.round(size / 70));
+      const pts = [];
+      for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (data[(y * W + x) * 4 + 3] > 140) pts.push([x + (Math.random() - 0.5) * step, y + (Math.random() - 0.5) * step]);
+      if (!pts.length) return;
+      for (let k = pts.length - 1; k > 0; k--) { const j = (Math.random() * (k + 1)) | 0; [pts[k], pts[j]] = [pts[j], pts[k]]; }
+      NAME.pts = Array.from({ length: N }, (_, i) => pts[i % pts.length]);
+      document.documentElement.classList.add("has-ambient");
+    };
+    const textTarget = (i, t, cx, cy) => {
+      const p = NAME.pts[i];
+      if (!p || !textRect) return [0, 0, 0];
+      let X = textRect.left + p[0], Y = textRect.top + p[1];
+      // o cursor espalha as partículas e elas voltam com mola
+      const dx = X - mx, dy = Y - my, d = Math.hypot(dx, dy), R = small ? 0 : 110;
+      let px = 0, py = 0;
+      if (d < R && d > 0.01) { const f = Math.pow(1 - d / R, 2) * 70; px = (dx / d) * f; py = (dy / d) * f; }
+      const q = push[i]; q[0] += (px - q[0]) * 0.14; q[1] += (py - q[1]) * 0.14;
+      X += q[0] + Math.sin(t * 1.3 + i) * 0.6; Y += q[1] + Math.cos(t * 1.1 + i * 0.7) * 0.6;
+      return [(X - cx) / U, (Y - cy) / U, 0];
+    };
+
+    const target = (i, t, cx, cy) => {
+      if (shape === "name") return textTarget(i, t, cx, cy);
       const sh = SHAPES[shape];
       const p = rot(sh.f(i, i / N, rnd[i], t), yaw, pitch);
       p[0] += small ? 0 : sh.ox * (w / h > 1.2 ? 1.25 : 1); p[1] += small ? 0 : sh.oy;
@@ -783,22 +824,34 @@
       yaw += (yawT - yaw) * 0.04; pitch += (pitchT - pitch) * 0.04;
       ctx.clearRect(0, 0, w, h);
       if (fade < 0.005 && fadeTarget === 0) { raf = 0; return; }
-      const cx = w / 2, cy = h / 2;
-      const base = (small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
+      const cx = w / 2, cy = h / 2, isName = shape === "name";
+      const base = (isName ? 0.95 : small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
+      // um brilho atravessa a assinatura enquanto ela está montada
+      let shineX = 0, shineW = 1;
+      if (isName) {
+        textRect = NAME.el.getBoundingClientRect();
+        shineW = textRect.width; shineX = textRect.left + ((t * 0.28) % 1.6 - 0.3) * shineW;
+      }
+      const dur = isName ? 2400 : DUR;
       for (let i = 0; i < N; i++) {
         let p = pos[i];
         if (shape !== "none") {
-          const q = target(i, t);
+          const q = target(i, t, cx, cy);
           const d = (rnd[i][0] * 0.35);
-          let k = Math.min(1, Math.max(0, ((now - switchAt) / DUR - d) / (1 - 0.35)));
+          let k = Math.min(1, Math.max(0, ((now - switchAt) / dur - d) / (1 - 0.35)));
           k = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
           const f = from[i];
           p = pos[i] = [f[0] + (q[0] - f[0]) * k, f[1] + (q[1] - f[1]) * k, f[2] + (q[2] - f[2]) * k];
         }
         const s = 3 / (3 + p[2]);
         if (s <= 0) continue;
-        const a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
-        const r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
+        let a = base * Math.min(1, 0.25 + 0.75 * (1 - (p[2] + 1.5) / 3)) * (0.55 + rnd[i][1] * 0.45);
+        let r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
+        if (isName) {
+          const X = cx + p[0] * U, band = Math.exp(-Math.pow((X - shineX) / (shineW * 0.07), 2));
+          a = Math.min(1, base * (0.62 + rnd[i][1] * 0.38) + band * 0.5 * fade);
+          r = (small ? 1.3 : 1.7) + band * 1.2;
+        }
         if (a < 0.01) continue;
         ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
         ctx.fillRect(cx + p[0] * U * s - r / 2, cy + p[1] * U * s - r / 2, r, r);
@@ -817,14 +870,19 @@
 
     resize();
     window.addEventListener("resize", resize, { passive: true });
-    // cada seção escolhe uma forma; o card "Agora" e o rodapé têm desenho próprio, então as partículas se apagam
+    document.fonts?.ready.then(sampleText);
+    // cada seção escolhe uma forma; o card "Agora" tem desenho próprio e o rodapé recebe a assinatura
     const spy = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) setShape(MAP[e.target.id] || "none"); });
+      entries.forEach((e) => { if (e.isIntersecting) {
+        const next = e.target.classList.contains("footer") ? "name" : MAP[e.target.id] || "none";
+        setShape(next === "name" && !NAME.pts.length ? "none" : next);
+      } });
     }, { rootMargin: "-50% 0px -50% 0px" });
     $$("main > section, .footer").forEach((sec) => spy.observe(sec));
     document.addEventListener("visibilitychange", () => { if (document.hidden) { cancelAnimationFrame(raf); raf = 0; } else if (fadeTarget) start(); });
     if (finePointer.matches) {
-      window.addEventListener("pointermove", (e) => { yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
+      window.addEventListener("pointermove", (e) => { mx = e.clientX; my = e.clientY; yawT = (e.clientX / innerWidth - 0.5) * 0.5; pitchT = (e.clientY / innerHeight - 0.5) * 0.3; }, { passive: true });
+      document.documentElement.addEventListener("pointerleave", () => { mx = my = -9999; });
     }
   };
 
@@ -988,6 +1046,18 @@
         const pillars = $$(".now-pillars li", card);
         gsap.from(pillars, { y: 16, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.07, delay: 0.5, scrollTrigger: enter });
         gsap.fromTo(pillars, { "--fill": 0 }, { "--fill": 1, duration: 1.1, ease: "power3.inOut", stagger: 0.18, delay: 0.7, scrollTrigger: enter });
+      }
+
+      // assinatura do rodapé sem as partículas: letras chegam do fundo e um brilho atravessa a palavra
+      const giant = $(".footer-giant");
+      if (giant && SplitText && !document.documentElement.classList.contains("has-ambient")) {
+        const split = new SplitText(giant.querySelector(".fg-word"), { type: "chars", charsClass: "ch" });
+        const chars = [...split.chars, giant.querySelector(".fg-caret")];
+        gsap.timeline({ scrollTrigger: { trigger: giant, start: "top bottom", end: "center 45%", scrub: 1.2, refreshPriority: -1 } })
+          .from(chars, { opacity: 0, filter: "blur(28px)", scale: 2.6, rotationX: -75, yPercent: 35, z: 260, ease: "power3.out", duration: 1, stagger: { each: 0.09, from: "center" } }, 0)
+          .from(giant, { letterSpacing: "0.32em", ease: "power2.out", duration: 1.2 }, 0)
+          .fromTo(giant, { "--glow": 0 }, { "--glow": 1, ease: "power1.in", duration: 0.6 }, 0.5)
+          .fromTo(giant, { "--shine": "160%" }, { "--shine": "-60%", ease: "power2.inOut", duration: 0.7 }, 1.1);
       }
     });
 

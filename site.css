@@ -295,6 +295,17 @@ html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor
 .footer-mark .caret { height: max(2.5px, .045em); }
 .footer-mark .fm-word.is-decoding { display: inline-block; overflow: hidden; vertical-align: bottom; }
 .footer-meta { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+/* assinatura da home: as partículas do fundo se juntam e escrevem mPaiva_; sem elas, o texto aparece em degradê */
+.footer-giant { --shine: -60%; --glow: 0; position: relative; isolation: isolate; font: 400 clamp(56px, 12.5vw, 200px)/1.05 var(--display); letter-spacing: -.055em; padding: .08em var(--gutter) .14em; margin: 0 0 clamp(32px, 5vw, 64px); white-space: nowrap; text-align: center; perspective: 900px; overflow: hidden; }
+.footer-giant > span, .footer-giant .ch { display: inline-block; color: transparent; background: linear-gradient(180deg, #fff 18%, #bdbdbd 58%, #5c5c5c 100%); -webkit-background-clip: text; background-clip: text; }
+.footer-giant .ch { transform-origin: 50% 85%; will-change: transform, opacity, filter; }
+.footer-giant .fg-caret { animation: blink 1.05s steps(1) infinite; }
+.footer-giant::before { content: ""; position: absolute; inset: 0 max(10%, calc(50% - 480px)); z-index: -1; transform: scale(calc(.6 + var(--glow) * .4)); background: radial-gradient(closest-side, rgba(255,255,255,.16), rgba(255,255,255,0)); opacity: var(--glow); pointer-events: none; }
+.footer-giant::after { content: attr(data-text); position: absolute; inset: 0; padding: inherit; color: transparent; background: linear-gradient(105deg, rgba(255,255,255,0) 42%, rgba(255,255,255,.95) 50%, rgba(255,255,255,0) 58%) var(--shine) 0 / 250% 100% no-repeat; -webkit-background-clip: text; background-clip: text; pointer-events: none; }
+.has-ambient .footer-giant { --glow: .55; }
+.has-ambient .footer-giant > span { visibility: hidden; }
+.has-ambient .footer-giant::after { display: none; }
+@media (max-width: 600px) { .footer-giant { font-size: 21vw; } }
 .to-top { display: inline-flex; align-items: center; color: var(--muted); }
 .to-top:hover { color: #fff; }
 
