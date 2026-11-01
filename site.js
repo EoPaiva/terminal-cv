@@ -776,7 +776,7 @@
     const giant = $(".footer-giant");
     const TEXTS = {
       name: { el: giant, weight: 500, cls: "has-ambient", pts: [] },
-      role: { el: $(".now-giant"), weight: 400, cls: "has-role-pts", pts: [] }
+      role: { el: $(".now-giant"), weight: 300, cls: "has-role-pts", pts: [] }
     };
     let push = [], mx = -9999, my = -9999;
     const sampleText = (tt) => {
@@ -802,15 +802,15 @@
       document.documentElement.classList.add(tt.cls);
     };
     const sampleTexts = () => Object.values(TEXTS).forEach(sampleText);
-    let textRect = null;
+    let textRect = null, roleDim = 1, formed = false;
     const textTarget = (i, t, cx, cy) => {
       const p = TEXTS[shape].pts[i];
       if (!p || !textRect) return [0, 0, 0];
       let X = textRect.left + p[0], Y = textRect.top + p[1];
       // o cursor espalha as partículas e elas voltam com mola
-      const dx = X - mx, dy = Y - my, d = Math.hypot(dx, dy), R = small ? 0 : 110;
+      const soft = shape === "role", dx = X - mx, dy = Y - my, d = Math.hypot(dx, dy), R = small ? 0 : soft ? 80 : 110;
       let px = 0, py = 0;
-      if (d < R && d > 0.01) { const f = Math.pow(1 - d / R, 2) * 70; px = (dx / d) * f; py = (dy / d) * f; }
+      if (d < R && d > 0.01) { const f = Math.pow(1 - d / R, 2) * (soft ? 34 : 70); px = (dx / d) * f; py = (dy / d) * f; }
       const q = push[i]; q[0] += (px - q[0]) * 0.14; q[1] += (py - q[1]) * 0.14;
       X += q[0] + Math.sin(t * 1.3 + i) * 0.6; Y += q[1] + Math.cos(t * 1.1 + i * 0.7) * 0.6;
       return [(X - cx) / U, (Y - cy) / U, 0];
@@ -830,8 +830,12 @@
       yaw += (yawT - yaw) * 0.04; pitch += (pitchT - pitch) * 0.04;
       ctx.clearRect(0, 0, w, h);
       if (fade < 0.005 && fadeTarget === 0) { raf = 0; return; }
-      const cx = w / 2, cy = h / 2, isName = !!TEXTS[shape];
-      const base = (isName ? 0.95 : small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
+      const cx = w / 2, cy = h / 2, isName = !!TEXTS[shape], isRole = shape === "role";
+      // no cargo, as partículas montam o texto e depois cedem lugar à tipografia, ficando só como poeira fina
+      const nowFormed = isRole && fadeTarget === 1 && now - switchAt > 2300;
+      if (nowFormed !== formed) { formed = nowFormed; TEXTS.role.el?.classList.toggle("is-formed", formed); }
+      roleDim += ((formed ? 0.16 : 1) - roleDim) * 0.035;
+      const base = (isName ? (isRole ? 0.85 * roleDim : 0.95) : small ? 0.34 : 0.62) * fade * (SHAPES[shape]?.a ?? 1);
       let shineX = 0, shineW = 1;
       if (isName) {
         textRect = TEXTS[shape].el.getBoundingClientRect();
@@ -854,8 +858,8 @@
         let r = 0.6 + s * 1.05 + (rnd[i][2] > 0.96 ? 1.1 : 0);
         if (isName) {
           const X = cx + p[0] * U, band = Math.exp(-Math.pow((X - shineX) / (shineW * 0.07), 2));
-          a = Math.min(1, base * (0.62 + rnd[i][1] * 0.38) + band * 0.5 * fade);
-          r = (small ? 1.3 : 1.7) + band * 1.2;
+          a = Math.min(1, base * (0.62 + rnd[i][1] * 0.38) + (isRole ? 0 : band * 0.5 * fade));
+          r = isRole ? (small ? 1 : 1.2) : (small ? 1.3 : 1.7) + band * 1.2;
         }
         if (a < 0.01) continue;
         ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
@@ -869,7 +873,7 @@
       if (next === shape && fadeTarget === 1) return;
       if (next === "none") { fadeTarget = 0; start(); return; }
       from = pos.map((p) => p.slice());
-      if (next !== shape || fade < 0.05) switchAt = performance.now();
+      if (next !== shape || fade < 0.05) { switchAt = performance.now(); roleDim = 1; }
       shape = next; fadeTarget = 1; start();
     };
 
