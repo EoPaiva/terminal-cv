@@ -274,16 +274,6 @@
         });
       }
 
-      // assinatura do rodapé: letras chegam do fundo e um brilho atravessa a palavra
-      const giant = $(".footer-giant");
-      if (giant && SplitText) {
-        const split = new SplitText(giant.querySelector(".fg-word"), { type: "chars", charsClass: "ch" });
-        const chars = [...split.chars, giant.querySelector(".fg-caret")];
-        gsap.timeline({ scrollTrigger: { trigger: giant, start: "top bottom", end: "center 45%", scrub: 1.2 } })
-          .from(chars, { opacity: 0, filter: "blur(28px)", scale: 2.6, rotationX: -75, yPercent: 35, z: 260, ease: "power3.out", duration: 1, stagger: { each: 0.09, from: "center" } }, 0)
-          .from(giant, { letterSpacing: "0.32em", ease: "power2.out", duration: 1.2 }, 0)
-          .fromTo(giant, { "--shine": "160%" }, { "--shine": "-60%", ease: "power2.inOut", duration: 0.7 }, 1.1);
-      }
     });
     window.addEventListener("load", () => ScrollTrigger.refresh());
   };

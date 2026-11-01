@@ -1,4 +1,4 @@
-/* Página Head of AI na Notazz: rede neural no hero, fluxogramas desenhados na rolagem,
+/* Página Head of AI no Notazz: rede neural no hero, fluxogramas desenhados na rolagem,
    anatomia de um agente com log simulado, simulação de automação e detalhes de movimento.
    Tudo respeita prefers-reduced-motion e pausa quando sai da tela. */
 (() => {
@@ -21,182 +21,21 @@
   const flash = (el, cls = "is-hit") => { if (!el) return; el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); };
   const gs = () => window.gsap && window.ScrollTrigger ? window.gsap : null;
 
-  /* ---------- 1. hero: rede neural em 3D, com sinais que atravessam as camadas ---------- */
+  /* ---------- 1. hero: rede neural em 3D (net.js), que gira mais rápido e se apaga com a rolagem ---------- */
   const initNet = () => {
     const canvas = $(".hx-net"), hero = $(".hx-hero");
-    if (!canvas || !hero || !canvas.getContext) return;
-    const ctx = canvas.getContext("2d");
-    const SIZES = [5, 9, 13, 13, 9, 4];
-    const WORDS = ["LLM", "RAG", "API", "agente", "dados", "automação"];
-    let w = 0, h = 0, dpr = 1, raf = 0, visible = true, last = 0, clock = 0, nextWave = 600;
-    let nodes = [], edges = [], outs = [], pulses = [], lastLayer = SIZES.length - 1;
-    let yaw = -0.62, pitch = 0.16, tYaw = -0.62, tPitch = 0.16, mx = -1e4, my = -1e4, scrollP = 0;
-
-    const build = () => {
-      nodes = []; edges = [];
-      const layers = [];
-      SIZES.forEach((n, li) => {
-        const x = (li / (SIZES.length - 1) - 0.5) * 2.7;
-        const rad = 0.3 + 0.7 * Math.sin(Math.PI * (li + 0.5) / SIZES.length);
-        const ids = [];
-        for (let k = 0; k < n; k++) {
-          const a = (k / n) * Math.PI * 2 + li * 0.37;
-          ids.push(nodes.push({ x, a, rad, li, act: 0, word: null, sx: 0, sy: 0, sz: 0, f: 1 }) - 1);
-        }
-        layers.push(ids);
-      });
-      const ang = (p, q) => { const d = Math.abs(p - q) % (Math.PI * 2); return Math.min(d, Math.PI * 2 - d); };
-      outs = nodes.map(() => []);
-      for (let li = 0; li < layers.length - 1; li++) {
-        layers[li].forEach((i) => {
-          layers[li + 1].map((j) => [j, ang(nodes[i].a, nodes[j].a)]).sort((p, q) => p[1] - q[1]).slice(0, 3)
-            .forEach(([j]) => { outs[i].push(edges.length); edges.push({ a: i, b: j, act: 0 }); });
-        });
-      }
-      const inner = nodes.map((_, i) => i).filter((i) => nodes[i].li >= 2 && nodes[i].li <= 4);
-      WORDS.forEach((word, k) => { nodes[inner[Math.floor((k + 0.5) * inner.length / WORDS.length)]].word = word.toUpperCase(); });
-    };
-
-    const fire = (i, gen) => {
-      if (nodes[i].li >= lastLayer || pulses.length > 90) return;
-      const list = outs[i].slice().sort(() => Math.random() - 0.5).slice(0, gen === 0 ? 3 : Math.random() < 0.55 ? 1 : 2);
-      list.forEach((e) => pulses.push({ e, t: 0, dur: 480 + Math.random() * 320, gen }));
-    };
-    const wave = (count = 2) => {
-      const inputs = nodes.map((n, i) => (n.li === 0 ? i : -1)).filter((i) => i >= 0);
-      for (let k = 0; k < count; k++) { const i = inputs[Math.floor(Math.random() * inputs.length)]; nodes[i].act = 1; fire(i, 0); }
-    };
-
-    const project = (spin) => {
-      const cY = Math.cos(yaw), sY = Math.sin(yaw), cP = Math.cos(pitch), sP = Math.sin(pitch);
-      const small = w < 700;
-      const S = (small ? Math.min(w * 0.38, h * 0.26) : Math.min(w * 0.25, h * 0.4)) * (1 + scrollP * 0.4);
-      const cx = small ? w * 0.52 : w * 0.67, cy = small ? h * 0.27 : h * 0.47;
-      for (const n of nodes) {
-        const a = n.a + spin;
-        const y = Math.cos(a) * n.rad, z = Math.sin(a) * n.rad;
-        const x1 = n.x * cY + z * sY, z1 = -n.x * sY + z * cY;
-        const y2 = y * cP - z1 * sP, z2 = y * sP + z1 * cP;
-        const f = 3.4 / (3.4 + z2);
-        n.sx = cx + x1 * S * f; n.sy = cy + y2 * S * f; n.sz = z2; n.f = f;
-      }
-    };
-    const depth = (z) => clamp((1.6 - z) / 3.2, 0, 1);
-
-    const draw = (dt) => {
-      clock += dt;
-      const k = Math.min(1, dt / 16.7);
-      yaw += (tYaw - yaw) * 0.04 * k; pitch += (tPitch - pitch) * 0.04 * k;
-      scrollP = clamp(window.scrollY / Math.max(1, hero.offsetHeight), 0, 1);
-      project(clock * 0.00011 * (1 + scrollP * 2.5));
-      ctx.clearRect(0, 0, w, h);
-      const fade = 1 - scrollP * 0.8;
-      const decay = Math.pow(0.955, k);
-
-      // arestas em faixas de brilho: um stroke por faixa
-      const buckets = [[], [], [], [], []];
-      for (const e of edges) {
-        const A = nodes[e.a], B = nodes[e.b];
-        const v = clamp(depth((A.sz + B.sz) / 2) * 0.62 + e.act, 0, 0.999);
-        buckets[Math.floor(v * 5)].push(e);
-        e.act *= decay;
-      }
-      ctx.lineWidth = 1;
-      buckets.forEach((list, b) => {
-        if (!list.length) return;
-        ctx.strokeStyle = `rgba(255,255,255,${((0.028 + b * 0.042) * fade).toFixed(3)})`;
-        ctx.beginPath();
-        for (const e of list) { const A = nodes[e.a], B = nodes[e.b]; ctx.moveTo(A.sx, A.sy); ctx.lineTo(B.sx, B.sy); }
-        ctx.stroke();
-      });
-
-      // sinais
-      ctx.lineCap = "round";
-      ctx.lineWidth = 1.4;
-      ctx.strokeStyle = `rgba(255,255,255,${(0.75 * fade).toFixed(3)})`;
-      ctx.fillStyle = `rgba(255,255,255,${fade.toFixed(3)})`;
-      for (let i = pulses.length - 1; i >= 0; i--) {
-        const p = pulses[i];
-        p.t += dt / p.dur;
-        const e = edges[p.e], A = nodes[e.a], B = nodes[e.b];
-        if (p.t >= 1) { pulses.splice(i, 1); B.act = 1; fire(e.b, p.gen + 1); continue; }
-        e.act = Math.max(e.act, 0.45);
-        const t0 = Math.max(0, p.t - 0.24);
-        const x0 = A.sx + (B.sx - A.sx) * t0, y0 = A.sy + (B.sy - A.sy) * t0;
-        const x1 = A.sx + (B.sx - A.sx) * p.t, y1 = A.sy + (B.sy - A.sy) * p.t;
-        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
-        ctx.fillRect(x1 - 1.3, y1 - 1.3, 2.6, 2.6);
-      }
-
-      // nós, com brilho do sinal e do cursor
-      ctx.font = `500 ${w < 700 ? 9 : 10}px Label, "Helvetica Neue", Arial, sans-serif`;
-      for (const n of nodes) {
-        const d = depth(n.sz);
-        let hover = 0;
-        if (mx > -1e3) { const dist = Math.hypot(n.sx - mx, n.sy - my); if (dist < 130) hover = (1 - dist / 130) * 0.85; }
-        const glow = Math.max(n.act, hover);
-        const r = (0.9 + d * 1.7 + glow * 1.5) * n.f;
-        if (glow > 0.12) {
-          const g = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, r * 8);
-          g.addColorStop(0, `rgba(255,255,255,${(0.32 * glow * fade).toFixed(3)})`);
-          g.addColorStop(1, "rgba(255,255,255,0)");
-          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(n.sx, n.sy, r * 8, 0, 6.2832); ctx.fill();
-        }
-        ctx.fillStyle = `rgba(255,255,255,${Math.min(1, (0.16 + d * 0.52 + glow * 0.6) * fade).toFixed(3)})`;
-        ctx.beginPath(); ctx.arc(n.sx, n.sy, r, 0, 6.2832); ctx.fill();
-        if (n.word) {
-          ctx.fillStyle = `rgba(255,255,255,${((0.08 + d * 0.34 + glow * 0.45) * fade).toFixed(3)})`;
-          ctx.fillText(n.word, n.sx + 9, n.sy - 9);
-        }
-        n.act *= decay;
-      }
-
-      if (clock > nextWave && !reduced.matches) { wave(); nextWave = clock + 1300 + Math.random() * 900; }
-    };
-
-    const resize = () => {
-      const r = hero.getBoundingClientRect();
-      if (!r.width) return;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = r.width; h = r.height;
-      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (reduced.matches || !raf) draw(0);
-    };
-    const loop = (now) => {
-      const dt = last ? Math.min(50, now - last) : 16.7;
-      last = now;
-      draw(dt);
-      raf = requestAnimationFrame(loop);
-    };
-    const start = () => { if (!raf && visible && !reduced.matches && !document.hidden) { last = 0; raf = requestAnimationFrame(loop); } };
-    const stop = () => { cancelAnimationFrame(raf); raf = 0; };
-
-    build(); resize();
-    requestAnimationFrame(() => canvas.classList.add("is-on"));
-    if (!reduced.matches) { setTimeout(() => wave(5), 500); }
-    window.addEventListener("resize", resize, { passive: true });
-    onVisible(hero, (v) => { visible = v; v ? start() : stop(); }, "0px");
-    document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
-    reduced.addEventListener?.("change", () => { stop(); pulses = []; resize(); start(); });
-    if (finePointer.matches) {
-      window.addEventListener("pointermove", (e) => {
-        tYaw = -0.62 + (e.clientX / innerWidth - 0.5) * 0.55;
-        tPitch = 0.16 + (e.clientY / innerHeight - 0.5) * 0.32;
-        const r = canvas.getBoundingClientRect();
-        mx = e.clientX - r.left; my = e.clientY - r.top;
-      }, { passive: true });
-      hero.addEventListener("pointerleave", () => { mx = my = -1e4; });
-    }
-    // toque ou clique no hero dispara um sinal a partir do nó mais próximo
-    hero.addEventListener("pointerdown", (e) => {
-      if (reduced.matches || e.target.closest("a, button")) return;
-      const r = canvas.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top;
-      let best = -1, bd = Infinity;
-      nodes.forEach((n, i) => { if (n.li >= lastLayer) return; const d = Math.hypot(n.sx - px, n.sy - py); if (d < bd) { bd = d; best = i; } });
-      if (best >= 0) { nodes[best].act = 1; fire(best, 0); }
+    if (!canvas || !hero || !window.MPNet) return;
+    const prog = () => clamp(window.scrollY / Math.max(1, hero.offsetHeight), 0, 1);
+    window.MPNet(canvas, hero, {
+      layout: (w, h, p) => {
+        const small = w < 700;
+        const S = (small ? Math.min(w * 0.38, h * 0.26) : Math.min(w * 0.25, h * 0.4)) * (1 + p * 0.4);
+        return small ? { cx: w * 0.52, cy: h * 0.27, S } : { cx: w * 0.67, cy: h * 0.47, S };
+      },
+      progress: prog,
+      fade: (p) => 1 - p * 0.8,
+      spinBoost: 2.5
     });
-    start();
   };
 
   /* ---------- 2. fluxogramas: fios ortogonais medidos no DOM ---------- */
@@ -665,7 +504,7 @@
     });
   };
 
-  /* ---------- 6. jornada: a linha avança até a Notazz ---------- */
+  /* ---------- 6. jornada: a linha avança até o Notazz ---------- */
   const initJourney = () => {
     const box = $(".journey");
     const gsap = gs();

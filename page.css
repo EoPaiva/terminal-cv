@@ -48,7 +48,6 @@
 .p-cta h2 em { font-style: normal; color: var(--dim); }
 .p-cta p { color: var(--muted); max-width: 56ch; line-height: 1.7; }
 
-.footer-sub .footer-giant { --glow: .5; }
 
 @media (max-width: 900px) {
   .p-head { grid-template-columns: 1fr; }
