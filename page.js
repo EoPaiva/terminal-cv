@@ -257,9 +257,11 @@
         $$("[data-words]").forEach((el) => flip(el, { scrollTrigger: { trigger: el, start: "top 85%" } }));
       }
       gsap.from(".page-hero-top, .page-hero-bottom", { y: 30, opacity: 0, duration: 1.2, ease: "expo.out", stagger: 0.12, delay: 0.5 });
-      gsap.from(".page-orb", { scale: 0.7, opacity: 0, duration: 2.2, ease: "expo.out", delay: 0.1 });
-      gsap.timeline({ scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true } })
-        .to(".page-orb", { scale: 1.3, yPercent: -12, opacity: 0.2, ease: "none" }, 0);
+      if ($(".page-orb") && $(".page-hero")) {
+        gsap.from(".page-orb", { scale: 0.7, opacity: 0, duration: 2.2, ease: "expo.out", delay: 0.1 });
+        gsap.timeline({ scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true } })
+          .to(".page-orb", { scale: 1.3, yPercent: -12, opacity: 0.2, ease: "none" }, 0);
+      }
       $$(".p-list li").forEach((li) => gsap.from(li, { x: -40, opacity: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: li, start: "top 92%" } }));
 
       // botões magnéticos

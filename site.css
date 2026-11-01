@@ -464,6 +464,12 @@ html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor
 .role-chip:hover::after { background: rgba(255,255,255,.09); }
 @property --spin { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 @keyframes spin { to { --spin: 360deg; } }
+.tl-row.is-now { position: relative; }
+.tl-link { display: inline-flex; align-items: baseline; gap: .12em; }
+.tl-link::after { content: ""; position: absolute; inset: 0; }
+.tl-link .arrow { width: .42em; height: .42em; color: #fff; }
+.tl-row.is-now:hover .tl-link .arrow { transform: translate(3px, -3px); }
+.now-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
 .tl-now { color: transparent; background: linear-gradient(100deg, #fff 0 40%, #6f6f6f 50%, #fff 60% 100%) 100% 0 / 260% 100%; -webkit-background-clip: text; background-clip: text; animation: sheen 5s var(--ease-io) infinite; }
 @keyframes sheen { 0%, 35% { background-position: 100% 0; } 75%, 100% { background-position: 0 0; } }
 

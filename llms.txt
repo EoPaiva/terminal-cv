@@ -1,14 +1,16 @@
 # MPAIVA_
 
-> Mateus Paiva e Head of AI no Notazz e desenvolvedor full stack. Constroi plataformas, agentes de IA, automacoes, integracoes com APIs, solucoes com LLM e RAG e sistemas web inteligentes. Atende projetos freelancer e parcerias a partir de Sao Jose dos Campos, SP, com atendimento remoto.
+> Mateus Paiva e Head of AI na Notazz e desenvolvedor full stack. Constroi plataformas, agentes de IA, automacoes, integracoes com APIs, solucoes com LLM e RAG e sistemas web inteligentes. Atende projetos freelancer e parcerias a partir de Sao Jose dos Campos, SP, com atendimento remoto.
 
 ## Cargo atual
 
-- Head of AI no Notazz, na empresa desde outubro de 2026. Lidera a area de inteligencia artificial: estrategia de IA, agentes, automacoes e LLMs aplicados ao produto.
+- Head of AI na Notazz, na empresa desde outubro de 2026. Responsavel pela frente de inteligencia artificial: estrategia e roadmap de IA, engenharia de agentes e LLMs, automacao inteligente, arquitetura e integracoes, pesquisa e inovacao, alinhamento com o negocio e melhoria continua.
+- Pagina dedicada: [Head of AI na Notazz](https://upaiva.dev/head-of-ai).
 
 ## Principais paginas
 
 - [Home](https://upaiva.dev/): cargo atual, trabalhos selecionados, projetos em producao, servicos, processo, trajetoria, FAQ e contato.
+- [Head of AI na Notazz](https://upaiva.dev/head-of-ai): o ciclo completo de uma solucao de IA, as principais responsabilidades, a anatomia de um agente de IA, um fluxo de automacao inteligente e a trajetoria ate o cargo.
 - [Perfil profissional](https://upaiva.dev/perfil-profissional.html): resumo, trajetoria completa com datas, competencias, frentes de atuacao e formacao.
 - [Desenvolvedor Full Stack em Sao Jose dos Campos](https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos): atuacao local e remota, IA aplicada para empresas, automacao e sistemas sob medida.
 - [Sistemas web inteligentes](https://upaiva.dev/sistemas-web-inteligentes): aplicacoes full stack com frontend, backend, banco de dados, APIs, automacoes, agentes de IA, LLM, RAG e dashboards.
@@ -49,7 +51,7 @@ IA aplicada nao substitui estrategia, processo ou validacao humana. SEO tecnico 
 
 - Site: https://upaiva.dev/
 - GitHub: https://github.com/EoPaiva
-- LinkedIn: https://www.linkedin.com/in/mateus-paiva-19804b284
+- LinkedIn: https://www.linkedin.com/in/mateuspaiva21/
 - WhatsApp: https://wa.me/55035988042182
 - Email: mpaiiva21@gmail.com
 

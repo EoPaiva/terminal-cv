@@ -1,8 +1,26 @@
-# Mateus Paiva - Head of AI no Notazz e Desenvolvedor Full Stack
+# Mateus Paiva - Head of AI na Notazz e Desenvolvedor Full Stack
 
 ## Identidade profissional
 
-Mateus Paiva e Head of AI no Notazz, onde trabalha desde outubro de 2026 e lidera a area de inteligencia artificial: estrategia de IA, agentes, automacoes e LLMs aplicados ao produto. Tambem e desenvolvedor full stack. Seu trabalho vai alem da criacao de sites: ele desenvolve sistemas web inteligentes, plataformas SaaS, automacoes, integracoes com APIs, agentes de IA, solucoes com LLM, RAG, dashboards, SEO tecnico, estruturas para trafego organico e aplicacoes digitais completas para empresas.
+Mateus Paiva e Head of AI na Notazz, onde trabalha desde outubro de 2026 e lidera a area de inteligencia artificial: estrategia de IA, agentes, automacoes e LLMs aplicados ao produto. Tambem e desenvolvedor full stack. Seu trabalho vai alem da criacao de sites: ele desenvolve sistemas web inteligentes, plataformas SaaS, automacoes, integracoes com APIs, agentes de IA, solucoes com LLM, RAG, dashboards, SEO tecnico, estruturas para trafego organico e aplicacoes digitais completas para empresas.
+
+## Head of AI na Notazz
+
+Pagina dedicada: https://upaiva.dev/head-of-ai
+
+Como Head of AI, Mateus Paiva e responsavel pela frente de inteligencia artificial da Notazz, conectando visao estrategica, engenharia de software e inovacao para transformar desafios de negocio em solucoes inteligentes. Conduz de ponta a ponta a identificacao de oportunidades, o planejamento, o desenvolvimento e a implementacao de solucoes de IA alinhadas aos objetivos do negocio.
+
+Principais responsabilidades:
+
+- AI Strategy & Roadmap: definicao de prioridades e evolucao das iniciativas de IA, considerando impacto, viabilidade e necessidades da empresa.
+- AI Engineering: desenvolvimento de agentes de IA, assistentes inteligentes e solucoes baseadas em modelos de linguagem (LLMs).
+- Intelligent Automation: mapeamento de processos e implementacao de automacoes para otimizar fluxos internos e reduzir tarefas repetitivas.
+- Architecture & Integration: estruturacao de solucoes, integracao com sistemas internos e APIs, documentacao e boas praticas tecnicas.
+- Research & Innovation: avaliacao de tecnologias emergentes, criacao de provas de conceito (PoCs) e validacao de novas aplicacoes.
+- Business Alignment: colaboracao com diferentes areas para entender necessidades e transformar desafios em solucoes tecnologicas.
+- Continuous Improvement: acompanhamento e evolucao das solucoes implementadas, com foco em qualidade, eficiencia e escalabilidade.
+
+Principio: a inteligencia artificial gera valor quando aplicada a problemas reais, com objetivos claros, solucoes escalaveis e resultados mensuraveis.
 
 ## Proposta de valor
 
@@ -59,7 +77,7 @@ Essa abordagem segue a ideia de boas praticas: mecanismos de busca conseguem ras
 
 ### Quem e Mateus Paiva?
 
-Mateus Paiva e Head of AI no Notazz e desenvolvedor full stack focado em IA aplicada, automacao de processos e sistemas web inteligentes para negocios.
+Mateus Paiva e Head of AI na Notazz e desenvolvedor full stack focado em IA aplicada, automacao de processos e sistemas web inteligentes para negocios.
 
 ### Ele faz apenas sites?
 
@@ -84,11 +102,12 @@ Head of AI, Notazz, Desenvolvedor Full Stack, Desenvolvedor Full Stack em Sao Jo
 ## Links oficiais
 
 - Home: https://upaiva.dev/
+- Head of AI na Notazz: https://upaiva.dev/head-of-ai
 - Perfil profissional: https://upaiva.dev/perfil-profissional.html
 - Desenvolvedor Full Stack em Sao Jose dos Campos: https://upaiva.dev/desenvolvedor-full-stack-sao-jose-dos-campos
 - Sistemas web inteligentes: https://upaiva.dev/sistemas-web-inteligentes
 - Curriculo PDF: https://upaiva.dev/cv.pdf
 - GitHub: https://github.com/EoPaiva
-- LinkedIn: https://www.linkedin.com/in/mateus-paiva-19804b284
+- LinkedIn: https://www.linkedin.com/in/mateuspaiva21/
 - WhatsApp: https://wa.me/55035988042182
 - Email: mpaiiva21@gmail.com
