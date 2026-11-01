@@ -15,7 +15,7 @@
   const MODES = {
     "tech": {
       "heroStatus": "[ FULL STACK, IA APLICADA & AUTOMAÇÃO ]",
-      "heroDesc": "Head of AI no Notazz e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
+      "heroDesc": "Head of AI na Notazz e desenvolvedor full stack. Construo plataformas, agentes de IA, automações e integrações que transformam processos complexos em sistemas úteis.",
       "servicesTitle": "Soluções digitais completas com Full Stack, automação e IA aplicada.",
       "servicesDescription": "Atuação combinando frontend, backend, banco de dados, APIs, automações, agentes de IA, LLM, RAG e estratégia para criar sistemas web inteligentes que melhoram eficiência, atendimento, operação e crescimento.",
       "services": [
@@ -119,7 +119,7 @@
     },
     "hire": {
       "heroStatus": "[ CONTRATE-ME: CLT, PJ, FREELANCER & PROJETOS ]",
-      "heroDesc": "Head of AI no Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
+      "heroDesc": "Head of AI na Notazz, aberto a projetos freelancer e parcerias em sistemas web, agentes de IA, LLM/RAG, automação e SEO técnico.",
       "servicesTitle": "Aberto a oportunidades em Full Stack, IA aplicada, automação e crescimento digital.",
       "servicesDescription": "Posso entrar em times, projetos ou operações que precisam transformar problemas reais em software: backend, frontend, banco de dados, APIs, automações, IA aplicada, SEO técnico e entrega publicada.",
       "services": [
@@ -1010,7 +1010,7 @@
           .fromTo(stage, { "--now": 0 }, { "--now": 1, ease: "power2.out", duration: 0.35 })
           .to(stage, { "--now": 1, duration: 0.4 })
           .to(stage, { "--now": 0, ease: "power2.in", duration: 0.25 });
-        gsap.from([...now.querySelectorAll(".now-top .label"), now.querySelector(".now-lead")], {
+        gsap.from([...now.querySelectorAll(".now-top .label"), now.querySelector(".now-lead"), now.querySelector(".now-link")].filter(Boolean), {
           y: 28, opacity: 0, filter: "blur(8px)", duration: 1.2, ease: "expo.out", stagger: 0.1,
           scrollTrigger: { trigger: now, start: "top 45%" }
         });
@@ -1239,16 +1239,20 @@
         "", ["dica: Tab completa, ↑ ↓ repetem comandos.", "dim"]) },
       sobre: { d: "quem é o Mateus", run: () => print(
         [[["Mateus Paiva", "hi"]]],
-        "Head of AI no Notazz e desenvolvedor full stack.",
+        "Head of AI na Notazz e desenvolvedor full stack.",
         "Plataformas, agentes de IA, automações e integrações.",
         ["São José dos Campos, SP · atendimento remoto", "dim"]) },
-      agora: { d: "o cargo atual", run: () => { print("Head of AI · Notazz · desde Out/2026"); go("agora"); } },
+      agora: { d: "o cargo atual", run: () => { print("Head of AI · Notazz · desde Out/2026", [[["detalhes: ", "dim"], { href: "/head-of-ai", text: "upaiva.dev/head-of-ai" }]]); go("agora"); } },
+      notazz: { d: "o que faço na Notazz", run: () => {
+        print([[["Head of AI · Notazz", "hi"]]], "estratégia, agentes, LLMs, automação e integrações.", ["abrindo a página…", "dim"]);
+        queue.then(() => setTimeout(() => { window.location.href = "/head-of-ai"; }, 500));
+      } },
       projetos: { d: "trabalhos selecionados", run: () => print(...projects().map((p, i) => [[[String(i + 1).padStart(2, "0") + "  ", "dim"], p.href ? { href: p.href, text: p.title } : p.title]])) },
       stack: { d: "ferramentas do dia a dia", run: () => print(($(".marquee-track")?.dataset.items || "").split("|").join(" · ")) },
       contato: { d: "como falar comigo", run: () => print(
         [[["email     ", "dim"], { href: `mailto:${EMAIL}`, text: EMAIL }]],
         [[["whatsapp  ", "dim"], { href: WHATSAPP, text: "+55 35 98804-2182" }]],
-        [[["linkedin  ", "dim"], { href: "https://linkedin.com/in/mateus-paiva-19804b284", text: "mateus-paiva" }]],
+        [[["linkedin  ", "dim"], { href: "https://www.linkedin.com/in/mateuspaiva21/", text: "mateuspaiva21" }]],
         [[["github    ", "dim"], { href: "https://github.com/EoPaiva", text: "EoPaiva" }]]) },
       email: { d: "copia o e-mail", run: async () => {
         try { await navigator.clipboard.writeText(EMAIL); print(`copiado: ${EMAIL}`); } catch (_) { print(EMAIL); }
@@ -1287,7 +1291,7 @@
       document.documentElement.classList.add("term-open");
       if (!greeted) {
         greeted = true;
-        print([[["mPaiva_ ", "hi"], "terminal · v1.0"]], ["Head of AI no Notazz · full stack", "dim"], "", "digite help, ou toque num comando abaixo.");
+        print([[["mPaiva_ ", "hi"], "terminal · v1.0"]], ["Head of AI na Notazz · full stack", "dim"], "", "digite help, ou toque num comando abaixo.");
       }
       setTimeout(() => input.focus(), 30);
     };

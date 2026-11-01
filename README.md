@@ -17,7 +17,7 @@
   ·
   <a href="https://github.com/EoPaiva"><strong>GitHub</strong></a>
   ·
-  <a href="https://www.linkedin.com/in/mateus-paiva-19804b284"><strong>LinkedIn</strong></a>
+  <a href="https://www.linkedin.com/in/mateuspaiva21/"><strong>LinkedIn</strong></a>
 </p>
 
 </div>
@@ -1020,7 +1020,7 @@ Todos os direitos reservados.
 ·
 <a href="https://github.com/EoPaiva">GitHub</a>
 ·
-<a href="https://www.linkedin.com/in/mateus-paiva-19804b284">LinkedIn</a>
+<a href="https://www.linkedin.com/in/mateuspaiva21/">LinkedIn</a>
 
 </div>
 

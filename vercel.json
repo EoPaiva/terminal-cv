@@ -68,6 +68,10 @@
     {
       "source": "/sistemas-web-inteligentes",
       "destination": "/sistemas-web-inteligentes.html"
+    },
+    {
+      "source": "/head-of-ai",
+      "destination": "/head-of-ai.html"
     }
   ],
   "headers": [
