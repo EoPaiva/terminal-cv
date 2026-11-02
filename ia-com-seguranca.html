@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>IA com segurança: o que não colar no ChatGPT | Mateus Paiva</title>
+  <meta name="description" content="Guia prático para usar IA sem expor dados pessoais nem da empresa: um jogo para treinar o que pode ir para a IA, um anonimizador que roda no seu navegador, sinais de alucinação e um checklist." />
+  <meta name="author" content="Mateus Paiva" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://upaiva.dev/ia-com-seguranca" />
+  <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/ia-com-seguranca" />
+  <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/ia-com-seguranca" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="MPAIVA_" />
+  <meta property="og:title" content="IA com segurança: o que não colar no ChatGPT | Mateus Paiva" />
+  <meta property="og:description" content="O que pode e o que não pode ir para uma IA, um anonimizador que roda no seu navegador e como perceber quando a IA inventa." />
+  <meta property="og:url" content="https://upaiva.dev/ia-com-seguranca" />
+  <meta property="og:image" content="https://upaiva.dev/assets/og/og-ia-com-seguranca.png?v=1" />
+  <meta property="og:image:secure_url" content="https://upaiva.dev/assets/og/og-ia-com-seguranca.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="IA com segurança: guia do upaiva.dev" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IA com segurança: o que não colar no ChatGPT | Mateus Paiva" />
+  <meta name="twitter:description" content="O que pode e o que não pode ir para uma IA, um anonimizador que roda no seu navegador e como perceber quando a IA inventa." />
+  <meta name="twitter:image" content="https://upaiva.dev/assets/og/og-ia-com-seguranca.png?v=1" />
+  <meta name="twitter:image:alt" content="IA com segurança: guia do upaiva.dev" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://upaiva.dev/ia-com-seguranca#article",
+      "headline": "IA com segurança",
+      "name": "IA com segurança: o que não colar no ChatGPT | Mateus Paiva",
+      "description": "Guia prático para usar IA sem expor dados pessoais nem da empresa: um jogo para treinar o que pode ir para a IA, um anonimizador que roda no seu navegador, sinais de alucinação e um checklist.",
+      "url": "https://upaiva.dev/ia-com-seguranca",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "isPartOf": {
+        "@id": "https://upaiva.dev/#website"
+      },
+      "image": "https://upaiva.dev/assets/og/og-ia-com-seguranca.png",
+      "learningResourceType": "Guia",
+      "educationalLevel": "Iniciante",
+      "isAccessibleForFree": true,
+      "about": [
+        "Segurança da informação",
+        "Privacidade",
+        "LGPD",
+        "Alucinação",
+        "Inteligência artificial"
+      ],
+      "breadcrumb": {
+        "@id": "https://upaiva.dev/ia-com-seguranca#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://upaiva.dev/#person",
+      "name": "Mateus Paiva",
+      "url": "https://upaiva.dev/",
+      "jobTitle": "Head of AI",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notazz"
+      },
+      "sameAs": [
+        "https://github.com/EoPaiva",
+        "https://www.linkedin.com/in/mateuspaiva21/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://upaiva.dev/ia-com-seguranca#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://upaiva.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IA com segurança",
+          "item": "https://upaiva.dev/ia-com-seguranca"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/page.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/learn.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/seguranca.css?v=20261102-guias" />
+</head>
+<body class="lx-page lx-seguranca">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="#posso-colar">Posso colar?</a>
+        <a href="#anonimizar">Anonimizar</a>
+        <a href="#inventa">Quando inventa</a>
+        <a href="#checklist">Checklist</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="#posso-colar"><small>01</small>Posso colar?</a>
+      <a href="#anonimizar"><small>02</small>Anonimizar</a>
+      <a href="#inventa"><small>03</small>Quando inventa</a>
+      <a href="#checklist"><small>04</small>Checklist</a>
+      <a href="/#contato"><small>05</small>Contato</a>
+    </div>
+  </div>
+
+  <main id="conteudo" class="lx">
+    <!-- HERO · partículas: o dado pessoal vira placeholder -->
+    <section class="page-hero lx-hero" aria-labelledby="page-title">
+      <div class="lx-field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Guia 04 · Entenda a IA</span>
+          <span class="label label-dim lx-stage" aria-hidden="true">01 · Dado pessoal</span>
+        </div>
+        <h1 id="page-title" class="page-title">IA com <em>segurança.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">Usar IA no trabalho e na vida é ótimo, desde que os seus dados e os dos outros fiquem no lugar. Aqui você treina o que pode ir para a IA, esconde dados sensíveis sem sair do navegador e aprende a perceber quando ela inventa.</p>
+          <nav class="lx-toc" aria-label="Partes deste guia">
+            <a href="#posso-colar"><span>01</span>Posso colar?</a>
+            <a href="#anonimizar"><span>02</span>Anonimizar</a>
+            <a href="#inventa"><span>03</span>Quando inventa</a>
+            <a href="#checklist"><span>04</span>Checklist</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · POSSO COLAR? -->
+    <section id="posso-colar" class="p-section sg-game-wrap" aria-labelledby="game-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">Posso colar?</span>
+            <h2 id="game-title" class="h2" data-words>Oito situações. O que pode ir para a IA?</h2>
+          </div>
+          <p>Para cada caso, escolha: pode, com cuidado ou não cole. A resposta vem com o motivo, que é o que fica na cabeça na hora de usar de verdade.</p>
+        </header>
+        <div class="game lx-panel reveal">
+          <div class="lx-bar"><span class="game-step">Situação 1 de 8</span><span class="game-dots" aria-hidden="true"></span><span class="game-score">0 acertos</span></div>
+          <div class="game-body">
+            <p class="game-q" aria-live="polite"></p>
+            <div class="game-opts" role="group" aria-label="Sua resposta">
+              <button type="button" class="game-opt" data-a="ok"><b>Pode</b><small>sem problema</small></button>
+              <button type="button" class="game-opt" data-a="care"><b>Com cuidado</b><small>depois de ajustar</small></button>
+              <button type="button" class="game-opt" data-a="no"><b>Não cole</b><small>nunca</small></button>
+            </div>
+            <p class="game-fb" aria-live="polite"></p>
+            <div class="game-actions"><button type="button" class="btn btn-light game-next" hidden>Próxima <i class="arrow" aria-hidden="true"></i></button></div>
+          </div>
+        </div>
+        <p class="lx-note reveal">Regra de bolso: se você não colaria aquilo num grupo de mensagens com desconhecidos, não cole numa IA sem antes tirar os dados. <b>Muitas ferramentas deixam desligar o uso das conversas para treino; vale conferir nas configurações.</b></p>
+      </div>
+    </section>
+
+    <!-- 02 · ANONIMIZAR -->
+    <section id="anonimizar" class="p-section alt sg-anon" aria-labelledby="anon-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Anonimizar</span>
+            <h2 id="anon-title" class="h2" data-words>Esconda os dados antes de colar.</h2>
+          </div>
+          <p>Cole o texto abaixo. Nomes, CPF, CNPJ, e-mails, telefones, endereços e cartões viram marcadores como [NOME 1]. Depois, cole a resposta da IA e os dados voltam para o lugar.</p>
+        </header>
+        <div class="anon reveal">
+          <div class="anon-col">
+            <div class="lx-panel anon-panel">
+              <div class="lx-bar"><span>01 · Seu texto</span><button type="button" class="chip anon-sample">Usar exemplo</button></div>
+              <label class="sr-only" for="anon-in">Texto com dados pessoais</label>
+              <textarea id="anon-in" class="anon-in" rows="9" spellcheck="false" placeholder="Cole aqui um e-mail, uma conversa ou um relatório com dados de pessoas."></textarea>
+            </div>
+            <div class="lx-row anon-kinds" role="group" aria-label="O que esconder">
+              <button type="button" class="chip is-on" aria-pressed="true" data-kind="nome">Nomes</button>
+              <button type="button" class="chip is-on" aria-pressed="true" data-kind="doc">CPF e CNPJ</button>
+              <button type="button" class="chip is-on" aria-pressed="true" data-kind="contato">E-mail e telefone</button>
+              <button type="button" class="chip is-on" aria-pressed="true" data-kind="endereco">Endereço e CEP</button>
+              <button type="button" class="chip is-on" aria-pressed="true" data-kind="cartao">Cartão</button>
+            </div>
+          </div>
+          <div class="anon-col">
+            <div class="lx-panel anon-panel">
+              <div class="lx-bar"><span>02 · Pronto para a IA</span><span class="anon-count" aria-live="polite">0 dados escondidos</span></div>
+              <div class="anon-out" aria-live="polite"></div>
+              <div class="anon-actions"><button type="button" class="btn btn-light btn-sm anon-copy">Copiar texto seguro <i class="arrow" aria-hidden="true"></i></button></div>
+            </div>
+          </div>
+        </div>
+        <div class="anon-back reveal">
+          <div class="lx-panel anon-panel">
+            <div class="lx-bar"><span>03 · Resposta da IA</span><span>cole aqui para trazer os dados de volta</span></div>
+            <label class="sr-only" for="anon-reply">Resposta da IA com marcadores</label>
+            <textarea id="anon-reply" class="anon-in anon-reply" rows="4" spellcheck="false" placeholder="Ex.: Olá, [NOME 1]. Sentimos muito pelo atraso..."></textarea>
+            <div class="anon-restored" aria-live="polite"></div>
+            <div class="anon-actions"><button type="button" class="chip anon-copy-back">Copiar resposta final</button></div>
+          </div>
+        </div>
+        <p class="lx-note reveal">Tudo acontece neste navegador: nada é enviado, salvo ou registrado, e a tabela de troca some quando você fecha a página. <b>A detecção de nomes é aproximada; dê uma olhada antes de colar.</b></p>
+      </div>
+    </section>
+
+    <!-- 03 · QUANDO INVENTA -->
+    <section id="inventa" class="p-section sg-check" aria-labelledby="check-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">03</span>
+          <div>
+            <span class="label">Alucinação</span>
+            <h2 id="check-title" class="h2" data-words>A frase mais confiante pode ser a inventada.</h2>
+          </div>
+          <p>A IA escreve o que é provável, não o que é verdadeiro. Abaixo, uma resposta típica sobre a LGPD. Toque em cada frase para conferir. Três são verdade e uma foi inventada.</p>
+        </header>
+        <div class="chk lx-panel reveal">
+          <div class="lx-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>resposta de uma IA</span><span class="chk-count">0 de 4 conferidas</span></div>
+          <div class="chk-body">
+            <p class="chk-q">O que é a LGPD e o que acontece se uma empresa não cumprir?</p>
+            <p class="chk-a">
+              <button type="button" class="claim" data-v="ok" data-why="Confere: Lei nº 13.709, de 14 de agosto de 2018.">A LGPD é a Lei nº 13.709, sancionada em 2018.</button>
+              <button type="button" class="claim" data-v="ok" data-why="Confere: a Autoridade Nacional de Proteção de Dados é quem fiscaliza e aplica as sanções.">Quem fiscaliza é a ANPD, a Autoridade Nacional de Proteção de Dados.</button>
+              <button type="button" class="claim" data-v="ok" data-why="Confere: o artigo 52 prevê multa simples de até 2% do faturamento no Brasil, limitada a R$ 50 milhões por infração.">A multa pode chegar a 2% do faturamento, limitada a R$ 50 milhões por infração.</button>
+              <button type="button" class="claim" data-v="no" data-why="Inventado: esse estudo não existe. Soa confiável porque tem nome, instituição, ano e porcentagem, os quatro ingredientes de uma alucinação convincente.">Segundo o estudo "Dados Seguros Brasil 2023", da USP, 68% das empresas brasileiras já foram multadas.</button>
+            </p>
+            <p class="chk-fb" aria-live="polite">Toque numa frase.</p>
+          </div>
+        </div>
+
+        <div class="sg-signs">
+          <h3 class="sg-sub reveal">Sinais de que pode ser invenção</h3>
+          <div class="lx-cards sg-cards">
+            <article class="lx-card reveal"><span class="n">Sinal 01</span><h3>Número exato sem fonte</h3><p>"68%", "3,2 milhões": quanto mais preciso e sem origem, mais vale conferir.</p></article>
+            <article class="lx-card reveal"><span class="n">Sinal 02</span><h3>Estudo, livro ou lei que você não acha</h3><p>Se a busca não encontra o título exato, provavelmente ele não existe.</p></article>
+            <article class="lx-card reveal"><span class="n">Sinal 03</span><h3>Link que não abre</h3><p>A IA monta endereços que parecem reais. Abra antes de mandar para alguém.</p></article>
+            <article class="lx-card reveal"><span class="n">Sinal 04</span><h3>Muda de ideia fácil</h3><p>Pergunte "tem certeza?". Se a resposta muda sem motivo, não era um fato.</p></article>
+          </div>
+          <div class="lflow sg-flow reveal" style="--n:4">
+            <span class="lflow-wire" aria-hidden="true"><i></i></span>
+            <div class="lflow-step"><span class="lflow-dot">01</span><h3>Peça a fonte</h3><p>"De onde vem essa informação?"</p></div>
+            <div class="lflow-step"><span class="lflow-dot">02</span><h3>Abra a fonte</h3><p>Leia o trecho, não só o título.</p></div>
+            <div class="lflow-step"><span class="lflow-dot">03</span><h3>Compare</h3><p>Uma segunda fonte, de preferência oficial.</p></div>
+            <div class="lflow-step"><span class="lflow-dot">04</span><h3>Na dúvida, não use</h3><p>Melhor uma frase a menos do que um erro com seu nome.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · CHECKLIST -->
+    <section id="checklist" class="p-section alt sg-list" aria-labelledby="list-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Checklist</span>
+            <h2 id="list-title" class="h2" data-words>Dez regras para imprimir e colar do lado do monitor.</h2>
+          </div>
+          <p>Cinco para quem usa IA no dia a dia e cinco para empresas que querem liberar a IA para o time sem correr risco à toa.</p>
+        </header>
+        <div class="cl print-area reveal">
+          <h2 class="cl-print-title">IA com segurança · upaiva.dev/ia-com-seguranca</h2>
+          <div class="cl-col">
+            <h3><span>01</span>Para você</h3>
+            <ul>
+              <li><label><input type="checkbox" /><span>Não cole senhas, documentos nem dados de cartão.</span></label></li>
+              <li><label><input type="checkbox" /><span>Troque nomes e números por marcadores antes de colar.</span></label></li>
+              <li><label><input type="checkbox" /><span>Confira números, datas, leis e citações numa fonte.</span></label></li>
+              <li><label><input type="checkbox" /><span>Desligue o uso das conversas para treino, se a ferramenta permitir.</span></label></li>
+              <li><label><input type="checkbox" /><span>Em saúde, dinheiro e direito, use a resposta como ponto de partida, não como decisão.</span></label></li>
+            </ul>
+          </div>
+          <div class="cl-col">
+            <h3><span>02</span>Para empresas</h3>
+            <ul>
+              <li><label><input type="checkbox" /><span>Defina quais ferramentas de IA estão aprovadas e para quê.</span></label></li>
+              <li><label><input type="checkbox" /><span>Escreva uma regra curta do que nunca pode ir para a IA.</span></label></li>
+              <li><label><input type="checkbox" /><span>Prefira planos com contrato que impeça o uso dos seus dados para treino.</span></label></li>
+              <li><label><input type="checkbox" /><span>Mantenha uma pessoa revisando o que vai para clientes.</span></label></li>
+              <li><label><input type="checkbox" /><span>Treine o time: meia hora de conversa evita o vazamento mais comum.</span></label></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cl-actions no-print reveal">
+          <button type="button" class="btn btn-light cl-print">Imprimir checklist <i class="arrow" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-ghost cl-copy">Copiar como texto <i class="arrow" aria-hidden="true"></i></button>
+          <span class="cl-done" aria-live="polite">0 de 10</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-section series-wrap" aria-labelledby="series-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">+</span>
+          <div>
+            <span class="label">Entenda a IA</span>
+            <h2 id="series-title" class="h2" data-words>Cinco guias curtos, sem jargão.</h2>
+          </div>
+          <p>Cada guia explica uma parte da IA e da web com algo para você testar. Tudo roda no seu navegador.</p>
+        </header>
+        <ol class="series">
+          <li><a href="/como-a-ia-funciona"><span>01</span><b>Como uma IA responde</b><small>Da pergunta à resposta, peça por peça, com a sua própria frase.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/prompts"><span>02</span><b>Anatomia de um bom prompt</b><small>Como pedir para a IA e receber respostas melhores.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/glossario-ia"><span>03</span><b>Glossário de IA</b><small>25 termos de IA em uma frase e um exemplo do dia a dia.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/ia-com-seguranca"><span>04</span><b>IA com segurança</b><small>O que não colar numa IA e como perceber quando ela inventa.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/do-clique-a-tela"><span>05</span><b>Do clique à tela</b><small>O que acontece ao abrir um site, medido no seu aparelho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">Feito por Mateus Paiva · Head of AI no Notazz</span>
+        <h2 id="cta-title" data-words>Use IA à vontade, <em>com os seus dados no lugar.</em></h2>
+        <p>Para fechar a série, um guia sobre a web: o que acontece entre o seu clique e a página na tela.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="/do-clique-a-tela">Próximo guia: do clique à tela <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/">Ver o portfólio <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-sub">
+    <div class="wrap footer-top">
+      <p class="wordmark footer-mark" aria-hidden="true"><span class="fm-word">mPaiva</span><span class="caret"></span></p>
+    </div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Head of AI no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/head-of-ai">Head of AI no Notazz</a>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Guias">
+        <h4>Guias</h4>
+        <a href="/como-a-ia-funciona">Como uma IA responde</a>
+        <a href="/prompts">Anatomia de um bom prompt</a>
+        <a href="/glossario-ia">Glossário de IA</a>
+        <a href="/ia-com-seguranca">IA com segurança</a>
+        <a href="/do-clique-a-tela">Do clique à tela</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap stack">
+      <p class="label label-dim stack-title">Stack deste site</p>
+      <ul class="stack-list" aria-label="Tecnologias deste site">
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span><span class="stack-txt"><b>HTML</b><small>Estrutura semântica</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></span><span class="stack-txt"><b>CSS</b><small>Layout e movimento</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></span><span class="stack-txt"><b>JavaScript</b><small>Canvas e interações</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path class="stack-ease" d="M3.5 20.5C11 20.5 10 3.5 20.5 3.5"/><circle cx="3.5" cy="20.5" r="2.2"/><circle cx="20.5" cy="3.5" r="2.2"/></svg></span><span class="stack-txt"><b>GSAP</b><small>Animação na rolagem</small></span></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <div class="footer-meta">
+        <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261102-guias" defer></script>
+  <script src="/learn.js?v=20261102-guias" defer></script>
+  <script src="/seguranca.js?v=20261102-guias" defer></script>
+  <script src="/footer.js?v=20261102-guias" defer></script>
+</body>
+</html>
