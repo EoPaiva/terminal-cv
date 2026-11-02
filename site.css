@@ -393,6 +393,43 @@ html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor
 .contact-links a:hover { color: #fff; }
 
 
+/* ---------- guias (home): vitrine da série "Entenda a IA" ---------- */
+.guides-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.guides-grid > li { display: flex; }
+.guide-card { position: relative; isolation: isolate; display: flex; flex-direction: column; width: 100%; padding-bottom: 24px; border: 1px solid var(--line-2); border-radius: 20px; background: #050505; overflow: hidden; color: inherit; transition: border-color .6s var(--ease), background .6s var(--ease), transform .6s var(--ease); }
+.guide-card:hover, .guide-card:focus-visible { border-color: #5a5a5a; background: #090909; transform: translateY(-4px); }
+.guide-card:focus-visible { outline: 1px solid #fff; outline-offset: 3px; }
+.guide-viz { position: relative; display: block; aspect-ratio: 5 / 4; border-bottom: 1px solid var(--line); background: radial-gradient(110% 90% at 50% 42%, #111 0%, #060606 62%, #050505 100%); }
+.guide-viz canvas { position: absolute; inset: 0; display: block; }
+.guide-meta { display: flex; justify-content: space-between; gap: 10px; padding: 20px 22px 0; font: 500 10px/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.guide-meta span:first-child { color: #fff; }
+.guide-title { display: block; padding: 16px 22px 0; font: 300 clamp(21px, 1.6vw, 25px)/1.15 var(--display); letter-spacing: -.02em; color: #fff; }
+.guide-desc { display: block; flex: 1; padding: 12px 22px 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
+.guide-go { display: inline-flex; align-items: center; gap: 10px; margin: 22px 22px 0; font: 500 10.5px/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: #fff; }
+.guide-go .arrow { transition: transform .5s var(--ease); }
+.guide-card:hover .guide-go .arrow, .guide-card:focus-visible .guide-go .arrow { transform: translate(3px, -3px); }
+@media (max-width: 1180px) and (min-width: 641px) {
+  .guides-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guides-grid > li:first-child { grid-column: 1 / -1; }
+  .guides-grid > li:first-child .guide-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; align-content: start; }
+  .guides-grid > li:first-child .guide-viz { grid-column: 1; grid-row: 1 / -1; aspect-ratio: auto; min-height: 260px; margin-bottom: -24px; border-bottom: 0; border-right: 1px solid var(--line); }
+  .guides-grid > li:first-child .guide-card > :not(.guide-viz) { grid-column: 2; }
+  .guides-grid > li:first-child .guide-meta { padding-top: 28px; }
+  .guides-grid > li:first-child .guide-title { font-size: clamp(26px, 3vw, 34px); }
+  .guides-grid > li:first-child .guide-go { align-self: end; justify-self: start; }
+  .guides-grid > li:not(:first-child) .guide-viz { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 640px) {
+  .guides-grid { grid-template-columns: 1fr; gap: 12px; }
+  .guide-card { display: grid; grid-template-columns: 124px minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; padding-bottom: 18px; }
+  .guide-viz { grid-column: 1; grid-row: 1 / -1; aspect-ratio: auto; min-height: 150px; margin-bottom: -18px; border-bottom: 0; border-right: 1px solid var(--line); }
+  .guide-card > :not(.guide-viz) { grid-column: 2; }
+  .guide-meta { padding: 16px 16px 0; }
+  .guide-title { padding: 10px 16px 0; font-size: 20px; }
+  .guide-desc { padding: 8px 16px 0; font-size: 13.5px; }
+  .guide-go { margin: 14px 16px 0; justify-self: start; }
+}
+
 /* ---------- responsivo ---------- */
 @media (max-width: 1180px) {
   .nav-links { display: none; }
