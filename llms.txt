@@ -18,13 +18,17 @@
 
 ## Guias: Entenda a IA
 
-Cinco guias publicos, gratuitos e interativos, escritos por Mateus Paiva para quem quer entender e usar IA sem jargao. Tudo roda no navegador de quem visita.
+Nove guias publicos, gratuitos e interativos, escritos por Mateus Paiva para quem quer entender e usar IA sem jargao. Tudo roda no navegador de quem visita.
 
 - [Como uma IA responde](https://upaiva.dev/como-a-ia-funciona): tokens, embeddings, atencao, temperatura e a geracao palavra por palavra, com simulacoes para testar com a propria frase.
 - [Anatomia de um bom prompt](https://upaiva.dev/prompts): as seis partes de um pedido bem feito (papel, contexto, tarefa, formato, exemplo e limites), exemplos de antes e depois e um montador de prompt.
 - [Glossario de IA](https://upaiva.dev/glossario-ia): 25 termos de IA (LLM, token, RAG, agente, MCP, alucinacao e outros) em uma frase e um exemplo do dia a dia, com teste rapido.
 - [IA com seguranca](https://upaiva.dev/ia-com-seguranca): o que pode e o que nao pode ir para uma IA, um anonimizador de dados pessoais que roda no navegador, como perceber alucinacoes e um checklist para pessoas e empresas.
 - [Do clique a tela](https://upaiva.dev/do-clique-a-tela): as etapas do carregamento de um site, o peso dos arquivos e os Core Web Vitals (LCP, INP e CLS), medidos no aparelho de quem visita.
+- [Agentes de IA](https://upaiva.dev/agentes-de-ia): a diferenca entre chatbot e agente, o ciclo pensa, age e observa simulado passo a passo, as ferramentas que liberam cada tarefa (incluindo MCP) e um teste para saber se uma tarefa combina com um agente.
+- [Golpes com IA](https://upaiva.dev/golpes-com-ia): voz clonada, video falso, mensagem perfeita e falso atendente, um treino com oito mensagens, um detector local de sinais de golpe e um plano da familia com palavra-segura e o que fazer se cair num golpe.
+- [Como a IA cria imagens](https://upaiva.dev/imagens-com-ia): a geracao por difusao mostrada passo a passo, do ruido a imagem, por que a IA erra maos, letras e sombras, um jogo para achar cinco erros e um montador de pedidos de imagem.
+- [Como o Google acha um site](https://upaiva.dev/como-o-google-encontra): rastrear, indexar e classificar, um robo que segue links num site de exemplo (paginas orfas, noindex e sitemap), uma previa do resultado da busca com corte de titulo e descricao e um checklist de dez itens.
 
 ## Trabalhos selecionados
 

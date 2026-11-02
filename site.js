@@ -1264,8 +1264,8 @@
       } },
       projetos: { d: "trabalhos selecionados", run: () => print(...projects().map((p, i) => [[[String(i + 1).padStart(2, "0") + "  ", "dim"], p.href ? { href: p.href, text: p.title } : p.title]])) },
       guias: { d: "guias para entender IA", run: () => print(
-        ["cinco guias curtos, interativos e sem jargão:", "dim"],
-        ...[["/como-a-ia-funciona", "Como uma IA responde"], ["/prompts", "Anatomia de um bom prompt"], ["/glossario-ia", "Glossário de IA"], ["/ia-com-seguranca", "IA com segurança"], ["/do-clique-a-tela", "Do clique à tela"]]
+        ["nove guias curtos, interativos e sem jargão:", "dim"],
+        ...[["/como-a-ia-funciona", "Como uma IA responde"], ["/prompts", "Anatomia de um bom prompt"], ["/glossario-ia", "Glossário de IA"], ["/ia-com-seguranca", "IA com segurança"], ["/do-clique-a-tela", "Do clique à tela"], ["/agentes-de-ia", "Agentes de IA"], ["/golpes-com-ia", "Golpes com IA"], ["/imagens-com-ia", "Como a IA cria imagens"], ["/como-o-google-encontra", "Como o Google acha um site"]]
           .map(([href, text], i) => [[[String(i + 1).padStart(2, "0") + "  ", "dim"], { href, text }]])) },
       stack: { d: "ferramentas do dia a dia", run: () => print(($(".marquee-track")?.dataset.items || "").split("|").join(" · ")) },
       contato: { d: "como falar comigo", run: () => print(

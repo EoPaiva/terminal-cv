@@ -17,9 +17,9 @@
 }
 
 /* ---------- blocos genéricos ---------- */
-.lx-note { display: flex; gap: 12px; align-items: flex-start; margin-top: 28px; padding: 16px 18px; border: 1px dashed var(--line-2); border-radius: 14px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 72ch; }
+.lx-note { position: relative; display: block; margin-top: 28px; padding: 16px 18px 16px 50px; border: 1px dashed var(--line-2); border-radius: 14px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 72ch; }
 .lx-note b { color: var(--soft); font-weight: 400; }
-.lx-note::before { content: "i"; flex: none; display: grid; place-items: center; width: 20px; height: 20px; border: 1px solid var(--line-2); border-radius: 50%; font: 500 11px/1 var(--label); color: var(--muted); }
+.lx-note::before { content: "i"; position: absolute; left: 18px; top: 17px; display: grid; place-items: center; width: 20px; height: 20px; border: 1px solid var(--line-2); border-radius: 50%; font: 500 11px/1 var(--label); color: var(--muted); }
 .lx-panel { position: relative; border: 1px solid var(--line-2); border-radius: 20px; background: #050505; overflow: hidden; }
 .lx-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font: 500 10.5px/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
 .lx-bar .dots { display: inline-flex; gap: 6px; }
@@ -40,7 +40,7 @@ textarea.lx-input { font: 400 15px/1.7 var(--text); resize: vertical; min-height
 .lx-card .n { font: 500 10.5px/1 var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--dim); }
 .lx-card h3 { font: 300 clamp(21px, 1.8vw, 26px)/1.15 var(--display); letter-spacing: -.02em; color: #fff; }
 .lx-card p { font-size: 15px; line-height: 1.7; color: var(--muted); }
-.lx-card p a, .lx-prose a { color: #fff; border-bottom: 1px solid var(--line-2); }
+.lx-card p a, .lx-prose a, .lx-note a { color: #fff; border-bottom: 1px solid var(--line-2); }
 @media (max-width: 900px) { .lx-card, .lx-card + .lx-card { padding: 26px 0; border-left: 0; } }
 
 .lx-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
@@ -82,6 +82,34 @@ textarea.lx-input { font: 400 15px/1.7 var(--text); resize: vertical; min-height
   .lflow-step { display: grid; grid-template-columns: 68px 1fr; column-gap: 20px; align-items: start; }
   .lflow-step > :not(.lflow-dot) { grid-column: 2; }
   .lflow-dot { grid-row: span 3; }
+}
+
+/* ---------- checklist para imprimir (guias 04 e 09) ---------- */
+.cl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); }
+.cl-print-title { display: none; }
+.cl-col h3 { display: flex; align-items: baseline; gap: 14px; padding-bottom: 18px; border-bottom: 1px solid var(--line); font: 300 clamp(24px, 2.2vw, 32px)/1.1 var(--display); letter-spacing: -.025em; color: #fff; }
+.cl-col h3 span { font: 500 10.5px/1 var(--label); letter-spacing: .2em; color: var(--dim); }
+.cl-col li { border-bottom: 1px solid var(--line); }
+.cl-col label { display: grid; grid-template-columns: 26px 1fr; gap: 16px; align-items: start; padding: 18px 0; cursor: pointer; }
+.cl-col input { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; margin: 2px 0 0; border: 1px solid var(--line-2); border-radius: 6px; background: #000; cursor: pointer; display: grid; place-items: center; transition: background .3s, border-color .3s; }
+.cl-col input::after { content: ""; width: 10px; height: 6px; border-left: 2px solid #000; border-bottom: 2px solid #000; transform: rotate(-45deg) translate(1px, -1px) scale(0); transition: transform .3s var(--ease); }
+.cl-col input:checked { background: #fff; border-color: #fff; }
+.cl-col input:checked::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
+.cl-col input:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.cl-col label span { font: 300 clamp(17px, 1.4vw, 20px)/1.45 var(--display); letter-spacing: -.01em; color: var(--soft); transition: color .3s; }
+.cl-col input:checked + span { color: var(--dim); text-decoration: line-through; text-decoration-color: #444; }
+.cl-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 34px; }
+.cl-done { margin-left: auto; font: 500 10.5px/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .cl { grid-template-columns: 1fr; } .cl-done { margin-left: 0; width: 100%; } }
+@media print {
+  .cl { display: block !important; }
+  .cl-print-title { display: block; margin-bottom: 18px; font: 600 16pt/1.2 Arial, sans-serif; }
+  .cl-col { margin-bottom: 18px; break-inside: avoid; }
+  .cl-col h3 { font: 600 14pt/1.2 Arial, sans-serif; padding-bottom: 6px; }
+  .cl-col label { padding: 8px 0; grid-template-columns: 18px 1fr; }
+  .cl-col label span { font: 11pt/1.4 Arial, sans-serif; text-decoration: none !important; }
+  .cl-col input { width: 14px; height: 14px; border: 1px solid #000 !important; border-radius: 3px; }
+  .cl-col input::after { border-color: #000; }
 }
 
 /* ---------- impressão (checklists) ---------- */

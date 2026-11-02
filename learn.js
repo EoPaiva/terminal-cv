@@ -86,6 +86,27 @@
     return pts;
   };
 
+  /* anel (círculo cheio quando r1 = 0), linha grossa por vários pontos e polígono preenchido */
+  const ringPoints = (cx, cy, r1, r2, step = 4) => {
+    const pts = [];
+    for (let y = cy - r2; y <= cy + r2; y += step) for (let x = cx - r2; x <= cx + r2; x += step) { const d = Math.hypot(x - cx, y - cy); if (d >= r1 && d <= r2) pts.push([x, y]); }
+    return pts;
+  };
+  const pathPoints = (pts, thick, step = 4) => {
+    const out = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [x1, y1] = pts[i], [x2, y2] = pts[i + 1], len = Math.hypot(x2 - x1, y2 - y1) || 1, ux = (x2 - x1) / len, uy = (y2 - y1) / len;
+      for (let s = 0; s <= len; s += step) for (let u = -thick / 2; u <= thick / 2; u += step) out.push([x1 + ux * s - uy * u, y1 + uy * s + ux * u]);
+    }
+    return out;
+  };
+  const polyPoints = (poly, step = 4) => {
+    const xs = poly.map((p) => p[0]), ys = poly.map((p) => p[1]), pts = [];
+    const inside = (x, y) => { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; } return c; };
+    for (let y = Math.min(...ys); y <= Math.max(...ys); y += step) for (let x = Math.min(...xs); x <= Math.max(...xs); x += step) if (inside(x, y)) pts.push([x, y]);
+    return pts;
+  };
+
   /* área das formas no hero. No celular: a faixa de cima inteira. No computador: o maior espaço livre
      entre (A) à direita do título, até o índice, e (B) acima do título, na metade direita. */
   const heroBox = (w, h) => {
@@ -226,5 +247,5 @@
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initSeries); else initSeries();
 
-  window.MPLearn = { MPField, textPoints, rectPoints, outlinePoints, heroBox, boxText, onVisible, toast, copy, reduced, finePointer, clamp };
+  window.MPLearn = { MPField, textPoints, rectPoints, outlinePoints, ringPoints, pathPoints, polyPoints, heroBox, boxText, onVisible, toast, copy, reduced, finePointer, clamp };
 })();
