@@ -86,10 +86,26 @@
     return pts;
   };
 
-  /* área das formas no hero: metade direita no computador, a faixa de cima inteira no celular */
-  const heroBox = (w, h) => w >= 900
-    ? { x: w * 0.5, y: h * 0.03, w: w * 0.43, h: h * 0.57 }
-    : { x: w * 0.07, y: h * 0.08, w: w * 0.86, h: h * 0.84 };
+  /* área das formas no hero. No celular: a faixa de cima inteira. No computador: o maior espaço livre
+     entre (A) à direita do título, até o índice, e (B) acima do título, na metade direita. */
+  const heroBox = (w, h) => {
+    const field = document.querySelector(".lx-field"), title = document.querySelector(".lx-hero .page-title"), top = document.querySelector(".lx-hero .page-hero-top");
+    if (w < 900 || !field || !title || !top) return { x: w * 0.07, y: h * 0.08, w: w * 0.86, h: h * 0.84 };
+    const fr = field.getBoundingClientRect(), tb = title.getBoundingClientRect();
+    // mede só os glifos (os blocos de linha do SplitText ocupam a largura toda)
+    let textRight = 0;
+    const tw = document.createTreeWalker(title, NodeFilter.SHOW_TEXT), rg = document.createRange();
+    while (tw.nextNode()) { if (!tw.currentNode.textContent.trim()) continue; rg.selectNodeContents(tw.currentNode); for (const r of rg.getClientRects()) textRight = Math.max(textRight, r.right); }
+    textRight = (textRight || tb.right) - fr.left;
+    const right = top.getBoundingClientRect().right - fr.left;
+    const toc = document.querySelector(".lx-hero .lx-toc");
+    const floor = (toc && toc.offsetParent ? toc.getBoundingClientRect().top : tb.bottom) - fr.top - 28;
+    const A = { x: Math.max(w * 0.5, textRight + 72), y: 12 };
+    A.w = right - A.x; A.h = floor - A.y;
+    const B = { x: w * 0.46, y: 12, w: right - w * 0.46, h: tb.top - fr.top - 40 };
+    const fit = (k) => (k.w > 80 && k.h > 80 ? Math.min(k.w, k.h * 1.8) * k.h : 0);
+    return fit(A) >= fit(B) ? A : B;
+  };
   /* texto centrado numa caixa */
   const boxText = (str, w, h, b, o = {}) => textPoints(str, w, h, Object.assign({ x: (b.x + b.w / 2) / w, y: (b.y + b.h / 2) / h, maxW: b.w / w, size: b.h * 0.5 }, o));
 
