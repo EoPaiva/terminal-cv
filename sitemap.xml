@@ -31,6 +31,36 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://upaiva.dev/como-a-ia-funciona</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/prompts</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/glossario-ia</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/ia-com-seguranca</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/do-clique-a-tela</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://upaiva.dev/cv.pdf</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>

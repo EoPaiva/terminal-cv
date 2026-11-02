@@ -16,6 +16,16 @@
 - [Sistemas web inteligentes](https://upaiva.dev/sistemas-web-inteligentes): aplicacoes full stack com frontend, backend, banco de dados, APIs, automacoes, agentes de IA, LLM, RAG e dashboards.
 - [Curriculo PDF](https://upaiva.dev/cv.pdf): versao em PDF para download.
 
+## Guias: Entenda a IA
+
+Cinco guias publicos, gratuitos e interativos, escritos por Mateus Paiva para quem quer entender e usar IA sem jargao. Tudo roda no navegador de quem visita.
+
+- [Como uma IA responde](https://upaiva.dev/como-a-ia-funciona): tokens, embeddings, atencao, temperatura e a geracao palavra por palavra, com simulacoes para testar com a propria frase.
+- [Anatomia de um bom prompt](https://upaiva.dev/prompts): as seis partes de um pedido bem feito (papel, contexto, tarefa, formato, exemplo e limites), exemplos de antes e depois e um montador de prompt.
+- [Glossario de IA](https://upaiva.dev/glossario-ia): 25 termos de IA (LLM, token, RAG, agente, MCP, alucinacao e outros) em uma frase e um exemplo do dia a dia, com teste rapido.
+- [IA com seguranca](https://upaiva.dev/ia-com-seguranca): o que pode e o que nao pode ir para uma IA, um anonimizador de dados pessoais que roda no navegador, como perceber alucinacoes e um checklist para pessoas e empresas.
+- [Do clique a tela](https://upaiva.dev/do-clique-a-tela): as etapas do carregamento de um site, o peso dos arquivos e os Core Web Vitals (LCP, INP e CLS), medidos no aparelho de quem visita.
+
 ## Trabalhos selecionados
 
 - [CHOQUE BGR](https://choque.online): plataforma de gestao para uma unidade de roleplay, com bot Discord, centro de comando web e recrutamento com prova cronometrada.
@@ -45,6 +55,7 @@ IA aplicada nao substitui estrategia, processo ou validacao humana. SEO tecnico 
 - Plataformas SaaS
 - Dashboards e dados
 - SEO tecnico
+- Educacao sobre IA
 - Sao Jose dos Campos
 
 ## Contato

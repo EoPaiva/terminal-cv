@@ -264,11 +264,12 @@ html.has-cursor input, html.has-cursor textarea, html.has-cursor select { cursor
 
 /* ---------- rodapé ---------- */
 .footer { border-top: 1px solid var(--line); padding-top: 80px; }
-.footer-inner { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 48px; padding-bottom: 64px; }
+.footer-inner { display: grid; grid-template-columns: minmax(0, 1.35fr) repeat(4, minmax(0, 1fr)); gap: 40px; padding-bottom: 64px; }
 .footer-brand { display: flex; flex-direction: column; gap: 18px; }
 .footer-brand p { color: var(--soft); font-size: 15px; }
 .footer-brand .dim { color: var(--dim); font-size: 14px; line-height: 1.7; }
 .footer-col { display: flex; flex-direction: column; gap: 12px; }
+@media (max-width: 1180px) and (min-width: 901px) { .footer-inner { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 32px; } .footer-inner > .footer-brand { grid-column: 1 / -1; } }
 .footer-col h4 { font: 500 10.5px var(--label); letter-spacing: .24em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
 .footer-col a { font-size: 15px; color: var(--muted); transition: color .3s; }
 .footer-col a:hover { color: #fff; }

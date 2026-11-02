@@ -1263,6 +1263,10 @@
         queue.then(() => setTimeout(() => { window.location.href = "/head-of-ai"; }, 500));
       } },
       projetos: { d: "trabalhos selecionados", run: () => print(...projects().map((p, i) => [[[String(i + 1).padStart(2, "0") + "  ", "dim"], p.href ? { href: p.href, text: p.title } : p.title]])) },
+      guias: { d: "guias para entender IA", run: () => print(
+        ["cinco guias curtos, interativos e sem jargão:", "dim"],
+        ...[["/como-a-ia-funciona", "Como uma IA responde"], ["/prompts", "Anatomia de um bom prompt"], ["/glossario-ia", "Glossário de IA"], ["/ia-com-seguranca", "IA com segurança"], ["/do-clique-a-tela", "Do clique à tela"]]
+          .map(([href, text], i) => [[[String(i + 1).padStart(2, "0") + "  ", "dim"], { href, text }]])) },
       stack: { d: "ferramentas do dia a dia", run: () => print(($(".marquee-track")?.dataset.items || "").split("|").join(" · ")) },
       contato: { d: "como falar comigo", run: () => print(
         [[["email     ", "dim"], { href: `mailto:${EMAIL}`, text: EMAIL }]],
@@ -1286,7 +1290,7 @@
         queue.then(() => setTimeout(() => window.open(wa("Olá, Mateus. Vim pelo terminal do seu site e quero conversar sobre um projeto."), "_blank", "noopener"), 400));
       } }
     };
-    const ALIASES = { ajuda: "help", "?": "help", whoami: "sobre", ls: "projetos", trabalho: "projetos", clear: "limpar", cls: "limpar", exit: "sair", cd: "ir", goto: "ir", date: "hora", contratar: "sudo contratar", "sudo hire-me": "sudo contratar" };
+    const ALIASES = { guia: "guias", aprender: "guias", ajuda: "help", "?": "help", whoami: "sobre", ls: "projetos", trabalho: "projetos", clear: "limpar", cls: "limpar", exit: "sair", cd: "ir", goto: "ir", date: "hora", contratar: "sudo contratar", "sudo hire-me": "sudo contratar" };
 
     const exec = (raw) => {
       const text = raw.trim();

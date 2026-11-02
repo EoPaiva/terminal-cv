@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Como uma IA responde: o ChatGPT por dentro | Mateus Paiva</title>
+  <meta name="description" content="Entenda, passo a passo e com a sua própria frase, como uma IA como o ChatGPT lê a pergunta em tokens, entende o significado, presta atenção no contexto e escolhe cada palavra da resposta." />
+  <meta name="author" content="Mateus Paiva" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://upaiva.dev/como-a-ia-funciona" />
+  <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/como-a-ia-funciona" />
+  <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/como-a-ia-funciona" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="MPAIVA_" />
+  <meta property="og:title" content="Como uma IA responde: o ChatGPT por dentro | Mateus Paiva" />
+  <meta property="og:description" content="Tokens, significado, atenção e a próxima palavra: o caminho entre a sua pergunta e a resposta de uma IA, para testar com a sua frase." />
+  <meta property="og:url" content="https://upaiva.dev/como-a-ia-funciona" />
+  <meta property="og:image" content="https://upaiva.dev/assets/og/og-como-a-ia-funciona.png?v=1" />
+  <meta property="og:image:secure_url" content="https://upaiva.dev/assets/og/og-como-a-ia-funciona.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Como uma IA responde: guia do upaiva.dev" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Como uma IA responde: o ChatGPT por dentro | Mateus Paiva" />
+  <meta name="twitter:description" content="Tokens, significado, atenção e a próxima palavra: o caminho entre a sua pergunta e a resposta de uma IA, para testar com a sua frase." />
+  <meta name="twitter:image" content="https://upaiva.dev/assets/og/og-como-a-ia-funciona.png?v=1" />
+  <meta name="twitter:image:alt" content="Como uma IA responde: guia do upaiva.dev" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://upaiva.dev/como-a-ia-funciona#article",
+      "headline": "Como uma IA responde",
+      "name": "Como uma IA responde: o ChatGPT por dentro | Mateus Paiva",
+      "description": "Entenda, passo a passo e com a sua própria frase, como uma IA como o ChatGPT lê a pergunta em tokens, entende o significado, presta atenção no contexto e escolhe cada palavra da resposta.",
+      "url": "https://upaiva.dev/como-a-ia-funciona",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "isPartOf": {
+        "@id": "https://upaiva.dev/#website"
+      },
+      "image": "https://upaiva.dev/assets/og/og-como-a-ia-funciona.png",
+      "learningResourceType": "Guia",
+      "educationalLevel": "Iniciante",
+      "isAccessibleForFree": true,
+      "about": [
+        "Inteligência artificial",
+        "Modelos de linguagem",
+        "Tokens",
+        "Embeddings",
+        "Atenção",
+        "Alucinação"
+      ],
+      "breadcrumb": {
+        "@id": "https://upaiva.dev/como-a-ia-funciona#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://upaiva.dev/#person",
+      "name": "Mateus Paiva",
+      "url": "https://upaiva.dev/",
+      "jobTitle": "Head of AI",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notazz"
+      },
+      "sameAs": [
+        "https://github.com/EoPaiva",
+        "https://www.linkedin.com/in/mateuspaiva21/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://upaiva.dev/como-a-ia-funciona#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://upaiva.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Como uma IA responde",
+          "item": "https://upaiva.dev/como-a-ia-funciona"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/page.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/learn.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/ia.css?v=20261102-guias" />
+</head>
+<body class="lx-page lx-ia">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="#tokens">Tokens</a>
+        <a href="#significado">Significado</a>
+        <a href="#atencao">Atenção</a>
+        <a href="#proxima">Próxima palavra</a>
+        <a href="#laco">Resposta</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="#tokens"><small>01</small>Tokens</a>
+      <a href="#significado"><small>02</small>Significado</a>
+      <a href="#atencao"><small>03</small>Atenção</a>
+      <a href="#proxima"><small>04</small>Próxima palavra</a>
+      <a href="#laco"><small>05</small>Resposta</a>
+      <a href="/#contato"><small>06</small>Contato</a>
+    </div>
+  </div>
+
+  <main id="conteudo" class="lx">
+    <!-- HERO · partículas mostram o caminho da pergunta até a resposta -->
+    <section class="page-hero lx-hero" aria-labelledby="page-title">
+      <div class="lx-field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Guia 01 · Entenda a IA</span>
+          <span class="label label-dim lx-stage" aria-hidden="true">01 · Você pergunta</span>
+        </div>
+        <h1 id="page-title" class="page-title">Como uma IA <em>responde.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">Entre a sua pergunta e a resposta do ChatGPT existem cinco passos. Aqui você vê cada um, com a sua própria frase, sem fórmula e sem jargão.</p>
+          <nav class="lx-toc" aria-label="Passos deste guia">
+            <a href="#tokens"><span>01</span>Tokens</a>
+            <a href="#significado"><span>02</span>Significado</a>
+            <a href="#atencao"><span>03</span>Atenção</a>
+            <a href="#proxima"><span>04</span>Próxima palavra</a>
+            <a href="#laco"><span>05</span>Resposta</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · TOKENS -->
+    <section id="tokens" class="p-section ia-tokens" aria-labelledby="tokens-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">Tokens</span>
+            <h2 id="tokens-title" class="h2" data-words>A IA não lê palavras. Lê pedaços.</h2>
+          </div>
+          <p>Antes de tudo, o texto é cortado em tokens: palavras curtas inteiras, palavras longas em partes, e a pontuação separada. Cada pedaço vira um número. Escreva qualquer coisa e veja.</p>
+        </header>
+        <div class="lx-panel tok reveal">
+          <div class="lx-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>tokenizador · simulação</span><span class="tok-live"><i class="pulse" aria-hidden="true"></i></span></div>
+          <div class="tok-body">
+            <label class="label label-dim" for="tok-in">Sua frase</label>
+            <input id="tok-in" class="lx-input" type="text" maxlength="160" value="Por que o céu é azul durante o dia?" autocomplete="off" spellcheck="false" />
+            <div class="tok-out" aria-live="polite" aria-label="Tokens da frase"></div>
+            <div class="tok-stats">
+              <div><b data-stat="tokens">0</b><span>tokens</span></div>
+              <div><b data-stat="words">0</b><span>palavras</span></div>
+              <div><b data-stat="chars">0</b><span>caracteres</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="lx-note reveal">Simplificado: cada modelo tem o seu próprio dicionário de pedaços, então a contagem real muda de uma IA para outra. <b>É por tokens que as IAs medem o tamanho do texto e cobram pelo uso.</b></p>
+      </div>
+    </section>
+
+    <!-- 02 · SIGNIFICADO -->
+    <section id="significado" class="p-section alt ia-map" aria-labelledby="map-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Embeddings</span>
+            <h2 id="map-title" class="h2" data-words>Cada pedaço vira um ponto num mapa de significado.</h2>
+          </div>
+          <p>A IA transforma cada token numa lista de números, que funciona como um endereço num mapa. Palavras com sentido parecido ficam perto. É assim que ela sabe que "gato" está mais perto de "cachorro" do que de "pizza".</p>
+        </header>
+        <div class="map reveal">
+          <div class="map-stage lx-panel">
+            <svg class="map-svg" viewBox="0 0 1000 620" role="img" aria-label="Mapa de palavras agrupadas por significado: animais, comida, lugares, tecnologia, sentimentos e família"></svg>
+          </div>
+          <div class="map-side">
+            <label class="label label-dim" for="map-in">Procure uma palavra</label>
+            <input id="map-in" class="lx-input" type="text" maxlength="30" placeholder="ex.: cavalo, café, robô" autocomplete="off" spellcheck="false" />
+            <p class="map-msg" aria-live="polite">Passe o mouse ou toque num ponto para ver os vizinhos mais próximos.</p>
+            <div class="lx-row">
+              <button type="button" class="chip" data-analogy>rei − homem + mulher</button>
+            </div>
+            <p class="map-foot">Num modelo de verdade, esse mapa tem milhares de dimensões, não duas. A ideia é a mesma: distância é diferença de sentido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · ATENÇÃO -->
+    <section id="atencao" class="p-section ia-att" aria-labelledby="att-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">03</span>
+          <div>
+            <span class="label">Atenção</span>
+            <h2 id="att-title" class="h2" data-words>Cada palavra olha para as outras.</h2>
+          </div>
+          <p>Uma palavra sozinha pode ser ambígua. Para entender "ele", a IA pesa todas as outras palavras da frase e descobre a quem ele se refere. Esse mecanismo se chama atenção, e é o coração dos modelos atuais.</p>
+        </header>
+        <div class="att lx-panel reveal">
+          <div class="lx-bar"><span>Toque em uma palavra</span><span class="att-key"><i></i>mais forte</span></div>
+          <div class="att-stage">
+            <svg class="att-svg" aria-hidden="true"></svg>
+            <p class="att-sent"></p>
+          </div>
+          <p class="att-msg" aria-live="polite"></p>
+        </div>
+        <p class="lx-note reveal">Os pesos aqui são ilustrativos. Num modelo real, isso acontece em dezenas de camadas ao mesmo tempo, cada uma reparando numa coisa diferente: gramática, assunto, quem fez o quê.</p>
+      </div>
+    </section>
+
+    <!-- 04 · PRÓXIMA PALAVRA -->
+    <section id="proxima" class="p-section alt ia-next" aria-labelledby="next-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Probabilidade</span>
+            <h2 id="next-title" class="h2" data-words>No fim, ela só escolhe a próxima palavra.</h2>
+          </div>
+          <p>Depois de tudo isso, a IA calcula a chance de cada token vir a seguir e sorteia um deles. A temperatura controla o sorteio: baixa, ela quase sempre escolhe o mais provável; alta, ela arrisca mais.</p>
+        </header>
+        <div class="nx reveal">
+          <div class="nx-ctx lx-panel">
+            <span class="label label-dim">Texto até agora</span>
+            <p class="nx-text">A capital do Brasil é <span class="nx-pick" aria-live="polite">&nbsp;</span></p>
+            <div class="nx-temp">
+              <label class="label" for="nx-t">Temperatura <b class="nx-tv">0,7</b></label>
+              <input id="nx-t" type="range" min="0.1" max="2" step="0.1" value="0.7" />
+              <div class="nx-ends"><span>Previsível</span><span>Criativa</span></div>
+            </div>
+            <button type="button" class="btn btn-light nx-go">Escolher a próxima palavra <i class="arrow" aria-hidden="true"></i></button>
+          </div>
+          <ol class="nx-bars" aria-label="Chance de cada palavra"></ol>
+        </div>
+        <p class="lx-note reveal">Números ilustrativos. Repare: com a temperatura alta, "linda" ou "Rio" podem sair. <b>A IA escolhe o que é provável, não o que é verdadeiro</b>, e por isso às vezes inventa.</p>
+      </div>
+    </section>
+
+    <!-- 05 · LAÇO -->
+    <section id="laco" class="p-section ia-loop" aria-labelledby="loop-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">05</span>
+          <div>
+            <span class="label">Palavra por palavra</span>
+            <h2 id="loop-title" class="h2" data-words>E repete, até a resposta ficar pronta.</h2>
+          </div>
+          <p>A palavra escolhida entra no texto e o ciclo recomeça. É por isso que as respostas aparecem aos poucos na tela: a IA está literalmente escrevendo um token de cada vez.</p>
+        </header>
+        <div class="loop lx-panel reveal">
+          <div class="lflow loop-flow" style="--n:4">
+            <span class="lflow-wire" aria-hidden="true"><i></i></span>
+            <div class="lflow-step" data-s="0"><span class="lflow-dot">01</span><h3>Lê o texto</h3><p>A pergunta e tudo o que já foi escrito.</p></div>
+            <div class="lflow-step" data-s="1"><span class="lflow-dot">02</span><h3>Calcula</h3><p>Significado e atenção em todas as camadas.</p></div>
+            <div class="lflow-step" data-s="2"><span class="lflow-dot">03</span><h3>Escolhe</h3><p>Um token, pela probabilidade.</p></div>
+            <div class="lflow-step" data-s="3"><span class="lflow-dot">↺</span><h3>Acrescenta</h3><p>E volta para o passo 01.</p></div>
+          </div>
+          <div class="loop-out">
+            <div class="lx-bar"><span>Resposta sendo gerada</span><span class="loop-count">0 tokens</span></div>
+            <p class="loop-text lx-mono" aria-live="off"><span class="loop-q">Qual é a capital do Brasil?</span><br /><span class="loop-a"></span><i class="loop-caret" aria-hidden="true"></i></p>
+            <button type="button" class="chip loop-again">Gerar de novo</button>
+          </div>
+        </div>
+
+        <h3 class="ia-sub reveal">O que isso explica</h3>
+        <div class="lx-cards ia-why">
+          <article class="lx-card reveal"><span class="n">Alucinação</span><h3>Por que a IA inventa</h3><p>Ela completa com o que é provável. Se não tiver a informação, ainda assim escreve algo que soa certo. Confira números, datas e citações.</p></article>
+          <article class="lx-card reveal"><span class="n">Contexto</span><h3>Por que detalhes ajudam</h3><p>Tudo o que você escreve entra na atenção. Mais contexto muda as probabilidades a seu favor. O <a href="/prompts">guia de prompts</a> mostra como.</p></article>
+          <article class="lx-card reveal"><span class="n">Treino</span><h3>Por que ela não sabe de ontem</h3><p>O modelo aprendeu com textos até uma data. Para saber de algo recente, precisa de uma ferramenta de busca ligada a ele.</p></article>
+          <article class="lx-card reveal"><span class="n">Temperatura</span><h3>Por que a resposta muda</h3><p>Como existe sorteio, a mesma pergunta pode ter respostas diferentes. Não é erro, é o funcionamento normal.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-section series-wrap" aria-labelledby="series-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">+</span>
+          <div>
+            <span class="label">Entenda a IA</span>
+            <h2 id="series-title" class="h2" data-words>Cinco guias curtos, sem jargão.</h2>
+          </div>
+          <p>Cada guia explica uma parte da IA e da web com algo para você testar. Tudo roda no seu navegador.</p>
+        </header>
+        <ol class="series">
+          <li><a href="/como-a-ia-funciona"><span>01</span><b>Como uma IA responde</b><small>Da pergunta à resposta, peça por peça, com a sua própria frase.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/prompts"><span>02</span><b>Anatomia de um bom prompt</b><small>Como pedir para a IA e receber respostas melhores.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/glossario-ia"><span>03</span><b>Glossário de IA</b><small>25 termos de IA em uma frase e um exemplo do dia a dia.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/ia-com-seguranca"><span>04</span><b>IA com segurança</b><small>O que não colar numa IA e como perceber quando ela inventa.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/do-clique-a-tela"><span>05</span><b>Do clique à tela</b><small>O que acontece ao abrir um site, medido no seu aparelho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">Feito por Mateus Paiva · Head of AI no Notazz</span>
+        <h2 id="cta-title" data-words>Agora você sabe <em>o que acontece por dentro.</em></h2>
+        <p>O próximo passo é usar isso a seu favor: um pedido bem feito muda a resposta inteira.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="/prompts">Próximo guia: prompts <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/">Ver o portfólio <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-sub">
+    <div class="wrap footer-top">
+      <p class="wordmark footer-mark" aria-hidden="true"><span class="fm-word">mPaiva</span><span class="caret"></span></p>
+    </div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Head of AI no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/head-of-ai">Head of AI no Notazz</a>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Guias">
+        <h4>Guias</h4>
+        <a href="/como-a-ia-funciona">Como uma IA responde</a>
+        <a href="/prompts">Anatomia de um bom prompt</a>
+        <a href="/glossario-ia">Glossário de IA</a>
+        <a href="/ia-com-seguranca">IA com segurança</a>
+        <a href="/do-clique-a-tela">Do clique à tela</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap stack">
+      <p class="label label-dim stack-title">Stack deste site</p>
+      <ul class="stack-list" aria-label="Tecnologias deste site">
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span><span class="stack-txt"><b>HTML</b><small>Estrutura semântica</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></span><span class="stack-txt"><b>CSS</b><small>Layout e movimento</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></span><span class="stack-txt"><b>JavaScript</b><small>Canvas e interações</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path class="stack-ease" d="M3.5 20.5C11 20.5 10 3.5 20.5 3.5"/><circle cx="3.5" cy="20.5" r="2.2"/><circle cx="20.5" cy="3.5" r="2.2"/></svg></span><span class="stack-txt"><b>GSAP</b><small>Animação na rolagem</small></span></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <div class="footer-meta">
+        <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261102-guias" defer></script>
+  <script src="/learn.js?v=20261102-guias" defer></script>
+  <script src="/ia.js?v=20261102-guias" defer></script>
+  <script src="/footer.js?v=20261102-guias" defer></script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Anatomia de um bom prompt: como pedir para a IA | Mateus Paiva</title>
+  <meta name="description" content="Como escrever um bom prompt para ChatGPT, Claude ou Gemini: as seis partes de um pedido bem feito, exemplos de antes e depois, erros comuns e um montador de prompt para copiar." />
+  <meta name="author" content="Mateus Paiva" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://upaiva.dev/prompts" />
+  <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/prompts" />
+  <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/prompts" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="MPAIVA_" />
+  <meta property="og:title" content="Anatomia de um bom prompt: como pedir para a IA | Mateus Paiva" />
+  <meta property="og:description" content="As seis partes de um pedido bem feito, exemplos de antes e depois e um montador de prompt para copiar." />
+  <meta property="og:url" content="https://upaiva.dev/prompts" />
+  <meta property="og:image" content="https://upaiva.dev/assets/og/og-prompts.png?v=1" />
+  <meta property="og:image:secure_url" content="https://upaiva.dev/assets/og/og-prompts.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Anatomia de um bom prompt: guia do upaiva.dev" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anatomia de um bom prompt: como pedir para a IA | Mateus Paiva" />
+  <meta name="twitter:description" content="As seis partes de um pedido bem feito, exemplos de antes e depois e um montador de prompt para copiar." />
+  <meta name="twitter:image" content="https://upaiva.dev/assets/og/og-prompts.png?v=1" />
+  <meta name="twitter:image:alt" content="Anatomia de um bom prompt: guia do upaiva.dev" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://upaiva.dev/prompts#article",
+      "headline": "Anatomia de um bom prompt",
+      "name": "Anatomia de um bom prompt: como pedir para a IA | Mateus Paiva",
+      "description": "Como escrever um bom prompt para ChatGPT, Claude ou Gemini: as seis partes de um pedido bem feito, exemplos de antes e depois, erros comuns e um montador de prompt para copiar.",
+      "url": "https://upaiva.dev/prompts",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "isPartOf": {
+        "@id": "https://upaiva.dev/#website"
+      },
+      "image": "https://upaiva.dev/assets/og/og-prompts.png",
+      "learningResourceType": "Guia",
+      "educationalLevel": "Iniciante",
+      "isAccessibleForFree": true,
+      "about": [
+        "Prompt",
+        "Engenharia de prompt",
+        "ChatGPT",
+        "Inteligência artificial generativa"
+      ],
+      "breadcrumb": {
+        "@id": "https://upaiva.dev/prompts#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://upaiva.dev/#person",
+      "name": "Mateus Paiva",
+      "url": "https://upaiva.dev/",
+      "jobTitle": "Head of AI",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notazz"
+      },
+      "sameAs": [
+        "https://github.com/EoPaiva",
+        "https://www.linkedin.com/in/mateuspaiva21/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://upaiva.dev/prompts#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://upaiva.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Anatomia de um bom prompt",
+          "item": "https://upaiva.dev/prompts"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/page.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/learn.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/prompts.css?v=20261102-guias" />
+</head>
+<body class="lx-page lx-prompts">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="#anatomia">Anatomia</a>
+        <a href="#antes-e-depois">Antes e depois</a>
+        <a href="#montador">Montador</a>
+        <a href="#erros">Erros comuns</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="#anatomia"><small>01</small>Anatomia</a>
+      <a href="#antes-e-depois"><small>02</small>Antes e depois</a>
+      <a href="#montador"><small>03</small>Montador</a>
+      <a href="#erros"><small>04</small>Erros comuns</a>
+      <a href="/#contato"><small>05</small>Contato</a>
+    </div>
+  </div>
+
+  <main id="conteudo" class="lx">
+    <!-- HERO · partículas: de um pedido vago a um pedido com estrutura -->
+    <section class="page-hero lx-hero" aria-labelledby="page-title">
+      <div class="lx-field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Guia 02 · Entenda a IA</span>
+          <span class="label label-dim lx-stage" aria-hidden="true">01 · Pedido vago</span>
+        </div>
+        <h1 id="page-title" class="page-title">Anatomia de um <em>bom prompt.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">A mesma IA entrega uma resposta rasa ou excelente dependendo de como você pede. Aqui estão as seis partes de um pedido bem feito, exemplos de antes e depois e um montador para usar hoje.</p>
+          <nav class="lx-toc" aria-label="Partes deste guia">
+            <a href="#anatomia"><span>01</span>Anatomia</a>
+            <a href="#antes-e-depois"><span>02</span>Antes e depois</a>
+            <a href="#montador"><span>03</span>Montador</a>
+            <a href="#erros"><span>04</span>Erros comuns</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · ANATOMIA -->
+    <section id="anatomia" class="p-section pr-anat" aria-labelledby="anat-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">Anatomia</span>
+            <h2 id="anat-title" class="h2" data-words>Seis partes. Nem todo pedido precisa de todas.</h2>
+          </div>
+          <p>Um bom prompt é um briefing curto: quem a IA deve ser, a sua situação, o que você quer, como quer receber, um exemplo e o que evitar. Toque numa parte para ver onde ela está no pedido.</p>
+        </header>
+        <div class="anat reveal">
+          <ol class="anat-parts" aria-label="As seis partes de um prompt">
+            <li><button type="button" class="anat-part" data-k="papel"><span>01</span><b>Papel</b><small>Quem a IA deve ser. Muda o tom e a profundidade.</small></button></li>
+            <li><button type="button" class="anat-part" data-k="contexto"><span>02</span><b>Contexto</b><small>A sua situação. Sem ele, a resposta sai genérica.</small></button></li>
+            <li><button type="button" class="anat-part" data-k="tarefa"><span>03</span><b>Tarefa</b><small>O que você quer, com um verbo claro e um objetivo.</small></button></li>
+            <li><button type="button" class="anat-part" data-k="formato"><span>04</span><b>Formato</b><small>Como a resposta deve vir: lista, tabela, tamanho, tom.</small></button></li>
+            <li><button type="button" class="anat-part" data-k="exemplo"><span>05</span><b>Exemplo</b><small>Um modelo do que você espera. Vale mais que explicar.</small></button></li>
+            <li><button type="button" class="anat-part" data-k="limites"><span>06</span><b>Limites</b><small>O que evitar e o que fazer se faltar informação.</small></button></li>
+          </ol>
+          <div class="anat-doc lx-panel">
+            <div class="lx-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>prompt de exemplo</span><button type="button" class="anat-copy chip">Copiar</button></div>
+            <p class="anat-text">
+              <span class="seg" data-k="papel"><i>Papel</i>Você é um consultor financeiro que explica as coisas de forma simples.</span>
+              <span class="seg" data-k="contexto"><i>Contexto</i>Tenho 28 anos, ganho R$ 4.000 por mês, gasto quase tudo e não tenho nenhuma reserva.</span>
+              <span class="seg" data-k="tarefa"><i>Tarefa</i>Monte um plano de 6 meses para eu começar uma reserva de emergência.</span>
+              <span class="seg" data-k="formato"><i>Formato</i>Responda numa tabela com o mês, quanto guardar e uma dica prática.</span>
+              <span class="seg" data-k="exemplo"><i>Exemplo</i>Uma dica no estilo de: "cancele uma assinatura que você não usa".</span>
+              <span class="seg" data-k="limites"><i>Limites</i>Não indique investimentos de risco nem bancos específicos. Se faltar alguma informação, me pergunte antes.</span>
+            </p>
+          </div>
+        </div>
+        <p class="lx-note reveal">Para perguntas rápidas, só a tarefa basta. As outras partes valem quando a resposta importa: um texto que você vai enviar, uma decisão, um estudo. <b>Quanto mais a resposta depende de você, mais contexto ela precisa.</b></p>
+      </div>
+    </section>
+
+    <!-- 02 · ANTES E DEPOIS -->
+    <section id="antes-e-depois" class="p-section alt pr-ba" aria-labelledby="ba-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Antes e depois</span>
+            <h2 id="ba-title" class="h2" data-words>O mesmo pedido, escrito de dois jeitos.</h2>
+          </div>
+          <p>Cinco situações do dia a dia. À esquerda, o pedido que quase todo mundo faz. À direita, a versão que tira a IA do genérico. Copie e troque os detalhes pelos seus.</p>
+        </header>
+        <div class="ba reveal">
+          <div class="lx-row ba-tabs" role="tablist" aria-label="Situações"></div>
+          <div class="ba-grid">
+            <article class="ba-card ba-before lx-panel" aria-labelledby="ba-b">
+              <div class="lx-bar"><span id="ba-b">Antes</span><span class="ba-count" data-c="b"></span></div>
+              <p class="ba-text" data-t="b"></p>
+              <p class="ba-res" data-r="b"></p>
+            </article>
+            <article class="ba-card ba-after lx-panel" aria-labelledby="ba-a">
+              <div class="lx-bar"><span id="ba-a">Depois</span><span class="ba-count" data-c="a"></span><button type="button" class="chip ba-copy">Copiar</button></div>
+              <p class="ba-text" data-t="a" aria-live="polite"></p>
+              <p class="ba-res" data-r="a"></p>
+            </article>
+          </div>
+          <p class="ba-why"><span class="label label-dim">Por que funciona</span><span class="ba-why-t"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · MONTADOR -->
+    <section id="montador" class="p-section pr-build" aria-labelledby="build-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">03</span>
+          <div>
+            <span class="label">Montador</span>
+            <h2 id="build-title" class="h2" data-words>Monte o seu e copie.</h2>
+          </div>
+          <p>Preencha só o que fizer sentido. O pedido vai se montando ao lado, pronto para colar no ChatGPT, Claude, Gemini ou Copilot. Nada do que você escreve sai do seu navegador.</p>
+        </header>
+        <div class="bd reveal">
+          <form class="bd-form" autocomplete="off" onsubmit="return false">
+            <div class="bd-start">
+              <span class="label label-dim">Começar com um exemplo</span>
+              <div class="lx-row bd-presets"></div>
+            </div>
+            <label class="bd-f"><span class="label">01 · Papel <small>opcional</small></span>
+              <input class="lx-input" name="papel" type="text" maxlength="140" placeholder="ex.: um professor paciente" />
+            </label>
+            <label class="bd-f"><span class="label">02 · Contexto</span>
+              <textarea class="lx-input" name="contexto" rows="3" maxlength="900" placeholder="Sua situação: quem você é, para quem é, o que já tentou."></textarea>
+            </label>
+            <label class="bd-f"><span class="label">03 · Tarefa</span>
+              <input class="lx-input" name="tarefa" type="text" maxlength="240" placeholder="ex.: crie um plano de estudos de 4 semanas" />
+            </label>
+            <fieldset class="bd-f">
+              <legend class="label">04 · Formato</legend>
+              <div class="lx-row" data-group="formato">
+                <button type="button" class="chip" data-v="em tópicos curtos">Tópicos</button>
+                <button type="button" class="chip" data-v="numa tabela">Tabela</button>
+                <button type="button" class="chip" data-v="em passo a passo numerado">Passo a passo</button>
+                <button type="button" class="chip" data-v="em um texto corrido">Texto</button>
+                <button type="button" class="chip" data-v="em formato de e-mail">E-mail</button>
+              </div>
+              <div class="lx-row" data-group="tamanho">
+                <button type="button" class="chip" data-v="curta, em até 100 palavras">Curta</button>
+                <button type="button" class="chip" data-v="de tamanho médio">Média</button>
+                <button type="button" class="chip" data-v="detalhada">Detalhada</button>
+              </div>
+            </fieldset>
+            <label class="bd-f"><span class="label">05 · Exemplo <small>opcional</small></span>
+              <input class="lx-input" name="exemplo" type="text" maxlength="300" placeholder="ex.: no tom de &quot;bom dia, tudo certo por aí?&quot;" />
+            </label>
+            <fieldset class="bd-f">
+              <legend class="label">06 · Limites</legend>
+              <div class="lx-row" data-group="limites" data-multi>
+                <button type="button" class="chip" data-v="Se faltar informação, me pergunte antes de responder.">Pergunte antes</button>
+                <button type="button" class="chip" data-v="Não invente dados; se não souber, diga que não sabe.">Não invente</button>
+                <button type="button" class="chip" data-v="Use linguagem simples, sem jargão.">Sem jargão</button>
+                <button type="button" class="chip" data-v="Diga de onde vem cada número ou afirmação importante.">Cite a origem</button>
+              </div>
+            </fieldset>
+          </form>
+          <div class="bd-out">
+            <div class="lx-panel bd-panel">
+              <div class="lx-bar"><span>Seu prompt</span><span class="bd-meter" aria-live="polite"></span></div>
+              <div class="bd-parts" aria-hidden="true"><i data-k="papel"></i><i data-k="contexto"></i><i data-k="tarefa"></i><i data-k="formato"></i><i data-k="exemplo"></i><i data-k="limites"></i></div>
+              <p class="bd-text"></p>
+              <div class="bd-actions">
+                <button type="button" class="btn btn-light bd-copy">Copiar prompt <i class="arrow" aria-hidden="true"></i></button>
+                <button type="button" class="chip bd-clear">Limpar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · ERROS COMUNS -->
+    <section id="erros" class="p-section alt pr-err" aria-labelledby="err-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Erros comuns</span>
+            <h2 id="err-title" class="h2" data-words>O que atrapalha, e o que destrava.</h2>
+          </div>
+          <p>A maior parte das respostas ruins vem de poucos hábitos. Trocar cada um por uma frase simples já muda o resultado.</p>
+        </header>
+        <div class="lx-cards pr-errs">
+          <article class="lx-card reveal"><span class="n">Erro 01</span><h3>Pedir tudo de uma vez</h3><p>Um pedido gigante gera uma resposta confusa. Divida em etapas: primeiro o roteiro, depois cada parte.</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 02</span><h3>Aceitar a primeira resposta</h3><p>Conversa é ajuste. Peça "mais curto", "mais formal", "explique o item 2" ou "dê outro exemplo".</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 03</span><h3>Perguntar já com a resposta</h3><p>"Por que X é o melhor?" faz a IA concordar com você. Pergunte de forma neutra: "compare X e Y".</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 04</span><h3>Confiar em número sem conferir</h3><p>Datas, valores e citações podem ser inventados. O <a href="/ia-com-seguranca#inventa">guia de segurança</a> mostra como checar.</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 05</span><h3>Colar dados sensíveis</h3><p>CPF, senhas e dados de clientes não devem ir para a IA. Dá para <a href="/ia-com-seguranca#anonimizar">anonimizar antes</a>.</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 06</span><h3>Esquecer quem vai ler</h3><p>"Para o meu chefe", "para uma criança de 10 anos", "para um cliente irritado": o público muda tudo.</p></article>
+        </div>
+
+        <h3 class="pr-sub reveal">Frases que destravam</h3>
+        <p class="pr-subp reveal">Toque para copiar e cole no fim de qualquer pedido.</p>
+        <ul class="pr-tricks reveal">
+          <li><button type="button" data-copy="Antes de responder, me faça as perguntas que você precisar.">Antes de responder, me faça as perguntas que você precisar.</button></li>
+          <li><button type="button" data-copy="Me dê 3 opções bem diferentes entre si.">Me dê 3 opções bem diferentes entre si.</button></li>
+          <li><button type="button" data-copy="Explique como se eu nunca tivesse ouvido falar disso.">Explique como se eu nunca tivesse ouvido falar disso.</button></li>
+          <li><button type="button" data-copy="Revise a sua resposta e aponte o que pode estar errado.">Revise a sua resposta e aponte o que pode estar errado.</button></li>
+          <li><button type="button" data-copy="Diga o que você assumiu sem eu ter falado.">Diga o que você assumiu sem eu ter falado.</button></li>
+          <li><button type="button" data-copy="Agora reescreva em metade do tamanho.">Agora reescreva em metade do tamanho.</button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="p-section series-wrap" aria-labelledby="series-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">+</span>
+          <div>
+            <span class="label">Entenda a IA</span>
+            <h2 id="series-title" class="h2" data-words>Cinco guias curtos, sem jargão.</h2>
+          </div>
+          <p>Cada guia explica uma parte da IA e da web com algo para você testar. Tudo roda no seu navegador.</p>
+        </header>
+        <ol class="series">
+          <li><a href="/como-a-ia-funciona"><span>01</span><b>Como uma IA responde</b><small>Da pergunta à resposta, peça por peça, com a sua própria frase.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/prompts"><span>02</span><b>Anatomia de um bom prompt</b><small>Como pedir para a IA e receber respostas melhores.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/glossario-ia"><span>03</span><b>Glossário de IA</b><small>25 termos de IA em uma frase e um exemplo do dia a dia.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/ia-com-seguranca"><span>04</span><b>IA com segurança</b><small>O que não colar numa IA e como perceber quando ela inventa.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/do-clique-a-tela"><span>05</span><b>Do clique à tela</b><small>O que acontece ao abrir um site, medido no seu aparelho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">Feito por Mateus Paiva · Head of AI no Notazz</span>
+        <h2 id="cta-title" data-words>Um bom pedido <em>vale mais que uma IA melhor.</em></h2>
+        <p>Quando a IA responder uma palavra que você não conhece, o glossário explica em uma frase.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="/glossario-ia">Próximo guia: glossário <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/">Ver o portfólio <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-sub">
+    <div class="wrap footer-top">
+      <p class="wordmark footer-mark" aria-hidden="true"><span class="fm-word">mPaiva</span><span class="caret"></span></p>
+    </div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Head of AI no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/head-of-ai">Head of AI no Notazz</a>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Guias">
+        <h4>Guias</h4>
+        <a href="/como-a-ia-funciona">Como uma IA responde</a>
+        <a href="/prompts">Anatomia de um bom prompt</a>
+        <a href="/glossario-ia">Glossário de IA</a>
+        <a href="/ia-com-seguranca">IA com segurança</a>
+        <a href="/do-clique-a-tela">Do clique à tela</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap stack">
+      <p class="label label-dim stack-title">Stack deste site</p>
+      <ul class="stack-list" aria-label="Tecnologias deste site">
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span><span class="stack-txt"><b>HTML</b><small>Estrutura semântica</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></span><span class="stack-txt"><b>CSS</b><small>Layout e movimento</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></span><span class="stack-txt"><b>JavaScript</b><small>Canvas e interações</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path class="stack-ease" d="M3.5 20.5C11 20.5 10 3.5 20.5 3.5"/><circle cx="3.5" cy="20.5" r="2.2"/><circle cx="20.5" cy="3.5" r="2.2"/></svg></span><span class="stack-txt"><b>GSAP</b><small>Animação na rolagem</small></span></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <div class="footer-meta">
+        <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261102-guias" defer></script>
+  <script src="/learn.js?v=20261102-guias" defer></script>
+  <script src="/prompts.js?v=20261102-guias" defer></script>
+  <script src="/footer.js?v=20261102-guias" defer></script>
+</body>
+</html>
