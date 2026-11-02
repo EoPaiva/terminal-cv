@@ -98,11 +98,15 @@
     while (tw.nextNode()) { if (!tw.currentNode.textContent.trim()) continue; rg.selectNodeContents(tw.currentNode); for (const r of rg.getClientRects()) textRight = Math.max(textRight, r.right); }
     textRight = (textRight || tb.right) - fr.left;
     const right = top.getBoundingClientRect().right - fr.left;
+    // posição de layout, sem o deslocamento da animação de entrada (a linha de rótulos e o sumário sobem 30px ao abrir)
+    const shiftY = (el) => { let s = 0; for (let n = el; n && n !== document.body; n = n.parentElement) { const t = getComputedStyle(n).transform; if (t && t !== "none") s += new DOMMatrixReadOnly(t).m42; } return s; };
     const toc = document.querySelector(".lx-hero .lx-toc");
-    const floor = (toc && toc.offsetParent ? toc.getBoundingClientRect().top : tb.bottom) - fr.top - 28;
-    const A = { x: Math.max(w * 0.5, textRight + 72), y: 12 };
+    const floor = (toc && toc.offsetParent ? toc.getBoundingClientRect().top - shiftY(toc) : tb.bottom) - fr.top - 28;
+    // a linha de rótulos acima do título fica livre: ao lado do título a forma começa abaixo dela, acima do título termina antes dela
+    const trr = top.getBoundingClientRect(), sy = shiftY(top), tr = { top: trr.top - sy, bottom: trr.bottom - sy };
+    const A = { x: Math.max(w * 0.5, textRight + 72), y: Math.max(12, tr.bottom - fr.top + 28) };
     A.w = right - A.x; A.h = floor - A.y;
-    const B = { x: w * 0.46, y: 12, w: right - w * 0.46, h: tb.top - fr.top - 40 };
+    const B = { x: w * 0.46, y: 12, w: right - w * 0.46, h: tr.top - fr.top - 28 };
     const fit = (k) => (k.w > 80 && k.h > 80 ? Math.min(k.w, k.h * 1.8) * k.h : 0);
     return fit(A) >= fit(B) ? A : B;
   };
