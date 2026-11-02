@@ -54,7 +54,7 @@
     const x = o.align === "left" ? w * (o.x ?? 0.04) : o.align === "right" ? w * (o.x ?? 0.96) : w * (o.x ?? 0.5);
     c.fillText(str, x, h * (o.y ?? 0.5));
     const data = c.getImageData(0, 0, off.width, off.height).data;
-    const step = o.step || Math.max(2, Math.round(size / 64));
+    const step = Math.max(2, Math.round(o.step || size / 64)); // inteiro: o passo indexa pixels
     const pts = [];
     for (let y = 0; y < off.height; y += step) for (let xx = 0; xx < off.width; xx += step) {
       if (data[(y * off.width + xx) * 4 + 3] > 130) pts.push([xx + (Math.random() - 0.5) * step * 0.6, y + (Math.random() - 0.5) * step * 0.6]);
