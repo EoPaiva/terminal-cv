@@ -16,11 +16,6 @@
       "permanent": true
     },
     {
-      "source": "/agentes-de-ia",
-      "destination": "/#ai-search-context",
-      "permanent": true
-    },
-    {
       "source": "/sistemas-web-sob-medida",
       "destination": "/#ai-search-context",
       "permanent": true
