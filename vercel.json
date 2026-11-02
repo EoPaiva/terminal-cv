@@ -72,6 +72,26 @@
     {
       "source": "/head-of-ai",
       "destination": "/head-of-ai.html"
+    },
+    {
+      "source": "/como-a-ia-funciona",
+      "destination": "/como-a-ia-funciona.html"
+    },
+    {
+      "source": "/prompts",
+      "destination": "/prompts.html"
+    },
+    {
+      "source": "/glossario-ia",
+      "destination": "/glossario-ia.html"
+    },
+    {
+      "source": "/ia-com-seguranca",
+      "destination": "/ia-com-seguranca.html"
+    },
+    {
+      "source": "/do-clique-a-tela",
+      "destination": "/do-clique-a-tela.html"
     }
   ],
   "headers": [
