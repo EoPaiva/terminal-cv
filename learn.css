@@ -91,3 +91,5 @@ textarea.lx-input { font: 400 15px/1.7 var(--text); resize: vertical; min-height
   .p-section { padding: 0 !important; border: 0 !important; background: none !important; }
   .print-area, .print-area * { color: #000 !important; border-color: #999 !important; background: none !important; opacity: 1 !important; transform: none !important; }
 }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

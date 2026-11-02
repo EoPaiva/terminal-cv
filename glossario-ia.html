@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glossário de IA: 25 termos explicados de forma simples | Mateus Paiva</title>
+  <meta name="description" content="O que é LLM, token, RAG, agente, embedding, alucinação, MCP e outros termos de inteligência artificial, cada um explicado em uma frase simples e com um exemplo do dia a dia." />
+  <meta name="author" content="Mateus Paiva" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://upaiva.dev/glossario-ia" />
+  <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/glossario-ia" />
+  <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/glossario-ia" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="MPAIVA_" />
+  <meta property="og:title" content="Glossário de IA: 25 termos explicados de forma simples | Mateus Paiva" />
+  <meta property="og:description" content="LLM, token, RAG, agente, alucinação e mais: 25 termos de IA em uma frase e um exemplo do dia a dia." />
+  <meta property="og:url" content="https://upaiva.dev/glossario-ia" />
+  <meta property="og:image" content="https://upaiva.dev/assets/og/og-glossario-ia.png?v=1" />
+  <meta property="og:image:secure_url" content="https://upaiva.dev/assets/og/og-glossario-ia.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Glossário de IA: guia do upaiva.dev" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Glossário de IA: 25 termos explicados de forma simples | Mateus Paiva" />
+  <meta name="twitter:description" content="LLM, token, RAG, agente, alucinação e mais: 25 termos de IA em uma frase e um exemplo do dia a dia." />
+  <meta name="twitter:image" content="https://upaiva.dev/assets/og/og-glossario-ia.png?v=1" />
+  <meta name="twitter:image:alt" content="Glossário de IA: guia do upaiva.dev" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://upaiva.dev/glossario-ia#article",
+      "headline": "Glossário de IA",
+      "name": "Glossário de IA: 25 termos explicados de forma simples | Mateus Paiva",
+      "description": "O que é LLM, token, RAG, agente, embedding, alucinação, MCP e outros termos de inteligência artificial, cada um explicado em uma frase simples e com um exemplo do dia a dia.",
+      "url": "https://upaiva.dev/glossario-ia",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "isPartOf": {
+        "@id": "https://upaiva.dev/#website"
+      },
+      "image": "https://upaiva.dev/assets/og/og-glossario-ia.png",
+      "learningResourceType": "Glossário",
+      "educationalLevel": "Iniciante",
+      "isAccessibleForFree": true,
+      "about": [
+        "Inteligência artificial",
+        "Glossário",
+        "LLM",
+        "RAG",
+        "Agentes de IA"
+      ],
+      "breadcrumb": {
+        "@id": "https://upaiva.dev/glossario-ia#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://upaiva.dev/#person",
+      "name": "Mateus Paiva",
+      "url": "https://upaiva.dev/",
+      "jobTitle": "Head of AI",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notazz"
+      },
+      "sameAs": [
+        "https://github.com/EoPaiva",
+        "https://www.linkedin.com/in/mateuspaiva21/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://upaiva.dev/glossario-ia#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://upaiva.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Glossário de IA",
+          "item": "https://upaiva.dev/glossario-ia"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://upaiva.dev/glossario-ia#termos",
+      "name": "Glossário de IA",
+      "inLanguage": "pt-BR",
+      "url": "https://upaiva.dev/glossario-ia",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#ia",
+          "name": "Inteligência artificial (IA)",
+          "description": "Área da computação que cria sistemas capazes de fazer tarefas que pareciam exigir inteligência humana, como entender texto, reconhecer imagens ou tomar decisões.",
+          "url": "https://upaiva.dev/glossario-ia#ia",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#aprendizado-de-maquina",
+          "name": "Aprendizado de máquina (machine learning)",
+          "description": "Jeito de criar IA em que o sistema aprende padrões a partir de exemplos, em vez de seguir regras escritas uma a uma.",
+          "url": "https://upaiva.dev/glossario-ia#aprendizado-de-maquina",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#rede-neural",
+          "name": "Rede neural",
+          "description": "Modelo matemático inspirado, de longe, nos neurônios: camadas de números que se ajustam durante o treino até acertar a tarefa.",
+          "url": "https://upaiva.dev/glossario-ia#rede-neural",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#llm",
+          "name": "LLM (grande modelo de linguagem)",
+          "description": "Rede neural treinada com uma quantidade enorme de texto para prever a próxima palavra. ChatGPT, Claude e Gemini são construídos sobre LLMs.",
+          "url": "https://upaiva.dev/glossario-ia#llm",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#ia-generativa",
+          "name": "IA generativa",
+          "description": "IA que cria conteúdo novo, como texto, imagem, áudio, vídeo ou código, a partir de um pedido.",
+          "url": "https://upaiva.dev/glossario-ia#ia-generativa",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#multimodal",
+          "name": "Multimodal",
+          "description": "Modelo que entende e produz mais de um tipo de dado: texto, imagem, áudio ou vídeo.",
+          "url": "https://upaiva.dev/glossario-ia#multimodal",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#token",
+          "name": "Token",
+          "description": "Pedaço de texto que a IA lê e escreve: uma palavra curta, parte de uma palavra ou um sinal. É a unidade usada para medir o tamanho do texto e cobrar o uso.",
+          "url": "https://upaiva.dev/glossario-ia#token",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#embedding",
+          "name": "Embedding (vetor de significado)",
+          "description": "Lista de números que representa o sentido de um texto. Textos parecidos viram números parecidos, o que permite buscar por significado e não só por palavra.",
+          "url": "https://upaiva.dev/glossario-ia#embedding",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#atencao",
+          "name": "Atenção (attention)",
+          "description": "Mecanismo que faz cada palavra “olhar” para as outras da frase e pesar quais importam para entendê-la.",
+          "url": "https://upaiva.dev/glossario-ia#atencao",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#transformer",
+          "name": "Transformer",
+          "description": "Arquitetura de rede neural apresentada em 2017 e baseada em atenção. É o “T” de GPT e a base dos LLMs atuais.",
+          "url": "https://upaiva.dev/glossario-ia#transformer",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#janela-de-contexto",
+          "name": "Janela de contexto",
+          "description": "Quanto texto a IA consegue considerar de uma vez: a conversa, os arquivos enviados e a própria resposta. O que passa do limite fica de fora.",
+          "url": "https://upaiva.dev/glossario-ia#janela-de-contexto",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#temperatura",
+          "name": "Temperatura",
+          "description": "Ajuste que controla o quanto a IA arrisca ao escolher a próxima palavra. Baixa deixa as respostas previsíveis; alta, mais variadas.",
+          "url": "https://upaiva.dev/glossario-ia#temperatura",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#inferencia",
+          "name": "Inferência",
+          "description": "O momento em que um modelo já treinado é usado para responder. Cada pergunta que você faz é uma inferência.",
+          "url": "https://upaiva.dev/glossario-ia#inferencia",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#treinamento",
+          "name": "Treinamento",
+          "description": "Fase em que o modelo aprende, ajustando bilhões de números a partir de muitos exemplos. É caro e acontece antes de você usar.",
+          "url": "https://upaiva.dev/glossario-ia#treinamento",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#prompt",
+          "name": "Prompt",
+          "description": "O pedido que você escreve para a IA, com instruções, contexto e exemplos. A forma de pedir muda muito a resposta.",
+          "url": "https://upaiva.dev/glossario-ia#prompt",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#fine-tuning",
+          "name": "Fine-tuning (ajuste fino)",
+          "description": "Treinar um pouco mais um modelo pronto com exemplos específicos, para ele aprender um estilo, um formato ou uma tarefa.",
+          "url": "https://upaiva.dev/glossario-ia#fine-tuning",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#rag",
+          "name": "RAG (geração com busca)",
+          "description": "Técnica em que o sistema primeiro busca documentos relevantes e os entrega à IA junto com a pergunta, para ela responder com informação atual ou interna.",
+          "url": "https://upaiva.dev/glossario-ia#rag",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#agente",
+          "name": "Agente de IA",
+          "description": "IA que não só responde: ela planeja e executa passos para cumprir um objetivo, usando ferramentas e checando o resultado no caminho.",
+          "url": "https://upaiva.dev/glossario-ia#agente",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#ferramentas",
+          "name": "Ferramentas (tool use)",
+          "description": "Capacidade de a IA acionar outros sistemas, como busca, calculadora, agenda ou banco de dados, em vez de só gerar texto.",
+          "url": "https://upaiva.dev/glossario-ia#ferramentas",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#mcp",
+          "name": "MCP (Model Context Protocol)",
+          "description": "Padrão aberto, lançado pela Anthropic em 2024, para conectar assistentes de IA a ferramentas e dados do mesmo jeito em qualquer lugar, como uma tomada universal.",
+          "url": "https://upaiva.dev/glossario-ia#mcp",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#alucinacao",
+          "name": "Alucinação",
+          "description": "Quando a IA afirma algo falso com confiança, como uma data, uma lei ou uma citação que não existe.",
+          "url": "https://upaiva.dev/glossario-ia#alucinacao",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#vies",
+          "name": "Viés",
+          "description": "Tendência da IA de repetir distorções presentes nos dados de treino, como estereótipos sobre gênero, idade ou origem.",
+          "url": "https://upaiva.dev/glossario-ia#vies",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#guardrails",
+          "name": "Guardrails (proteções)",
+          "description": "Regras e filtros em volta da IA que bloqueiam respostas perigosas, fora do assunto ou que exponham dados.",
+          "url": "https://upaiva.dev/glossario-ia#guardrails",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#corte-de-conhecimento",
+          "name": "Corte de conhecimento (data de corte)",
+          "description": "Data até onde vão os textos usados no treino. Sem uma ferramenta de busca, a IA não sabe o que aconteceu depois dela.",
+          "url": "https://upaiva.dev/glossario-ia#corte-de-conhecimento",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://upaiva.dev/glossario-ia#humano-no-loop",
+          "name": "Humano no loop (human in the loop)",
+          "description": "Prática de manter uma pessoa revisando ou aprovando as decisões da IA nas etapas que importam.",
+          "url": "https://upaiva.dev/glossario-ia#humano-no-loop",
+          "inDefinedTermSet": {
+            "@id": "https://upaiva.dev/glossario-ia#termos"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/page.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/learn.css?v=20261102-guias" />
+  <link rel="stylesheet" href="/glossario.css?v=20261102-guias" />
+</head>
+<body class="lx-page lx-glossario">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="#termos">Termos</a>
+        <a href="#teste">Teste rápido</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="#termos"><small>01</small>Termos</a>
+      <a href="#teste"><small>02</small>Teste rápido</a>
+      <a href="/#contato"><small>03</small>Contato</a>
+    </div>
+  </div>
+
+  <main id="conteudo" class="lx">
+    <!-- HERO · partículas escrevem os termos mais falados -->
+    <section class="page-hero lx-hero" aria-labelledby="page-title">
+      <div class="lx-field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Guia 03 · Entenda a IA</span>
+          <span class="label label-dim lx-stage" aria-hidden="true">LLM · modelo de linguagem</span>
+        </div>
+        <h1 id="page-title" class="page-title">Glossário <em>de IA.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">As palavras que aparecem em toda conversa sobre inteligência artificial, cada uma explicada em uma frase e com um exemplo do dia a dia. Sem fórmula e sem inglês desnecessário.</p>
+          <nav class="lx-toc" aria-label="Categorias">
+            <a href="#termos" data-cat="basico"><span>06</span>Básico</a>
+            <a href="#termos" data-cat="funciona"><span>08</span>Como funciona</a>
+            <a href="#termos" data-cat="pratica"><span>06</span>Na prática</a>
+            <a href="#termos" data-cat="riscos"><span>05</span>Riscos e cuidados</a>
+            <a href="#teste"><span>?</span>Teste rápido</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · TERMOS -->
+    <section id="termos" class="p-section gl" aria-labelledby="gl-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">25 termos</span>
+            <h2 id="gl-title" class="h2" data-words>Uma frase para cada palavra.</h2>
+          </div>
+          <p>Busque um termo ou filtre por categoria. Cada card tem um link direto, para você mandar para alguém que perguntou "mas o que é RAG?".</p>
+        </header>
+        <div class="gl-tools reveal">
+          <label class="gl-search">
+            <span class="gl-prompt" aria-hidden="true">&gt;</span>
+            <span class="sr-only">Buscar termo</span>
+            <input class="gl-q" type="search" placeholder="buscar, ex.: agente" autocomplete="off" spellcheck="false" />
+            <span class="gl-count" aria-live="polite">25 termos</span>
+          </label>
+          <div class="lx-row gl-cats" role="group" aria-label="Categorias">
+              <button type="button" class="chip is-on" data-cat="" aria-pressed="true">Todos <small>25</small></button>
+              <button type="button" class="chip" data-cat="basico" aria-pressed="false">Básico <small>6</small></button>
+              <button type="button" class="chip" data-cat="funciona" aria-pressed="false">Como funciona <small>8</small></button>
+              <button type="button" class="chip" data-cat="pratica" aria-pressed="false">Na prática <small>6</small></button>
+              <button type="button" class="chip" data-cat="riscos" aria-pressed="false">Riscos e cuidados <small>5</small></button>
+          </div>
+        </div>
+        <div class="gl-grid">
+          <article class="gl-term" id="ia" data-cat="basico" data-q="inteligencia artificial ia area da computacao que cria sistemas capazes de fazer tarefas que pareciam exigir inteligencia humana, como entender texto, reconhecer imagens ou tomar decisoes. o filtro de spam do seu e-mail, o desbloqueio pelo rosto no celular e o chatgpt sao ia.">
+            <div class="gl-top"><span class="label label-dim">Básico</span><a class="gl-hash" href="#ia" aria-label="Link direto para Inteligência artificial">#</a></div>
+            <h3>Inteligência artificial <small>IA</small></h3>
+            <p class="gl-def">Área da computação que cria sistemas capazes de fazer tarefas que pareciam exigir inteligência humana, como entender texto, reconhecer imagens ou tomar decisões.</p>
+            <p class="gl-ex"><span>No dia a dia</span>O filtro de spam do seu e-mail, o desbloqueio pelo rosto no celular e o ChatGPT são IA.</p>
+            <p class="gl-see"><a href="#aprendizado-de-maquina">Aprendizado de máquina</a> <span aria-hidden="true">·</span> <a href="#llm">LLM</a></p>
+          </article>
+          <article class="gl-term" id="aprendizado-de-maquina" data-cat="basico" data-q="aprendizado de maquina machine learning jeito de criar ia em que o sistema aprende padroes a partir de exemplos, em vez de seguir regras escritas uma a uma. a recomendacao de series do streaming aprende com o que voce ja assistiu.">
+            <div class="gl-top"><span class="label label-dim">Básico</span><a class="gl-hash" href="#aprendizado-de-maquina" aria-label="Link direto para Aprendizado de máquina">#</a></div>
+            <h3>Aprendizado de máquina <small>machine learning</small></h3>
+            <p class="gl-def">Jeito de criar IA em que o sistema aprende padrões a partir de exemplos, em vez de seguir regras escritas uma a uma.</p>
+            <p class="gl-ex"><span>No dia a dia</span>A recomendação de séries do streaming aprende com o que você já assistiu.</p>
+            <p class="gl-see"><a href="#rede-neural">Rede neural</a> <span aria-hidden="true">·</span> <a href="#treinamento">Treinamento</a></p>
+          </article>
+          <article class="gl-term" id="rede-neural" data-cat="basico" data-q="rede neural  modelo matematico inspirado, de longe, nos neuronios: camadas de numeros que se ajustam durante o treino ate acertar a tarefa. e o que esta por tras do reconhecimento de voz do assistente do celular.">
+            <div class="gl-top"><span class="label label-dim">Básico</span><a class="gl-hash" href="#rede-neural" aria-label="Link direto para Rede neural">#</a></div>
+            <h3>Rede neural</h3>
+            <p class="gl-def">Modelo matemático inspirado, de longe, nos neurônios: camadas de números que se ajustam durante o treino até acertar a tarefa.</p>
+            <p class="gl-ex"><span>No dia a dia</span>É o que está por trás do reconhecimento de voz do assistente do celular.</p>
+            <p class="gl-see"><a href="#transformer">Transformer</a> <span aria-hidden="true">·</span> <a href="#treinamento">Treinamento</a></p>
+          </article>
+          <article class="gl-term" id="llm" data-cat="basico" data-q="llm grande modelo de linguagem rede neural treinada com uma quantidade enorme de texto para prever a proxima palavra. chatgpt, claude e gemini sao construidos sobre llms. quando voce pede um resumo ao chatgpt, quem escreve e um llm.">
+            <div class="gl-top"><span class="label label-dim">Básico</span><a class="gl-hash" href="#llm" aria-label="Link direto para LLM">#</a></div>
+            <h3>LLM <small>grande modelo de linguagem</small></h3>
+            <p class="gl-def">Rede neural treinada com uma quantidade enorme de texto para prever a próxima palavra. ChatGPT, Claude e Gemini são construídos sobre LLMs.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Quando você pede um resumo ao ChatGPT, quem escreve é um LLM.</p>
+            <p class="gl-see"><a href="#token">Token</a> <span aria-hidden="true">·</span> <a href="#transformer">Transformer</a> <span aria-hidden="true">·</span> <a href="/como-a-ia-funciona">Como uma IA responde</a></p>
+          </article>
+          <article class="gl-term" id="ia-generativa" data-cat="basico" data-q="ia generativa  ia que cria conteudo novo, como texto, imagem, audio, video ou codigo, a partir de um pedido. gerar a arte de um convite ou o rascunho de um e-mail.">
+            <div class="gl-top"><span class="label label-dim">Básico</span><a class="gl-hash" href="#ia-generativa" aria-label="Link direto para IA generativa">#</a></div>
+            <h3>IA generativa</h3>
+            <p class="gl-def">IA que cria conteúdo novo, como texto, imagem, áudio, vídeo ou código, a partir de um pedido.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Gerar a arte de um convite ou o rascunho de um e-mail.</p>
+            <p class="gl-see"><a href="#llm">LLM</a> <span aria-hidden="true">·</span> <a href="#prompt">Prompt</a></p>
+          </article>
+          <article class="gl-term" id="multimodal" data-cat="basico" data-q="multimodal  modelo que entende e produz mais de um tipo de dado: texto, imagem, audio ou video. tirar foto de uma conta de luz e pedir para a ia explicar cada valor.">
+            <div class="gl-top"><span class="label label-dim">Básico</span><a class="gl-hash" href="#multimodal" aria-label="Link direto para Multimodal">#</a></div>
+            <h3>Multimodal</h3>
+            <p class="gl-def">Modelo que entende e produz mais de um tipo de dado: texto, imagem, áudio ou vídeo.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Tirar foto de uma conta de luz e pedir para a IA explicar cada valor.</p>
+            <p class="gl-see"><a href="#llm">LLM</a> <span aria-hidden="true">·</span> <a href="#ia-generativa">IA generativa</a></p>
+          </article>
+          <article class="gl-term" id="token" data-cat="funciona" data-q="token  pedaco de texto que a ia le e escreve: uma palavra curta, parte de uma palavra ou um sinal. e a unidade usada para medir o tamanho do texto e cobrar o uso. planos e apis de ia costumam ter limites e precos por milhao de tokens.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#token" aria-label="Link direto para Token">#</a></div>
+            <h3>Token</h3>
+            <p class="gl-def">Pedaço de texto que a IA lê e escreve: uma palavra curta, parte de uma palavra ou um sinal. É a unidade usada para medir o tamanho do texto e cobrar o uso.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Planos e APIs de IA costumam ter limites e preços por milhão de tokens.</p>
+            <p class="gl-see"><a href="#janela-de-contexto">Janela de contexto</a> <span aria-hidden="true">·</span> <a href="/como-a-ia-funciona#tokens">Teste o tokenizador</a></p>
+          </article>
+          <article class="gl-term" id="embedding" data-cat="funciona" data-q="embedding vetor de significado lista de numeros que representa o sentido de um texto. textos parecidos viram numeros parecidos, o que permite buscar por significado e nao so por palavra. buscar “tenis para correr” e achar “calcado esportivo de corrida”.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#embedding" aria-label="Link direto para Embedding">#</a></div>
+            <h3>Embedding <small>vetor de significado</small></h3>
+            <p class="gl-def">Lista de números que representa o sentido de um texto. Textos parecidos viram números parecidos, o que permite buscar por significado e não só por palavra.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Buscar “tênis para correr” e achar “calçado esportivo de corrida”.</p>
+            <p class="gl-see"><a href="#rag">RAG</a> <span aria-hidden="true">·</span> <a href="/como-a-ia-funciona#significado">Veja o mapa</a></p>
+          </article>
+          <article class="gl-term" id="atencao" data-cat="funciona" data-q="atencao attention mecanismo que faz cada palavra “olhar” para as outras da frase e pesar quais importam para entende-la. e o que permite a ia saber a quem “ele” se refere numa frase longa.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#atencao" aria-label="Link direto para Atenção">#</a></div>
+            <h3>Atenção <small>attention</small></h3>
+            <p class="gl-def">Mecanismo que faz cada palavra “olhar” para as outras da frase e pesar quais importam para entendê-la.</p>
+            <p class="gl-ex"><span>No dia a dia</span>É o que permite à IA saber a quem “ele” se refere numa frase longa.</p>
+            <p class="gl-see"><a href="#transformer">Transformer</a> <span aria-hidden="true">·</span> <a href="/como-a-ia-funciona#atencao">Teste com uma frase</a></p>
+          </article>
+          <article class="gl-term" id="transformer" data-cat="funciona" data-q="transformer  arquitetura de rede neural apresentada em 2017 e baseada em atencao. e o “t” de gpt e a base dos llms atuais. chatgpt, claude, gemini e llama usam variacoes dela.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#transformer" aria-label="Link direto para Transformer">#</a></div>
+            <h3>Transformer</h3>
+            <p class="gl-def">Arquitetura de rede neural apresentada em 2017 e baseada em atenção. É o “T” de GPT e a base dos LLMs atuais.</p>
+            <p class="gl-ex"><span>No dia a dia</span>ChatGPT, Claude, Gemini e Llama usam variações dela.</p>
+            <p class="gl-see"><a href="#atencao">Atenção</a> <span aria-hidden="true">·</span> <a href="#llm">LLM</a></p>
+          </article>
+          <article class="gl-term" id="janela-de-contexto" data-cat="funciona" data-q="janela de contexto  quanto texto a ia consegue considerar de uma vez: a conversa, os arquivos enviados e a propria resposta. o que passa do limite fica de fora. numa conversa muito longa, a ia pode “esquecer” o que foi dito no comeco.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#janela-de-contexto" aria-label="Link direto para Janela de contexto">#</a></div>
+            <h3>Janela de contexto</h3>
+            <p class="gl-def">Quanto texto a IA consegue considerar de uma vez: a conversa, os arquivos enviados e a própria resposta. O que passa do limite fica de fora.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Numa conversa muito longa, a IA pode “esquecer” o que foi dito no começo.</p>
+            <p class="gl-see"><a href="#token">Token</a> <span aria-hidden="true">·</span> <a href="#rag">RAG</a></p>
+          </article>
+          <article class="gl-term" id="temperatura" data-cat="funciona" data-q="temperatura  ajuste que controla o quanto a ia arrisca ao escolher a proxima palavra. baixa deixa as respostas previsiveis; alta, mais variadas. e um dos motivos de a mesma pergunta ter respostas diferentes.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#temperatura" aria-label="Link direto para Temperatura">#</a></div>
+            <h3>Temperatura</h3>
+            <p class="gl-def">Ajuste que controla o quanto a IA arrisca ao escolher a próxima palavra. Baixa deixa as respostas previsíveis; alta, mais variadas.</p>
+            <p class="gl-ex"><span>No dia a dia</span>É um dos motivos de a mesma pergunta ter respostas diferentes.</p>
+            <p class="gl-see"><a href="#alucinacao">Alucinação</a> <span aria-hidden="true">·</span> <a href="/como-a-ia-funciona#proxima">Mexa na temperatura</a></p>
+          </article>
+          <article class="gl-term" id="inferencia" data-cat="funciona" data-q="inferencia  o momento em que um modelo ja treinado e usado para responder. cada pergunta que voce faz e uma inferencia. quando a resposta demora, e a inferencia rodando em servidores com chips especiais.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#inferencia" aria-label="Link direto para Inferência">#</a></div>
+            <h3>Inferência</h3>
+            <p class="gl-def">O momento em que um modelo já treinado é usado para responder. Cada pergunta que você faz é uma inferência.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Quando a resposta demora, é a inferência rodando em servidores com chips especiais.</p>
+            <p class="gl-see"><a href="#treinamento">Treinamento</a> <span aria-hidden="true">·</span> <a href="#token">Token</a></p>
+          </article>
+          <article class="gl-term" id="treinamento" data-cat="funciona" data-q="treinamento  fase em que o modelo aprende, ajustando bilhoes de numeros a partir de muitos exemplos. e caro e acontece antes de voce usar. treinar um llm grande leva semanas e milhares de chips trabalhando juntos.">
+            <div class="gl-top"><span class="label label-dim">Como funciona</span><a class="gl-hash" href="#treinamento" aria-label="Link direto para Treinamento">#</a></div>
+            <h3>Treinamento</h3>
+            <p class="gl-def">Fase em que o modelo aprende, ajustando bilhões de números a partir de muitos exemplos. É caro e acontece antes de você usar.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Treinar um LLM grande leva semanas e milhares de chips trabalhando juntos.</p>
+            <p class="gl-see"><a href="#fine-tuning">Fine-tuning</a> <span aria-hidden="true">·</span> <a href="#corte-de-conhecimento">Corte de conhecimento</a></p>
+          </article>
+          <article class="gl-term" id="prompt" data-cat="pratica" data-q="prompt  o pedido que voce escreve para a ia, com instrucoes, contexto e exemplos. a forma de pedir muda muito a resposta. “resuma este texto em 3 topicos para quem nao e da area” e um prompt.">
+            <div class="gl-top"><span class="label label-dim">Na prática</span><a class="gl-hash" href="#prompt" aria-label="Link direto para Prompt">#</a></div>
+            <h3>Prompt</h3>
+            <p class="gl-def">O pedido que você escreve para a IA, com instruções, contexto e exemplos. A forma de pedir muda muito a resposta.</p>
+            <p class="gl-ex"><span>No dia a dia</span>“Resuma este texto em 3 tópicos para quem não é da área” é um prompt.</p>
+            <p class="gl-see"><a href="/prompts">Anatomia de um bom prompt</a> <span aria-hidden="true">·</span> <a href="#janela-de-contexto">Janela de contexto</a></p>
+          </article>
+          <article class="gl-term" id="fine-tuning" data-cat="pratica" data-q="fine-tuning ajuste fino treinar um pouco mais um modelo pronto com exemplos especificos, para ele aprender um estilo, um formato ou uma tarefa. uma empresa ajusta um modelo para responder no tom do seu atendimento.">
+            <div class="gl-top"><span class="label label-dim">Na prática</span><a class="gl-hash" href="#fine-tuning" aria-label="Link direto para Fine-tuning">#</a></div>
+            <h3>Fine-tuning <small>ajuste fino</small></h3>
+            <p class="gl-def">Treinar um pouco mais um modelo pronto com exemplos específicos, para ele aprender um estilo, um formato ou uma tarefa.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Uma empresa ajusta um modelo para responder no tom do seu atendimento.</p>
+            <p class="gl-see"><a href="#treinamento">Treinamento</a> <span aria-hidden="true">·</span> <a href="#rag">RAG</a></p>
+          </article>
+          <article class="gl-term" id="rag" data-cat="pratica" data-q="rag geracao com busca tecnica em que o sistema primeiro busca documentos relevantes e os entrega a ia junto com a pergunta, para ela responder com informacao atual ou interna. um chat que responde com base nos manuais e politicas da sua empresa.">
+            <div class="gl-top"><span class="label label-dim">Na prática</span><a class="gl-hash" href="#rag" aria-label="Link direto para RAG">#</a></div>
+            <h3>RAG <small>geração com busca</small></h3>
+            <p class="gl-def">Técnica em que o sistema primeiro busca documentos relevantes e os entrega à IA junto com a pergunta, para ela responder com informação atual ou interna.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Um chat que responde com base nos manuais e políticas da sua empresa.</p>
+            <p class="gl-see"><a href="#embedding">Embedding</a> <span aria-hidden="true">·</span> <a href="#alucinacao">Alucinação</a></p>
+          </article>
+          <article class="gl-term" id="agente" data-cat="pratica" data-q="agente de ia  ia que nao so responde: ela planeja e executa passos para cumprir um objetivo, usando ferramentas e checando o resultado no caminho. pesquisar voos, comparar precos e montar a planilha, sem voce fazer cada passo.">
+            <div class="gl-top"><span class="label label-dim">Na prática</span><a class="gl-hash" href="#agente" aria-label="Link direto para Agente de IA">#</a></div>
+            <h3>Agente de IA</h3>
+            <p class="gl-def">IA que não só responde: ela planeja e executa passos para cumprir um objetivo, usando ferramentas e checando o resultado no caminho.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Pesquisar voos, comparar preços e montar a planilha, sem você fazer cada passo.</p>
+            <p class="gl-see"><a href="#ferramentas">Ferramentas</a> <span aria-hidden="true">·</span> <a href="#humano-no-loop">Humano no loop</a> <span aria-hidden="true">·</span> <a href="/head-of-ai#agentes">Agentes no Notazz</a></p>
+          </article>
+          <article class="gl-term" id="ferramentas" data-cat="pratica" data-q="ferramentas tool use capacidade de a ia acionar outros sistemas, como busca, calculadora, agenda ou banco de dados, em vez de so gerar texto. o assistente consulta a previsao do tempo de verdade antes de responder.">
+            <div class="gl-top"><span class="label label-dim">Na prática</span><a class="gl-hash" href="#ferramentas" aria-label="Link direto para Ferramentas">#</a></div>
+            <h3>Ferramentas <small>tool use</small></h3>
+            <p class="gl-def">Capacidade de a IA acionar outros sistemas, como busca, calculadora, agenda ou banco de dados, em vez de só gerar texto.</p>
+            <p class="gl-ex"><span>No dia a dia</span>O assistente consulta a previsão do tempo de verdade antes de responder.</p>
+            <p class="gl-see"><a href="#agente">Agente de IA</a> <span aria-hidden="true">·</span> <a href="#mcp">MCP</a></p>
+          </article>
+          <article class="gl-term" id="mcp" data-cat="pratica" data-q="mcp model context protocol padrao aberto, lancado pela anthropic em 2024, para conectar assistentes de ia a ferramentas e dados do mesmo jeito em qualquer lugar, como uma tomada universal. ligar a ia ao google drive, ao github ou a um sistema interno sem fazer uma integracao do zero.">
+            <div class="gl-top"><span class="label label-dim">Na prática</span><a class="gl-hash" href="#mcp" aria-label="Link direto para MCP">#</a></div>
+            <h3>MCP <small>Model Context Protocol</small></h3>
+            <p class="gl-def">Padrão aberto, lançado pela Anthropic em 2024, para conectar assistentes de IA a ferramentas e dados do mesmo jeito em qualquer lugar, como uma tomada universal.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Ligar a IA ao Google Drive, ao GitHub ou a um sistema interno sem fazer uma integração do zero.</p>
+            <p class="gl-see"><a href="#ferramentas">Ferramentas</a> <span aria-hidden="true">·</span> <a href="#agente">Agente de IA</a></p>
+          </article>
+          <article class="gl-term" id="alucinacao" data-cat="riscos" data-q="alucinacao  quando a ia afirma algo falso com confianca, como uma data, uma lei ou uma citacao que nao existe. pedir a fonte e receber um link que nao abre ou um livro que nunca foi escrito.">
+            <div class="gl-top"><span class="label label-dim">Riscos e cuidados</span><a class="gl-hash" href="#alucinacao" aria-label="Link direto para Alucinação">#</a></div>
+            <h3>Alucinação</h3>
+            <p class="gl-def">Quando a IA afirma algo falso com confiança, como uma data, uma lei ou uma citação que não existe.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Pedir a fonte e receber um link que não abre ou um livro que nunca foi escrito.</p>
+            <p class="gl-see"><a href="#rag">RAG</a> <span aria-hidden="true">·</span> <a href="/ia-com-seguranca#inventa">Como perceber</a></p>
+          </article>
+          <article class="gl-term" id="vies" data-cat="riscos" data-q="vies  tendencia da ia de repetir distorcoes presentes nos dados de treino, como estereotipos sobre genero, idade ou origem. um sistema de triagem de curriculos que favorece um perfil sem motivo justo.">
+            <div class="gl-top"><span class="label label-dim">Riscos e cuidados</span><a class="gl-hash" href="#vies" aria-label="Link direto para Viés">#</a></div>
+            <h3>Viés</h3>
+            <p class="gl-def">Tendência da IA de repetir distorções presentes nos dados de treino, como estereótipos sobre gênero, idade ou origem.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Um sistema de triagem de currículos que favorece um perfil sem motivo justo.</p>
+            <p class="gl-see"><a href="#treinamento">Treinamento</a> <span aria-hidden="true">·</span> <a href="#humano-no-loop">Humano no loop</a></p>
+          </article>
+          <article class="gl-term" id="guardrails" data-cat="riscos" data-q="guardrails protecoes regras e filtros em volta da ia que bloqueiam respostas perigosas, fora do assunto ou que exponham dados. o chat de um banco que se recusa a falar de qualquer coisa fora dos servicos dele.">
+            <div class="gl-top"><span class="label label-dim">Riscos e cuidados</span><a class="gl-hash" href="#guardrails" aria-label="Link direto para Guardrails">#</a></div>
+            <h3>Guardrails <small>proteções</small></h3>
+            <p class="gl-def">Regras e filtros em volta da IA que bloqueiam respostas perigosas, fora do assunto ou que exponham dados.</p>
+            <p class="gl-ex"><span>No dia a dia</span>O chat de um banco que se recusa a falar de qualquer coisa fora dos serviços dele.</p>
+            <p class="gl-see"><a href="#humano-no-loop">Humano no loop</a> <span aria-hidden="true">·</span> <a href="/ia-com-seguranca">IA com segurança</a></p>
+          </article>
+          <article class="gl-term" id="corte-de-conhecimento" data-cat="riscos" data-q="corte de conhecimento data de corte data ate onde vao os textos usados no treino. sem uma ferramenta de busca, a ia nao sabe o que aconteceu depois dela. perguntar o resultado do jogo de ontem e a ia nao saber, ou inventar.">
+            <div class="gl-top"><span class="label label-dim">Riscos e cuidados</span><a class="gl-hash" href="#corte-de-conhecimento" aria-label="Link direto para Corte de conhecimento">#</a></div>
+            <h3>Corte de conhecimento <small>data de corte</small></h3>
+            <p class="gl-def">Data até onde vão os textos usados no treino. Sem uma ferramenta de busca, a IA não sabe o que aconteceu depois dela.</p>
+            <p class="gl-ex"><span>No dia a dia</span>Perguntar o resultado do jogo de ontem e a IA não saber, ou inventar.</p>
+            <p class="gl-see"><a href="#ferramentas">Ferramentas</a> <span aria-hidden="true">·</span> <a href="#alucinacao">Alucinação</a></p>
+          </article>
+          <article class="gl-term" id="humano-no-loop" data-cat="riscos" data-q="humano no loop human in the loop pratica de manter uma pessoa revisando ou aprovando as decisoes da ia nas etapas que importam. a ia rascunha a resposta ao cliente e um atendente aprova antes de enviar.">
+            <div class="gl-top"><span class="label label-dim">Riscos e cuidados</span><a class="gl-hash" href="#humano-no-loop" aria-label="Link direto para Humano no loop">#</a></div>
+            <h3>Humano no loop <small>human in the loop</small></h3>
+            <p class="gl-def">Prática de manter uma pessoa revisando ou aprovando as decisões da IA nas etapas que importam.</p>
+            <p class="gl-ex"><span>No dia a dia</span>A IA rascunha a resposta ao cliente e um atendente aprova antes de enviar.</p>
+            <p class="gl-see"><a href="#agente">Agente de IA</a> <span aria-hidden="true">·</span> <a href="#guardrails">Guardrails</a></p>
+          </article>
+        </div>
+        <p class="gl-none" hidden>Nenhum termo com essa palavra. Tente outra, ou <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">me sugira um termo</a>.</p>
+      </div>
+    </section>
+
+    <!-- 02 · TESTE -->
+    <section id="teste" class="p-section alt gl-quiz-wrap" aria-labelledby="quiz-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Teste rápido</span>
+            <h2 id="quiz-title" class="h2" data-words>Cinco definições. Qual é o termo?</h2>
+          </div>
+          <p>Um jeito rápido de fixar o que você leu. As perguntas mudam a cada rodada e nada é registrado.</p>
+        </header>
+        <div class="quiz lx-panel reveal">
+          <div class="lx-bar"><span class="quiz-step">Pergunta 1 de 5</span><span class="quiz-dots" aria-hidden="true"></span><span class="quiz-score">0 acertos</span></div>
+          <div class="quiz-body">
+            <p class="quiz-def" aria-live="polite"></p>
+            <div class="quiz-opts" role="group" aria-label="Opções"></div>
+            <p class="quiz-fb" aria-live="polite"></p>
+            <div class="quiz-actions"><button type="button" class="btn btn-light quiz-next" hidden>Próxima <i class="arrow" aria-hidden="true"></i></button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-section series-wrap" aria-labelledby="series-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">+</span>
+          <div>
+            <span class="label">Entenda a IA</span>
+            <h2 id="series-title" class="h2" data-words>Cinco guias curtos, sem jargão.</h2>
+          </div>
+          <p>Cada guia explica uma parte da IA e da web com algo para você testar. Tudo roda no seu navegador.</p>
+        </header>
+        <ol class="series">
+          <li><a href="/como-a-ia-funciona"><span>01</span><b>Como uma IA responde</b><small>Da pergunta à resposta, peça por peça, com a sua própria frase.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/prompts"><span>02</span><b>Anatomia de um bom prompt</b><small>Como pedir para a IA e receber respostas melhores.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/glossario-ia"><span>03</span><b>Glossário de IA</b><small>25 termos de IA em uma frase e um exemplo do dia a dia.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/ia-com-seguranca"><span>04</span><b>IA com segurança</b><small>O que não colar numa IA e como perceber quando ela inventa.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/do-clique-a-tela"><span>05</span><b>Do clique à tela</b><small>O que acontece ao abrir um site, medido no seu aparelho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">Feito por Mateus Paiva · Head of AI no Notazz</span>
+        <h2 id="cta-title" data-words>Entender as palavras <em>tira o medo da IA.</em></h2>
+        <p>Agora vale saber o que não colar numa IA e como perceber quando ela inventa.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="/ia-com-seguranca">Próximo guia: segurança <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/">Ver o portfólio <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-sub">
+    <div class="wrap footer-top">
+      <p class="wordmark footer-mark" aria-hidden="true"><span class="fm-word">mPaiva</span><span class="caret"></span></p>
+    </div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Head of AI no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/head-of-ai">Head of AI no Notazz</a>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Guias">
+        <h4>Guias</h4>
+        <a href="/como-a-ia-funciona">Como uma IA responde</a>
+        <a href="/prompts">Anatomia de um bom prompt</a>
+        <a href="/glossario-ia">Glossário de IA</a>
+        <a href="/ia-com-seguranca">IA com segurança</a>
+        <a href="/do-clique-a-tela">Do clique à tela</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap stack">
+      <p class="label label-dim stack-title">Stack deste site</p>
+      <ul class="stack-list" aria-label="Tecnologias deste site">
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span><span class="stack-txt"><b>HTML</b><small>Estrutura semântica</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></span><span class="stack-txt"><b>CSS</b><small>Layout e movimento</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></span><span class="stack-txt"><b>JavaScript</b><small>Canvas e interações</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path class="stack-ease" d="M3.5 20.5C11 20.5 10 3.5 20.5 3.5"/><circle cx="3.5" cy="20.5" r="2.2"/><circle cx="20.5" cy="3.5" r="2.2"/></svg></span><span class="stack-txt"><b>GSAP</b><small>Animação na rolagem</small></span></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <div class="footer-meta">
+        <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261102-guias" defer></script>
+  <script src="/learn.js?v=20261102-guias" defer></script>
+  <script src="/glossario.js?v=20261102-guias" defer></script>
+  <script src="/footer.js?v=20261102-guias" defer></script>
+</body>
+</html>
