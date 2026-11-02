@@ -92,6 +92,22 @@
     {
       "source": "/do-clique-a-tela",
       "destination": "/do-clique-a-tela.html"
+    },
+    {
+      "source": "/agentes-de-ia",
+      "destination": "/agentes-de-ia.html"
+    },
+    {
+      "source": "/golpes-com-ia",
+      "destination": "/golpes-com-ia.html"
+    },
+    {
+      "source": "/imagens-com-ia",
+      "destination": "/imagens-com-ia.html"
+    },
+    {
+      "source": "/como-o-google-encontra",
+      "destination": "/como-o-google-encontra.html"
     }
   ],
   "headers": [

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Agentes de IA: o que são e como trabalham | Mateus Paiva</title>
+  <meta name="description" content="O que é um agente de IA e como ele é diferente de um chatbot: veja um agente planejar, usar ferramentas, conferir o resultado e pedir confirmação, passo a passo, e descubra quando vale usar um." />
+  <meta name="author" content="Mateus Paiva" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://upaiva.dev/agentes-de-ia" />
+  <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/agentes-de-ia" />
+  <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/agentes-de-ia" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="MPAIVA_" />
+  <meta property="og:title" content="Agentes de IA: o que são e como trabalham | Mateus Paiva" />
+  <meta property="og:description" content="Um chatbot responde, um agente resolve. Veja um agente de IA trabalhando passo a passo e saiba quando vale usar um." />
+  <meta property="og:url" content="https://upaiva.dev/agentes-de-ia" />
+  <meta property="og:image" content="https://upaiva.dev/assets/og/og-agentes-de-ia.png?v=1" />
+  <meta property="og:image:secure_url" content="https://upaiva.dev/assets/og/og-agentes-de-ia.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Agentes de IA: guia do upaiva.dev" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Agentes de IA: o que são e como trabalham | Mateus Paiva" />
+  <meta name="twitter:description" content="Um chatbot responde, um agente resolve. Veja um agente de IA trabalhando passo a passo e saiba quando vale usar um." />
+  <meta name="twitter:image" content="https://upaiva.dev/assets/og/og-agentes-de-ia.png?v=1" />
+  <meta name="twitter:image:alt" content="Agentes de IA: guia do upaiva.dev" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://upaiva.dev/agentes-de-ia#article",
+      "headline": "Agentes de IA",
+      "name": "Agentes de IA: o que são e como trabalham | Mateus Paiva",
+      "description": "O que é um agente de IA e como ele é diferente de um chatbot: veja um agente planejar, usar ferramentas, conferir o resultado e pedir confirmação, passo a passo, e descubra quando vale usar um.",
+      "url": "https://upaiva.dev/agentes-de-ia",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "isPartOf": {
+        "@id": "https://upaiva.dev/#website"
+      },
+      "image": "https://upaiva.dev/assets/og/og-agentes-de-ia.png",
+      "learningResourceType": "Guia",
+      "educationalLevel": "Iniciante",
+      "isAccessibleForFree": true,
+      "about": [
+        "Agentes de IA",
+        "Inteligência artificial",
+        "Automação",
+        "MCP",
+        "Ferramentas de IA"
+      ],
+      "breadcrumb": {
+        "@id": "https://upaiva.dev/agentes-de-ia#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://upaiva.dev/#person",
+      "name": "Mateus Paiva",
+      "url": "https://upaiva.dev/",
+      "jobTitle": "Head of AI",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notazz"
+      },
+      "sameAs": [
+        "https://github.com/EoPaiva",
+        "https://www.linkedin.com/in/mateuspaiva21/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://upaiva.dev/agentes-de-ia#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://upaiva.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agentes de IA",
+          "item": "https://upaiva.dev/agentes-de-ia"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261102-mais" />
+  <link rel="stylesheet" href="/page.css?v=20261102-mais" />
+  <link rel="stylesheet" href="/learn.css?v=20261102-mais" />
+  <link rel="stylesheet" href="/agentes.css?v=20261102-mais" />
+</head>
+<body class="lx-page lx-agentes">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="#diferenca">Chat × agente</a>
+        <a href="#ciclo">O ciclo</a>
+        <a href="#ferramentas">Ferramentas</a>
+        <a href="#quando">Vale a pena?</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="#diferenca"><small>01</small>Chat × agente</a>
+      <a href="#ciclo"><small>02</small>O ciclo</a>
+      <a href="#ferramentas"><small>03</small>Ferramentas</a>
+      <a href="#quando"><small>04</small>Vale a pena?</a>
+      <a href="/#contato"><small>05</small>Contato</a>
+    </div>
+  </div>
+
+  <main id="conteudo" class="lx">
+    <!-- HERO · partículas: do chat que responde ao agente que confere -->
+    <section class="page-hero lx-hero" aria-labelledby="page-title">
+      <div class="lx-field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Guia 06 · Entenda a IA</span>
+          <span class="label label-dim lx-stage" aria-hidden="true">01 · O chat responde</span>
+        </div>
+        <h1 id="page-title" class="page-title">Agentes <em>de IA.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">Um chatbot responde. Um agente resolve: planeja, usa ferramentas, confere o resultado e tenta de novo. Veja um agente trabalhando passo a passo e descubra quando vale a pena usar um.</p>
+          <nav class="lx-toc" aria-label="Partes deste guia">
+            <a href="#diferenca"><span>01</span>Chat × agente</a>
+            <a href="#ciclo"><span>02</span>O ciclo</a>
+            <a href="#ferramentas"><span>03</span>Ferramentas</a>
+            <a href="#quando"><span>04</span>Vale a pena?</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · CHAT × AGENTE -->
+    <section id="diferenca" class="p-section ag-diff" aria-labelledby="diff-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">Chat × agente</span>
+            <h2 id="diff-title" class="h2" data-words>O mesmo pedido, duas respostas.</h2>
+          </div>
+          <p>Escolha um pedido. O chatbot explica como fazer. O agente faz, porque tem acesso às ferramentas certas e um jeito de conferir o que fez.</p>
+        </header>
+        <div class="vs reveal">
+          <div class="lx-row vs-tabs" role="group" aria-label="Escolha um pedido">
+            <button type="button" class="chip" aria-pressed="true" data-i="0">Reunião</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="1">Gastos</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="2">Clientes</button>
+          </div>
+          <p class="vs-ask" aria-live="polite"></p>
+          <div class="vs-grid">
+            <article class="vs-col lx-panel">
+              <div class="lx-bar"><span>Chatbot</span><span>responde</span></div>
+              <div class="vs-body"><p class="vs-chat"></p></div>
+            </article>
+            <article class="vs-col vs-agent lx-panel">
+              <div class="lx-bar"><span>Agente</span><span>resolve</span></div>
+              <div class="vs-body"><ol class="vs-steps"></ol><p class="vs-done"></p></div>
+            </article>
+          </div>
+        </div>
+        <p class="lx-note reveal">A diferença não está na inteligência do modelo. Está em três coisas: <b>ferramentas para agir, permissão para usá-las e um ciclo para conferir o resultado.</b></p>
+      </div>
+    </section>
+
+    <!-- 02 · O CICLO -->
+    <section id="ciclo" class="p-section alt ag-loop" aria-labelledby="loop-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">O ciclo</span>
+            <h2 id="loop-title" class="h2" data-words>Pensa, age, observa. E repete até terminar.</h2>
+          </div>
+          <p>Todo agente roda o mesmo ciclo. Avance passo a passo e veja o agente errar o preço, mudar de plano e parar para pedir a sua confirmação antes de gastar dinheiro.</p>
+        </header>
+        <div class="run lx-panel reveal">
+          <div class="lx-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="run-task">Tarefa: ache um voo para Recife na sexta, até R$ 900, e reserve.</span><span class="run-count">Passo 0 de 11</span></div>
+          <ol class="run-phases" aria-label="Fases do ciclo">
+            <li data-p="pensa"><b>Pensa</b><small>decide o próximo passo</small></li>
+            <li data-p="age"><b>Age</b><small>usa uma ferramenta</small></li>
+            <li data-p="observa"><b>Observa</b><small>lê o resultado</small></li>
+            <li data-p="voce"><b>Você</b><small>aprova o que importa</small></li>
+            <li data-p="entrega"><b>Entrega</b><small>termina a tarefa</small></li>
+          </ol>
+          <ol class="run-log lx-mono" aria-live="polite"></ol>
+          <div class="run-actions">
+            <button type="button" class="btn btn-light run-next">Próximo passo <i class="arrow" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-light run-ok" hidden>Sim, pode reservar <i class="arrow" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-ghost run-all">Rodar tudo</button>
+            <button type="button" class="btn btn-ghost run-reset">Recomeçar</button>
+            <span class="run-loops">0 voltas no ciclo</span>
+          </div>
+        </div>
+        <p class="lx-note reveal">Cada volta no ciclo custa tempo e dinheiro. <b>Por isso um bom agente tem limite de passos e pede confirmação antes de qualquer ação que não dá para desfazer, como pagar, enviar ou apagar.</b></p>
+      </div>
+    </section>
+
+    <!-- 03 · FERRAMENTAS -->
+    <section id="ferramentas" class="p-section ag-tools" aria-labelledby="tools-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">03</span>
+          <div>
+            <span class="label">Ferramentas</span>
+            <h2 id="tools-title" class="h2" data-words>Um agente só faz o que as ferramentas deixam.</h2>
+          </div>
+          <p>Ligue e desligue as ferramentas e veja quais tarefas o agente consegue cumprir. É assim que se dá poder a um agente, e também como se limita.</p>
+        </header>
+        <div class="tl reveal">
+          <div class="tl-kit lx-panel">
+            <div class="lx-bar"><span>Ferramentas do agente</span><span class="tl-on">1 ligada</span></div>
+            <div class="tl-chips" role="group" aria-label="Ferramentas">
+              <button type="button" class="tl-chip" aria-pressed="true" data-t="busca"><b>Busca na web</b><small>lê páginas públicas</small></button>
+              <button type="button" class="tl-chip" aria-pressed="false" data-t="agenda"><b>Agenda</b><small>vê e cria eventos</small></button>
+              <button type="button" class="tl-chip" aria-pressed="false" data-t="email"><b>E-mail</b><small>lê e escreve</small></button>
+              <button type="button" class="tl-chip" aria-pressed="false" data-t="planilha"><b>Planilha</b><small>lê e calcula</small></button>
+              <button type="button" class="tl-chip" aria-pressed="false" data-t="sistema"><b>Sistema da empresa</b><small>pedidos e clientes</small></button>
+              <button type="button" class="tl-chip tl-risk" aria-pressed="false" data-t="pagamento"><b>Pagamento</b><small>move dinheiro</small></button>
+            </div>
+          </div>
+          <ol class="tl-tasks" aria-live="polite"></ol>
+        </div>
+        <p class="lx-note reveal">Hoje existe um padrão aberto para ligar ferramentas a agentes, o MCP (Model Context Protocol): cada sistema vira uma tomada que qualquer agente compatível sabe usar. <b>A regra de ouro continua a mesma: dê ao agente só as ferramentas que a tarefa precisa.</b></p>
+      </div>
+    </section>
+
+    <!-- 04 · VALE A PENA? -->
+    <section id="quando" class="p-section alt ag-when" aria-labelledby="when-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Vale a pena?</span>
+            <h2 id="when-title" class="h2" data-words>Cinco perguntas antes de colocar um agente para trabalhar.</h2>
+          </div>
+          <p>Pense numa tarefa do seu trabalho e responda. O resultado diz se ela é boa para um agente, para um assistente que sugere e você aprova, ou se ainda não é hora.</p>
+        </header>
+        <div class="wq lx-panel reveal">
+          <ol class="wq-list">
+            <li><p>A tarefa se repete toda semana?</p><div class="wq-yn" role="group"><button type="button" class="chip" data-v="1">Sim</button><button type="button" class="chip" data-v="0">Não</button></div></li>
+            <li><p>Os passos são parecidos toda vez?</p><div class="wq-yn" role="group"><button type="button" class="chip" data-v="1">Sim</button><button type="button" class="chip" data-v="0">Não</button></div></li>
+            <li><p>Dá para conferir se o resultado está certo?</p><div class="wq-yn" role="group"><button type="button" class="chip" data-v="1">Sim</button><button type="button" class="chip" data-v="0">Não</button></div></li>
+            <li><p>Um erro é fácil de desfazer?</p><div class="wq-yn" role="group"><button type="button" class="chip" data-v="1">Sim</button><button type="button" class="chip" data-v="0">Não</button></div></li>
+            <li><p>Os dados ficam num sistema, planilha ou e-mail que dá para acessar?</p><div class="wq-yn" role="group"><button type="button" class="chip" data-v="1">Sim</button><button type="button" class="chip" data-v="0">Não</button></div></li>
+          </ol>
+          <div class="wq-out" aria-live="polite">
+            <span class="label label-dim wq-k">Responda as cinco</span>
+            <p class="wq-v">–</p>
+            <p class="wq-why">Cada resposta muda o resultado.</p>
+          </div>
+        </div>
+        <div class="lx-cards ag-cards">
+          <article class="lx-card reveal"><span class="n">Cuidado 01</span><h3>Permissão mínima</h3><p>Se a tarefa só precisa ler e-mails, o agente não precisa enviar. Cada ferramenta a mais é um risco a mais.</p></article>
+          <article class="lx-card reveal"><span class="n">Cuidado 02</span><h3>Você aprova o que não volta</h3><p>Pagar, enviar para cliente e apagar dados pedem confirmação de uma pessoa. Sempre.</p></article>
+          <article class="lx-card reveal"><span class="n">Cuidado 03</span><h3>Tudo fica registrado</h3><p>Cada passo, ferramenta e resultado vai para um registro. É assim que se descobre por que algo deu errado.</p></article>
+          <article class="lx-card reveal"><span class="n">Cuidado 04</span><h3>Limite de passos e de gasto</h3><p>Um agente preso num erro pode repetir o ciclo sem parar. Um teto de passos e de custo evita a surpresa na fatura.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-section series-wrap" aria-labelledby="series-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">+</span>
+          <div>
+            <span class="label">Entenda a IA</span>
+            <h2 id="series-title" class="h2" data-words>Nove guias curtos, sem jargão.</h2>
+          </div>
+          <p>Cada guia explica uma parte da IA e da web com algo para você testar. Tudo roda no seu navegador.</p>
+        </header>
+        <ol class="series">
+          <li><a href="/como-a-ia-funciona"><span>01</span><b>Como uma IA responde</b><small>Da pergunta à resposta, peça por peça, com a sua própria frase.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/prompts"><span>02</span><b>Anatomia de um bom prompt</b><small>Como pedir para a IA e receber respostas melhores.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/glossario-ia"><span>03</span><b>Glossário de IA</b><small>25 termos de IA em uma frase e um exemplo do dia a dia.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/ia-com-seguranca"><span>04</span><b>IA com segurança</b><small>O que não colar numa IA e como perceber quando ela inventa.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/do-clique-a-tela"><span>05</span><b>Do clique à tela</b><small>O que acontece ao abrir um site, medido no seu aparelho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/agentes-de-ia"><span>06</span><b>Agentes de IA</b><small>Como uma IA planeja, usa ferramentas e confere o próprio trabalho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/golpes-com-ia"><span>07</span><b>Golpes com IA</b><small>Voz clonada, vídeo falso e os sinais que entregam o golpe.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/imagens-com-ia"><span>08</span><b>Como a IA cria imagens</b><small>Do ruído à imagem, e como reconhecer uma imagem gerada.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/como-o-google-encontra"><span>09</span><b>Como o Google acha um site</b><small>Rastrear, indexar e aparecer no resultado da busca.</small><i class="arrow" aria-hidden="true"></i></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">Feito por Mateus Paiva · Head of AI no Notazz</span>
+        <h2 id="cta-title" data-words>Agente bom é <em>agente com limite.</em></h2>
+        <p>A mesma IA que trabalha por você também é usada por golpistas. Veja como reconhecer.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="/golpes-com-ia">Próximo guia: golpes <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/">Ver o portfólio <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-sub">
+    <div class="wrap footer-top">
+      <p class="wordmark footer-mark" aria-hidden="true"><span class="fm-word">mPaiva</span><span class="caret"></span></p>
+    </div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Head of AI no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/head-of-ai">Head of AI no Notazz</a>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Guias">
+        <h4>Guias</h4>
+        <a href="/como-a-ia-funciona">Como uma IA responde</a>
+        <a href="/prompts">Anatomia de um bom prompt</a>
+        <a href="/glossario-ia">Glossário de IA</a>
+        <a href="/ia-com-seguranca">IA com segurança</a>
+        <a href="/do-clique-a-tela">Do clique à tela</a>
+        <a href="/agentes-de-ia">Agentes de IA</a>
+        <a href="/golpes-com-ia">Golpes com IA</a>
+        <a href="/imagens-com-ia">Como a IA cria imagens</a>
+        <a href="/como-o-google-encontra">Como o Google acha um site</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap stack">
+      <p class="label label-dim stack-title">Stack deste site</p>
+      <ul class="stack-list" aria-label="Tecnologias deste site">
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span><span class="stack-txt"><b>HTML</b><small>Estrutura semântica</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></span><span class="stack-txt"><b>CSS</b><small>Layout e movimento</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></span><span class="stack-txt"><b>JavaScript</b><small>Canvas e interações</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path class="stack-ease" d="M3.5 20.5C11 20.5 10 3.5 20.5 3.5"/><circle cx="3.5" cy="20.5" r="2.2"/><circle cx="20.5" cy="3.5" r="2.2"/></svg></span><span class="stack-txt"><b>GSAP</b><small>Animação na rolagem</small></span></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <div class="footer-meta">
+        <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261102-mais" defer></script>
+  <script src="/learn.js?v=20261102-mais" defer></script>
+  <script src="/agentes.js?v=20261102-mais" defer></script>
+  <script src="/footer.js?v=20261102-mais" defer></script>
+</body>
+</html>

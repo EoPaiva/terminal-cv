@@ -61,6 +61,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://upaiva.dev/agentes-de-ia</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/golpes-com-ia</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/imagens-com-ia</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://upaiva.dev/como-o-google-encontra</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://upaiva.dev/cv.pdf</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>

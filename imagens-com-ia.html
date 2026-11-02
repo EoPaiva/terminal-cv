@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Como a IA cria imagens: do ruído à imagem | Mateus Paiva</title>
+  <meta name="description" content="Como funciona a geração de imagens por IA: veja a imagem sair do ruído passo a passo, entenda por que a IA erra mãos e textos, treine o olho para reconhecer uma imagem gerada e monte um bom pedido." />
+  <meta name="author" content="Mateus Paiva" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://upaiva.dev/imagens-com-ia" />
+  <link rel="alternate" hreflang="pt-BR" href="https://upaiva.dev/imagens-com-ia" />
+  <link rel="alternate" hreflang="x-default" href="https://upaiva.dev/imagens-com-ia" />
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-48.png?v=2" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" sizes="180x180" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="MPAIVA_" />
+  <meta property="og:title" content="Como a IA cria imagens: do ruído à imagem | Mateus Paiva" />
+  <meta property="og:description" content="Do ruído à imagem em 50 passos: veja a IA criar uma imagem, aprenda a reconhecer uma imagem gerada e monte um bom pedido." />
+  <meta property="og:url" content="https://upaiva.dev/imagens-com-ia" />
+  <meta property="og:image" content="https://upaiva.dev/assets/og/og-imagens-com-ia.png?v=1" />
+  <meta property="og:image:secure_url" content="https://upaiva.dev/assets/og/og-imagens-com-ia.png?v=1" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Como a IA cria imagens: guia do upaiva.dev" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Como a IA cria imagens: do ruído à imagem | Mateus Paiva" />
+  <meta name="twitter:description" content="Do ruído à imagem em 50 passos: veja a IA criar uma imagem, aprenda a reconhecer uma imagem gerada e monte um bom pedido." />
+  <meta name="twitter:image" content="https://upaiva.dev/assets/og/og-imagens-com-ia.png?v=1" />
+  <meta name="twitter:image:alt" content="Como a IA cria imagens: guia do upaiva.dev" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://upaiva.dev/imagens-com-ia#article",
+      "headline": "Como a IA cria imagens",
+      "name": "Como a IA cria imagens: do ruído à imagem | Mateus Paiva",
+      "description": "Como funciona a geração de imagens por IA: veja a imagem sair do ruído passo a passo, entenda por que a IA erra mãos e textos, treine o olho para reconhecer uma imagem gerada e monte um bom pedido.",
+      "url": "https://upaiva.dev/imagens-com-ia",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-02",
+      "author": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "publisher": {
+        "@id": "https://upaiva.dev/#person"
+      },
+      "isPartOf": {
+        "@id": "https://upaiva.dev/#website"
+      },
+      "image": "https://upaiva.dev/assets/og/og-imagens-com-ia.png",
+      "learningResourceType": "Guia",
+      "educationalLevel": "Iniciante",
+      "isAccessibleForFree": true,
+      "about": [
+        "Inteligência artificial generativa",
+        "Geração de imagens",
+        "Modelos de difusão",
+        "Deepfake"
+      ],
+      "breadcrumb": {
+        "@id": "https://upaiva.dev/imagens-com-ia#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://upaiva.dev/#person",
+      "name": "Mateus Paiva",
+      "url": "https://upaiva.dev/",
+      "jobTitle": "Head of AI",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Notazz"
+      },
+      "sameAs": [
+        "https://github.com/EoPaiva",
+        "https://www.linkedin.com/in/mateuspaiva21/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://upaiva.dev/imagens-com-ia#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://upaiva.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Como a IA cria imagens",
+          "item": "https://upaiva.dev/imagens-com-ia"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <link rel="preload" href="/assets/fonts/inter-display-light.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=20261102-mais" />
+  <link rel="stylesheet" href="/page.css?v=20261102-mais" />
+  <link rel="stylesheet" href="/learn.css?v=20261102-mais" />
+  <link rel="stylesheet" href="/imagens.css?v=20261102-mais" />
+</head>
+<body class="lx-page lx-imagens">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="wordmark" aria-label="MPAIVA_, página inicial">mPaiva<span class="caret"></span></a>
+      <div class="nav-links">
+        <a href="#ruido">Do ruído à imagem</a>
+        <a href="#erros">Por que erra</a>
+        <a href="#jogo">Ache os erros</a>
+        <a href="#pedido">Peça melhor</a>
+      </div>
+      <div class="nav-end">
+        <a href="/#contato" class="btn btn-light btn-sm nav-cta">Contato <i class="arrow" aria-hidden="true"></i></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu" class="menu" hidden>
+    <div class="menu-inner">
+      <a href="/"><small>00</small>Início</a>
+      <a href="#ruido"><small>01</small>Do ruído à imagem</a>
+      <a href="#erros"><small>02</small>Por que erra</a>
+      <a href="#jogo"><small>03</small>Ache os erros</a>
+      <a href="#pedido"><small>04</small>Peça melhor</a>
+      <a href="/#contato"><small>05</small>Contato</a>
+    </div>
+  </div>
+
+  <main id="conteudo" class="lx">
+    <!-- HERO · partículas: do ruído à paisagem -->
+    <section class="page-hero lx-hero" aria-labelledby="page-title">
+      <div class="lx-field" aria-hidden="true"><canvas></canvas></div>
+      <div class="wrap">
+        <div class="page-hero-top">
+          <span class="label"><i class="pulse" aria-hidden="true"></i>Guia 08 · Entenda a IA</span>
+          <span class="label label-dim lx-stage" aria-hidden="true">01 · Só ruído</span>
+        </div>
+        <h1 id="page-title" class="page-title">Como a IA <em>cria imagens.</em></h1>
+        <div class="page-hero-bottom">
+          <p class="lead">Toda imagem gerada por IA começa como uma tela de pontos aleatórios. Passo a passo, a IA tira o ruído até sobrar uma imagem. Veja isso acontecer, entenda por que ela erra mãos e letras e aprenda a reconhecer uma imagem gerada.</p>
+          <nav class="lx-toc" aria-label="Partes deste guia">
+            <a href="#ruido"><span>01</span>Do ruído à imagem</a>
+            <a href="#erros"><span>02</span>Por que erra</a>
+            <a href="#jogo"><span>03</span>Ache os erros</a>
+            <a href="#pedido"><span>04</span>Peça melhor</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · DO RUÍDO À IMAGEM -->
+    <section id="ruido" class="p-section im-noise" aria-labelledby="noise-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">01</span>
+          <div>
+            <span class="label">Do ruído à imagem</span>
+            <h2 id="noise-title" class="h2" data-words>Cinquenta passos tirando ruído.</h2>
+          </div>
+          <p>A IA aprendeu com milhões de imagens a fazer uma coisa só: olhar uma imagem com ruído e adivinhar como ela fica com um pouco menos. Repetindo isso dezenas de vezes, guiada pelo seu pedido, o ruído vira imagem.</p>
+        </header>
+        <div class="nz reveal">
+          <div class="nz-view lx-panel">
+            <div class="lx-bar"><span class="nz-step">Passo 0 de 50</span><span class="nz-seed-n">Semente 4821</span></div>
+            <canvas class="nz-canvas" width="192" height="120" role="img" aria-label="Imagem sendo gerada a partir do ruído"></canvas>
+            <div class="nz-controls">
+              <button type="button" class="btn btn-light nz-play">Gerar <i class="arrow" aria-hidden="true"></i></button>
+              <label class="sr-only" for="nz-range">Passo da geração</label>
+              <input id="nz-range" class="nz-range" type="range" min="0" max="50" value="0" step="1" />
+            </div>
+          </div>
+          <div class="nz-side">
+            <span class="label label-dim">O pedido</span>
+            <div class="nz-prompts" role="group" aria-label="Escolha um pedido">
+              <button type="button" class="nz-prompt" aria-pressed="true" data-s="0">Um farol à noite, com a lua no céu</button>
+              <button type="button" class="nz-prompt" aria-pressed="false" data-s="1">Montanhas ao pôr do sol, com um lago</button>
+              <button type="button" class="nz-prompt" aria-pressed="false" data-s="2">Uma árvore sozinha no campo</button>
+            </div>
+            <button type="button" class="chip nz-seed">Mesmo pedido, outra semente</button>
+            <ol class="nz-stages">
+              <li data-to="0"><b>Ruído puro</b><span>Pontos aleatórios. Ainda não existe imagem nenhuma.</span></li>
+              <li data-to="15"><b>Formas grandes</b><span>A IA decide onde fica o claro e o escuro, o céu e o chão.</span></li>
+              <li data-to="35"><b>Contornos</b><span>Aparecem os objetos do pedido, o horizonte e a luz.</span></li>
+              <li data-to="50"><b>Detalhes</b><span>Bordas, textura e acabamento. A imagem está pronta.</span></li>
+            </ol>
+          </div>
+        </div>
+        <p class="lx-note reveal">A semente é o ruído do começo. <b>Mesmo pedido com outra semente dá outra imagem, por isso a IA nunca entrega a mesma foto duas vezes.</b> Esta demonstração é simplificada: uma IA de verdade faz esse processo com milhões de números, não com pixels.</p>
+      </div>
+    </section>
+
+    <!-- 02 · POR QUE ERRA -->
+    <section id="erros" class="p-section alt im-errors" aria-labelledby="errors-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">02</span>
+          <div>
+            <span class="label">Por que erra</span>
+            <h2 id="errors-title" class="h2" data-words>Ela sabe como as coisas parecem. Não como funcionam.</h2>
+          </div>
+          <p>A IA nunca segurou um copo nem leu uma placa. Ela aprendeu aparências. Por isso os erros aparecem sempre nos mesmos lugares, e é ali que vale olhar primeiro.</p>
+        </header>
+        <div class="lx-cards im-cards">
+          <article class="lx-card reveal"><span class="n">Erro 01</span><h3>Mãos e dedos</h3><p>Nas fotos, as mãos aparecem em mil posições e quase sempre meio escondidas. A IA sabe como uma mão parece, não quantos dedos ela tem.</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 02</span><h3>Letras e placas</h3><p>A imagem nasce como manchas, não como letras. Os modelos novos já escrevem bem, mas o texto pequeno ao fundo ainda sai embaralhado.</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 03</span><h3>Coisas que se contam</h3><p>Teclas de piano, dentes, raios de roda, números de um relógio. Tudo o que tem quantidade certa costuma sair a mais ou a menos.</p></article>
+          <article class="lx-card reveal"><span class="n">Erro 04</span><h3>Luz e física</h3><p>Sombras para lados diferentes, reflexos que não batem com o objeto, coisas que se fundem uma na outra. Cada parte parece certa, o conjunto não.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · ACHE OS ERROS -->
+    <section id="jogo" class="p-section im-game" aria-labelledby="game-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">03</span>
+          <div>
+            <span class="label">Ache os erros</span>
+            <h2 id="game-title" class="h2" data-words>Cinco erros típicos de imagem gerada.</h2>
+          </div>
+          <p>Toque nos lugares onde a imagem não faz sentido. São os mesmos erros que entregam uma imagem feita por IA no seu feed.</p>
+        </header>
+        <div class="fx lx-panel reveal">
+          <div class="lx-bar"><span>Imagem suspeita</span><span class="fx-count">0 de 5</span></div>
+          <div class="fx-grid">
+            <div class="fx-art">
+              <svg class="fx-svg" viewBox="0 0 800 480" role="img" aria-labelledby="fx-desc">
+                <desc id="fx-desc">Desenho de uma rua com sol, padaria, relógio, árvore e uma poça d'água, com cinco erros escondidos.</desc>
+                <defs>
+                  <pattern id="fx-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#fff" stroke-width="1.4" /></pattern>
+                  <clipPath id="fx-pud"><ellipse cx="150" cy="440" rx="92" ry="24" /></clipPath>
+                </defs>
+                <g class="fx-lines">
+                  <!-- sol, nuvem e pássaros -->
+                  <circle cx="110" cy="88" r="30" />
+                  <path d="M110 40v-14M110 150v-14M62 88H48M172 88h-14M76 54l-10-10M154 132l-10-10M144 54l10-10M66 132l10-10" />
+                  <path d="M250 70c4-16 30-18 36-4 10-12 34-6 32 10 12 0 16 18 2 20H252c-14 0-16-22-2-26z" />
+                  <path d="M190 130l8 6 8-6M216 118l7 5 7-5" />
+                  <!-- chão -->
+                  <path d="M0 400h800" />
+                  <!-- poça com reflexo de uma árvore que não existe -->
+                  <ellipse cx="150" cy="440" rx="92" ry="24" />
+                  <g clip-path="url(#fx-pud)" class="fx-thin fx-fill"><path d="M146 418v14M154 418v14" /><circle cx="137" cy="448" r="9" /><circle cx="163" cy="448" r="9" /><circle cx="150" cy="452" r="12" /></g>
+                  <!-- relógio com 13 -->
+                  <path d="M240 400V236" />
+                  <circle cx="240" cy="200" r="36" />
+                  <path d="M240 200v-20M240 200l15 9" />
+                  <text x="240" y="180" class="fx-num">13</text><text x="268" y="205" class="fx-num">3</text><text x="240" y="230" class="fx-num">6</text><text x="212" y="205" class="fx-num">9</text>
+                  <!-- padaria -->
+                  <rect x="330" y="150" width="290" height="250" />
+                  <rect x="364" y="164" width="222" height="46" />
+                  <text x="475" y="196" class="fx-sign">PADAIRA</text>
+                  <path d="M330 230h290M330 230l18 16 18-16 18 16 18-16 18 16 18-16 18 16 18-16 18 16 18-16 18 16 18-16 18 16 18-16 18 16 20-16" />
+                  <rect x="350" y="262" width="122" height="96" />
+                  <path d="M350 358h122" />
+                  <rect x="500" y="262" width="92" height="138" />
+                  <rect x="514" y="276" width="64" height="52" />
+                  <circle cx="580" cy="350" r="4" />
+                  <!-- mão com seis dedos na janela -->
+                  <g class="fx-hand fx-fill">
+                    <path d="M396 358l2-24M428 358l-2-24" />
+                    <rect x="381" y="276" width="7" height="28" rx="3.5" />
+                    <rect x="391.5" y="268" width="7" height="36" rx="3.5" />
+                    <rect x="402" y="265" width="7" height="39" rx="3.5" />
+                    <rect x="412.5" y="266" width="7" height="38" rx="3.5" />
+                    <rect x="423" y="270" width="7" height="34" rx="3.5" />
+                    <rect x="433.5" y="278" width="7" height="26" rx="3.5" />
+                    <rect x="366" y="312" width="26" height="8" rx="4" transform="rotate(-38 379 316)" />
+                    <rect x="379" y="298" width="64" height="40" rx="14" />
+                  </g>
+                  <!-- árvore com a sombra para o lado do sol -->
+                  <path d="M700 400V300M716 400V300" />
+                  <g class="fx-fill"><circle cx="676" cy="290" r="26" /><circle cx="742" cy="288" r="28" /><circle cx="708" cy="262" r="44" /></g>
+                  <path class="fx-shadow" d="M700 401h16l-70 22h-62z" />
+                  <ellipse class="fx-shadow" cx="588" cy="424" rx="40" ry="8" />
+                </g>
+                <g class="fx-hits">
+                  <circle class="fx-hit" data-k="0" cx="411" cy="300" r="52" />
+                  <rect class="fx-hit" data-k="1" x="356" y="156" width="238" height="62" rx="12" />
+                  <circle class="fx-hit" data-k="2" cx="240" cy="200" r="48" />
+                  <ellipse class="fx-hit" data-k="3" cx="620" cy="418" rx="70" ry="30" />
+                  <ellipse class="fx-hit" data-k="4" cx="150" cy="440" rx="96" ry="34" />
+                </g>
+                <g class="fx-marks"></g>
+              </svg>
+            </div>
+            <div class="fx-side">
+              <ol class="fx-list" aria-live="polite">
+                <li data-k="0"><b>Mão com seis dedos</b><span>Conte os dedos de toda mão que aparecer.</span></li>
+                <li data-k="1"><b>Letreiro embaralhado</b><span>“PADAIRA” no lugar de padaria. Letras quase certas são um sinal clássico.</span></li>
+                <li data-k="2"><b>Relógio com 13</b><span>Números e quantidades saem errados com frequência.</span></li>
+                <li data-k="3"><b>Sombra para o lado do sol</b><span>A sombra da árvore aponta para o sol, quando deveria ir para o lado oposto.</span></li>
+                <li data-k="4"><b>Reflexo do nada</b><span>A poça reflete uma árvore que não existe acima dela.</span></li>
+              </ol>
+              <button type="button" class="chip fx-all">Mostrar todos</button>
+            </div>
+          </div>
+        </div>
+        <p class="lx-note reveal">Algumas empresas marcam as imagens geradas com uma assinatura invisível, como o SynthID do Google, ou com credenciais de conteúdo no padrão C2PA. <b>Nem toda imagem tem essa marca. Na dúvida, procure a imagem no Google Lens para ver de onde ela veio e desconfie de fotos que só aparecem em um lugar.</b></p>
+      </div>
+    </section>
+
+    <!-- 04 · PEÇA MELHOR -->
+    <section id="pedido" class="p-section alt im-ask" aria-labelledby="ask-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">04</span>
+          <div>
+            <span class="label">Peça melhor</span>
+            <h2 id="ask-title" class="h2" data-words>Diga o que, como, com que luz e de onde.</h2>
+          </div>
+          <p>Um pedido vago deixa a IA escolher tudo por você. Monte o seu pedido em partes e copie para usar em qualquer gerador de imagens.</p>
+        </header>
+        <div class="ib reveal">
+          <div class="ib-form">
+            <label class="ib-row"><span class="label label-dim">Assunto</span><input class="lx-input ib-subject" type="text" value="um farol numa ilha de pedra" maxlength="120" /></label>
+            <div class="ib-row"><span class="label label-dim">Estilo</span><div class="lx-row ib-group" data-g="estilo"><button type="button" class="chip" aria-pressed="true" data-v="Fotografia de">Foto</button><button type="button" class="chip" aria-pressed="false" data-v="Aquarela de">Aquarela</button><button type="button" class="chip" aria-pressed="false" data-v="Ilustração em traço fino de">Traço fino</button><button type="button" class="chip" aria-pressed="false" data-v="Pintura a óleo de">Óleo</button><button type="button" class="chip" aria-pressed="false" data-v="Render 3D de">3D</button></div></div>
+            <div class="ib-row"><span class="label label-dim">Luz</span><div class="lx-row ib-group" data-g="luz"><button type="button" class="chip" aria-pressed="true" data-v="ao pôr do sol">Pôr do sol</button><button type="button" class="chip" aria-pressed="false" data-v="numa noite com neblina">Neblina</button><button type="button" class="chip" aria-pressed="false" data-v="com luz suave de manhã">Manhã</button><button type="button" class="chip" aria-pressed="false" data-v="em contraluz">Contraluz</button></div></div>
+            <div class="ib-row"><span class="label label-dim">Enquadramento</span><div class="lx-row ib-group" data-g="plano"><button type="button" class="chip" aria-pressed="true" data-v="em plano aberto">Aberto</button><button type="button" class="chip" aria-pressed="false" data-v="em close">Close</button><button type="button" class="chip" aria-pressed="false" data-v="vista de cima">De cima</button><button type="button" class="chip" aria-pressed="false" data-v="de um ângulo baixo">De baixo</button></div></div>
+            <div class="ib-row"><span class="label label-dim">Cores</span><div class="lx-row ib-group" data-g="cor"><button type="button" class="chip" aria-pressed="true" data-v="em preto e branco">P&amp;B</button><button type="button" class="chip" aria-pressed="false" data-v="em tons pastel">Pastel</button><button type="button" class="chip" aria-pressed="false" data-v="com cores vivas">Vivas</button><button type="button" class="chip" aria-pressed="false" data-v="em tons terrosos">Terrosas</button></div></div>
+            <div class="ib-row"><span class="label label-dim">Formato</span><div class="lx-row ib-group" data-g="formato"><button type="button" class="chip" aria-pressed="true" data-v="horizontal (16:9)">16:9</button><button type="button" class="chip" aria-pressed="false" data-v="quadrado (1:1)">1:1</button><button type="button" class="chip" aria-pressed="false" data-v="vertical (9:16)">9:16</button></div></div>
+            <label class="ib-row"><span class="label label-dim">Evitar</span><input class="lx-input ib-avoid" type="text" value="texto, pessoas" maxlength="120" /></label>
+          </div>
+          <div class="ib-out lx-panel">
+            <div class="lx-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Seu pedido</span></div>
+            <p class="ib-text" aria-live="polite"></p>
+            <div class="ib-actions"><button type="button" class="btn btn-light ib-copy">Copiar pedido <i class="arrow" aria-hidden="true"></i></button></div>
+          </div>
+        </div>
+        <p class="lx-note reveal">Gerou e não gostou? <b>Mude uma coisa por vez: a luz, o enquadramento ou o estilo.</b> Assim você entende o que cada palavra muda na imagem.</p>
+      </div>
+    </section>
+
+    <section class="p-section series-wrap" aria-labelledby="series-title">
+      <div class="wrap">
+        <header class="p-head reveal">
+          <span class="index">+</span>
+          <div>
+            <span class="label">Entenda a IA</span>
+            <h2 id="series-title" class="h2" data-words>Nove guias curtos, sem jargão.</h2>
+          </div>
+          <p>Cada guia explica uma parte da IA e da web com algo para você testar. Tudo roda no seu navegador.</p>
+        </header>
+        <ol class="series">
+          <li><a href="/como-a-ia-funciona"><span>01</span><b>Como uma IA responde</b><small>Da pergunta à resposta, peça por peça, com a sua própria frase.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/prompts"><span>02</span><b>Anatomia de um bom prompt</b><small>Como pedir para a IA e receber respostas melhores.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/glossario-ia"><span>03</span><b>Glossário de IA</b><small>25 termos de IA em uma frase e um exemplo do dia a dia.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/ia-com-seguranca"><span>04</span><b>IA com segurança</b><small>O que não colar numa IA e como perceber quando ela inventa.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/do-clique-a-tela"><span>05</span><b>Do clique à tela</b><small>O que acontece ao abrir um site, medido no seu aparelho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/agentes-de-ia"><span>06</span><b>Agentes de IA</b><small>Como uma IA planeja, usa ferramentas e confere o próprio trabalho.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/golpes-com-ia"><span>07</span><b>Golpes com IA</b><small>Voz clonada, vídeo falso e os sinais que entregam o golpe.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/imagens-com-ia"><span>08</span><b>Como a IA cria imagens</b><small>Do ruído à imagem, e como reconhecer uma imagem gerada.</small><i class="arrow" aria-hidden="true"></i></a></li>
+          <li><a href="/como-o-google-encontra"><span>09</span><b>Como o Google acha um site</b><small>Rastrear, indexar e aparecer no resultado da busca.</small><i class="arrow" aria-hidden="true"></i></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="p-cta" aria-labelledby="cta-title">
+      <div class="wrap">
+        <span class="label">Feito por Mateus Paiva · Head of AI no Notazz</span>
+        <h2 id="cta-title" data-words>Toda imagem gerada <em>começou como ruído.</em></h2>
+        <p>Depois de criada, uma imagem ou página precisa ser encontrada. Veja como o Google acha um site.</p>
+        <div class="page-actions">
+          <a class="btn btn-light btn-lg" href="/como-o-google-encontra">Próximo guia: Google <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn <i class="arrow" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost btn-lg" href="/">Ver o portfólio <i class="arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-sub">
+    <div class="wrap footer-top">
+      <p class="wordmark footer-mark" aria-hidden="true"><span class="fm-word">mPaiva</span><span class="caret"></span></p>
+    </div>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <p>Desenvolvedor Full Stack · IA Aplicada · Automação · SEO Técnico</p>
+        <p class="dim">Head of AI no Notazz · projetos freelancer e parcerias.<br />São José dos Campos — SP · Atendimento remoto</p>
+      </div>
+      <nav class="footer-col" aria-label="Acesso rápido">
+        <h4>Acesso rápido</h4>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#cases">Trabalho</a>
+        <a href="/#projetos-producao">Projetos em produção</a>
+        <a href="/#processo">Processo</a>
+        <a href="/#faq">FAQ</a>
+      </nav>
+      <nav class="footer-col" aria-label="Páginas">
+        <h4>Páginas</h4>
+        <a href="/head-of-ai">Head of AI no Notazz</a>
+        <a href="/desenvolvedor-full-stack-sao-jose-dos-campos">Full Stack em SJC</a>
+        <a href="/sistemas-web-inteligentes">Sistemas web inteligentes</a>
+        <a href="/perfil-profissional.html">Perfil profissional</a>
+        <a href="/llms.txt">Resumo para IA</a>
+      </nav>
+      <nav class="footer-col" aria-label="Guias">
+        <h4>Guias</h4>
+        <a href="/como-a-ia-funciona">Como uma IA responde</a>
+        <a href="/prompts">Anatomia de um bom prompt</a>
+        <a href="/glossario-ia">Glossário de IA</a>
+        <a href="/ia-com-seguranca">IA com segurança</a>
+        <a href="/do-clique-a-tela">Do clique à tela</a>
+        <a href="/agentes-de-ia">Agentes de IA</a>
+        <a href="/golpes-com-ia">Golpes com IA</a>
+        <a href="/imagens-com-ia">Como a IA cria imagens</a>
+        <a href="/como-o-google-encontra">Como o Google acha um site</a>
+      </nav>
+      <nav class="footer-col" aria-label="Redes oficiais">
+        <h4>Redes oficiais</h4>
+        <a href="https://www.linkedin.com/in/mateuspaiva21/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/EoPaiva?tab=repositories" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/55035988042182" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener">Baixar CV.pdf</a>
+      </nav>
+    </div>
+    <div class="wrap stack">
+      <p class="label label-dim stack-title">Stack deste site</p>
+      <ul class="stack-list" aria-label="Tecnologias deste site">
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg></span><span class="stack-txt"><b>HTML</b><small>Estrutura semântica</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg></span><span class="stack-txt"><b>CSS</b><small>Layout e movimento</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg></span><span class="stack-txt"><b>JavaScript</b><small>Canvas e interações</small></span></li>
+        <li class="stack-item"><span class="stack-box"><svg class="stack-ic" viewBox="0 0 24 24" aria-hidden="true"><path class="stack-ease" d="M3.5 20.5C11 20.5 10 3.5 20.5 3.5"/><circle cx="3.5" cy="20.5" r="2.2"/><circle cx="20.5" cy="3.5" r="2.2"/></svg></span><span class="stack-txt"><b>GSAP</b><small>Animação na rolagem</small></span></li>
+      </ul>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 MPAIVA_</span>
+      <div class="footer-meta">
+        <a href="#conteudo" class="to-top">Voltar ao topo <i class="arrow arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="/assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
+  <script src="/page.js?v=20261102-mais" defer></script>
+  <script src="/learn.js?v=20261102-mais" defer></script>
+  <script src="/imagens.js?v=20261102-mais" defer></script>
+  <script src="/footer.js?v=20261102-mais" defer></script>
+</body>
+</html>
