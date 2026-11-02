@@ -1,0 +1,93 @@
+/* Guias do upaiva.dev (Entenda a IA): componentes compartilhados das cinco páginas.
+   Usa os tokens de site.css e o layout de page.css. */
+
+/* ---------- hero com campo de partículas ---------- */
+.lx-hero { min-height: min(100svh, 940px); }
+.lx-field { position: absolute; z-index: 1; inset: var(--nav-h) 0 0 0; pointer-events: none; }
+.lx-field canvas { display: block; width: 100%; height: 100%; }
+.lx-hero .page-title { max-width: 12ch; }
+.lx-stage { font-variant-numeric: tabular-nums; min-width: 14ch; justify-content: flex-end; }
+.lx-toc { display: flex; flex-direction: column; gap: 10px; min-width: 240px; }
+.lx-toc a { display: grid; grid-template-columns: 34px 1fr; align-items: baseline; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font: 500 11px/1.3 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); transition: color .3s, padding .5s var(--ease); }
+.lx-toc a span { color: var(--dim); }
+.lx-toc a:hover { color: #fff; padding-left: 6px; }
+@media (max-width: 900px) {
+  .lx-field { inset: var(--nav-h) 0 44% 0; opacity: .8; }
+  .lx-toc { display: none; }
+}
+
+/* ---------- blocos genéricos ---------- */
+.lx-note { display: flex; gap: 12px; align-items: flex-start; margin-top: 28px; padding: 16px 18px; border: 1px dashed var(--line-2); border-radius: 14px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 72ch; }
+.lx-note b { color: var(--soft); font-weight: 400; }
+.lx-note::before { content: "i"; flex: none; display: grid; place-items: center; width: 20px; height: 20px; border: 1px solid var(--line-2); border-radius: 50%; font: 500 11px/1 var(--label); color: var(--muted); }
+.lx-panel { position: relative; border: 1px solid var(--line-2); border-radius: 20px; background: #050505; overflow: hidden; }
+.lx-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font: 500 10.5px/1 var(--label); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+.lx-bar .dots { display: inline-flex; gap: 6px; }
+.lx-bar .dots i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--line-2); }
+.lx-bar .dots i:first-child { background: #fff; border-color: #fff; }
+.lx-mono { font: 400 14px/1.7 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.lx-input { width: 100%; padding: 16px 18px; border: 1px solid var(--line-2); border-radius: 14px; background: #000; color: #fff; font: 300 clamp(18px, 1.6vw, 22px)/1.3 var(--display); letter-spacing: -.01em; outline: none; transition: border-color .3s; }
+.lx-input:focus { border-color: #fff; }
+textarea.lx-input { font: 400 15px/1.7 var(--text); resize: vertical; min-height: 180px; }
+.lx-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 16px; border: 1px solid var(--line-2); border-radius: 99px; background: transparent; color: var(--muted); font: 500 10.5px/1 var(--label); letter-spacing: .16em; text-transform: uppercase; cursor: pointer; transition: border-color .3s, color .3s, background .3s; }
+.chip:hover { border-color: #fff; color: #fff; }
+.chip[aria-pressed="true"], .chip.is-on { background: #fff; border-color: #fff; color: #000; }
+.chip small { font-size: 10px; opacity: .6; letter-spacing: .1em; }
+.lx-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.lx-card { padding: 28px 28px 32px 0; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid var(--line); }
+.lx-card + .lx-card { padding-left: 28px; border-left: 1px solid var(--line); }
+.lx-card .n { font: 500 10.5px/1 var(--label); letter-spacing: .22em; text-transform: uppercase; color: var(--dim); }
+.lx-card h3 { font: 300 clamp(21px, 1.8vw, 26px)/1.15 var(--display); letter-spacing: -.02em; color: #fff; }
+.lx-card p { font-size: 15px; line-height: 1.7; color: var(--muted); }
+.lx-card p a, .lx-prose a { color: #fff; border-bottom: 1px solid var(--line-2); }
+@media (max-width: 900px) { .lx-card, .lx-card + .lx-card { padding: 26px 0; border-left: 0; } }
+
+.lx-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+@media (max-width: 900px) { .lx-two { grid-template-columns: 1fr; } }
+
+/* ---------- série de guias ---------- */
+.series { border-top: 1px solid var(--line); }
+.series li { border-bottom: 1px solid var(--line); }
+.series a { position: relative; display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr) 24px; gap: 24px; align-items: center; padding: 26px 0; transition: padding .6s var(--ease); }
+.series a span { font: 500 11px var(--label); letter-spacing: .2em; color: var(--dim); }
+.series a b { font: 300 clamp(22px, 2.2vw, 32px)/1.1 var(--display); letter-spacing: -.025em; color: #fff; font-weight: 300; }
+.series a small { font-size: 15px; line-height: 1.6; color: var(--muted); }
+.series a:hover { padding-left: 12px; }
+.series a.is-here b::after { content: "Você está aqui"; margin-left: 14px; padding: 5px 10px; border: 1px solid var(--line-2); border-radius: 99px; font: 500 9.5px/1 var(--label); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); vertical-align: middle; }
+.series a.is-here { pointer-events: none; }
+.series a.is-here .arrow { opacity: 0; }
+@media (max-width: 900px) {
+  .series a { grid-template-columns: 44px minmax(0, 1fr) 18px; }
+  .series a small { display: none; }
+  .series a.is-here b::after { display: block; width: max-content; margin: 10px 0 0; }
+}
+
+/* ---------- fluxo simples (passos ligados por linha) ---------- */
+.lflow { position: relative; display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); gap: 28px; }
+.lflow-wire { position: absolute; left: 0; right: 0; top: 34px; height: 1px; background: #232323; }
+.lflow-wire i { position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(var(--p, 0)); }
+.lflow-step { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; }
+.lflow-dot { width: 68px; height: 68px; display: grid; place-items: center; border: 1px solid var(--line-2); border-radius: 50%; background: #000; font: 500 11px/1 var(--label); letter-spacing: .16em; color: var(--dim); transition: border-color .6s var(--ease), color .6s, background .6s, box-shadow .6s; }
+.lflow-step h3 { font: 300 clamp(18px, 1.5vw, 22px)/1.2 var(--display); letter-spacing: -.02em; color: #fff; opacity: .35; transition: opacity .6s; }
+.lflow-step p { font-size: 14px; line-height: 1.6; color: var(--muted); opacity: .35; transition: opacity .6s; }
+.lflow-step.is-on .lflow-dot { border-color: #fff; color: #fff; background: #0b0b0b; box-shadow: 0 0 0 6px rgba(255,255,255,.04), 0 0 40px rgba(255,255,255,.08); }
+.lflow-step.is-on h3, .lflow-step.is-on p { opacity: 1; }
+.lflow-step.is-hit .lflow-dot { animation: lx-hit .7s var(--ease); }
+@keyframes lx-hit { 0% { transform: scale(1); } 35% { transform: scale(1.12); background: #fff; color: #000; } 100% { transform: scale(1); } }
+@media (max-width: 900px) {
+  .lflow { grid-template-columns: 1fr; gap: 22px; }
+  .lflow-wire { left: 34px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+  .lflow-wire i { transform-origin: top; transform: scaleY(var(--p, 0)); }
+  .lflow-step { display: grid; grid-template-columns: 68px 1fr; column-gap: 20px; align-items: start; }
+  .lflow-step > :not(.lflow-dot) { grid-column: 2; }
+  .lflow-dot { grid-row: span 3; }
+}
+
+/* ---------- impressão (checklists) ---------- */
+@media print {
+  .nav, .menu, .footer, .cursor, .cursor-ring, .progress, .lx-hero, .series-wrap, .p-cta, .no-print { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .p-section { padding: 0 !important; border: 0 !important; background: none !important; }
+  .print-area, .print-area * { color: #000 !important; border-color: #999 !important; background: none !important; opacity: 1 !important; transform: none !important; }
+}
